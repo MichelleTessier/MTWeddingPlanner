@@ -9,11 +9,23 @@
 /* Begin PBXBuildFile section */
 		2CC349321B7C18F6006A8D5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349311B7C18F6006A8D5E /* main.m */; };
 		2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349341B7C18F6006A8D5E /* AppDelegate.m */; };
-		2CC349381B7C18F6006A8D5E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349371B7C18F6006A8D5E /* ViewController.m */; };
-		2CC3493B1B7C18F6006A8D5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC349391B7C18F6006A8D5E /* Main.storyboard */; };
+		2CC349381B7C18F6006A8D5E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349371B7C18F6006A8D5E /* HomeViewController.m */; };
 		2CC3493D1B7C18F6006A8D5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3493C1B7C18F6006A8D5E /* Images.xcassets */; };
 		2CC349401B7C18F6006A8D5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3493E1B7C18F6006A8D5E /* LaunchScreen.xib */; };
 		2CC3494C1B7C18F6006A8D5E /* WeddingPlannerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3494B1B7C18F6006A8D5E /* WeddingPlannerTests.m */; };
+		2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349591B7C1CD4006A8D5E /* BudgetViewController.m */; };
+		2CC3495D1B7C1CEB006A8D5E /* VendorsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3495C1B7C1CEB006A8D5E /* VendorsListViewController.m */; };
+		2CC349601B7C1CFD006A8D5E /* GuestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3495F1B7C1CFD006A8D5E /* GuestsViewController.m */; };
+		2CC349631B7C37AB006A8D5E /* TasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349621B7C37AB006A8D5E /* TasksViewController.m */; };
+		2CCB4F761B7D302C0048DF2E /* WeddingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F751B7D302C0048DF2E /* WeddingListViewController.m */; };
+		2CCB4F811B7D40860048DF2E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F801B7D40860048DF2E /* LoginViewController.m */; };
+		2CCB4F871B7D47BD0048DF2E /* WeddingListViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F861B7D47BD0048DF2E /* WeddingListViewDataSource.m */; };
+		2CCB4F8A1B7D501E0048DF2E /* CustomTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F891B7D501E0048DF2E /* CustomTabViewController.m */; };
+		2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F8C1B7D65D60048DF2E /* AllClientsCalendarViewController.m */; };
+		2CCB4F901B7D65F10048DF2E /* DefaultsEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F8F1B7D65F10048DF2E /* DefaultsEditorViewController.m */; };
+		2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F921B7D66060048DF2E /* PlannerProfileViewController.m */; };
+		2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */; };
+		2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +44,39 @@
 		2CC349311B7C18F6006A8D5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2CC349331B7C18F6006A8D5E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2CC349341B7C18F6006A8D5E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2CC349361B7C18F6006A8D5E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2CC349371B7C18F6006A8D5E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2CC3493A1B7C18F6006A8D5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2CC349361B7C18F6006A8D5E /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		2CC349371B7C18F6006A8D5E /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		2CC3493C1B7C18F6006A8D5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2CC3493F1B7C18F6006A8D5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2CC349451B7C18F6006A8D5E /* WeddingPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeddingPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC3494A1B7C18F6006A8D5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CC3494B1B7C18F6006A8D5E /* WeddingPlannerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeddingPlannerTests.m; sourceTree = "<group>"; };
+		2CC349581B7C1CD4006A8D5E /* BudgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetViewController.h; sourceTree = "<group>"; };
+		2CC349591B7C1CD4006A8D5E /* BudgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetViewController.m; sourceTree = "<group>"; };
+		2CC3495B1B7C1CEB006A8D5E /* VendorsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorsListViewController.h; sourceTree = "<group>"; };
+		2CC3495C1B7C1CEB006A8D5E /* VendorsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorsListViewController.m; sourceTree = "<group>"; };
+		2CC3495E1B7C1CFD006A8D5E /* GuestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestsViewController.h; sourceTree = "<group>"; };
+		2CC3495F1B7C1CFD006A8D5E /* GuestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestsViewController.m; sourceTree = "<group>"; };
+		2CC349611B7C37AB006A8D5E /* TasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksViewController.h; sourceTree = "<group>"; };
+		2CC349621B7C37AB006A8D5E /* TasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksViewController.m; sourceTree = "<group>"; };
+		2CCB4F741B7D302C0048DF2E /* WeddingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingListViewController.h; sourceTree = "<group>"; };
+		2CCB4F751B7D302C0048DF2E /* WeddingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingListViewController.m; sourceTree = "<group>"; };
+		2CCB4F7F1B7D40860048DF2E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2CCB4F801B7D40860048DF2E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2CCB4F851B7D47BD0048DF2E /* WeddingListViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeddingListViewDataSource.h; path = ../WeddingListViewDataSource.h; sourceTree = "<group>"; };
+		2CCB4F861B7D47BD0048DF2E /* WeddingListViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeddingListViewDataSource.m; path = ../WeddingListViewDataSource.m; sourceTree = "<group>"; };
+		2CCB4F881B7D501E0048DF2E /* CustomTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabViewController.h; sourceTree = "<group>"; };
+		2CCB4F891B7D501E0048DF2E /* CustomTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabViewController.m; sourceTree = "<group>"; };
+		2CCB4F8B1B7D65D60048DF2E /* AllClientsCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllClientsCalendarViewController.h; sourceTree = "<group>"; };
+		2CCB4F8C1B7D65D60048DF2E /* AllClientsCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllClientsCalendarViewController.m; sourceTree = "<group>"; };
+		2CCB4F8E1B7D65F10048DF2E /* DefaultsEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsEditorViewController.h; sourceTree = "<group>"; };
+		2CCB4F8F1B7D65F10048DF2E /* DefaultsEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsEditorViewController.m; sourceTree = "<group>"; };
+		2CCB4F911B7D66060048DF2E /* PlannerProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerProfileViewController.h; sourceTree = "<group>"; };
+		2CCB4F921B7D66060048DF2E /* PlannerProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerProfileViewController.m; sourceTree = "<group>"; };
+		2CCB4F9B1B7D6E100048DF2E /* VendorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorDetailViewController.h; sourceTree = "<group>"; };
+		2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorDetailViewController.m; sourceTree = "<group>"; };
+		2CCB4F9E1B7E3FA20048DF2E /* VendorsListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorsListDataSource.h; sourceTree = "<group>"; };
+		2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorsListDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +120,9 @@
 			children = (
 				2CC349331B7C18F6006A8D5E /* AppDelegate.h */,
 				2CC349341B7C18F6006A8D5E /* AppDelegate.m */,
-				2CC349361B7C18F6006A8D5E /* ViewController.h */,
-				2CC349371B7C18F6006A8D5E /* ViewController.m */,
-				2CC349391B7C18F6006A8D5E /* Main.storyboard */,
+				2CCB4F7E1B7D406C0048DF2E /* Login View Controllers */,
+				2CCB4F7D1B7D40320048DF2E /* Client View Controllers */,
+				2CCB4F771B7D30310048DF2E /* Planner Only View Controllers */,
 				2CC3493C1B7C18F6006A8D5E /* Images.xcassets */,
 				2CC3493E1B7C18F6006A8D5E /* LaunchScreen.xib */,
 				2CC3492F1B7C18F6006A8D5E /* Supporting Files */,
@@ -117,6 +154,127 @@
 				2CC3494A1B7C18F6006A8D5E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CCB4F771B7D30310048DF2E /* Planner Only View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4F971B7D664A0048DF2E /* Planner Profile View Controllers */,
+				2CCB4F961B7D66380048DF2E /* Defaults Editor View Controllers */,
+				2CCB4F951B7D66290048DF2E /* All Clients Calendar View Controllers */,
+				2CCB4F941B7D66180048DF2E /* Wedding List View Controllers */,
+			);
+			name = "Planner Only View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F781B7D30440048DF2E /* Home View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC349361B7C18F6006A8D5E /* HomeViewController.h */,
+				2CC349371B7C18F6006A8D5E /* HomeViewController.m */,
+			);
+			name = "Home View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F791B7D3FD50048DF2E /* Tasks View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC349611B7C37AB006A8D5E /* TasksViewController.h */,
+				2CC349621B7C37AB006A8D5E /* TasksViewController.m */,
+			);
+			name = "Tasks View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F7A1B7D3FEC0048DF2E /* Budget View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC349581B7C1CD4006A8D5E /* BudgetViewController.h */,
+				2CC349591B7C1CD4006A8D5E /* BudgetViewController.m */,
+			);
+			name = "Budget View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F7B1B7D3FFB0048DF2E /* Vendors View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3495B1B7C1CEB006A8D5E /* VendorsListViewController.h */,
+				2CC3495C1B7C1CEB006A8D5E /* VendorsListViewController.m */,
+				2CCB4F9E1B7E3FA20048DF2E /* VendorsListDataSource.h */,
+				2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */,
+				2CCB4F9B1B7D6E100048DF2E /* VendorDetailViewController.h */,
+				2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */,
+			);
+			name = "Vendors View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F7C1B7D40090048DF2E /* Guests View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3495E1B7C1CFD006A8D5E /* GuestsViewController.h */,
+				2CC3495F1B7C1CFD006A8D5E /* GuestsViewController.m */,
+			);
+			name = "Guests View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F7D1B7D40320048DF2E /* Client View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4F781B7D30440048DF2E /* Home View Controllers */,
+				2CCB4F791B7D3FD50048DF2E /* Tasks View Controllers */,
+				2CCB4F7A1B7D3FEC0048DF2E /* Budget View Controllers */,
+				2CCB4F7B1B7D3FFB0048DF2E /* Vendors View Controllers */,
+				2CCB4F7C1B7D40090048DF2E /* Guests View Controllers */,
+			);
+			name = "Client View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F7E1B7D406C0048DF2E /* Login View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4F7F1B7D40860048DF2E /* LoginViewController.h */,
+				2CCB4F801B7D40860048DF2E /* LoginViewController.m */,
+			);
+			name = "Login View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F941B7D66180048DF2E /* Wedding List View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4F741B7D302C0048DF2E /* WeddingListViewController.h */,
+				2CCB4F751B7D302C0048DF2E /* WeddingListViewController.m */,
+				2CCB4F851B7D47BD0048DF2E /* WeddingListViewDataSource.h */,
+				2CCB4F861B7D47BD0048DF2E /* WeddingListViewDataSource.m */,
+				2CCB4F881B7D501E0048DF2E /* CustomTabViewController.h */,
+				2CCB4F891B7D501E0048DF2E /* CustomTabViewController.m */,
+			);
+			name = "Wedding List View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F951B7D66290048DF2E /* All Clients Calendar View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4F8B1B7D65D60048DF2E /* AllClientsCalendarViewController.h */,
+				2CCB4F8C1B7D65D60048DF2E /* AllClientsCalendarViewController.m */,
+			);
+			name = "All Clients Calendar View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F961B7D66380048DF2E /* Defaults Editor View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4F8E1B7D65F10048DF2E /* DefaultsEditorViewController.h */,
+				2CCB4F8F1B7D65F10048DF2E /* DefaultsEditorViewController.m */,
+			);
+			name = "Defaults Editor View Controllers";
+			sourceTree = "<group>";
+		};
+		2CCB4F971B7D664A0048DF2E /* Planner Profile View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4F911B7D66060048DF2E /* PlannerProfileViewController.h */,
+				2CCB4F921B7D66060048DF2E /* PlannerProfileViewController.m */,
+			);
+			name = "Planner Profile View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +357,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CC3493B1B7C18F6006A8D5E /* Main.storyboard in Resources */,
 				2CC349401B7C18F6006A8D5E /* LaunchScreen.xib in Resources */,
 				2CC3493D1B7C18F6006A8D5E /* Images.xcassets in Resources */,
 			);
@@ -219,9 +376,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CC349381B7C18F6006A8D5E /* ViewController.m in Sources */,
+				2CC349381B7C18F6006A8D5E /* HomeViewController.m in Sources */,
+				2CC3495D1B7C1CEB006A8D5E /* VendorsListViewController.m in Sources */,
+				2CCB4F8A1B7D501E0048DF2E /* CustomTabViewController.m in Sources */,
 				2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */,
+				2CC349631B7C37AB006A8D5E /* TasksViewController.m in Sources */,
+				2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */,
+				2CCB4F761B7D302C0048DF2E /* WeddingListViewController.m in Sources */,
+				2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */,
+				2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */,
+				2CCB4F811B7D40860048DF2E /* LoginViewController.m in Sources */,
+				2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */,
+				2CCB4F901B7D65F10048DF2E /* DefaultsEditorViewController.m in Sources */,
+				2CC349601B7C1CFD006A8D5E /* GuestsViewController.m in Sources */,
 				2CC349321B7C18F6006A8D5E /* main.m in Sources */,
+				2CCB4F871B7D47BD0048DF2E /* WeddingListViewDataSource.m in Sources */,
+				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +414,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2CC349391B7C18F6006A8D5E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CC3493A1B7C18F6006A8D5E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2CC3493E1B7C18F6006A8D5E /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -416,6 +578,7 @@
 				2CC349511B7C18F6006A8D5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CC349521B7C18F6006A8D5E /* Build configuration list for PBXNativeTarget "WeddingPlannerTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +587,7 @@
 				2CC349541B7C18F6006A8D5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
