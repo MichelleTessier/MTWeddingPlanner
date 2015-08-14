@@ -7,8 +7,12 @@
 //
 
 #import "GuestsViewController.h"
+#import "GuestsDataSource.h"
 
 @interface GuestsViewController ()
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) GuestsDataSource *dataSource;
 
 @end
 
@@ -18,6 +22,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 108, self.view.bounds.size.width, self.view.bounds.size.height-108)];
+    self.dataSource = [GuestsDataSource new];
+    self.tableView.dataSource = self.dataSource;
+    
+    
+    
+    
+    [self.view addSubview:self.tableView];
 
 }
 

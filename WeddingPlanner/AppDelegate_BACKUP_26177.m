@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "PlannerProfileViewController.h"
+#import "DefaultsEditorViewController.h"
+#import "AllClientsCalendarViewController.h"
+#import "WeddingListViewController.h"
+
 
 #import "LoginViewController.h"
 
@@ -27,8 +33,20 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
+<<<<<<< HEAD
+    self.navController = [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+    
+    UITabBarController *tabBarController = [UITabBarController new];
+    
+    LoginViewController *loginVC = [LoginViewController new];
+    PlannerProfileViewController *plannerProfileVC = [PlannerProfileViewController new];
+    
+    
+    self.window.rootViewController = self.navController;
+=======
     self.window.rootViewController = [LoginViewController new];
     
+>>>>>>> changeRootViewSolution
     
     self.window.backgroundColor = [UIColor whiteColor];
     

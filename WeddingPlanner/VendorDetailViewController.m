@@ -17,9 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200);
-    self.view.backgroundColor = [UIColor cyanColor];
+
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

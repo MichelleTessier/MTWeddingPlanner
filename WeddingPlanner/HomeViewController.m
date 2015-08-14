@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"Home";
-    self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
-}
+    self.view.backgroundColor = [UIColor whiteColor];
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

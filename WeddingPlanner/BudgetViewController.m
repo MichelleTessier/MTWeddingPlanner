@@ -7,6 +7,7 @@
 //
 
 #import "BudgetViewController.h"
+#import "EditBudgetViewController.h"
 
 @interface BudgetViewController ()
 
@@ -19,14 +20,28 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor purpleColor];
     self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
+    
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    [self.view addSubview:navBar];
+    
+    UIBarButtonItem *editBudgetBarButton = [UIBarButtonItem new];
+    editBudgetBarButton.title = @"Edit Budget";
+    editBudgetBarButton.target = self;
+    editBudgetBarButton.action = @selector(editBudgetBarButtonTapped);
+    self.navigationItem.rightBarButtonItem = editBudgetBarButton;
    
-   
+}
+
+-(void)editBudgetBarButtonTapped{
+    [self.navigationController pushViewController:[EditBudgetViewController new] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

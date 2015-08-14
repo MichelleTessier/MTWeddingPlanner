@@ -1,27 +1,34 @@
 //
-//  PlannerProfileViewController.m
+//  ClientTabBarController.m
 //  WeddingPlanner
 //
-//  Created by Michelle Tessier on 8/13/15.
+//  Created by Michelle Tessier on 8/14/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "PlannerProfileViewController.h"
+#import "ClientTabBarController.h"
 
-
-
-@interface PlannerProfileViewController ()
+@interface ClientTabBarController ()
 
 @end
 
-@implementation PlannerProfileViewController
+@implementation ClientTabBarController
+
+- (instancetype)initWithToolBar;
+{
+    self = [super init];
+    if (self) {
+        self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 44)];
+        [self.view addSubview:self.toolBar];
+        
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-   
-    
 }
 
 - (void)didReceiveMemoryWarning {

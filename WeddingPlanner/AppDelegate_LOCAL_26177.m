@@ -7,12 +7,11 @@
 //
 
 #import "AppDelegate.h"
-
 #import "LoginViewController.h"
-
-
-
-
+#import "PlannerProfileViewController.h"
+#import "DefaultsEditorViewController.h"
+#import "AllClientsCalendarViewController.h"
+#import "WeddingListViewController.h"
 
 
 @interface AppDelegate ()
@@ -27,8 +26,15 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.rootViewController = [LoginViewController new];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
     
+    UITabBarController *tabBarController = [UITabBarController new];
+    
+    LoginViewController *loginVC = [LoginViewController new];
+    PlannerProfileViewController *plannerProfileVC = [PlannerProfileViewController new];
+    
+    
+    self.window.rootViewController = self.navController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     

@@ -1,27 +1,23 @@
 //
-//  PlannerProfileViewController.m
+//  EditBudgetViewController.m
 //  WeddingPlanner
 //
-//  Created by Michelle Tessier on 8/13/15.
+//  Created by Michelle Tessier on 8/14/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "PlannerProfileViewController.h"
+#import "EditBudgetViewController.h"
 
-
-
-@interface PlannerProfileViewController ()
+@interface EditBudgetViewController ()
 
 @end
 
-@implementation PlannerProfileViewController
+@implementation EditBudgetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-   
-    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

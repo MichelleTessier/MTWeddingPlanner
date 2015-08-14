@@ -41,8 +41,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.navController pushViewController:[VendorDetailViewController new] animated:YES];
+    [self.navigationController pushViewController:[VendorDetailViewController new] animated:YES];
     
 }
 
