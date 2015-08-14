@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TasksViewController.h
 //  WeddingPlanner
 //
 //  Created by Michelle Tessier on 8/12/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TasksViewController : UIViewController
 
 @end
-

@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "PlannerProfileViewController.h"
+#import "DefaultsEditorViewController.h"
+#import "AllClientsCalendarViewController.h"
+#import "WeddingListViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +23,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    self.navController = [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+    
+    UITabBarController *tabBarController = [UITabBarController new];
+    
+    LoginViewController *loginVC = [LoginViewController new];
+    PlannerProfileViewController *plannerProfileVC = [PlannerProfileViewController new];
+    
+    
+    self.window.rootViewController = self.navController;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
