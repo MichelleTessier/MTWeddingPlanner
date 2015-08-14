@@ -8,9 +8,24 @@
 
 #import "LoginViewController.h"
 #import "WeddingListViewController.h"
+#import "ClientTabBarController.h"
+
+#import "PlannerProfileViewController.h"
+#import "DefaultsEditorViewController.h"
+#import "AllClientsCalendarViewController.h"
+#import "WeddingListViewController.h"
+
 #import "HomeViewController.h"
+#import "TasksViewController.h"
+#import "BudgetViewController.h"
+#import "VendorsListViewController.h"
+#import "GuestsViewController.h"
 
 @interface LoginViewController ()
+
+@property (strong, nonatomic) UITabBarController *plannerTabBarController;
+@property (strong, nonatomic) ClientTabBarController *clientTabBarController;
+@property (strong, nonatomic) UIBarButtonItem *toolBarButton;
 
 @end
 
@@ -19,6 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     UIButton *plannerButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 70, 100, 44)];
     [plannerButton setTitle:@"Planner" forState:UIControlStateNormal];
     [plannerButton setBackgroundColor:[UIColor purpleColor]];
@@ -31,19 +47,66 @@
     [clientButton addTarget:self action:@selector(clientButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:clientButton];
     
+    self.plannerTabBarController = [UITabBarController new];
+    
+    PlannerProfileViewController *plannerProfileVC = [PlannerProfileViewController new];
+    plannerProfileVC.tabBarItem.title = @"Profile";
+    
+    DefaultsEditorViewController *defaultsEditorVC = [DefaultsEditorViewController new];
+    UINavigationController *defaultsEditorNavController = [[UINavigationController alloc] initWithRootViewController:defaultsEditorVC];
+    defaultsEditorVC.title = @"Defaults";
+    
+    AllClientsCalendarViewController *allClientsCalendarVC = [AllClientsCalendarViewController new];
+    UINavigationController *allClientsCalendarNavController = [[UINavigationController alloc] initWithRootViewController:allClientsCalendarVC];
+    allClientsCalendarVC.title = @"Calendar";
+    
+    WeddingListViewController *weddingListVC = [WeddingListViewController new];
+    UINavigationController *weddingListNavController = [[UINavigationController alloc] initWithRootViewController:weddingListVC];
+    weddingListVC.title = @"Weddings";
+    
+    self.plannerTabBarController.viewControllers = @[plannerProfileVC, defaultsEditorNavController, allClientsCalendarNavController, weddingListNavController];
+    
+    self.clientTabBarController = [[ClientTabBarController alloc] initWithToolBar];
+    
+    self.toolBarButton = [UIBarButtonItem new];
+   
+    self.clientTabBarController.toolBar.items = @[self.toolBarButton];
+    
+    HomeViewController *homeVC = [HomeViewController new];
+    homeVC.title = @"Home";
+    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    
+    TasksViewController *tasksVC = [TasksViewController new];
+    tasksVC.title = @"Tasks";
+    UINavigationController *tasksNavController = [[UINavigationController alloc] initWithRootViewController:tasksVC];
+    
+    BudgetViewController *budgetVC = [BudgetViewController new];
+    budgetVC.title = @"Budget";
+    UINavigationController *budgetNavController = [[UINavigationController alloc] initWithRootViewController:budgetVC];
+    
+    VendorsListViewController *vendorsVC = [VendorsListViewController new];
+    vendorsVC.title = @"Vendors";
+    
+    UINavigationController *vendorsNavController = [[UINavigationController alloc] initWithRootViewController:vendorsVC];
+    
+    GuestsViewController *guestsVC = [GuestsViewController new];
+    guestsVC.tabBarItem.title = @"Guests";
+    
+    self.clientTabBarController.viewControllers = @[homeNavController, tasksNavController, budgetNavController, vendorsNavController, guestsVC];
+    
     
 }
 
 -(void)plannerButtonTapped{
     
-    [self.navigationController pushViewController:[WeddingListViewController new] animated:YES];
+    [self presentViewController:self.plannerTabBarController animated:YES completion:nil];
     
 }
 
 -(void)clientButtonTapped{
     
-    
-    
+     self.toolBarButton.title = @"Couples Names";
+    [self presentViewController:self.clientTabBarController animated:YES completion:nil];
 }
 
 

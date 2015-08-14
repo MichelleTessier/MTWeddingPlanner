@@ -12,7 +12,8 @@
 #import "BudgetViewController.h"
 #import "VendorsListViewController.h"
 #import "GuestsViewController.h"
-#import "CustomTabViewController.h"
+
+#import "ClientTabBarController.h"
 
 
 
@@ -20,6 +21,7 @@
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) WeddingListViewDataSource *datasource;
+@property (strong, nonatomic) ClientTabBarController *clientTabBarController;
 
 @end
 
@@ -36,14 +38,48 @@
     
     [self.view addSubview:self.tableView];
     
+    self.clientTabBarController = [[ClientTabBarController alloc] initWithToolBar];
     
+    UIBarButtonItem *backToClientsButton = [UIBarButtonItem new];
+    backToClientsButton.title = @"Back to clients";
+    backToClientsButton.target = self;
+    backToClientsButton.action = @selector(barButtonPressed);
+    self.clientTabBarController.toolBar.items = @[backToClientsButton];
     
-   
-
+    HomeViewController *homeVC = [HomeViewController new];
+    homeVC.title = @"Home";
+    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    
+    TasksViewController *tasksVC = [TasksViewController new];
+    tasksVC.title = @"Tasks";
+    UINavigationController *tasksNavController = [[UINavigationController alloc] initWithRootViewController:tasksVC];
+    
+    BudgetViewController *budgetVC = [BudgetViewController new];
+    budgetVC.title = @"Budget";
+    UINavigationController *budgetNavController = [[UINavigationController alloc] initWithRootViewController:budgetVC];
+    
+    VendorsListViewController *vendorsVC = [VendorsListViewController new];
+    vendorsVC.title = @"Vendors";
+    
+    UINavigationController *vendorsNavController = [[UINavigationController alloc] initWithRootViewController:vendorsVC];
+    
+    GuestsViewController *guestsVC = [GuestsViewController new];
+    guestsVC.tabBarItem.title = @"Guests";
+    
+    self.clientTabBarController.viewControllers = @[homeNavController, tasksNavController, budgetNavController, vendorsNavController, guestsVC];
+    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.navigationController pushViewController:[CustomTabViewController new] animated:YES];
+    
+    [self presentViewController:self.clientTabBarController animated:YES completion:nil];
+    
+}
+
+#pragma mark - UIBarButtonPressedMethod
+
+-(void)barButtonPressed{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
