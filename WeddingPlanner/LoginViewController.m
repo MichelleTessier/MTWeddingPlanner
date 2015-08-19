@@ -66,11 +66,7 @@
     
     self.plannerTabBarController.viewControllers = @[plannerProfileVC, defaultsEditorNavController, allClientsCalendarNavController, weddingListNavController];
     
-    self.clientTabBarController = [[ClientTabBarController alloc] initWithToolBar];
-    
-    self.toolBarButton = [UIBarButtonItem new];
-   
-    self.clientTabBarController.toolBar.items = @[self.toolBarButton];
+    self.clientTabBarController = [ClientTabBarController new];
     
     HomeViewController *homeVC = [HomeViewController new];
     homeVC.title = @"Home";

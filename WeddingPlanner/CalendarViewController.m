@@ -1,36 +1,23 @@
 //
-//  ClientTabBarController.m
+//  CalendarViewController.m
 //  WeddingPlanner
 //
-//  Created by Michelle Tessier on 8/14/15.
+//  Created by Michelle Tessier on 8/19/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "ClientTabBarController.h"
+#import "CalendarViewController.h"
 
-@interface ClientTabBarController ()
+@interface CalendarViewController ()
 
 @end
 
-@implementation ClientTabBarController
-
-- (instancetype)initWithToolBar;
-{
-    self = [super init];
-    if (self) {
-        self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 44)];
-        [self.view addSubview:self.toolBar];
-        
-    }
-    return self;
-}
+@implementation CalendarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-   
-    
+    self.view.backgroundColor = [UIColor redColor];
 }
 
 - (void)didReceiveMemoryWarning {

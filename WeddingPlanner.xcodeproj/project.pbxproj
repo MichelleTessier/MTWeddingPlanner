@@ -20,12 +20,21 @@
 		2CCB4F761B7D302C0048DF2E /* WeddingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F751B7D302C0048DF2E /* WeddingListViewController.m */; };
 		2CCB4F811B7D40860048DF2E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F801B7D40860048DF2E /* LoginViewController.m */; };
 		2CCB4F871B7D47BD0048DF2E /* WeddingListViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F861B7D47BD0048DF2E /* WeddingListViewDataSource.m */; };
-		2CCB4F8A1B7D501E0048DF2E /* CustomTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F891B7D501E0048DF2E /* CustomTabViewController.m */; };
 		2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F8C1B7D65D60048DF2E /* AllClientsCalendarViewController.m */; };
 		2CCB4F901B7D65F10048DF2E /* DefaultsEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F8F1B7D65F10048DF2E /* DefaultsEditorViewController.m */; };
 		2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F921B7D66060048DF2E /* PlannerProfileViewController.m */; };
 		2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */; };
 		2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */; };
+		2CCB4FAC1B7E8DD30048DF2E /* ClientTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FAB1B7E8DD30048DF2E /* ClientTabBarController.m */; };
+		2CCB4FAF1B7E8E630048DF2E /* EditBudgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FAE1B7E8E630048DF2E /* EditBudgetViewController.m */; };
+		2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FB11B7E8EA10048DF2E /* GuestsDataSource.m */; };
+		2CCB4FB51B84DC220048DF2E /* VendorsDetailDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */; };
+		2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */; };
+		2CCB4FBB1B84DFD40048DF2E /* AddVendorScreen2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FBA1B84DFD40048DF2E /* AddVendorScreen2ViewController.m */; };
+		2CCB4FBE1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FBD1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m */; };
+		2CCB4FC11B84DFFB0048DF2E /* AddVendorScreen4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC01B84DFFB0048DF2E /* AddVendorScreen4ViewController.m */; };
+		2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */; };
+		2CCB4FCA1B84FC150048DF2E /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +74,6 @@
 		2CCB4F801B7D40860048DF2E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2CCB4F851B7D47BD0048DF2E /* WeddingListViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeddingListViewDataSource.h; path = ../WeddingListViewDataSource.h; sourceTree = "<group>"; };
 		2CCB4F861B7D47BD0048DF2E /* WeddingListViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeddingListViewDataSource.m; path = ../WeddingListViewDataSource.m; sourceTree = "<group>"; };
-		2CCB4F881B7D501E0048DF2E /* CustomTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabViewController.h; sourceTree = "<group>"; };
-		2CCB4F891B7D501E0048DF2E /* CustomTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabViewController.m; sourceTree = "<group>"; };
 		2CCB4F8B1B7D65D60048DF2E /* AllClientsCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllClientsCalendarViewController.h; sourceTree = "<group>"; };
 		2CCB4F8C1B7D65D60048DF2E /* AllClientsCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllClientsCalendarViewController.m; sourceTree = "<group>"; };
 		2CCB4F8E1B7D65F10048DF2E /* DefaultsEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsEditorViewController.h; sourceTree = "<group>"; };
@@ -77,6 +84,26 @@
 		2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorDetailViewController.m; sourceTree = "<group>"; };
 		2CCB4F9E1B7E3FA20048DF2E /* VendorsListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorsListDataSource.h; sourceTree = "<group>"; };
 		2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorsListDataSource.m; sourceTree = "<group>"; };
+		2CCB4FAA1B7E8DD30048DF2E /* ClientTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientTabBarController.h; sourceTree = "<group>"; };
+		2CCB4FAB1B7E8DD30048DF2E /* ClientTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientTabBarController.m; sourceTree = "<group>"; };
+		2CCB4FAD1B7E8E630048DF2E /* EditBudgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBudgetViewController.h; sourceTree = "<group>"; };
+		2CCB4FAE1B7E8E630048DF2E /* EditBudgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBudgetViewController.m; sourceTree = "<group>"; };
+		2CCB4FB01B7E8EA10048DF2E /* GuestsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestsDataSource.h; sourceTree = "<group>"; };
+		2CCB4FB11B7E8EA10048DF2E /* GuestsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestsDataSource.m; sourceTree = "<group>"; };
+		2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorsDetailDataSource.h; sourceTree = "<group>"; };
+		2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorsDetailDataSource.m; sourceTree = "<group>"; };
+		2CCB4FB61B84DE860048DF2E /* AddVendorScreen1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorScreen1ViewController.h; sourceTree = "<group>"; };
+		2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorScreen1ViewController.m; sourceTree = "<group>"; };
+		2CCB4FB91B84DFD40048DF2E /* AddVendorScreen2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorScreen2ViewController.h; sourceTree = "<group>"; };
+		2CCB4FBA1B84DFD40048DF2E /* AddVendorScreen2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorScreen2ViewController.m; sourceTree = "<group>"; };
+		2CCB4FBC1B84DFEA0048DF2E /* AddVendorScreen3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorScreen3ViewController.h; sourceTree = "<group>"; };
+		2CCB4FBD1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorScreen3ViewController.m; sourceTree = "<group>"; };
+		2CCB4FBF1B84DFFB0048DF2E /* AddVendorScreen4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorScreen4ViewController.h; sourceTree = "<group>"; };
+		2CCB4FC01B84DFFB0048DF2E /* AddVendorScreen4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorScreen4ViewController.m; sourceTree = "<group>"; };
+		2CCB4FC51B84FC040048DF2E /* ToDoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListViewController.h; sourceTree = "<group>"; };
+		2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListViewController.m; sourceTree = "<group>"; };
+		2CCB4FC81B84FC150048DF2E /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +186,8 @@
 		2CCB4F771B7D30310048DF2E /* Planner Only View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CCB4FAA1B7E8DD30048DF2E /* ClientTabBarController.h */,
+				2CCB4FAB1B7E8DD30048DF2E /* ClientTabBarController.m */,
 				2CCB4F971B7D664A0048DF2E /* Planner Profile View Controllers */,
 				2CCB4F961B7D66380048DF2E /* Defaults Editor View Controllers */,
 				2CCB4F951B7D66290048DF2E /* All Clients Calendar View Controllers */,
@@ -181,6 +210,10 @@
 			children = (
 				2CC349611B7C37AB006A8D5E /* TasksViewController.h */,
 				2CC349621B7C37AB006A8D5E /* TasksViewController.m */,
+				2CCB4FC51B84FC040048DF2E /* ToDoListViewController.h */,
+				2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */,
+				2CCB4FC81B84FC150048DF2E /* CalendarViewController.h */,
+				2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */,
 			);
 			name = "Tasks View Controllers";
 			sourceTree = "<group>";
@@ -190,6 +223,8 @@
 			children = (
 				2CC349581B7C1CD4006A8D5E /* BudgetViewController.h */,
 				2CC349591B7C1CD4006A8D5E /* BudgetViewController.m */,
+				2CCB4FAD1B7E8E630048DF2E /* EditBudgetViewController.h */,
+				2CCB4FAE1B7E8E630048DF2E /* EditBudgetViewController.m */,
 			);
 			name = "Budget View Controllers";
 			sourceTree = "<group>";
@@ -201,8 +236,18 @@
 				2CC3495C1B7C1CEB006A8D5E /* VendorsListViewController.m */,
 				2CCB4F9E1B7E3FA20048DF2E /* VendorsListDataSource.h */,
 				2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */,
+				2CCB4FB61B84DE860048DF2E /* AddVendorScreen1ViewController.h */,
+				2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */,
+				2CCB4FB91B84DFD40048DF2E /* AddVendorScreen2ViewController.h */,
+				2CCB4FBA1B84DFD40048DF2E /* AddVendorScreen2ViewController.m */,
+				2CCB4FBC1B84DFEA0048DF2E /* AddVendorScreen3ViewController.h */,
+				2CCB4FBD1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m */,
+				2CCB4FBF1B84DFFB0048DF2E /* AddVendorScreen4ViewController.h */,
+				2CCB4FC01B84DFFB0048DF2E /* AddVendorScreen4ViewController.m */,
 				2CCB4F9B1B7D6E100048DF2E /* VendorDetailViewController.h */,
 				2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */,
+				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
+				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
 			);
 			name = "Vendors View Controllers";
 			sourceTree = "<group>";
@@ -212,6 +257,8 @@
 			children = (
 				2CC3495E1B7C1CFD006A8D5E /* GuestsViewController.h */,
 				2CC3495F1B7C1CFD006A8D5E /* GuestsViewController.m */,
+				2CCB4FB01B7E8EA10048DF2E /* GuestsDataSource.h */,
+				2CCB4FB11B7E8EA10048DF2E /* GuestsDataSource.m */,
 			);
 			name = "Guests View Controllers";
 			sourceTree = "<group>";
@@ -244,8 +291,6 @@
 				2CCB4F751B7D302C0048DF2E /* WeddingListViewController.m */,
 				2CCB4F851B7D47BD0048DF2E /* WeddingListViewDataSource.h */,
 				2CCB4F861B7D47BD0048DF2E /* WeddingListViewDataSource.m */,
-				2CCB4F881B7D501E0048DF2E /* CustomTabViewController.h */,
-				2CCB4F891B7D501E0048DF2E /* CustomTabViewController.m */,
 			);
 			name = "Wedding List View Controllers";
 			sourceTree = "<group>";
@@ -376,22 +421,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */,
+				2CCB4FB51B84DC220048DF2E /* VendorsDetailDataSource.m in Sources */,
 				2CC349381B7C18F6006A8D5E /* HomeViewController.m in Sources */,
 				2CC3495D1B7C1CEB006A8D5E /* VendorsListViewController.m in Sources */,
-				2CCB4F8A1B7D501E0048DF2E /* CustomTabViewController.m in Sources */,
+				2CCB4FAC1B7E8DD30048DF2E /* ClientTabBarController.m in Sources */,
 				2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */,
+				2CCB4FCA1B84FC150048DF2E /* CalendarViewController.m in Sources */,
 				2CC349631B7C37AB006A8D5E /* TasksViewController.m in Sources */,
 				2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */,
+				2CCB4FBE1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m in Sources */,
 				2CCB4F761B7D302C0048DF2E /* WeddingListViewController.m in Sources */,
 				2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */,
 				2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */,
+				2CCB4FAF1B7E8E630048DF2E /* EditBudgetViewController.m in Sources */,
 				2CCB4F811B7D40860048DF2E /* LoginViewController.m in Sources */,
 				2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */,
+				2CCB4FBB1B84DFD40048DF2E /* AddVendorScreen2ViewController.m in Sources */,
 				2CCB4F901B7D65F10048DF2E /* DefaultsEditorViewController.m in Sources */,
+				2CCB4FC11B84DFFB0048DF2E /* AddVendorScreen4ViewController.m in Sources */,
 				2CC349601B7C1CFD006A8D5E /* GuestsViewController.m in Sources */,
 				2CC349321B7C18F6006A8D5E /* main.m in Sources */,
 				2CCB4F871B7D47BD0048DF2E /* WeddingListViewDataSource.m in Sources */,
+				2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
+				2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

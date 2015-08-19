@@ -7,8 +7,12 @@
 //
 
 #import "VendorDetailViewController.h"
+#import "VendorsDetailDataSource.h"
 
 @interface VendorDetailViewController ()
+
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) VendorsDetailDataSource *dataSource;
 
 @end
 
@@ -19,6 +23,15 @@
     // Do any additional setup after loading the view.
 
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
+    self.dataSource = [VendorsDetailDataSource new];
+    self.tableView.dataSource = self.dataSource;
+    [self.view addSubview:self.tableView];
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

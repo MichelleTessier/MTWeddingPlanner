@@ -40,6 +40,10 @@
     
     self.clientTabBarController = [[ClientTabBarController alloc] initWithToolBar];
     
+    UIBarButtonItem *toolBarButton = [UIBarButtonItem new];
+    
+    self.clientTabBarController.toolBar.items =     @[toolBarButton];
+    
     UIBarButtonItem *backToClientsButton = [UIBarButtonItem new];
     backToClientsButton.title = @"Back to clients";
     backToClientsButton.target = self;

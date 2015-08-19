@@ -1,47 +1,45 @@
 //
-//  BudgetViewController.m
+//  AddVendorScreen1ViewController.m
 //  WeddingPlanner
 //
-//  Created by Michelle Tessier on 8/12/15.
+//  Created by Michelle Tessier on 8/19/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "BudgetViewController.h"
-#import "EditBudgetViewController.h"
+#import "AddVendorScreen1ViewController.h"
 
-@interface BudgetViewController ()
+#import "AddVendorScreen2ViewController.h"
+
+@interface AddVendorScreen1ViewController ()
 
 @end
 
-@implementation BudgetViewController
+@implementation AddVendorScreen1ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor purpleColor];
-    self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+    
     [self.view addSubview:navBar];
     
-    UIBarButtonItem *editBudgetBarButton = [UIBarButtonItem new];
-    editBudgetBarButton.title = @"Edit Budget";
-    editBudgetBarButton.target = self;
-    editBudgetBarButton.action = @selector(editBudgetBarButtonTapped);
-    self.navigationItem.rightBarButtonItem = editBudgetBarButton;
-   
+    UIBarButtonItem *nextScreenBarButton = [UIBarButtonItem new];
+    nextScreenBarButton.title = @"Next";
+    nextScreenBarButton.target = self;
+    nextScreenBarButton.action = @selector(nextScreenBarButtonTapped);
+    self.navigationItem.rightBarButtonItem = nextScreenBarButton;
+
 }
 
--(void)editBudgetBarButtonTapped{
-    [self.navigationController pushViewController:[EditBudgetViewController new] animated:YES];
+-(void)nextScreenBarButtonTapped{
+    [self.navigationController pushViewController:[AddVendorScreen2ViewController new] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 /*
 #pragma mark - Navigation

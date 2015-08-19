@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import "VendorDetailViewController.h"
 
+#import "AddVendorScreen1ViewController.h"
+
 @interface VendorsListViewController () <UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -24,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.view.backgroundColor = [UIColor cyanColor];
     self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
@@ -35,8 +37,26 @@
     
     [self.view addSubview:self.tableView];
     
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
     
-   
+    [self.view addSubview:navBar];
+    
+    UIBarButtonItem *addVendorBarButton = [UIBarButtonItem new];
+    
+    addVendorBarButton.title = @"Add";
+    addVendorBarButton.target = self;
+    addVendorBarButton.action = @selector(addVendorBarButtonTapped);
+    self.navigationItem.rightBarButtonItem = addVendorBarButton;
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
+-(void)addVendorBarButtonTapped{
+    [self.navigationController pushViewController:[AddVendorScreen1ViewController new] animated:YES];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
