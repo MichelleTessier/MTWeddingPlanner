@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "BudgetItem.h"
 
 @interface Budget : PFObject <PFSubclassing>
+
+@property (retain) NSArray *budgetItems;
+@property (retain) NSNumber *totalBudgetedCost;
+@property (retain) NSNumber *totalActualCost;
+@property (retain) NSNumber *totalPaid;
+@property (retain) NSNumber *totalOutstandingBalance;
 
 +(NSString *)parseClassName;
 

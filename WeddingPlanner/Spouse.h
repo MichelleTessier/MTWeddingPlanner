@@ -1,5 +1,5 @@
 //
-//  Venue.h
+//  SpouseA.h
 //  WeddingPlanner
 //
 //  Created by Michelle Tessier on 8/21/15.
@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Person.h"
 
-@interface Venue : PFObject <PFSubclassing>
 
-@property (retain) NSString *name;
 
-+(NSString *)parseClassName;
+@interface Spouse : Person <PFSubclassing>
+
+@property (retain) Person *emergencyContact;
+
+
 
 @end

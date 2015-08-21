@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Person.h"
 
-@interface Planner : PFObject <PFSubclassing>
+@interface Planner : Person <PFSubclassing>
 
-+(NSString *)parseClassName;
+@property (retain) NSString *businessName;
+@property (retain) NSArray *weddings;
+@property (retain) NSArray *masterWeddingProfiles;
+@property (retain) NSArray *personalCalendarItems;
+
 
 @end

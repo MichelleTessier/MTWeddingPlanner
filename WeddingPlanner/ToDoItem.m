@@ -11,6 +11,14 @@
 
 @implementation ToDoItem
 
+@dynamic title;
+@dynamic plannerTip;
+@dynamic notes;
+@dynamic taskCategory;
+@dynamic dueDate;
+@dynamic reminders;
+@dynamic itemComplete;
+
 +(void)load{
     [self registerSubclass];
 }

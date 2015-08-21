@@ -11,12 +11,14 @@
 
 @implementation Planner
 
+@dynamic businessName;
+@dynamic weddings;
+@dynamic masterWeddingProfiles;
+@dynamic personalCalendarItems;
+
 +(void)load{
     [self registerSubclass];
 }
 
-+(NSString *)parseClassName{
-    return @"Planner";
-}
 
 @end

@@ -1,5 +1,5 @@
 //
-//  SpouseB.h
+//  ToDoTaskTimeCategory.h
 //  WeddingPlanner
 //
 //  Created by Michelle Tessier on 8/21/15.
@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface SpouseB : PFObject <PFSubclassing>
+@interface ToDoTaskTimeCategory : PFObject <PFSubclassing>
+
+@property NSString *title;
+@property NSArray *toDoItems;
 
 +(NSString *)parseClassName;
 

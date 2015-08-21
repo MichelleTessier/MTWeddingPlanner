@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Person.h"
 
-@interface Guest : PFObject <PFSubclassing>
+@interface Guest : Person <PFSubclassing>
 
-+(NSString *)parseClassName;
+@property (assign) BOOL inWeddingParty;
+@property (retain) NSString *roleInWeddingParty;
+@property (assign) BOOL invitedToRehearsalDinner;
+@property (assign) BOOL invitedToReceptionOnly;
+@property (assign) BOOL RSVP;
+@property (assign) NSArray *plusOnes;
+
 
 @end

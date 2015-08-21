@@ -11,12 +11,17 @@
 
 @implementation Guest
 
+@dynamic inWeddingParty;
+@dynamic roleInWeddingParty;
+@dynamic invitedToRehearsalDinner;
+@dynamic invitedToReceptionOnly;
+@dynamic RSVP;
+@dynamic plusOnes;
+
+
 +(void)load{
     [self registerSubclass];
 }
 
-+(NSString *)parseClassName{
-    return @"Guest";
-}
 
 @end

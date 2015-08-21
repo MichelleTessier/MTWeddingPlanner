@@ -1,27 +1,31 @@
 //
-//  SpouseA.m
+//  Person.m
 //  WeddingPlanner
 //
 //  Created by Michelle Tessier on 8/21/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "SpouseA.h"
+#import "Person.h"
 #import <Parse/PFObject+Subclass.h>
 
-@implementation SpouseA
+@implementation Person
 
-@dynamic phoneNumber;
+@dynamic firstName;
+@dynamic lastName;
+@dynamic photo;
+@dynamic facebookLink;
+@dynamic address;
 @dynamic email;
-@dynamic emergencyContact;
-
+@dynamic phoneNumber;
+@dynamic secondPhoneNumber;
 
 +(void)load{
     [self registerSubclass];
 }
 
 +(NSString *)parseClassName{
-    return @"SpouseA";
+    return @"Person";
 }
 
 @end

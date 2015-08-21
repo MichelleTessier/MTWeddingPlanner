@@ -11,8 +11,7 @@
 
 @implementation Wedding
 
-@dynamic spouseA;
-@dynamic spouseB;
+@dynamic couple;
 @dynamic couplePhoto;
 @dynamic date;
 @dynamic venue;
@@ -21,7 +20,7 @@
 @dynamic vendors;
 @dynamic budget;
 @dynamic calendarItems;
-@dynamic toDoItems;
+@dynamic toDoTaskTimeCategories;
 
 
 +(void)load{

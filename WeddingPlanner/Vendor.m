@@ -11,12 +11,27 @@
 
 @implementation Vendor
 
+@dynamic businessName;
+@dynamic vendorCategory;
+@dynamic vendorContractImages;
+@dynamic totalCost;
+@dynamic vendorPayments;
+@dynamic images;
+@dynamic notes;
+
+//V1.2
+
+@dynamic isPhysicalGood;
+@dynamic isDelivery;
+@dynamic isRental;
+@dynamic arrivalOrPickupTime;
+@dynamic departureOrReturnTime;
+
+
 +(void)load{
     [self registerSubclass];
 }
 
-+(NSString *)parseClassName{
-    return @"Vendor";
-}
+
 
 @end

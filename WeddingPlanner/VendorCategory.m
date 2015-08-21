@@ -1,5 +1,5 @@
 //
-//  Budget.m
+//  VendorCategory.m
 //  WeddingPlanner
 //
 //  Created by Michelle Tessier on 8/21/15.
@@ -7,23 +7,17 @@
 //
 
 
-#import "Budget.h"
+#import "VendorCategory.h"
 #import <Parse/PFObject+Subclass.h>
 
-@implementation Budget
-
-@dynamic budgetItems;
-@dynamic totalBudgetedCost;
-@dynamic totalActualCost;
-@dynamic totalPaid;
-@dynamic totalOutstandingBalance;
+@implementation VendorCategory
 
 +(void)load{
     [self registerSubclass];
 }
 
 +(NSString *)parseClassName{
-    return @"Budget";
+    return @"VendorCategory";
 }
 
 @end

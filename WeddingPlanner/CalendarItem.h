@@ -9,7 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
+
 @interface CalendarItem : PFObject <PFSubclassing>
+
+@property (retain) NSString *title;
+@property (retain) NSDate *date;
+@property (retain) NSArray *reminders;
+@property (retain) NSString *location;
+@property (retain) NSString *taskCategory;
+@property (retain) NSArray *vendors;
+@property (retain) NSString *notes;
 
 +(NSString *)parseClassName;
 

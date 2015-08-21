@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "VendorCategory.h"
 
 @interface BudgetItem : PFObject <PFSubclassing>
+
+@property (retain) VendorCategory *vendorCategory;
+@property (retain) NSNumber *budgetedCost;
+@property (retain) NSNumber *actualCategoryCost;
+@property (retain) NSArray *vendors;
+
 
 +(NSString *)parseClassName;
 
