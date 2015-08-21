@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 
 
-@interface Person : PFObject <PFSubclassing>
+@interface Person : PFObject
 
 @property (retain) NSString *firstName;
 @property (retain) NSString *lastName;
@@ -20,7 +20,5 @@
 @property (retain) NSString *email;
 @property (retain) NSString *phoneNumber;
 @property (retain) NSString *secondPhoneNumber;
-
-+(NSString *)parseClassName;
 
 @end

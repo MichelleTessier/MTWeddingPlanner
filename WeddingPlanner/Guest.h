@@ -19,5 +19,6 @@
 @property (assign) BOOL RSVP;
 @property (assign) NSArray *plusOnes;
 
++(NSString *)parseClassName;
 
 @end

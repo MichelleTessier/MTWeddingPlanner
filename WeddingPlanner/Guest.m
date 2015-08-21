@@ -23,5 +23,8 @@
     [self registerSubclass];
 }
 
++(NSString *)parseClassName{
+    return @"Guest";
+}
 
 @end

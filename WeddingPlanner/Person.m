@@ -20,12 +20,4 @@
 @dynamic phoneNumber;
 @dynamic secondPhoneNumber;
 
-+(void)load{
-    [self registerSubclass];
-}
-
-+(NSString *)parseClassName{
-    return @"Person";
-}
-
 @end

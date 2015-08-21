@@ -31,6 +31,6 @@
 @property (retain) NSDate *arrivalOrPickupTime;
 @property (retain) NSDate *departureOrReturnTime;
 
-
++(NSString *)parseClassName;
 
 @end

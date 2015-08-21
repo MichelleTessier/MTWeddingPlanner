@@ -12,6 +12,9 @@
 
 @implementation VendorCategory
 
+@dynamic title;
+@dynamic budgetTipForVendorCategory;
+
 +(void)load{
     [self registerSubclass];
 }

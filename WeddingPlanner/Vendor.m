@@ -32,6 +32,8 @@
     [self registerSubclass];
 }
 
-
++(NSString *)parseClassName{
+    return @"Vendor";
+}
 
 @end

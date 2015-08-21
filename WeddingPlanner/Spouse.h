@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
-#import "Person.h"
-
-
+#import "Guest.h"
 
 @interface Spouse : Person <PFSubclassing>
 
-@property (retain) Person *emergencyContact;
+@property (retain) Guest *emergencyContact;
 
-
++(NSString *)parseClassName;
 
 @end

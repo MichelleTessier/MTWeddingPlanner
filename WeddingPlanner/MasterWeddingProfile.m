@@ -11,6 +11,10 @@
 
 @implementation MasterWeddingProfile
 
+@dynamic starterToDoTaskTimeCategories;
+@dynamic starterTaskCategories;
+@dynamic starterVendorCategories;
+
 +(void)load{
     [self registerSubclass];
 }

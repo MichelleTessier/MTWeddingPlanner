@@ -20,5 +20,8 @@
     [self registerSubclass];
 }
 
++(NSString *)parseClassName{
+    return @"Planner";
+}
 
 @end

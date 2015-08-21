@@ -18,5 +18,8 @@
     [self registerSubclass];
 }
 
++(NSString *)parseClassName{
+    return @"Spouse";
+}
 
 @end

@@ -17,5 +17,6 @@
 @property (retain) NSArray *masterWeddingProfiles;
 @property (retain) NSArray *personalCalendarItems;
 
++(NSString *)parseClassName;
 
 @end
