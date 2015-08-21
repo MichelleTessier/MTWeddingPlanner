@@ -25,6 +25,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"WhnskCU8IdIJ1vvhA0k3jU70waEwqPmEBmd9UIAq"
+                  clientKey:@"jkTqvbNHqBrVixTlGoJddO6a3uOgh3CtXpn50e7j"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     self.window.rootViewController = [LoginViewController new];

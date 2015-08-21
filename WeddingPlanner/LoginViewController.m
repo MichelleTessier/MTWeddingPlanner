@@ -35,6 +35,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    [testObject saveInBackground];
+    
     UIButton *plannerButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 70, 100, 44)];
     [plannerButton setTitle:@"Planner" forState:UIControlStateNormal];
     [plannerButton setBackgroundColor:[UIColor purpleColor]];
