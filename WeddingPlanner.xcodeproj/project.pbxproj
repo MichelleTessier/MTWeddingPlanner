@@ -235,6 +235,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C06F02A1B87F8D700EEBB57 /* FLKAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				2C06F01B1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.h */,
+				2C06F01C1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m */,
+				2C06F01D1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.h */,
+				2C06F01E1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m */,
+				2C06F01F1B87F84A00EEBB57 /* UIView+FLKAutoLayout.h */,
+				2C06F0201B87F84A00EEBB57 /* UIView+FLKAutoLayout.m */,
+				2C06F0211B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.h */,
+				2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */,
+				2C06F0231B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.h */,
+				2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */,
+			);
+			name = FLKAutoLayout;
+			sourceTree = "<group>";
+		};
 		2C932F961B864B06002B092D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,16 +348,7 @@
 		2CC3492E1B7C18F6006A8D5E /* WeddingPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				2C06F01B1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.h */,
-				2C06F01C1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m */,
-				2C06F01D1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.h */,
-				2C06F01E1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m */,
-				2C06F01F1B87F84A00EEBB57 /* UIView+FLKAutoLayout.h */,
-				2C06F0201B87F84A00EEBB57 /* UIView+FLKAutoLayout.m */,
-				2C06F0211B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.h */,
-				2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */,
-				2C06F0231B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.h */,
-				2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */,
+				2C06F02A1B87F8D700EEBB57 /* FLKAutoLayout */,
 				2C932FBB1B879F8F002B092D /* Models */,
 				2C932FBA1B879F5A002B092D /* View Controllers */,
 				2CC3493C1B7C18F6006A8D5E /* Images.xcassets */,
