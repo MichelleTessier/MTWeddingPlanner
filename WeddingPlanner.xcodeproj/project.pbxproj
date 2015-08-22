@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C06F0251B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F01C1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m */; };
+		2C06F0261B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F01E1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m */; };
+		2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0201B87F84A00EEBB57 /* UIView+FLKAutoLayout.m */; };
+		2C06F0281B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */; };
+		2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */; };
 		2C932F9E1B864B1E002B092D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F971B864B1E002B092D /* Bolts.framework */; };
 		2C932F9F1B864B1E002B092D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F981B864B1E002B092D /* Parse.framework */; };
 		2C932FA01B864B1E002B092D /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F991B864B1E002B092D /* ParseCrashReporting.framework */; };
@@ -66,6 +71,7 @@
 		2CCB4FC11B84DFFB0048DF2E /* AddVendorScreen4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC01B84DFFB0048DF2E /* AddVendorScreen4ViewController.m */; };
 		2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */; };
 		2CCB4FCA1B84FC150048DF2E /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */; };
+		2CEF83031B87E6DB00317EC4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF83021B87E6DB00317EC4 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +85,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C06F01B1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLKAutoLayoutPredicateList.h; sourceTree = "<group>"; };
+		2C06F01C1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLKAutoLayoutPredicateList.m; sourceTree = "<group>"; };
+		2C06F01D1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+FLKAutoLayoutDebug.h"; sourceTree = "<group>"; };
+		2C06F01E1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+FLKAutoLayoutDebug.m"; sourceTree = "<group>"; };
+		2C06F01F1B87F84A00EEBB57 /* UIView+FLKAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLKAutoLayout.h"; sourceTree = "<group>"; };
+		2C06F0201B87F84A00EEBB57 /* UIView+FLKAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLKAutoLayout.m"; sourceTree = "<group>"; };
+		2C06F0211B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLKAutoLayoutDebug.h"; sourceTree = "<group>"; };
+		2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLKAutoLayoutDebug.m"; sourceTree = "<group>"; };
+		2C06F0231B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLKAutoLayoutPredicate.h"; sourceTree = "<group>"; };
+		2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLKAutoLayoutPredicate.m"; sourceTree = "<group>"; };
 		2C932F971B864B1E002B092D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2C932F981B864B1E002B092D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2C932F991B864B1E002B092D /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -180,6 +196,8 @@
 		2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListViewController.m; sourceTree = "<group>"; };
 		2CCB4FC81B84FC150048DF2E /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		2CEF83011B87E6DB00317EC4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		2CEF83021B87E6DB00317EC4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +303,8 @@
 				2C932FD51B87A157002B092D /* Planner.m */,
 				2C932FE31B87CDF6002B092D /* MasterWeddingProfile.h */,
 				2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */,
+				2CEF83011B87E6DB00317EC4 /* User.h */,
+				2CEF83021B87E6DB00317EC4 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -311,6 +331,16 @@
 		2CC3492E1B7C18F6006A8D5E /* WeddingPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				2C06F01B1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.h */,
+				2C06F01C1B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m */,
+				2C06F01D1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.h */,
+				2C06F01E1B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m */,
+				2C06F01F1B87F84A00EEBB57 /* UIView+FLKAutoLayout.h */,
+				2C06F0201B87F84A00EEBB57 /* UIView+FLKAutoLayout.m */,
+				2C06F0211B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.h */,
+				2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */,
+				2C06F0231B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.h */,
+				2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */,
 				2C932FBB1B879F8F002B092D /* Models */,
 				2C932FBA1B879F5A002B092D /* View Controllers */,
 				2CC3493C1B7C18F6006A8D5E /* Images.xcassets */,
@@ -587,13 +617,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEF83031B87E6DB00317EC4 /* User.m in Sources */,
+				2C06F0281B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m in Sources */,
 				2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */,
+				2C06F0261B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m in Sources */,
 				2CCB4FB51B84DC220048DF2E /* VendorsDetailDataSource.m in Sources */,
 				2CC349381B7C18F6006A8D5E /* HomeViewController.m in Sources */,
 				2CC3495D1B7C1CEB006A8D5E /* VendorsListViewController.m in Sources */,
 				2CCB4FAC1B7E8DD30048DF2E /* ClientTabBarController.m in Sources */,
 				2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */,
 				2C932FCA1B87A100002B092D /* ToDoItem.m in Sources */,
+				2C06F0251B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m in Sources */,
 				2CCB4FCA1B84FC150048DF2E /* CalendarViewController.m in Sources */,
 				2CC349631B7C37AB006A8D5E /* TasksViewController.m in Sources */,
 				2C932FD31B87A146002B092D /* Guest.m in Sources */,
@@ -619,9 +653,11 @@
 				2C932FE21B87C99D002B092D /* Person.m in Sources */,
 				2CC349321B7C18F6006A8D5E /* main.m in Sources */,
 				2CCB4F871B7D47BD0048DF2E /* WeddingListViewDataSource.m in Sources */,
+				2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */,
 				2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */,
 				2C932FD91B87A3A6002B092D /* Budget.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
+				2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */,
 				2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */,
 				2C932FD01B87A12B002B092D /* BudgetItem.m in Sources */,
 				2C932FDF1B87B34E002B092D /* VendorPayment.m in Sources */,
