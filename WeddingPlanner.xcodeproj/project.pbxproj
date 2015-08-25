@@ -66,11 +66,20 @@
 		2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FB11B7E8EA10048DF2E /* GuestsDataSource.m */; };
 		2CCB4FB51B84DC220048DF2E /* VendorsDetailDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */; };
 		2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */; };
-		2CCB4FBB1B84DFD40048DF2E /* AddVendorScreen2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FBA1B84DFD40048DF2E /* AddVendorScreen2ViewController.m */; };
-		2CCB4FBE1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FBD1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m */; };
-		2CCB4FC11B84DFFB0048DF2E /* AddVendorScreen4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC01B84DFFB0048DF2E /* AddVendorScreen4ViewController.m */; };
 		2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */; };
 		2CCB4FCA1B84FC150048DF2E /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */; };
+		2CEF08591B8BBFD100DCCE2E /* WeddingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08581B8BBFD100DCCE2E /* WeddingController.m */; };
+		2CEF085C1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF085B1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m */; };
+		2CEF08601B8BC9B200DCCE2E /* TaskDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF085F1B8BC9B200DCCE2E /* TaskDefaultsViewController.m */; };
+		2CEF08631B8BC9C900DCCE2E /* VendorDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08621B8BC9C900DCCE2E /* VendorDefaultsViewController.m */; };
+		2CEF08661B8BCABE00DCCE2E /* TaskDefaultsListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08651B8BCABE00DCCE2E /* TaskDefaultsListDataSource.m */; };
+		2CEF08691B8BCAD600DCCE2E /* VendorDefaultsListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08681B8BCAD600DCCE2E /* VendorDefaultsListDataSource.m */; };
+		2CEF086B1B8BD3A100DCCE2E /* WeddingConnectionsMasterWeddingProfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CEF086A1B8BD3A100DCCE2E /* WeddingConnectionsMasterWeddingProfile.json */; };
+		2CEF086F1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF086E1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m */; };
+		2CEF08731B8BD94500DCCE2E /* PickerViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08721B8BD94500DCCE2E /* PickerViewTableViewCell.m */; };
+		2CEF08761B8BDB3700DCCE2E /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08751B8BDB3700DCCE2E /* TextFieldTableViewCell.m */; };
+		2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */; };
+		2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */; };
 		2CEF83031B87E6DB00317EC4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF83021B87E6DB00317EC4 /* User.m */; };
 /* End PBXBuildFile section */
 
@@ -186,16 +195,33 @@
 		2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorsDetailDataSource.m; sourceTree = "<group>"; };
 		2CCB4FB61B84DE860048DF2E /* AddVendorScreen1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorScreen1ViewController.h; sourceTree = "<group>"; };
 		2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorScreen1ViewController.m; sourceTree = "<group>"; };
-		2CCB4FB91B84DFD40048DF2E /* AddVendorScreen2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorScreen2ViewController.h; sourceTree = "<group>"; };
-		2CCB4FBA1B84DFD40048DF2E /* AddVendorScreen2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorScreen2ViewController.m; sourceTree = "<group>"; };
-		2CCB4FBC1B84DFEA0048DF2E /* AddVendorScreen3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorScreen3ViewController.h; sourceTree = "<group>"; };
-		2CCB4FBD1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorScreen3ViewController.m; sourceTree = "<group>"; };
-		2CCB4FBF1B84DFFB0048DF2E /* AddVendorScreen4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorScreen4ViewController.h; sourceTree = "<group>"; };
-		2CCB4FC01B84DFFB0048DF2E /* AddVendorScreen4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorScreen4ViewController.m; sourceTree = "<group>"; };
 		2CCB4FC51B84FC040048DF2E /* ToDoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListViewController.h; sourceTree = "<group>"; };
 		2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListViewController.m; sourceTree = "<group>"; };
 		2CCB4FC81B84FC150048DF2E /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		2CEF08571B8BBFD100DCCE2E /* WeddingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingController.h; sourceTree = "<group>"; };
+		2CEF08581B8BBFD100DCCE2E /* WeddingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingController.m; sourceTree = "<group>"; };
+		2CEF085A1B8BC5EB00DCCE2E /* MasterWeddingProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterWeddingProfileController.h; sourceTree = "<group>"; };
+		2CEF085B1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterWeddingProfileController.m; sourceTree = "<group>"; };
+		2CEF085E1B8BC9B200DCCE2E /* TaskDefaultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDefaultsViewController.h; sourceTree = "<group>"; };
+		2CEF085F1B8BC9B200DCCE2E /* TaskDefaultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDefaultsViewController.m; sourceTree = "<group>"; };
+		2CEF08611B8BC9C800DCCE2E /* VendorDefaultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorDefaultsViewController.h; sourceTree = "<group>"; };
+		2CEF08621B8BC9C900DCCE2E /* VendorDefaultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorDefaultsViewController.m; sourceTree = "<group>"; };
+		2CEF08641B8BCABE00DCCE2E /* TaskDefaultsListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDefaultsListDataSource.h; sourceTree = "<group>"; };
+		2CEF08651B8BCABE00DCCE2E /* TaskDefaultsListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDefaultsListDataSource.m; sourceTree = "<group>"; };
+		2CEF08671B8BCAD600DCCE2E /* VendorDefaultsListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorDefaultsListDataSource.h; sourceTree = "<group>"; };
+		2CEF08681B8BCAD600DCCE2E /* VendorDefaultsListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorDefaultsListDataSource.m; sourceTree = "<group>"; };
+		2CEF086A1B8BD3A100DCCE2E /* WeddingConnectionsMasterWeddingProfile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WeddingConnectionsMasterWeddingProfile.json; sourceTree = "<group>"; };
+		2CEF086D1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddVendorTableViewDataSource.h; sourceTree = "<group>"; };
+		2CEF086E1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddVendorTableViewDataSource.m; sourceTree = "<group>"; };
+		2CEF08711B8BD94500DCCE2E /* PickerViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewTableViewCell.h; sourceTree = "<group>"; };
+		2CEF08721B8BD94500DCCE2E /* PickerViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewTableViewCell.m; sourceTree = "<group>"; };
+		2CEF08741B8BDB3700DCCE2E /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldTableViewCell.h; sourceTree = "<group>"; };
+		2CEF08751B8BDB3700DCCE2E /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldTableViewCell.m; sourceTree = "<group>"; };
+		2CEF08771B8BE6F500DCCE2E /* TextViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableViewCell.h; sourceTree = "<group>"; };
+		2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableViewCell.m; sourceTree = "<group>"; };
+		2CEF087A1B8BE74D00DCCE2E /* ImagesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewCell.h; sourceTree = "<group>"; };
+		2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewCell.m; sourceTree = "<group>"; };
 		2CEF83011B87E6DB00317EC4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		2CEF83021B87E6DB00317EC4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,36 +318,9 @@
 		2C932FBB1B879F8F002B092D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2C932FE01B87C99D002B092D /* Person.h */,
-				2C932FE11B87C99D002B092D /* Person.m */,
-				2C932FBC1B87A01D002B092D /* Wedding.h */,
-				2C932FBD1B87A01D002B092D /* Wedding.m */,
-				2C932FBF1B87A0C0002B092D /* Spouse.h */,
-				2C932FC01B87A0C0002B092D /* Spouse.m */,
-				2C932FC51B87A0EE002B092D /* CalendarItem.h */,
-				2C932FC61B87A0EE002B092D /* CalendarItem.m */,
-				2C932FE61B87CF63002B092D /* ToDoTaskTimeCategory.h */,
-				2C932FE71B87CF63002B092D /* ToDoTaskTimeCategory.m */,
-				2C932FC81B87A100002B092D /* ToDoItem.h */,
-				2C932FC91B87A100002B092D /* ToDoItem.m */,
-				2C932FCB1B87A119002B092D /* Vendor.h */,
-				2C932FCC1B87A119002B092D /* Vendor.m */,
-				2C932FE91B87D088002B092D /* VendorCategory.h */,
-				2C932FEA1B87D088002B092D /* VendorCategory.m */,
-				2C932FDD1B87B34E002B092D /* VendorPayment.h */,
-				2C932FDE1B87B34E002B092D /* VendorPayment.m */,
-				2C932FD71B87A3A6002B092D /* Budget.h */,
-				2C932FD81B87A3A6002B092D /* Budget.m */,
-				2C932FCE1B87A12B002B092D /* BudgetItem.h */,
-				2C932FCF1B87A12B002B092D /* BudgetItem.m */,
-				2C932FD11B87A146002B092D /* Guest.h */,
-				2C932FD21B87A146002B092D /* Guest.m */,
-				2C932FD41B87A157002B092D /* Planner.h */,
-				2C932FD51B87A157002B092D /* Planner.m */,
-				2C932FE31B87CDF6002B092D /* MasterWeddingProfile.h */,
-				2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */,
-				2CEF83011B87E6DB00317EC4 /* User.h */,
-				2CEF83021B87E6DB00317EC4 /* User.m */,
+				2CEF086C1B8BD55300DCCE2E /* JSON */,
+				2CEF08561B8BBFB500DCCE2E /* Model Controllers */,
+				2CEF08551B8BBFA900DCCE2E /* Model Objects */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -438,14 +437,7 @@
 				2CC3495C1B7C1CEB006A8D5E /* VendorsListViewController.m */,
 				2CCB4F9E1B7E3FA20048DF2E /* VendorsListDataSource.h */,
 				2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */,
-				2CCB4FB61B84DE860048DF2E /* AddVendorScreen1ViewController.h */,
-				2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */,
-				2CCB4FB91B84DFD40048DF2E /* AddVendorScreen2ViewController.h */,
-				2CCB4FBA1B84DFD40048DF2E /* AddVendorScreen2ViewController.m */,
-				2CCB4FBC1B84DFEA0048DF2E /* AddVendorScreen3ViewController.h */,
-				2CCB4FBD1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m */,
-				2CCB4FBF1B84DFFB0048DF2E /* AddVendorScreen4ViewController.h */,
-				2CCB4FC01B84DFFB0048DF2E /* AddVendorScreen4ViewController.m */,
+				2CEF08701B8BD8FC00DCCE2E /* Add Vendor View Controllers */,
 				2CCB4F9B1B7D6E100048DF2E /* VendorDetailViewController.h */,
 				2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */,
 				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
@@ -513,6 +505,14 @@
 			children = (
 				2CCB4F8E1B7D65F10048DF2E /* DefaultsEditorViewController.h */,
 				2CCB4F8F1B7D65F10048DF2E /* DefaultsEditorViewController.m */,
+				2CEF085E1B8BC9B200DCCE2E /* TaskDefaultsViewController.h */,
+				2CEF085F1B8BC9B200DCCE2E /* TaskDefaultsViewController.m */,
+				2CEF08641B8BCABE00DCCE2E /* TaskDefaultsListDataSource.h */,
+				2CEF08651B8BCABE00DCCE2E /* TaskDefaultsListDataSource.m */,
+				2CEF08611B8BC9C800DCCE2E /* VendorDefaultsViewController.h */,
+				2CEF08621B8BC9C900DCCE2E /* VendorDefaultsViewController.m */,
+				2CEF08671B8BCAD600DCCE2E /* VendorDefaultsListDataSource.h */,
+				2CEF08681B8BCAD600DCCE2E /* VendorDefaultsListDataSource.m */,
 			);
 			name = "Defaults Editor View Controllers";
 			sourceTree = "<group>";
@@ -524,6 +524,89 @@
 				2CCB4F921B7D66060048DF2E /* PlannerProfileViewController.m */,
 			);
 			name = "Planner Profile View Controllers";
+			sourceTree = "<group>";
+		};
+		2CEF08551B8BBFA900DCCE2E /* Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2C932FE01B87C99D002B092D /* Person.h */,
+				2C932FE11B87C99D002B092D /* Person.m */,
+				2C932FBC1B87A01D002B092D /* Wedding.h */,
+				2C932FBD1B87A01D002B092D /* Wedding.m */,
+				2C932FBF1B87A0C0002B092D /* Spouse.h */,
+				2C932FC01B87A0C0002B092D /* Spouse.m */,
+				2C932FC51B87A0EE002B092D /* CalendarItem.h */,
+				2C932FC61B87A0EE002B092D /* CalendarItem.m */,
+				2CEF085D1B8BC82C00DCCE2E /* Planner Side Model Objects */,
+				2C932FCB1B87A119002B092D /* Vendor.h */,
+				2C932FCC1B87A119002B092D /* Vendor.m */,
+				2C932FDD1B87B34E002B092D /* VendorPayment.h */,
+				2C932FDE1B87B34E002B092D /* VendorPayment.m */,
+				2C932FD71B87A3A6002B092D /* Budget.h */,
+				2C932FD81B87A3A6002B092D /* Budget.m */,
+				2C932FCE1B87A12B002B092D /* BudgetItem.h */,
+				2C932FCF1B87A12B002B092D /* BudgetItem.m */,
+				2C932FD11B87A146002B092D /* Guest.h */,
+				2C932FD21B87A146002B092D /* Guest.m */,
+				2CEF83011B87E6DB00317EC4 /* User.h */,
+				2CEF83021B87E6DB00317EC4 /* User.m */,
+			);
+			name = "Model Objects";
+			sourceTree = "<group>";
+		};
+		2CEF08561B8BBFB500DCCE2E /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CEF08571B8BBFD100DCCE2E /* WeddingController.h */,
+				2CEF08581B8BBFD100DCCE2E /* WeddingController.m */,
+				2CEF085A1B8BC5EB00DCCE2E /* MasterWeddingProfileController.h */,
+				2CEF085B1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m */,
+			);
+			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		2CEF085D1B8BC82C00DCCE2E /* Planner Side Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2C932FE61B87CF63002B092D /* ToDoTaskTimeCategory.h */,
+				2C932FE71B87CF63002B092D /* ToDoTaskTimeCategory.m */,
+				2C932FC81B87A100002B092D /* ToDoItem.h */,
+				2C932FC91B87A100002B092D /* ToDoItem.m */,
+				2C932FE91B87D088002B092D /* VendorCategory.h */,
+				2C932FEA1B87D088002B092D /* VendorCategory.m */,
+				2C932FD41B87A157002B092D /* Planner.h */,
+				2C932FD51B87A157002B092D /* Planner.m */,
+				2C932FE31B87CDF6002B092D /* MasterWeddingProfile.h */,
+				2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */,
+			);
+			name = "Planner Side Model Objects";
+			sourceTree = "<group>";
+		};
+		2CEF086C1B8BD55300DCCE2E /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				2CEF086A1B8BD3A100DCCE2E /* WeddingConnectionsMasterWeddingProfile.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		2CEF08701B8BD8FC00DCCE2E /* Add Vendor View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4FB61B84DE860048DF2E /* AddVendorScreen1ViewController.h */,
+				2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */,
+				2CEF086D1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.h */,
+				2CEF086E1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m */,
+				2CEF08711B8BD94500DCCE2E /* PickerViewTableViewCell.h */,
+				2CEF08721B8BD94500DCCE2E /* PickerViewTableViewCell.m */,
+				2CEF08741B8BDB3700DCCE2E /* TextFieldTableViewCell.h */,
+				2CEF08751B8BDB3700DCCE2E /* TextFieldTableViewCell.m */,
+				2CEF08771B8BE6F500DCCE2E /* TextViewTableViewCell.h */,
+				2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */,
+				2CEF087A1B8BE74D00DCCE2E /* ImagesTableViewCell.h */,
+				2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */,
+			);
+			name = "Add Vendor View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -575,6 +658,7 @@
 				TargetAttributes = {
 					2CC3492B1B7C18F6006A8D5E = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = Y7NU24T95U;
 					};
 					2CC349441B7C18F6006A8D5E = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -608,6 +692,7 @@
 			files = (
 				2CC349401B7C18F6006A8D5E /* LaunchScreen.xib in Resources */,
 				2CC3493D1B7C18F6006A8D5E /* Images.xcassets in Resources */,
+				2CEF086B1B8BD3A100DCCE2E /* WeddingConnectionsMasterWeddingProfile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,7 +710,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */,
 				2CEF83031B87E6DB00317EC4 /* User.m in Sources */,
+				2CEF086F1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m in Sources */,
+				2CEF08601B8BC9B200DCCE2E /* TaskDefaultsViewController.m in Sources */,
+				2CEF08631B8BC9C900DCCE2E /* VendorDefaultsViewController.m in Sources */,
 				2C06F0281B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m in Sources */,
 				2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */,
 				2C06F0261B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m in Sources */,
@@ -634,29 +723,33 @@
 				2CC3495D1B7C1CEB006A8D5E /* VendorsListViewController.m in Sources */,
 				2CCB4FAC1B7E8DD30048DF2E /* ClientTabBarController.m in Sources */,
 				2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */,
+				2CEF085C1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m in Sources */,
+				2CEF08731B8BD94500DCCE2E /* PickerViewTableViewCell.m in Sources */,
 				2C932FCA1B87A100002B092D /* ToDoItem.m in Sources */,
 				2C06F0251B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m in Sources */,
 				2CCB4FCA1B84FC150048DF2E /* CalendarViewController.m in Sources */,
 				2CC349631B7C37AB006A8D5E /* TasksViewController.m in Sources */,
 				2C932FD31B87A146002B092D /* Guest.m in Sources */,
+				2CEF08691B8BCAD600DCCE2E /* VendorDefaultsListDataSource.m in Sources */,
 				2C932FD61B87A157002B092D /* Planner.m in Sources */,
 				2C932FC11B87A0C0002B092D /* Spouse.m in Sources */,
 				2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */,
 				2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */,
-				2CCB4FBE1B84DFEA0048DF2E /* AddVendorScreen3ViewController.m in Sources */,
 				2C932FCD1B87A119002B092D /* Vendor.m in Sources */,
+				2CEF08661B8BCABE00DCCE2E /* TaskDefaultsListDataSource.m in Sources */,
 				2CCB4F761B7D302C0048DF2E /* WeddingListViewController.m in Sources */,
 				2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */,
 				2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */,
+				2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */,
 				2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */,
 				2CCB4FAF1B7E8E630048DF2E /* EditBudgetViewController.m in Sources */,
 				2CCB4F811B7D40860048DF2E /* LoginViewController.m in Sources */,
 				2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */,
 				2C932FBE1B87A01D002B092D /* Wedding.m in Sources */,
-				2CCB4FBB1B84DFD40048DF2E /* AddVendorScreen2ViewController.m in Sources */,
 				2CCB4F901B7D65F10048DF2E /* DefaultsEditorViewController.m in Sources */,
+				2CEF08761B8BDB3700DCCE2E /* TextFieldTableViewCell.m in Sources */,
+				2CEF08591B8BBFD100DCCE2E /* WeddingController.m in Sources */,
 				2C932FE81B87CF63002B092D /* ToDoTaskTimeCategory.m in Sources */,
-				2CCB4FC11B84DFFB0048DF2E /* AddVendorScreen4ViewController.m in Sources */,
 				2CC349601B7C1CFD006A8D5E /* GuestsViewController.m in Sources */,
 				2C932FE21B87C99D002B092D /* Person.m in Sources */,
 				2CC349321B7C18F6006A8D5E /* main.m in Sources */,
@@ -787,6 +880,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -801,6 +895,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

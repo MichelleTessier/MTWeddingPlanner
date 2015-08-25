@@ -7,10 +7,12 @@
 //
 
 #import "AddVendorScreen1ViewController.h"
-
-#import "AddVendorScreen2ViewController.h"
+#import "AddVendorTableViewDataSource.h"
 
 @interface AddVendorScreen1ViewController ()
+
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) AddVendorTableViewDataSource *dataSource;
 
 @end
 
@@ -24,16 +26,23 @@
     
     [self.view addSubview:navBar];
     
-    UIBarButtonItem *nextScreenBarButton = [UIBarButtonItem new];
-    nextScreenBarButton.title = @"Next";
-    nextScreenBarButton.target = self;
-    nextScreenBarButton.action = @selector(nextScreenBarButtonTapped);
-    self.navigationItem.rightBarButtonItem = nextScreenBarButton;
+    UIBarButtonItem *finishBarButton = [UIBarButtonItem new];
+    finishBarButton.title = @"Finish";
+    finishBarButton.target = self;
+    finishBarButton.action = @selector(finishBarButtonTapped);
+    self.navigationItem.rightBarButtonItem = finishBarButton;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.dataSource = [AddVendorTableViewDataSource new];
+    self.tableView.dataSource = self.dataSource;
+    [self.view addSubview: self.tableView];
+    
+   
 
 }
 
--(void)nextScreenBarButtonTapped{
-    [self.navigationController pushViewController:[AddVendorScreen2ViewController new] animated:YES];
+-(void)finishBarButtonTapped{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

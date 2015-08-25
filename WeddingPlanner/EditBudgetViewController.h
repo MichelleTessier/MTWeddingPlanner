@@ -10,4 +10,6 @@
 
 @interface EditBudgetViewController : UIViewController
 
+//use page view (thing with the little dots, or content view with paging enabled)
+
 @end

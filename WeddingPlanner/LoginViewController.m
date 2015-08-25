@@ -41,28 +41,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
-    
-    Guest *guest = [Guest objectWithClassName:[Guest parseClassName]];
-    guest.firstName = @"I worked!";
-    guest.roleInWeddingParty = @"So proud!";
-
-    [guest saveInBackground];
-    
-    User *user = [User user];
-    user.username = @"mtessier";
-    user.password = @"password";
-    user.email = @"anne.m.tessier@gmail.com";
-    
-    
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {   // Hooray! Let them use the app now.
-        } else {   NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
-        }
-    }];
+//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+//    testObject[@"foo"] = @"bar";
+//    [testObject saveInBackground];
+//    
+//    Guest *guest = [Guest objectWithClassName:[Guest parseClassName]];
+//    guest.firstName = @"I worked!";
+//    guest.roleInWeddingParty = @"So proud!";
+//
+//    [guest saveInBackground];
+//    
+//    User *user = [User user];
+//    user.username = @"mtessier";
+//    user.password = @"password";
+//    user.email = @"anne.m.tessier@gmail.com";
+//    
+//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            // Hooray! Let them use the app now.
+//        } else {
+//            NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
+//        }
+//        
+//    }];
 
     
     UIButton *plannerButton = [UIButton new];

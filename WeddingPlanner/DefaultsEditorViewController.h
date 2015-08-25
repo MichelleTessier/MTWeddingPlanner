@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TaskDefaultsViewController.h"
+#import "VendorDefaultsViewController.h"
 
 @interface DefaultsEditorViewController : UIViewController
+
+@property (strong, nonatomic) UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) UIViewController *currentViewController;
 
 @end
