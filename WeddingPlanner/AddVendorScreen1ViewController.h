@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeddingController.h"
 
-@interface AddVendorScreen1ViewController : UIViewController
+@interface AddVendorScreen1ViewController : UIViewController <UITextFieldDelegate>
+
+@property (strong, nonatomic) Vendor *vendor;
+@property (strong, nonatomic) Wedding *wedding;
+
 
 @end

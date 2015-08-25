@@ -8,8 +8,7 @@
 
 #import "AddVendorTableViewDataSource.h"
 #import "PickerViewTableViewCell.h"
-#import "TextFieldTableViewCell.h"
-#import "WeddingController.h"
+
 
 
 
@@ -42,7 +41,26 @@ static NSString *textFieldCellID = @"textFieldCellID";
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"Title";
+    
+    AddVendorInformationSections vendorSection = section;
+    
+    switch (vendorSection) {
+        case AddVendorInformationPickerSection:
+            
+            return @"Vendor Category";
+            
+            break;
+            
+        case AddVendorInformationContactSection:
+            
+            return @"Contact";
+            
+            break;
+            
+        default:
+            return @"";
+            break;
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -105,45 +123,48 @@ static NSString *textFieldCellID = @"textFieldCellID";
                 textFieldCell = [[TextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:textFieldCellID];
             }
             
+            textFieldCell.textField.delegate = self.addVendorScreen1ViewController;
+            
             VendorContactInformationTypes informationType = indexPath.row;
             
             switch (informationType) {
                 case VendorContactInformationTypeBusinessName:
-                    textFieldCell.textField.placeholder = @"Business";
+                    textFieldCell.name = @"Business";
                     break;
                     
                 case VendorContactInformationTypePerson:
-                    textFieldCell.textField.placeholder = @"Contact";
+                    textFieldCell.name = @"Contact";
                     break;
                     
                 case VendorContactInformationTypeTitle:
-                    textFieldCell.textField.placeholder = @"Title";
+                    textFieldCell.name = @"Title";
                     break;
                     
                 case VendorContactInformationTypePhone:
-                    textFieldCell.textField.placeholder = @"Phone";
+                    textFieldCell.name = @"Phone";
                     break;
                     
                 case VendorContactInformationTypeSecondPhone:
-                    textFieldCell.textField.placeholder = @"Second Phone";
+                    textFieldCell.name = @"Second Phone";
                     break;
                     
                 case VendorContactInformationTypeEmail:
-                    textFieldCell.textField.placeholder = @"Email";
+                    textFieldCell.name = @"Email";
                     break;
                     
                 case VendorContactInformationTypeStreetAddress:
-                    textFieldCell.textField.placeholder = @"Street";
+                    textFieldCell.name = @"Street";
                     break;
                     
                 case VendorContactInformationTypeAddressLine2:
-                    textFieldCell.textField.placeholder = @"City, State, Zip";
+                    textFieldCell.name = @"City, State, Zip";
                     break;
                     
                 default:
                     break;
             }
             
+            textFieldCell.textField.text = textFieldCell.name;
             
             return textFieldCell;
         
@@ -184,6 +205,8 @@ static NSString *textFieldCellID = @"textFieldCellID";
     Wedding *wedding = [[WeddingController sharedInstance] createWedding];
     return wedding.vendorCategories[row];
 }
+
+
 
 
 

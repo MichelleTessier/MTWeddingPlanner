@@ -8,6 +8,7 @@
 
 #import "AddVendorScreen1ViewController.h"
 #import "AddVendorTableViewDataSource.h"
+
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 
@@ -36,6 +37,7 @@
     
     self.tableView = [UITableView new];
     self.dataSource = [AddVendorTableViewDataSource new];
+    self.dataSource.addVendorScreen1ViewController = self;
     self.tableView.dataSource = self.dataSource;
     [self.view addSubview: self.tableView];
     [self.tableView alignTopEdgeWithView:self.view predicate:@"64"];
@@ -43,12 +45,31 @@
     [self.tableView alignLeadingEdgeWithView:self.view predicate:@"0"];
     [self.tableView alignTrailingEdgeWithView:self.view predicate:@"0"];
     
+    self.title = @"Add Vendor";
     
-   
+}
 
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    if (!self.wedding) {
+        self.wedding = [[WeddingController sharedInstance] createWedding];
+    }
+    
+    if (!self.vendor) {
+        self.vendor = [[WeddingController sharedInstance] createVendorforWedding:self.wedding];
+    }
+    
+    
 }
 
 -(void)finishBarButtonTapped{
+    //also need to add some sort of method for if I leave program without clicking finish
+    //need to add how a user is supposed to create a wedding
+    
+    
+    
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
