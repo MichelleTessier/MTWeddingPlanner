@@ -18,11 +18,12 @@
     
     if (self) {
         self.textField = [UITextField new];
+        [self.contentView addSubview:self.textField];
         [self.textField constrainLeadingSpaceToView:self.contentView predicate:@"0"];
         [self.textField constrainTrailingSpaceToView:self.contentView predicate:@"0"];
         [self.textField constrainTopSpaceToView:self.contentView predicate:@"0"];
         [self.textField constrainBottomSpaceToView:self.contentView predicate:@"0"];
-        [self.contentView addSubview:self.textField];
+        
     }
     
     return self;

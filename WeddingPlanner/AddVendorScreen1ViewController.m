@@ -8,6 +8,8 @@
 
 #import "AddVendorScreen1ViewController.h"
 #import "AddVendorTableViewDataSource.h"
+#import "UIView+FLKAutoLayout.h"
+#import "UIView+FLKAutoLayoutDebug.h"
 
 @interface AddVendorScreen1ViewController ()
 
@@ -32,10 +34,15 @@
     finishBarButton.action = @selector(finishBarButtonTapped);
     self.navigationItem.rightBarButtonItem = finishBarButton;
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView = [UITableView new];
     self.dataSource = [AddVendorTableViewDataSource new];
     self.tableView.dataSource = self.dataSource;
     [self.view addSubview: self.tableView];
+    [self.tableView alignTopEdgeWithView:self.view predicate:@"64"];
+    [self.tableView alignBottomEdgeWithView:self.view predicate:@"0"];
+    [self.tableView alignLeadingEdgeWithView:self.view predicate:@"0"];
+    [self.tableView alignTrailingEdgeWithView:self.view predicate:@"0"];
+    
     
    
 

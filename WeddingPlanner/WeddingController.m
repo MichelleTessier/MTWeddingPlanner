@@ -73,7 +73,9 @@
 
 -(NSArray *)getVendorCategoriesForWedding:(Wedding *)wedding{
     
-    NSData *data = [NSData dataWithContentsOfFile:@"WeddingConnectionsMasterWeddingProfile.json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"WeddingConnectionsMasterWeddingProfile" ofType:@"json"];
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
     
     NSError *error;
     
