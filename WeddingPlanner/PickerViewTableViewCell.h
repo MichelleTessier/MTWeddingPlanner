@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PickerViewTableViewCell : UITableViewCell
+@interface PickerViewTableViewCell : UITableViewCell 
 
 @property (strong, nonatomic) UIPickerView *pickerView;
 

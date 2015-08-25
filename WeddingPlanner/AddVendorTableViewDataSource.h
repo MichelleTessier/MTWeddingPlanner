@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource>
+@interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate>
 
 
 

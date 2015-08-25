@@ -11,7 +11,7 @@
 
 @implementation BudgetItem
 
-@dynamic vendorCategory;
+@dynamic vendorCategoryID;
 @dynamic budgetedCost;
 @dynamic actualCategoryCost;
 @dynamic vendors;

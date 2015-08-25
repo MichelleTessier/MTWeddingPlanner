@@ -8,9 +8,14 @@
 
 #import "WeddingController.h"
 
+
+@interface WeddingController ()
+
+@end
+
 @implementation WeddingController
 
-+ (WeddingController*)sharedInstance {
++(WeddingController*)sharedInstance {
     
     static WeddingController *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -24,7 +29,8 @@
 -(Wedding *)createWedding{
     
     Wedding *wedding = [Wedding objectWithClassName:[Wedding parseClassName]];
-    
+    wedding.vendors = [NSArray new];
+    wedding.vendorCategories = [self getVendorCategoriesForWedding:wedding];
     return wedding;
     
 }
@@ -35,10 +41,47 @@
         self.weddings = results;
     }];
     
+}
+
+
+#pragma mark - Vendor CRUD
+
+-(Vendor *)createVendorforWedding:(Wedding *)wedding{
+    
+    Vendor *vendor = [Vendor objectWithClassName:[Vendor parseClassName]];
+    vendor.weddingID = wedding.objectId;
+    
+    NSMutableArray *mutableWeddings = [wedding.vendors mutableCopy];
+    [mutableWeddings addObject:vendor];
+    wedding.vendors = mutableWeddings;
+    
+    return vendor;
     
 }
 
--(void)deleteWedding:(Wedding *)weddingToDelete{
+//How to I retreieve only the vendors that are attached to a specific wedding? Do I have to pull out the wedding first?
+-(void)retrieveVendorsforWedding:(Wedding *)wedding{
+    
+    PFQuery *getVendors = [Vendor query];
+    
+    [getVendors whereKey:@"weddingID" equalTo:wedding.objectId];
+    
+    [getVendors findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
+        wedding.vendors = results;
+    }];
+}
+
+-(NSArray *)getVendorCategoriesForWedding:(Wedding *)wedding{
+    
+    NSData *data = [NSData dataWithContentsOfFile:@"WeddingConnectionsMasterWeddingProfile.json"];
+    
+    NSError *error;
+    
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    NSArray *vendorCateogries = [dictionary objectForKey:@"vendorCategories"];
+    
+    return vendorCateogries;
     
 }
 

@@ -19,6 +19,7 @@
 @dynamic guests;
 @dynamic vendors;
 @dynamic budget;
+@dynamic vendorCategories;
 @dynamic calendarItems;
 @dynamic toDoTaskTimeCategories;
 

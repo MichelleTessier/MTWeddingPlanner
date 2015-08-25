@@ -21,6 +21,7 @@
 @property (retain) NSArray *vendorPayments;
 @property (retain) NSArray *images;
 @property (retain) NSString *notes;
+@property (retain) NSString *weddingID;
 
 //V1.2
 

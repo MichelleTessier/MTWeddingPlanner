@@ -22,8 +22,10 @@
 @property (retain) NSArray *guests;
 @property (retain) NSArray *vendors;
 @property (retain) Budget *budget;
+@property (retain) NSArray *vendorCategories;
 @property (retain) NSArray *calendarItems;
 @property (retain) NSArray *toDoTaskTimeCategories;
+
 
 +(NSString *)parseClassName;
 

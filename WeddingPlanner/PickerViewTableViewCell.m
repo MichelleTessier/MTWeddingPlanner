@@ -19,15 +19,18 @@
     
     if (self) {
         self.pickerView = [UIPickerView new];
+        
+        [self.contentView addSubview:self.pickerView];
         [self.pickerView constrainWidth:@"200" height:@"44"];
         [self.pickerView alignCenterYWithView:self.contentView predicate:@"0"];
         [self.pickerView alignCenterXWithView:self.contentView predicate:@"0"];
-        [self.contentView addSubview:self.pickerView];
     }
     
     return self;
     
 }
+
+
 
 
 

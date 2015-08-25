@@ -1,126 +1,273 @@
-@{@"vendorCategories":
-    
-    @[
-      @"Photographer",
-      @"Music",
-      @"Venue",
-      @"Invitations",
-      @"Planner",
-      @"Rings",
-      @"Decor",
-      @"Makeup",
-      @"Hair",
-      @"Officiant",
-      @"Floral",
-      @"Cake",
-      @"Catering",
-      @"Hotel",
-      @"Bride’s Attire",
-      @"Grooms Attire",
-      @"Transportation",
-      @"Rentals"
-      ],
-    
-@"toDoTimeCategories":
-    
-     @{
-         @240:
-         @[
-           @{@"title":@"Announce your engagement."},
-           @{@"title":@"Set a budget that’s right for you."},
-           @{@"title":@"Select wedding and reception venue."},
-           @{@"title":@"Confirm event date."},
-           @{@"title":@"Start compiling your guest list based on the budget you’ve set."},
-           @{@"title":@"Renew passport, if necessary."},
-           @{@"title":@"Start clipping and pinning pictures you like of dresses, favors, flowers, and event details."},
-           @{@"title":@"Determine color scheme."},
-           @{@"title":@"Start looking at wedding dresses, determining which fits and designers appeal to you."},
-           @{@"title":@"Start shopping for and purchase wedding rings.", @"tip":@"This is a task you should definitely do in person, rather than online. Have ring appraised, insured and if necessary, resized."},
-           @{@"title":@"Start planning an engagement party, if you’re having one."},
-           @{@"title":@"Set up a wedding Website."},
-           @{@"title":@"Write save-the-date text and have save-the-dates printed and mailed once you’ve completed your wedding website and registry, noting that information on your save-the-date."},
-           @{@"title":@"Start narrowing down preferred vendor list to three top contenders in each category."},
-           @{@"title":@"Choose graphic designers or vendors for invitations."},
-           @{@"title":@"Hire a photographer.", @"tip": @"Try to do this as soon as you’ve chosen a date, as photographers tend to book up really far in advance."},
-           @{@"title":@"Choose bridal party."},
-           @{@"title":@"Start look for bridesmaids dresses."},
-           @{@"title":@"Consider attire options for the groom and groomsmen to coordinate with the bridesmaids and the venue."},
-           @{@"title":@"Get music samples for bands and ceremony music, or schedule an interview with DJs to talk about music preferences."},
-           @{@"title":@"Research honeymoon destinations."},
-           @{@"title":@"Book officiant for your wedding."},
-           @{@"title":@"Schedule an engagement photo shoot if you’re doing one."},
-           @{@"title":@"Start researching lodging for you and your guests."},
-           @{@"title":@"Conduct site inspection of ceremony and reception locations."},
-           @{@"title":@"Start looking at wedding invitations."},
-           @{@"title":@"Set up your wedding registry or a donation account online if you’d prefer donations to charity in lieu of gifts.",
-              @"tip":@"Be sure to list three or four options in different price ranges."}
-           ],
-         @180: @[
-                @{@"title":@"Book caterer/venue for off-site reception and rehearsal dinner."},
-                @{@"title":@"Research hair and makeup styles you like for your wedding."},
-                @{@"title":@"Discuss and arrange for any ceremony requirements with officiant.",
-                    @"tip": @"(i.e. premarital counseling)."}
+{
+    "vendorCategories": [
+                         "Photographer",
+                         "Music",
+                         "Venue",
+                         "Invitations",
+                         "Planner",
+                         "Rings",
+                         "Decor",
+                         "Makeup",
+                         "Hair",
+                         "Officiant",
+                         "Floral",
+                         "Cake",
+                         "Catering",
+                         "Hotel",
+                         "Bride’s Attire",
+                         "Grooms Attire",
+                         "Transportation",
+                         "Rentals"
+                         ],
+    "toDoTimeCategories": {
+        "1": [
+              {
+              "title": "Attend final meeting with planner.",
+              "tip": "Review all the details for the floor plan, seating, rental orders, music, and transportation. She will reconfirm this information as well as any special requests with your vendors. Bring tip envelopes and all personal decor for transfer to planner."
+              },
+              {
+              "title": "Pick up tux rentals."
+              },
+              {
+              "title": "Make sure bridesmaids have their outfits completely put together, including shoes and accessories."
+              },
+              {
+              "title": "Give gifts to wedding party."
+              },
+              {
+              "title": "Attend bridal luncheon, if you are having one."
+              },
+              {
+              "title": "Deliver welcome information and/or welcome gifts to hotel rooms. (Depending on when the first guests arrive, this might need to be taken care of earlier in the week.)"
+              }
+              ],
+        "7": [
+              {
+              "title": "Pack for your honeymoon if you’re leaving immediately after the wedding."
+              },
+              {
+              "title": "Prepare gratuity and final payment envelopes for vendors.",
+              "tip": "Cash in labeled envelopes is the easiest way for your planners to distribute this."
+              },
+              {
+              "title": "Start checking the weather forecast for wedding day."
+              },
+              {
+              "title": "Arrange transportation to airport for honeymoon,if you don't already have it."
+              },
+              {
+              "title": "Confirm hotel reservations for honeymoon."
+              },
+              {
+              "title": "Practice vows."
+              },
+              {
+              "title": "Pack bag for wedding day, including makeup for touch-ups and a pair of comfortable shoes.",
+              "tip": "Note: we have an incredibly comprehensive emergency kit, so you needn’t pack one unless you want to."
+              },
+              {
+              "title": "E-mail the wedding weekend itinerary to all wedding party members."
+              }
+              ],
+        "14": [
+               {
+               "title": "Write rehearsal dinner or wedding toasts if you plan to make them."
+               },
+               {
+               "title": "Confirm with family and wedding party members planning to make toasts on the wedding night.",
+               "tip": "(The rehearsal dinner toasts tend to be a little more impromptu.)"
+               },
+               {
+               "title": "Finalize all details with the caterer and other vendors, including final guest count, which will affect your rental order, cake order and floral centerpiece numbers."
+               },
+               {
+               "title": "Have final dress fitting and pick up wedding dress."
+               },
+               {
+               "title": "Confirm all transportation and transfers for wedding guests and for your personal needs."
+               }
+               ],
+        "30": [
+               {
+               "title": "Obtain marriage license",
+               "tip": "make sure it’s valid through the wedding day"
+               },
+               {
+               "title": "Start working on seating chart as RSVPS come in.",
+               "tip": "Decide if you’re assigning tables and seats (more formal) or just tables (less formal)."
+               },
+               {
+               "title": "Meet with officiant to discuss procession and review order and contents of ceremony."
+               },
+               {
+               "title": "Contact guests who have not responded by the due date."
+               },
+               {
+               "title": "Update master guest list as response cards arrive."
+               },
+               {
+               "title": "Confirm rehearsal dinner plans, menu and decor."
+               }
+               ],
+        "60": [
+               {
+               "title": "Order any personalized decor for the event.",
+               "tip": "ie://(Cocktail napkins, matchbooks, etc.)"
+               },
+               {
+               "title": "Purchase welcome gift bag items.",
+               "tip": "A general rule of thumb is to give something sweet, something salty, something to drink and something unique, either to you as a couple or to the destination of your wedding. The basket is also a great place to put a welcome letter listing the weekend’s event."
+               },
+               {
+               "title": "Write or decide on wedding vows for the ceremony."
+               },
+               {
+               "title": "Choose gifts for all attendants, if you have a wedding party."
+               },
+               {
+               "title": "Choose readings/traditions for the ceremony.",
+               "tip": "(This includes things like lighting of a unity candle, a sand ritual, a musical performance.)"
+               },
+               {
+               "title": "Choose music for the ceremony processional and recessional.",
+               "tip": "Generally there is a song for the entrance of parents/grandparents, a song for the wedding party, a song for the bride’s entrance and a song for the bride and groom’s exit."
+               }
+               ],
+        "90": [
+               {
+               "title": "Meet with officiant to plan ceremony."
+               },
+               {
+               "title": "Order wedding cake and groom’s cake, if desired."
+               },
+               {
+               "title": "Ensure that all groomsmen measurements have been submitted for suits or tuxes and place orders.",
+               "tip": "Buy any necessary accessories for groom, such as cuff links, shirts and shoes."
+               },
+               {
+               "title": "Shop for outfits for bride and groom to wear to shower and rehearsal dinner."
+               },
+               {
+               "title": "Check registries to make sure enough gifts remain at different price levels.",
+               "tip": "Do this every week or so until two weeks before the wedding"
+               }
+               ],
+        "120": [
+                {
+                "title": "Finalize all the wedding attire, including your wedding gown, the bridesmaids’ dresses, and the groom’s and groomsmen's attire.",
+                "tip": "Schedule alterations as needed."
+                },
+                {
+                "title": "Start planning rehearsal dinner with whoever is paying for it"
+                },
+                {
+                "title": "Arrange for ground transportation for guests.",
+                "tip": "Take into consideration any big happenings around town that weekend."
+                },
+                {
+                "title": "Continue to fill your gifts registry with items in every price range."
+                },
+                {
+                "title": "Book musicians or choir for ceremony."
+                }
                 ],
-         @120:
-             @[
-             @{@"title":@"Finalize all the wedding attire, including your wedding gown, the bridesmaids’ dresses, and the groom’s and groomsmen's attire.",
-               @"tip":@"Schedule alterations as needed."},
-               @{@"title":@"Start planning rehearsal dinner with whoever is paying for it"},
-               @{@"title":@"Arrange for ground transportation for guests.", @"tip" : @"Take into consideration any big happenings around town that weekend."},
-               @{@"title":@"Continue to fill your gifts registry with items in every price range."},
-               @{@"title":@"Book musicians or choir for ceremony."}
-               ],
-         @90:
-         @[
-         @{@"title":@"Meet with officiant to plan ceremony."},
-           @{@"title":@"Order wedding cake and groom’s cake, if desired."},
-           @{@"title":@"Ensure that all groomsmen measurements have been submitted for suits or tuxes and place orders.", @"tip": @"Buy any necessary accessories for groom, such as cuff links, shirts and shoes."},
-           @{@"title":@"Shop for outfits for bride and groom to wear to shower and rehearsal dinner."},
-           @{@"title":@"Check registries to make sure enough gifts remain at different price levels.", @"tip":@"Do this every week or so until two weeks before the wedding"}
-               ],
-         @60:
-         @[
-           @{@"title":@"Order any personalized decor for the event.", @"tip":@"ie://(Cocktail napkins, matchbooks, etc.)"},
-           @{@"title":@"Purchase welcome gift bag items.", @"tip" : @"A general rule of thumb is to give something sweet, something salty, something to drink and something unique, either to you as a couple or to the destination of your wedding. The basket is also a great place to put a welcome letter listing the weekend’s event."}
-           @{@"title":@"Write or decide on wedding vows for the ceremony."},
-           @{@"title":@"Choose gifts for all attendants, if you have a wedding party."},
-           @{@"title":@"Choose readings/traditions for the ceremony.", @"tip" : @"(This includes things like lighting of a unity candle, a sand ritual, a musical performance.)"},
-           @{@"title":@"Choose music for the ceremony processional and recessional.", @"tip": @"Generally there is a song for the entrance of parents/grandparents, a song for the wedding party, a song for the bride’s entrance and a song for the bride and groom’s exit."}
-           ],
-         @30:
-         @[
-           @{@"title":@"Obtain marriage license", @"tip":@"make sure it’s valid through the wedding day"},
-           @{@"title":@"Start working on seating chart as RSVPS come in.", @"tip": @"Decide if you’re assigning tables and seats (more formal) or just tables (less formal)."},
-           @{@"title":@"Meet with officiant to discuss procession and review order and contents of ceremony."}
-           @{@"title":@"Contact guests who have not responded by the due date."},
-           @{@"title":@"Update master guest list as response cards arrive."},
-           @{@"title":@"Confirm rehearsal dinner plans, menu and decor."}
-           ],
-         @14:@[
-               @{@"title":@"Write rehearsal dinner or wedding toasts if you plan to make them."},
-               @{@"title":@"Confirm with family and wedding party members planning to make toasts on the wedding night.", @"tip":@"(The rehearsal dinner toasts tend to be a little more impromptu.)"}
-               @{@"title":@"Finalize all details with the caterer and other vendors, including final guest count, which will affect your rental order, cake order and floral centerpiece numbers."}
-               @{@"title":@"Have final dress fitting and pick up wedding dress."},
-               @{@"title":@"Confirm all transportation and transfers for wedding guests and for your personal needs."}
-               ],
-         @7:@[
-              @{@"title":@"Pack for your honeymoon if you’re leaving immediately after the wedding."},
-              @{@"title":@"Prepare gratuity and final payment envelopes for vendors.", @"tip":@"Cash in labeled envelopes is the easiest way for your planners to distribute this."},
-              @{@"title":@"Start checking the weather forecast for wedding day."},
-              @{@"title":@"Arrange transportation to airport for honeymoon,if you don't already have it."},
-              @{@"title":@"Confirm hotel reservations for honeymoon."},
-              @{@"title":@"Practice vows."},
-              @{@"title":@"Pack bag for wedding day, including makeup for touch-ups and a pair of comfortable shoes.", @"tip": @"Note: we have an incredibly comprehensive emergency kit, so you needn’t pack one unless you want to."},
-              @{@"title":@"E-mail the wedding weekend itinerary to all wedding party members."}
-            ],
-         @1:@[
-              @{@"title":@"Attend final meeting with planner.", @"tip": @"Review all the details for the floor plan, seating, rental orders, music, and transportation. She will reconfirm this information as well as any special requests with your vendors. Bring tip envelopes and all personal decor for transfer to planner."},
-              @{@"title":@"Pick up tux rentals."},
-              @{@"title":@"Make sure bridesmaids have their outfits completely put together, including shoes and accessories."},
-              @{@"title":@"Give gifts to wedding party."},
-              @{@"title":@"Attend bridal luncheon, if you are having one."}
-              @{@"title":@"Deliver welcome information and/or welcome gifts to hotel rooms. (Depending on when the first guests arrive, this might need to be taken care of earlier in the week.)"}
-              ]
-     }
-         
-
+        "180": [
+                {
+                "title": "Book caterer/venue for off-site reception and rehearsal dinner."
+                },
+                {
+                "title": "Research hair and makeup styles you like for your wedding."
+                },
+                {
+                "title": "Discuss and arrange for any ceremony requirements with officiant.",
+                "tip": "(i.e. premarital counseling)."
+                }
+                ],
+        "240": [
+                {
+                "title": "Announce your engagement."
+                },
+                {
+                "title": "Set a budget that’s right for you."
+                },
+                {
+                "title": "Select wedding and reception venue."
+                },
+                {
+                "title": "Confirm event date."
+                },
+                {
+                "title": "Start compiling your guest list based on the budget you’ve set."
+                },
+                {
+                "title": "Renew passport, if necessary."
+                },
+                {
+                "title": "Start clipping and pinning pictures you like of dresses, favors, flowers, and event details."
+                },
+                {
+                "title": "Determine color scheme."
+                },
+                {
+                "title": "Start looking at wedding dresses, determining which fits and designers appeal to you."
+                },
+                {
+                "title": "Start shopping for and purchase wedding rings.",
+                "tip": "This is a task you should definitely do in person, rather than online. Have ring appraised, insured and if necessary, resized."
+                },
+                {
+                "title": "Start planning an engagement party, if you’re having one."
+                },
+                {
+                "title": "Set up a wedding Website."
+                },
+                {
+                "title": "Write save-the-date text and have save-the-dates printed and mailed once you’ve completed your wedding website and registry, noting that information on your save-the-date."
+                },
+                {
+                "title": "Start narrowing down preferred vendor list to three top contenders in each category."
+                },
+                {
+                "title": "Choose graphic designers or vendors for invitations."
+                },
+                {
+                "title": "Hire a photographer.",
+                "tip": "Try to do this as soon as you’ve chosen a date, as photographers tend to book up really far in advance."
+                },
+                {
+                "title": "Choose bridal party."
+                },
+                {
+                "title": "Start look for bridesmaids dresses."
+                },
+                {
+                "title": "Consider attire options for the groom and groomsmen to coordinate with the bridesmaids and the venue."
+                },
+                {
+                "title": "Get music samples for bands and ceremony music, or schedule an interview with DJs to talk about music preferences."
+                },
+                {
+                "title": "Research honeymoon destinations."
+                },
+                {
+                "title": "Book officiant for your wedding."
+                },
+                {
+                "title": "Schedule an engagement photo shoot if you’re doing one."
+                },
+                {
+                "title": "Start researching lodging for you and your guests."
+                },
+                {
+                "title": "Conduct site inspection of ceremony and reception locations."
+                },
+                {
+                "title": "Start looking at wedding invitations."
+                },
+                {
+                "title": "Set up your wedding registry or a donation account online if you’d prefer donations to charity in lieu of gifts.",
+                "tip": "Be sure to list three or four options in different price ranges."
+                }
+            ]
+    }
+}

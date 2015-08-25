@@ -15,7 +15,10 @@
 @dynamic lastName;
 @dynamic photo;
 @dynamic facebookLink;
-@dynamic address;
+@dynamic streetAddress;
+@dynamic city;
+@dynamic state;
+@dynamic zip;
 @dynamic email;
 @dynamic phoneNumber;
 @dynamic secondPhoneNumber;

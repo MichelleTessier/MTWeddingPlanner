@@ -81,6 +81,7 @@
 		2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */; };
 		2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */; };
 		2CEF83031B87E6DB00317EC4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF83021B87E6DB00317EC4 /* User.m */; };
+		2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF14211B8D001D00F3B9C3 /* VendorController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +225,8 @@
 		2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewCell.m; sourceTree = "<group>"; };
 		2CEF83011B87E6DB00317EC4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		2CEF83021B87E6DB00317EC4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		2CFF14201B8D001D00F3B9C3 /* VendorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorController.h; sourceTree = "<group>"; };
+		2CFF14211B8D001D00F3B9C3 /* VendorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,6 +564,8 @@
 				2CEF08581B8BBFD100DCCE2E /* WeddingController.m */,
 				2CEF085A1B8BC5EB00DCCE2E /* MasterWeddingProfileController.h */,
 				2CEF085B1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m */,
+				2CFF14201B8D001D00F3B9C3 /* VendorController.h */,
+				2CFF14211B8D001D00F3B9C3 /* VendorController.m */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -757,6 +762,7 @@
 				2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */,
 				2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */,
 				2C932FD91B87A3A6002B092D /* Budget.m in Sources */,
+				2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
 				2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */,
 				2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */,
