@@ -436,15 +436,10 @@
 		2CCB4F7B1B7D3FFB0048DF2E /* Vendors View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2CC3495B1B7C1CEB006A8D5E /* VendorsListViewController.h */,
-				2CC3495C1B7C1CEB006A8D5E /* VendorsListViewController.m */,
-				2CCB4F9E1B7E3FA20048DF2E /* VendorsListDataSource.h */,
-				2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */,
+				2CFF11D51B8E2F58002B675D /* Custom Table View Cells */,
+				2CFF11D61B8E2F75002B675D /* Vendor List View Controllers */,
 				2CEF08701B8BD8FC00DCCE2E /* Add Vendor View Controllers */,
-				2CCB4F9B1B7D6E100048DF2E /* VendorDetailViewController.h */,
-				2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */,
-				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
-				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
+				2CFF11D81B8E2F8F002B675D /* Vendor Detail View Controllers */,
 			);
 			name = "Vendors View Controllers";
 			sourceTree = "<group>";
@@ -602,6 +597,13 @@
 				2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */,
 				2CEF086D1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.h */,
 				2CEF086E1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m */,
+			);
+			name = "Add Vendor View Controllers";
+			sourceTree = "<group>";
+		};
+		2CFF11D51B8E2F58002B675D /* Custom Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
 				2CEF08711B8BD94500DCCE2E /* PickerViewTableViewCell.h */,
 				2CEF08721B8BD94500DCCE2E /* PickerViewTableViewCell.m */,
 				2CEF08741B8BDB3700DCCE2E /* TextFieldTableViewCell.h */,
@@ -611,7 +613,29 @@
 				2CEF087A1B8BE74D00DCCE2E /* ImagesTableViewCell.h */,
 				2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */,
 			);
-			name = "Add Vendor View Controllers";
+			name = "Custom Table View Cells";
+			sourceTree = "<group>";
+		};
+		2CFF11D61B8E2F75002B675D /* Vendor List View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CC3495B1B7C1CEB006A8D5E /* VendorsListViewController.h */,
+				2CC3495C1B7C1CEB006A8D5E /* VendorsListViewController.m */,
+				2CCB4F9E1B7E3FA20048DF2E /* VendorsListDataSource.h */,
+				2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */,
+			);
+			name = "Vendor List View Controllers";
+			sourceTree = "<group>";
+		};
+		2CFF11D81B8E2F8F002B675D /* Vendor Detail View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4F9B1B7D6E100048DF2E /* VendorDetailViewController.h */,
+				2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */,
+				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
+				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
+			);
+			name = "Vendor Detail View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

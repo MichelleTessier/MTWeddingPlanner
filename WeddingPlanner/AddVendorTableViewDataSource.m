@@ -9,28 +9,6 @@
 #import "AddVendorTableViewDataSource.h"
 #import "PickerViewTableViewCell.h"
 
-
-
-
-typedef NS_ENUM(NSUInteger, AddVendorInformationSections) {
-    AddVendorInformationPickerSection,
-    AddVendorInformationContactSection,
-//    AddVendorinformationPaymentSection,
-    AddVendorInformationSectionsCount,
-};
-
-typedef NS_ENUM(NSUInteger, VendorContactInformationTypes) {
-    VendorContactInformationTypeBusinessName,
-    VendorContactInformationTypePerson,
-    VendorContactInformationTypeTitle,
-    VendorContactInformationTypePhone,
-    VendorContactInformationTypeSecondPhone,
-    VendorContactInformationTypeEmail,
-    VendorContactInformationTypeStreetAddress,
-    VendorContactInformationTypeAddressLine2,
-    VendorContactInformationTypeCount,
-};
-
 static NSString *pickerCellID = @"pickerCellID";
 static NSString *textFieldCellID = @"textFieldCellID";
 
@@ -129,42 +107,46 @@ static NSString *textFieldCellID = @"textFieldCellID";
             
             switch (informationType) {
                 case VendorContactInformationTypeBusinessName:
-                    textFieldCell.name = @"Business";
+                    textFieldCell.textField.placeholder = @"Business";
                     break;
                     
+                //This needs to be changed to two text fields for first name and last name
                 case VendorContactInformationTypePerson:
-                    textFieldCell.name = @"Contact";
+                    textFieldCell.textField.placeholder = @"Contact";
                     break;
                     
                 case VendorContactInformationTypeTitle:
-                    textFieldCell.name = @"Title";
+                    textFieldCell.textField.placeholder = @"Title";
                     break;
                     
                 case VendorContactInformationTypePhone:
-                    textFieldCell.name = @"Phone";
+                    textFieldCell.textField.placeholder = @"Phone";
                     break;
                     
                 case VendorContactInformationTypeSecondPhone:
-                    textFieldCell.name = @"Second Phone";
+                    textFieldCell.textField.placeholder = @"Second Phone";
                     break;
                     
                 case VendorContactInformationTypeEmail:
-                    textFieldCell.name = @"Email";
+                    textFieldCell.textField.placeholder = @"Email";
                     break;
-                    
+                
+               
                 case VendorContactInformationTypeStreetAddress:
-                    textFieldCell.name = @"Street";
+                    textFieldCell.textField.placeholder = @"Street";
                     break;
                     
+                    
+                //This needs to be changed to three text fields for city, state, and zip
                 case VendorContactInformationTypeAddressLine2:
-                    textFieldCell.name = @"City, State, Zip";
+                    textFieldCell.textField.placeholder = @"City, State, Zip";
                     break;
                     
                 default:
                     break;
             }
             
-            textFieldCell.textField.text = textFieldCell.name;
+           
             
             return textFieldCell;
         

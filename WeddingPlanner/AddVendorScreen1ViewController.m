@@ -40,6 +40,7 @@
     self.dataSource.addVendorScreen1ViewController = self;
     self.tableView.dataSource = self.dataSource;
     [self.view addSubview: self.tableView];
+    
     [self.tableView alignTopEdgeWithView:self.view predicate:@"64"];
     [self.tableView alignBottomEdgeWithView:self.view predicate:@"0"];
     [self.tableView alignLeadingEdgeWithView:self.view predicate:@"0"];
@@ -59,6 +60,55 @@
         self.vendor = [[WeddingController sharedInstance] createVendorforWedding:self.wedding];
     }
     
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TextFieldTableViewCell*)[[textField superview] superview]];
+    
+    AddVendorInformationSections informationSection = indexPath.section;
+    
+    if (informationSection == AddVendorInformationContactSection) {
+        
+    VendorContactInformationTypes vendorSection = indexPath.row;
+    
+    switch (vendorSection) {
+        case VendorContactInformationTypeBusinessName:
+            self.vendor.businessName = textField.text;
+            break;
+            
+        case VendorContactInformationTypePerson:
+            self.vendor.firstName = textField.text;
+            break;
+            
+        case VendorContactInformationTypeTitle:
+            self.vendor.title = textField.text;
+            break;
+            
+        case VendorContactInformationTypePhone:
+            self.vendor.phoneNumber = textField.text;
+            break;
+            
+        case VendorContactInformationTypeSecondPhone:
+            self.vendor.secondPhoneNumber = textField.text;
+            break;
+            
+        case VendorContactInformationTypeEmail:
+            self.vendor.email = textField.text;
+            break;
+            
+        case VendorContactInformationTypeStreetAddress:
+            self.vendor.streetAddress = textField.text;
+            break;
+            
+        case VendorContactInformationTypeAddressLine2:
+            self.vendor.city = textField.text;
+            break;
+            
+        default:
+            break;
+    }
+        
+ }
+    
+    // What's the best way to save this stuff?
+    [self.vendor saveEventually];
     
 }
 
@@ -66,10 +116,7 @@
     //also need to add some sort of method for if I leave program without clicking finish
     //need to add how a user is supposed to create a wedding
     
-    
-    
-    
-    
+    //needs to be changed to not pop all the way back to the initial view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

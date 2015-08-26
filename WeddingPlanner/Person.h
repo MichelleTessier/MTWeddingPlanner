@@ -14,6 +14,7 @@
 
 @property (retain) NSString *firstName;
 @property (retain) NSString *lastName;
+@property (retain) NSString *title;
 @property (retain) UIImage *photo;
 @property (retain) NSString *facebookLink;
 @property (retain) NSString *streetAddress;

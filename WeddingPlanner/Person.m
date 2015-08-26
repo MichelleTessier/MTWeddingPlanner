@@ -13,6 +13,7 @@
 
 @dynamic firstName;
 @dynamic lastName;
+@dynamic title;
 @dynamic photo;
 @dynamic facebookLink;
 @dynamic streetAddress;

@@ -12,6 +12,24 @@
 #import "WeddingController.h"
 #import "AddVendorScreen1ViewController.h"
 
+typedef NS_ENUM(NSUInteger, VendorContactInformationTypes) {
+    VendorContactInformationTypeBusinessName,
+    VendorContactInformationTypePerson,
+    VendorContactInformationTypeTitle,
+    VendorContactInformationTypePhone,
+    VendorContactInformationTypeSecondPhone,
+    VendorContactInformationTypeEmail,
+    VendorContactInformationTypeStreetAddress,
+    VendorContactInformationTypeAddressLine2,
+    VendorContactInformationTypeCount,
+};
+
+typedef NS_ENUM(NSUInteger, AddVendorInformationSections) {
+    AddVendorInformationPickerSection,
+    AddVendorInformationContactSection,
+    //    AddVendorinformationPaymentSection,
+    AddVendorInformationSectionsCount,
+};
 
 @interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
