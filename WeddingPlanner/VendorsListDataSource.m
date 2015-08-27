@@ -8,7 +8,7 @@
 
 #import "VendorsListDataSource.h"
 #import "NameEmailPhoneTableViewCell.h"
-#import "WeddingController.h"
+
 
 static NSString *vendorListCell = @"vendorListCell";
 

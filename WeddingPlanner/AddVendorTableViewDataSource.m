@@ -87,7 +87,7 @@ static NSString *textFieldCellID = @"textFieldCellID";
             }
         
             pickerCell.pickerView.dataSource = self;
-            pickerCell.pickerView.delegate = self;
+            pickerCell.pickerView.delegate = self.addVendorScreen1ViewController;
             
             return pickerCell;
         
@@ -179,12 +179,10 @@ static NSString *textFieldCellID = @"textFieldCellID";
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 1;
+    return self.addVendorScreen1ViewController.couple.wedding.vendorCategories.count;
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return @"hold on";
-}
+
 
 
 

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "VendorsListDataSource.h"
+#import "Couple.h"
 
 @interface VendorsListViewController : UIViewController
+
+@property (strong, nonatomic) Couple *couple;
 
 @end

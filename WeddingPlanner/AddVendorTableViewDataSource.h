@@ -13,8 +13,9 @@
 #import "AddVendorScreen1ViewController.h"
 #import "VendorViewControllerEnums.h"
 
-@interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource, UIPickerViewDataSource, UITextFieldDelegate>
 
 @property (strong, nonatomic) AddVendorScreen1ViewController *addVendorScreen1ViewController;
+@property (strong, nonatomic) Couple *couple;
 
 @end

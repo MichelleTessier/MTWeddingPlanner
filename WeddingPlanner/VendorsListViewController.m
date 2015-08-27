@@ -56,7 +56,9 @@
 }
 
 -(void)addVendorBarButtonTapped{
-    [self.navigationController pushViewController:[AddVendorScreen1ViewController new] animated:YES];
+    AddVendorScreen1ViewController *addVendorScreen1VC = [AddVendorScreen1ViewController new];
+    addVendorScreen1VC.couple = self.couple;
+    [self.navigationController pushViewController:addVendorScreen1VC animated:YES];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

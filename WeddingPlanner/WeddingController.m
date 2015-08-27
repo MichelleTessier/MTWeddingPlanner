@@ -55,7 +55,6 @@
     
     Wedding *wedding = [Wedding objectWithClassName:[Wedding parseClassName]];
     wedding.coupleID = couple.objectId;
-    wedding.vendors = [NSArray new];
     return wedding;
     
 }
@@ -71,29 +70,34 @@
 
 #pragma mark - Vendor CRUD
 
--(Vendor *)createVendorforWedding:(Wedding *)wedding{
+-(Vendor *)createVendorInCateogry:(VendorCategory *)selectedVendorCategory forWedding:(Wedding *)wedding{
     
     Vendor *vendor = [Vendor objectWithClassName:[Vendor parseClassName]];
     vendor.weddingID = wedding.objectId;
     
-    NSMutableArray *mutableWeddings = [wedding.vendors mutableCopy];
-    [mutableWeddings addObject:vendor];
-    wedding.vendors = mutableWeddings;
+    for (VendorCategory *vendorCateogry in wedding.vendorCategories) {
+        if ([vendorCateogry isEqual:selectedVendorCategory]) {
+            NSMutableArray *mutableVendors = [vendorCateogry.vendors mutableCopy];
+            [mutableVendors addObject:vendor];
+            vendorCateogry.vendors = mutableVendors;
+            [vendorCateogry saveInBackground];
+        }
+    }
     
     return vendor;
     
 }
 
--(void)retrieveVendorsforWedding:(Wedding *)wedding{
-    
-    PFQuery *getVendors = [Vendor query];
-    
-    [getVendors whereKey:@"weddingID" equalTo:wedding.objectId];
-    
-    [getVendors findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
-        wedding.vendors = results;
-    }];
-}
+//-(void)retrieveVendorsforWedding:(Wedding *)wedding{
+//    
+//    PFQuery *getVendors = [Vendor query];
+//    
+//    [getVendors whereKey:@"weddingID" equalTo:wedding.objectId];
+//    
+//    [getVendors findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
+//        wedding.vendors = results;
+//    }];
+//}
 
 #pragma mark - vendorCategory CRUD
 

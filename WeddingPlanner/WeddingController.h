@@ -39,7 +39,7 @@
 
 
 
--(Vendor *)createVendorforWedding:(Wedding *)wedding;
+-(Vendor *)createVendorInCateogry:(VendorCategory *)selectedVendorCategory forWedding:(Wedding *)wedding;
 
 @property (strong, nonatomic) NSArray *vendors;
 -(void)retrieveVendors;

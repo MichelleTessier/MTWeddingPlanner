@@ -39,6 +39,7 @@
     HomeViewController *homeVC = [HomeViewController new];
     homeVC.title = @"Home";
     UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    homeVC.couple = self.clientTabBarController.couple;
     
     TasksViewController *tasksVC = [TasksViewController new];
     tasksVC.title = @"Tasks";
@@ -50,6 +51,7 @@
     
     VendorsListViewController *vendorsVC = [VendorsListViewController new];
     vendorsVC.title = @"Vendors";
+    vendorsVC.couple = self.clientTabBarController.couple;
     
     UINavigationController *vendorsNavController = [[UINavigationController alloc] initWithRootViewController:vendorsVC];
     

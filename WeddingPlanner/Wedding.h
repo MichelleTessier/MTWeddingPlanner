@@ -17,7 +17,6 @@
 @property (retain) NSDate *date;
 @property (retain) Vendor *venue;
 @property (retain) NSArray *guests;
-@property (retain) NSArray *vendors;
 @property (retain) Budget *budget;
 @property (retain) NSArray *vendorCategories;
 @property (retain) NSArray *calendarItems;
