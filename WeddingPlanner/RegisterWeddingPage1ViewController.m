@@ -9,8 +9,8 @@
 #import "RegisterWeddingPage1ViewController.h"
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
-#import "WeddingController.h"
-#import "Spouse.h"
+
+#import "Couple.h"
 
 
 
@@ -22,10 +22,11 @@
 @property (strong, nonatomic) UITextField *spouse2FirstNameTextField;
 @property (strong, nonatomic) UITextField *spouse2LastNameTextField;
 @property (strong, nonatomic) UITextField *spouse2EmailTextField;
+@property (strong, nonatomic) UITextField *passwordTextField;
+@property (strong, nonatomic) UITextField *confirmPasswordTextField;
 @property (strong, nonatomic) UILabel *label;
 @property (strong, nonatomic) UIButton *registerButton;
 
-@property (strong, nonatomic) Wedding *wedding;
 
 @end
 
@@ -70,6 +71,14 @@
     self.spouse2EmailTextField.placeholder = @"Email (optional)";
     [self.view addSubview:self.spouse2EmailTextField];
     
+    self.passwordTextField = [UITextField new];
+    self.passwordTextField.placeholder = @"Password";
+    [self.view addSubview:self.passwordTextField];
+    
+    self.confirmPasswordTextField = [UITextField new];
+    self.confirmPasswordTextField.placeholder = @"Confirm password";
+    [self.view addSubview:self.confirmPasswordTextField];
+    
     self.label = [UILabel new];
     [self.view addSubview:self.label];
     
@@ -91,7 +100,7 @@
     
     [self.spouse1FirstNameTextField constrainWidthToView:self.view predicate:@"*.4"];
     [self.spouse1FirstNameTextField constrainHeight:@"44"];
-    [self.spouse1FirstNameTextField constrainBottomSpaceToView:self.spouse1EmailTextField predicate:@"5"];
+    [self.spouse1FirstNameTextField alignTopEdgeWithView:self.view predicate:@"15"];
     [self.spouse1FirstNameTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
     
     [self.spouse1LastNameTextField constrainLeadingSpaceToView:self.spouse1FirstNameTextField predicate:@"5"];
@@ -102,7 +111,7 @@
     [self.spouse1EmailTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
     [self.spouse1EmailTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
     [self.spouse1EmailTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
-    [self.spouse1EmailTextField alignCenterYWithView:self.view predicate:@"-60"];
+    [self.spouse1EmailTextField constrainTopSpaceToView:self.spouse1FirstNameTextField predicate:@"5"];
     
     [self.spouse2FirstNameTextField constrainTopSpaceToView:self.spouse1EmailTextField predicate:@"5"];
     [self.spouse2FirstNameTextField constrainWidthToView:self.spouse1FirstNameTextField predicate:nil];
@@ -119,10 +128,23 @@
     [self.spouse2EmailTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
     [self.spouse2EmailTextField constrainTopSpaceToView:self.spouse2FirstNameTextField predicate:@"5"];
     
+    [self.passwordTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
+    [self.passwordTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
+    [self.passwordTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
+    [self.passwordTextField constrainTopSpaceToView:self.spouse2EmailTextField predicate:@"5"];
+    
+    [self.confirmPasswordTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
+    [self.confirmPasswordTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
+    [self.confirmPasswordTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
+    [self.confirmPasswordTextField constrainTopSpaceToView:self.passwordTextField predicate:@"5"];
+
+    
+    
+    
     [self.label alignLeadingEdgeWithView:self.view predicate:@"5"];
     [self.label alignTrailingEdgeWithView:self.view predicate:@"5"];
     [self.label constrainHeight:@"44"];
-    [self.label constrainTopSpaceToView:self.spouse2EmailTextField predicate:@"5"];
+    [self.label constrainTopSpaceToView:self.confirmPasswordTextField predicate:@"10"];
     
     [self.registerButton alignBottomEdgeWithView:self.view predicate:nil];
     [self.registerButton alignTrailingEdgeWithView:self.view predicate:nil];
@@ -137,32 +159,41 @@
     
     //also need to create parse user here
     
-    if (!self.wedding) {
-    self.wedding = [[WeddingController sharedInstance] createWedding];
+    if ([self.passwordTextField.text isEqualToString:self.confirmPasswordTextField.text]) {
+        
+        self.label.text = @"";
+        
+         self.couple = [[WeddingController sharedInstance] createCouplewithEmail:self.spouse1EmailTextField.text andPassword:self.passwordTextField.text];
+        
+        self.wedding = [[WeddingController sharedInstance] createWeddingForCouple:self.couple];
+        
+        self.couple.wedding = self.wedding;
+        
+        [self.couple setSpouse1FirstName:self.spouse1FirstNameTextField.text];
+        [self.couple setSpouse1LastName:self.spouse1LastNameTextField.text];
+        [self.couple setEmail:self.spouse1EmailTextField.text];
+        
+        [self.couple setSpouse2FirstName:self.spouse2FirstNameTextField.text];
+        [self.couple setSpouse2LastName:self.spouse2LastNameTextField.text];
+        [self.couple setSpouse2Email:self.spouse2EmailTextField.text];
+    
+        [self.couple saveInBackground];
+        
+    } else {
+        self.label.text = @"Please make sure your passwords match";
     }
     
-    Spouse *spouse1 = [Spouse new];
-    spouse1.firstName = self.spouse1FirstNameTextField.text;
-    spouse1.lastName = self.spouse1LastNameTextField.text;
-    spouse1.email = self.spouse1EmailTextField.text;
-    
-    Spouse *spouse2 = [Spouse new];
-    spouse2.firstName = self.spouse2FirstNameTextField.text;
-    spouse2.lastName = self.spouse2LastNameTextField.text;
-    spouse2.email = self.spouse2EmailTextField.text;
-    
-    self.wedding.couple = @[spouse1, spouse2];
-  
-    [self.wedding saveEventually];
-    
-    
 }
+    
+
+
 
 
 - (void)registerButtonTapped{
     
     [self createWedding];
     
+    self.registerWeddingPage2VC.couple = self.couple;
     
     [self.pageViewController setViewControllers:@[self.registerWeddingPage2VC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 

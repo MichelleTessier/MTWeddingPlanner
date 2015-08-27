@@ -26,11 +26,36 @@
     return sharedInstance;
 }
 
--(Wedding *)createWedding{
+#pragma mark - couple CRUD
+
+
+-(Couple *)createCouplewithEmail:(NSString *)email andPassword:(NSString *)password{
+    
+    Couple *newCouple = (Couple *)[Couple object];
+    [newCouple setIsPlanner:NO];
+    [newCouple setUsername:email];
+    [newCouple setPassword:password];
+    [newCouple signUpInBackground];
+    
+    return newCouple;
+    
+}
+
+-(void)retrieveCouples{
+    PFQuery *getCouples = [Couple query];
+    [getCouples findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
+        self.couples = results;
+    }];
+}
+
+#pragma mark - wedding CRUD
+
+
+-(Wedding *)createWeddingForCouple:(Couple *)couple{
     
     Wedding *wedding = [Wedding objectWithClassName:[Wedding parseClassName]];
+    wedding.coupleID = couple.objectId;
     wedding.vendors = [NSArray new];
-    wedding.vendorCategories = [self getVendorCategoriesForWedding:wedding];
     return wedding;
     
 }
@@ -59,7 +84,6 @@
     
 }
 
-//How to I retreieve only the vendors that are attached to a specific wedding? Do I have to pull out the wedding first?
 -(void)retrieveVendorsforWedding:(Wedding *)wedding{
     
     PFQuery *getVendors = [Vendor query];
@@ -69,6 +93,16 @@
     [getVendors findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
         wedding.vendors = results;
     }];
+}
+
+#pragma mark - vendorCategory CRUD
+
+-(void)addVendorCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding*)wedding{
+    
+    //will add the correct vendor categories once I have that built
+    //for now using JSON file
+    wedding.vendorCategories = [self getVendorCategoriesForWedding:wedding];
+    
 }
 
 -(NSArray *)getVendorCategoriesForWedding:(Wedding *)wedding{

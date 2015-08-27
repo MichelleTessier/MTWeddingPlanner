@@ -51,64 +51,66 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
+ 
+#warning fix this
     
-    if (!self.wedding) {
-        self.wedding = [[WeddingController sharedInstance] createWedding];
-    }
-    
-    if (!self.vendor) {
-        self.vendor = [[WeddingController sharedInstance] createVendorforWedding:self.wedding];
-    }
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TextFieldTableViewCell*)[[textField superview] superview]];
-    
-    AddVendorInformationSections informationSection = indexPath.section;
-    
-    if (informationSection == AddVendorInformationContactSection) {
-        
-    VendorContactInformationTypes vendorSection = indexPath.row;
-    
-    switch (vendorSection) {
-        case VendorContactInformationTypeBusinessName:
-            self.vendor.businessName = textField.text;
-            break;
-            
-        case VendorContactInformationTypePerson:
-            self.vendor.firstName = textField.text;
-            break;
-            
-        case VendorContactInformationTypeTitle:
-            self.vendor.title = textField.text;
-            break;
-            
-        case VendorContactInformationTypePhone:
-            self.vendor.phoneNumber = textField.text;
-            break;
-            
-        case VendorContactInformationTypeSecondPhone:
-            self.vendor.secondPhoneNumber = textField.text;
-            break;
-            
-        case VendorContactInformationTypeEmail:
-            self.vendor.email = textField.text;
-            break;
-            
-        case VendorContactInformationTypeStreetAddress:
-            self.vendor.streetAddress = textField.text;
-            break;
-            
-        case VendorContactInformationTypeAddressLine2:
-            self.vendor.city = textField.text;
-            break;
-            
-        default:
-            break;
-    }
-        
- }
-    
-    // What's the best way to save this stuff?
-    [self.vendor saveEventually];
+//    if (!self.wedding) {
+//        self.wedding = [[WeddingController sharedInstance] createWedding];
+//    }
+//    
+//    if (!self.vendor) {
+//        self.vendor = [[WeddingController sharedInstance] createVendorforWedding:self.wedding];
+//    }
+//    
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TextFieldTableViewCell*)[[textField superview] superview]];
+//    
+//    AddVendorInformationSections informationSection = indexPath.section;
+//    
+//    if (informationSection == AddVendorInformationContactSection) {
+//        
+//    VendorContactInformationTypes vendorSection = indexPath.row;
+//    
+//    switch (vendorSection) {
+//        case VendorContactInformationTypeBusinessName:
+//            self.vendor.businessName = textField.text;
+//            break;
+//            
+//        case VendorContactInformationTypePerson:
+//            self.vendor.firstName = textField.text;
+//            break;
+//            
+//        case VendorContactInformationTypeTitle:
+//            self.vendor.title = textField.text;
+//            break;
+//            
+//        case VendorContactInformationTypePhone:
+//            self.vendor.phoneNumber = textField.text;
+//            break;
+//            
+//        case VendorContactInformationTypeSecondPhone:
+//            self.vendor.secondPhoneNumber = textField.text;
+//            break;
+//            
+//        case VendorContactInformationTypeEmail:
+//            self.vendor.email = textField.text;
+//            break;
+//            
+//        case VendorContactInformationTypeStreetAddress:
+//            self.vendor.streetAddress = textField.text;
+//            break;
+//            
+//        case VendorContactInformationTypeAddressLine2:
+//            self.vendor.city = textField.text;
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//        
+// }
+//    
+//    // What's the best way to save this stuff?
+//    [self.vendor saveEventually];
     
 }
 

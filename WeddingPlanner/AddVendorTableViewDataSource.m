@@ -179,13 +179,11 @@ static NSString *textFieldCellID = @"textFieldCellID";
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    Wedding *wedding = [[WeddingController sharedInstance] createWedding];
-    return wedding.vendorCategories.count;
+    return 1;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    Wedding *wedding = [[WeddingController sharedInstance] createWedding];
-    return wedding.vendorCategories[row];
+    return @"hold on";
 }
 
 

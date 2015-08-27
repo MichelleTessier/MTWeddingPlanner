@@ -11,11 +11,10 @@
 
 @implementation Wedding
 
-@dynamic couple;
-@dynamic couplePhoto;
+@dynamic coupleID;
 @dynamic date;
 @dynamic venue;
-@dynamic planner;
+
 @dynamic guests;
 @dynamic vendors;
 @dynamic budget;

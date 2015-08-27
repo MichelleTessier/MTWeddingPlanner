@@ -26,8 +26,7 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 
-#import "Guest.h"
-#import "User.h"
+
 
 @interface TempLoginViewController ()
 

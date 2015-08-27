@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Couple.h"
 
 @interface ClientTabBarController : UITabBarController
 
 - (instancetype)initWithToolBar;
 @property (nonatomic, strong) UIToolbar *toolBar;
+@property (nonatomic, strong) Couple *couple;
 
 @end

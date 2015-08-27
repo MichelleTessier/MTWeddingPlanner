@@ -8,14 +8,25 @@
 
 #import "RegisterPlannerViewController.h"
 
+#import "UIView+FLKAutoLayout.h"
+#import "UIView+FLKAutoLayoutDebug.h"
+
+#import "PlannerController.h"
+
+#import "DoubleTabBarSetup.h"
+
 @interface RegisterPlannerViewController ()
+
+//Might want to add a second page where planner can add phone, website, fb link, etc. #LATER
 
 @property (strong, nonatomic) UITextField *plannerFirstNameTextField;
 @property (strong, nonatomic) UITextField *plannerLastNameTextField;
 @property (strong, nonatomic) UITextField *plannerBusinessNameTextField;
-@property (strong, nonatomic) UITextField *plannerEmail
-@property (strong, nonatomic) UITextField
-@property (strong, nonatomic) UITextField
+@property (strong, nonatomic) UITextField *plannerEmailTextField;
+@property (strong, nonatomic) UITextField *plannerPasswordTextField;
+@property (strong, nonatomic) UITextField *plannerPasswordConfirmTextField;
+@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) UIButton *registerButton;
 
 
 @end
@@ -36,29 +47,29 @@
 
 - (void)setUpTextFieldsAndLabel{
     
-    self.spouse1FirstNameTextField = [UITextField new];
-    self.spouse1FirstNameTextField.placeholder = @"First";
-    [self.view addSubview:self.spouse1FirstNameTextField];
+    self.plannerFirstNameTextField = [UITextField new];
+    self.plannerFirstNameTextField.placeholder = @"First";
+    [self.view addSubview:self.plannerFirstNameTextField];
     
-    self.spouse1LastNameTextField = [UITextField new];
-    self.spouse1LastNameTextField.placeholder = @"Last";
-    [self.view addSubview:self.spouse1LastNameTextField];
+    self.plannerLastNameTextField = [UITextField new];
+    self.plannerLastNameTextField.placeholder = @"Last";
+    [self.view addSubview:self.plannerLastNameTextField];
     
-    self.spouse1EmailTextField = [UITextField new];
-    self.spouse1EmailTextField.placeholder = @"Email";
-    [self.view addSubview:self.spouse1EmailTextField];
+    self.plannerEmailTextField = [UITextField new];
+    self.plannerEmailTextField.placeholder = @"Email";
+    [self.view addSubview:self.plannerEmailTextField];
     
-    self.spouse2FirstNameTextField = [UITextField new];
-    self.spouse2FirstNameTextField.placeholder = @"First";
-    [self.view addSubview:self.spouse2FirstNameTextField];
+    self.plannerBusinessNameTextField = [UITextField new];
+    self.plannerBusinessNameTextField.placeholder = @"Business Name (optional)";
+    [self.view addSubview:self.plannerBusinessNameTextField];
     
-    self.spouse2LastNameTextField = [UITextField new];
-    [self.view addSubview:self.spouse2LastNameTextField];
-    self.spouse2LastNameTextField.placeholder = @"Last";
+    self.plannerPasswordTextField = [UITextField new];
+    [self.view addSubview:self.plannerPasswordTextField];
+    self.plannerPasswordTextField.placeholder = @"Password";
     
-    self.spouse2EmailTextField = [UITextField new];
-    self.spouse2EmailTextField.placeholder = @"Email (optional)";
-    [self.view addSubview:self.spouse2EmailTextField];
+    self.plannerPasswordConfirmTextField = [UITextField new];
+    self.plannerPasswordConfirmTextField.placeholder = @"Confirm Password";
+    [self.view addSubview:self.plannerPasswordConfirmTextField];
     
     self.label = [UILabel new];
     [self.view addSubview:self.label];
@@ -79,40 +90,41 @@
 
 -(void)setUpConstraints{
     
-    [self.spouse1FirstNameTextField constrainWidthToView:self.view predicate:@"*.4"];
-    [self.spouse1FirstNameTextField constrainHeight:@"44"];
-    [self.spouse1FirstNameTextField constrainBottomSpaceToView:self.spouse1EmailTextField predicate:@"5"];
-    [self.spouse1FirstNameTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
+    [self.plannerBusinessNameTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
+    [self.plannerBusinessNameTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
+    [self.plannerBusinessNameTextField constrainHeight:@"44"];
+    [self.plannerBusinessNameTextField alignTopEdgeWithView:self.view predicate:@"20"];
     
-    [self.spouse1LastNameTextField constrainLeadingSpaceToView:self.spouse1FirstNameTextField predicate:@"5"];
-    [self.spouse1LastNameTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
-    [self.spouse1LastNameTextField alignCenterYWithView:self.spouse1FirstNameTextField predicate:nil];
-    [self.spouse1LastNameTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
+    [self.plannerFirstNameTextField constrainWidthToView:self.view predicate:@"*.45"];
+    [self.plannerFirstNameTextField constrainHeightToView:self.plannerBusinessNameTextField predicate:nil];
+    [self.plannerFirstNameTextField constrainTopSpaceToView:self.plannerBusinessNameTextField predicate:@"5"];
+    [self.plannerFirstNameTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
     
-    [self.spouse1EmailTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
-    [self.spouse1EmailTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
-    [self.spouse1EmailTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
-    [self.spouse1EmailTextField alignCenterYWithView:self.view predicate:@"-60"];
+    [self.plannerLastNameTextField constrainLeadingSpaceToView:self.plannerFirstNameTextField predicate:@"5"];
+    [self.plannerLastNameTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
+    [self.plannerLastNameTextField alignCenterYWithView:self.plannerFirstNameTextField predicate:nil];
+    [self.plannerLastNameTextField constrainHeightToView:self.plannerBusinessNameTextField predicate:nil];
     
-    [self.spouse2FirstNameTextField constrainTopSpaceToView:self.spouse1EmailTextField predicate:@"5"];
-    [self.spouse2FirstNameTextField constrainWidthToView:self.spouse1FirstNameTextField predicate:nil];
-    [self.spouse2FirstNameTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
-    [self.spouse2FirstNameTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
+    [self.plannerEmailTextField constrainWidthToView:self.plannerEmailTextField predicate:nil];
+    [self.plannerEmailTextField constrainHeightToView:self.plannerBusinessNameTextField predicate:nil];
+    [self.plannerEmailTextField constrainTopSpaceToView:self.plannerFirstNameTextField predicate:@"5"];
+    [self.plannerEmailTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
     
-    [self.spouse2LastNameTextField constrainLeadingSpaceToView:self.spouse2FirstNameTextField predicate:@"5"];
-    [self.spouse2LastNameTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
-    [self.spouse2LastNameTextField alignCenterYWithView:self.spouse2FirstNameTextField predicate:nil];
-    [self.spouse2LastNameTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
+    [self.plannerPasswordTextField constrainWidthToView:self.plannerEmailTextField predicate:nil];
+    [self.plannerPasswordTextField constrainHeightToView:self.plannerBusinessNameTextField predicate:nil];
+    [self.plannerPasswordTextField constrainTopSpaceToView:self.plannerEmailTextField predicate:@"5"];
+    [self.plannerPasswordTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
     
-    [self.spouse2EmailTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
-    [self.spouse2EmailTextField alignTrailingEdgeWithView:self.view predicate:@"5"];
-    [self.spouse2EmailTextField constrainHeightToView:self.spouse1FirstNameTextField predicate:nil];
-    [self.spouse2EmailTextField constrainTopSpaceToView:self.spouse2FirstNameTextField predicate:@"5"];
+    [self.plannerPasswordConfirmTextField constrainWidthToView:self.plannerEmailTextField predicate:nil];
+    [self.plannerPasswordConfirmTextField constrainHeightToView:self.plannerBusinessNameTextField predicate:nil];
+    [self.plannerPasswordConfirmTextField constrainTopSpaceToView:self.plannerPasswordTextField predicate:@"5"];
+    [self.plannerPasswordConfirmTextField alignLeadingEdgeWithView:self.view predicate:@"5"];
     
+    [self.label constrainWidthToView:self.plannerEmailTextField predicate:nil];
+    [self.label constrainHeightToView:self.plannerBusinessNameTextField predicate:nil];
+    [self.label constrainTopSpaceToView:self.plannerPasswordConfirmTextField predicate:@"5"];
     [self.label alignLeadingEdgeWithView:self.view predicate:@"5"];
-    [self.label alignTrailingEdgeWithView:self.view predicate:@"5"];
-    [self.label constrainHeight:@"44"];
-    [self.label constrainTopSpaceToView:self.spouse2EmailTextField predicate:@"5"];
+    
     
     [self.registerButton alignBottomEdgeWithView:self.view predicate:nil];
     [self.registerButton alignTrailingEdgeWithView:self.view predicate:nil];
@@ -121,40 +133,43 @@
     
 }
 
-- (void)createWedding{
+- (void)createPlanner{
     
     //put in method to make sure all textfields are filled in
     
-    //also need to create parse user here
+    if ([self.plannerPasswordTextField.text isEqualToString:self.plannerPasswordConfirmTextField.text]) {
+        
+        self.label.text = @"";
+        
+        Planner *planner = [[PlannerController sharedInstance] createPlannerwithEmail:self.plannerEmailTextField.text andPassword:self.plannerPasswordTextField.text];
     
-    if (!self.wedding) {
-        self.wedding = [[WeddingController sharedInstance] createWedding];
+        [planner setEmail:self.plannerEmailTextField.text];
+      
+        [planner setFirstName:self.plannerFirstNameTextField.text];
+      
+        [planner setLastName:self.plannerLastNameTextField.text];
+      
+        [planner setBusinessName:self.plannerBusinessNameTextField.text];
+        
+        [planner saveInBackground];
+        
+        
+    } else {
+        self.label.text = @"Please make sure your passwords match";
     }
-    
-    Spouse *spouse1 = [Spouse new];
-    spouse1.firstName = self.spouse1FirstNameTextField.text;
-    spouse1.lastName = self.spouse1LastNameTextField.text;
-    spouse1.email = self.spouse1EmailTextField.text;
-    
-    Spouse *spouse2 = [Spouse new];
-    spouse2.firstName = self.spouse2FirstNameTextField.text;
-    spouse2.lastName = self.spouse2LastNameTextField.text;
-    spouse2.email = self.spouse2EmailTextField.text;
-    
-    self.wedding.couple = @[spouse1, spouse2];
-    
-    [self.wedding saveEventually];
-    
     
 }
 
 
 - (void)registerButtonTapped{
     
-    [self createWedding];
+    [self createPlanner];
     
+     DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+     [doubleTabBarSetup setUpClientTabBarController];
+     [doubleTabBarSetup setUpPlannerTabBarController];
     
-    [self.pageViewController setViewControllers:@[self.registerWeddingPage2VC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+     [self presentViewController:doubleTabBarSetup.plannerTabBarController animated:YES completion:nil];
     
 }
 

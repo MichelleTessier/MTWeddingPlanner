@@ -16,6 +16,10 @@
 
 @property (strong, nonatomic) UITextField *plannerEmailTextField;
 @property (strong, nonatomic) UIButton *registerButton;
+@property (strong, nonatomic) UILabel *label;
+
+@property (strong, nonatomic) Planner *planner;
+
 
 @end
 
@@ -29,6 +33,9 @@
     self.plannerEmailTextField.placeholder = @"Planner's Email (optional)";
     [self.view addSubview:self.plannerEmailTextField];
     
+    self.label = [UILabel new];
+    [self.view addSubview:self.label];
+    
     
     
     [self setUpButtons];
@@ -41,7 +48,7 @@
     
     self.registerButton = [UIButton new];
     [self.registerButton setBackgroundColor:[UIColor purpleColor]];
-    [self.registerButton setTitle:@"Add Planner" forState:UIControlStateNormal];
+    [self.registerButton setTitle:@"Find Planner" forState:UIControlStateNormal];
     [self.registerButton addTarget:self action:@selector(registerButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.registerButton];
     
@@ -55,6 +62,11 @@
     [self.plannerEmailTextField alignTrailingEdgeWithView:self.view predicate:@"15"];
     [self.plannerEmailTextField constrainHeight:@"44"];
     
+    [self.label alignLeadingEdgeWithView:self.view predicate:@"5"];
+    [self.label alignTrailingEdgeWithView:self.view predicate:@"5"];
+    [self.label constrainHeight:@"44"];
+    [self.label constrainTopSpaceToView:self.plannerEmailTextField predicate:@"10"];
+    
     [self.registerButton alignBottomEdgeWithView:self.view predicate:nil];
     [self.registerButton alignTrailingEdgeWithView:self.view predicate:nil];
     [self.registerButton alignLeadingEdgeWithView:self.view predicate:nil];
@@ -66,19 +78,41 @@
     
     [self addPlannerToWedding];
     
+}
+
+- (void)presentNextView{
+    
     DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
     [doubleTabBarSetup setUpClientTabBarController];
-     
+    
     [self presentViewController:doubleTabBarSetup.clientTabBarController animated:YES completion:nil];
     
 }
 
 - (void)addPlannerToWedding{
     
-    [[PlannerController sharedInstance] retrievePlanners];
-    NSArray *planners = [PlannerController sharedInstance].planners;
-    
-    
+    [[PlannerController sharedInstance] retrievePlannerWithEmail:self.plannerEmailTextField.text withCompletion:^{
+        if ([PlannerController sharedInstance].planner) {
+            
+            self.planner = [PlannerController sharedInstance].planner;
+            self.couple.plannerID = self.planner.objectId;
+            
+            [[WeddingController sharedInstance]addVendorCategoriesFromPlanner:self.planner ToWedding:self.couple.wedding];
+            
+            [self.couple saveInBackground];
+            
+            self.label.numberOfLines = 0;
+            self.label.text = [NSString stringWithFormat:@"Congrats! \n You've selected %@ %@ as your planner!", self.planner.firstName, self.planner.lastName];
+            
+            [self.registerButton setTitle:@"Continue" forState:UIControlStateNormal];
+            [self.registerButton addTarget:self action:@selector(presentNextView) forControlEvents:UIControlEventTouchUpInside];
+            
+        } else {
+            
+            self.label.text = @"No planner found matching that email";
+            
+        }
+    }];
     
 }
 

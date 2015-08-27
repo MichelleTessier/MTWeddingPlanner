@@ -16,18 +16,21 @@ static NSString *vendorListCell = @"vendorListCell";
 
 -(NSArray *)chosenVendorCategories{
     
-    Wedding *wedding = [[WeddingController sharedInstance] createWedding];
-    NSArray *vendorCategories = wedding.vendorCategories;
-    NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
-    for (VendorCategory *vendorCateogry in vendorCategories) {
-        if (!(vendorCateogry.vendors.count == 0)) {
-            [mutableChosenVendorCategories addObject:vendorCateogry];
-        }
-    }
+    NSArray *array = @[@1];
     
-    NSArray *chosenVendorCategories = mutableChosenVendorCategories;
-    
-    return chosenVendorCategories;
+    return array;
+//    Wedding *wedding = [[WeddingController sharedInstance] createWedding];
+//    NSArray *vendorCategories = wedding.vendorCategories;
+//    NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
+//    for (VendorCategory *vendorCateogry in vendorCategories) {
+//        if (!(vendorCateogry.vendors.count == 0)) {
+//            [mutableChosenVendorCategories addObject:vendorCateogry];
+//        }
+//    }
+//    
+//    NSArray *chosenVendorCategories = mutableChosenVendorCategories;
+//    
+//    return chosenVendorCategories;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

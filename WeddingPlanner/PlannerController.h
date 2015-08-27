@@ -9,21 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "Planner.h"
 
+
 @interface PlannerController : NSObject
 
 +(PlannerController*)sharedInstance;
 
--(Planner *)createPlanner;
+-(Planner *)createPlannerwithEmail:(NSString *)email andPassword:(NSString *)password;
 
 @property (nonatomic, strong) NSArray *planners;
 @property (nonatomic, strong) Planner *planner;
 
--(void)retrievePlanners;
+-(void)retrievePlannersWithCompletion:(void(^)(void))completion;
 
 -(void)deletePlanner:(Planner *)plannerToDelete;
 
 
--(void)retrievePlannerWithEmail:(NSString *)email;
+-(void)retrievePlannerWithEmail:(NSString *)email withCompletion:(void(^)(void))completion;
 
 
 @end

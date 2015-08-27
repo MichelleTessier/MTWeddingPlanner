@@ -13,12 +13,13 @@
 #import "UIView+FLKAutoLayoutDebug.h"
 
 #import "RegisterWeddingPageViewController.h"
+#import "RegisterPlannerViewController.h"
 
 #import "ClientTabBarController.h"
 #import "DoubleTabBarSetup.h"
 
 #import "Guest.h"
-#import "User.h"
+
 
 @interface LoginViewController ()
 
@@ -129,7 +130,7 @@
 
 -(void)registerAsPlannerButtonTapped{
     
-    [self presentViewController:self.plannerTabBarController animated:YES completion:nil];
+    [self presentViewController:[RegisterPlannerViewController new] animated:YES completion:nil];
     
 }
 

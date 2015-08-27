@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+//probably needs to have escape button if user accidentally clicks the wrong register as button
 
 @interface RegisterPlannerViewController : UIViewController
 

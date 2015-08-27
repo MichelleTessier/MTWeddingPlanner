@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeddingController.h"
 
 @interface RegisterWeddingPage2ViewController : UIViewController
+
+@property (strong, nonatomic) Couple *couple;
+
 
 @end

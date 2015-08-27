@@ -11,6 +11,8 @@
 
 @implementation Vendor
 
+@dynamic weddingID;
+
 @dynamic businessName;
 @dynamic vendorCategory;
 @dynamic vendorContractImages;

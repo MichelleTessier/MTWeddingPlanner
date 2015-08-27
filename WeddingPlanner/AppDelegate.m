@@ -11,6 +11,8 @@
 #import "LoginViewController.h"
 
 #import "Planner.h"
+#import "Couple.h"
+
 
 
 
@@ -28,6 +30,7 @@
     
     [Parse enableLocalDatastore];
     
+    [Couple registerSubclass];
     [Planner registerSubclass];
     
     // Initialize Parse.
