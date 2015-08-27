@@ -23,7 +23,7 @@ static NSString *textFieldCellID = @"textFieldCellID";
     AddVendorInformationSections vendorSection = section;
     
     switch (vendorSection) {
-        case AddVendorInformationPickerSection:
+        case AddVendorInformationCategorySection:
             
             return @"Vendor Category";
             
@@ -48,7 +48,7 @@ static NSString *textFieldCellID = @"textFieldCellID";
     NSInteger numberOfRows;
     
     switch (vendorSection) {
-        case AddVendorInformationPickerSection:
+        case AddVendorInformationCategorySection:
             numberOfRows = 1;
             break;
             
@@ -78,7 +78,7 @@ static NSString *textFieldCellID = @"textFieldCellID";
     
     
     switch (vendorSection) {
-        case AddVendorInformationPickerSection: {
+        case AddVendorInformationCategorySection: {
             
            PickerViewTableViewCell *pickerCell = [tableView dequeueReusableCellWithIdentifier:pickerCellID];
             

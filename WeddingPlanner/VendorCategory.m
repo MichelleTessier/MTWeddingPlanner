@@ -14,6 +14,7 @@
 
 @dynamic title;
 @dynamic budgetTipForVendorCategory;
+@dynamic vendors;
 
 +(void)load{
     [self registerSubclass];

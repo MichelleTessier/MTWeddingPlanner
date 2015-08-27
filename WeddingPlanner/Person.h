@@ -24,6 +24,7 @@
 @property (retain) NSString *email;
 @property (retain) NSString *phoneNumber;
 @property (retain) NSString *secondPhoneNumber;
+@property (retain) NSString *website;
 
 @end
 

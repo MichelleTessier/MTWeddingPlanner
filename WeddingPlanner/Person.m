@@ -23,5 +23,6 @@
 @dynamic email;
 @dynamic phoneNumber;
 @dynamic secondPhoneNumber;
+@dynamic website;
 
 @end

@@ -81,6 +81,15 @@
 		2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */; };
 		2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */; };
 		2CEF83031B87E6DB00317EC4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF83021B87E6DB00317EC4 /* User.m */; };
+		2CFF11DC1B8E30A7002B675D /* VendorViewControllerEnums.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */; };
+		2CFF11DF1B8E3223002B675D /* NameEmailPhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */; };
+		2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11E11B8E3F42002B675D /* TempLoginViewController.m */; };
+		2CFF11E51B8E51D3002B675D /* RegisterWeddingPage1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11E41B8E51D3002B675D /* RegisterWeddingPage1ViewController.m */; };
+		2CFF11E81B8E520A002B675D /* RegisterPlannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11E71B8E520A002B675D /* RegisterPlannerViewController.m */; };
+		2CFF11EB1B8E6346002B675D /* RegisterWeddingPage2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11EA1B8E6346002B675D /* RegisterWeddingPage2ViewController.m */; };
+		2CFF11F11B8E771D002B675D /* RegisterWeddingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F01B8E771D002B675D /* RegisterWeddingPageViewController.m */; };
+		2CFF11F41B8F6A20002B675D /* DoubleTabBarSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F31B8F6A20002B675D /* DoubleTabBarSetup.m */; };
+		2CFF11F81B8F6E70002B675D /* PlannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F71B8F6E70002B675D /* PlannerController.m */; };
 		2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF14211B8D001D00F3B9C3 /* VendorController.m */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +234,24 @@
 		2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewCell.m; sourceTree = "<group>"; };
 		2CEF83011B87E6DB00317EC4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		2CEF83021B87E6DB00317EC4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		2CFF11DA1B8E30A7002B675D /* VendorViewControllerEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorViewControllerEnums.h; sourceTree = "<group>"; };
+		2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorViewControllerEnums.m; sourceTree = "<group>"; };
+		2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameEmailPhoneTableViewCell.h; sourceTree = "<group>"; };
+		2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameEmailPhoneTableViewCell.m; sourceTree = "<group>"; };
+		2CFF11E01B8E3F42002B675D /* TempLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempLoginViewController.h; sourceTree = "<group>"; };
+		2CFF11E11B8E3F42002B675D /* TempLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempLoginViewController.m; sourceTree = "<group>"; };
+		2CFF11E31B8E51D3002B675D /* RegisterWeddingPage1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterWeddingPage1ViewController.h; sourceTree = "<group>"; };
+		2CFF11E41B8E51D3002B675D /* RegisterWeddingPage1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterWeddingPage1ViewController.m; sourceTree = "<group>"; };
+		2CFF11E61B8E520A002B675D /* RegisterPlannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterPlannerViewController.h; sourceTree = "<group>"; };
+		2CFF11E71B8E520A002B675D /* RegisterPlannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterPlannerViewController.m; sourceTree = "<group>"; };
+		2CFF11E91B8E6346002B675D /* RegisterWeddingPage2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterWeddingPage2ViewController.h; sourceTree = "<group>"; };
+		2CFF11EA1B8E6346002B675D /* RegisterWeddingPage2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterWeddingPage2ViewController.m; sourceTree = "<group>"; };
+		2CFF11EF1B8E771D002B675D /* RegisterWeddingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterWeddingPageViewController.h; sourceTree = "<group>"; };
+		2CFF11F01B8E771D002B675D /* RegisterWeddingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterWeddingPageViewController.m; sourceTree = "<group>"; };
+		2CFF11F21B8F6A20002B675D /* DoubleTabBarSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleTabBarSetup.h; sourceTree = "<group>"; };
+		2CFF11F31B8F6A20002B675D /* DoubleTabBarSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleTabBarSetup.m; sourceTree = "<group>"; };
+		2CFF11F61B8F6E70002B675D /* PlannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerController.h; sourceTree = "<group>"; };
+		2CFF11F71B8F6E70002B675D /* PlannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerController.m; sourceTree = "<group>"; };
 		2CFF14201B8D001D00F3B9C3 /* VendorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorController.h; sourceTree = "<group>"; };
 		2CFF14211B8D001D00F3B9C3 /* VendorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -436,6 +463,7 @@
 		2CCB4F7B1B7D3FFB0048DF2E /* Vendors View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CFF11D91B8E3065002B675D /* Enums */,
 				2CFF11D51B8E2F58002B675D /* Custom Table View Cells */,
 				2CFF11D61B8E2F75002B675D /* Vendor List View Controllers */,
 				2CEF08701B8BD8FC00DCCE2E /* Add Vendor View Controllers */,
@@ -471,8 +499,13 @@
 		2CCB4F7E1B7D406C0048DF2E /* Login View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CFF11F51B8F6D6E002B675D /* Temp Login */,
 				2CCB4F7F1B7D40860048DF2E /* LoginViewController.h */,
 				2CCB4F801B7D40860048DF2E /* LoginViewController.m */,
+				2CFF11F21B8F6A20002B675D /* DoubleTabBarSetup.h */,
+				2CFF11F31B8F6A20002B675D /* DoubleTabBarSetup.m */,
+				2CFF12011B8F7D7A002B675D /* Register  Wedding Page View */,
+				2CFF12021B8F7DA7002B675D /* Register Planner VC */,
 			);
 			name = "Login View Controllers";
 			path = WeddingPlanner;
@@ -527,25 +560,13 @@
 		2CEF08551B8BBFA900DCCE2E /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
+				2CFF11F91B8F7985002B675D /* Users */,
 				2C932FE01B87C99D002B092D /* Person.h */,
 				2C932FE11B87C99D002B092D /* Person.m */,
 				2C932FBC1B87A01D002B092D /* Wedding.h */,
 				2C932FBD1B87A01D002B092D /* Wedding.m */,
-				2C932FBF1B87A0C0002B092D /* Spouse.h */,
-				2C932FC01B87A0C0002B092D /* Spouse.m */,
-				2C932FC51B87A0EE002B092D /* CalendarItem.h */,
-				2C932FC61B87A0EE002B092D /* CalendarItem.m */,
+				2CFF11FA1B8F799F002B675D /* Client Model Objects */,
 				2CEF085D1B8BC82C00DCCE2E /* Planner Side Model Objects */,
-				2C932FCB1B87A119002B092D /* Vendor.h */,
-				2C932FCC1B87A119002B092D /* Vendor.m */,
-				2C932FDD1B87B34E002B092D /* VendorPayment.h */,
-				2C932FDE1B87B34E002B092D /* VendorPayment.m */,
-				2C932FD71B87A3A6002B092D /* Budget.h */,
-				2C932FD81B87A3A6002B092D /* Budget.m */,
-				2C932FCE1B87A12B002B092D /* BudgetItem.h */,
-				2C932FCF1B87A12B002B092D /* BudgetItem.m */,
-				2C932FD11B87A146002B092D /* Guest.h */,
-				2C932FD21B87A146002B092D /* Guest.m */,
 				2CEF83011B87E6DB00317EC4 /* User.h */,
 				2CEF83021B87E6DB00317EC4 /* User.m */,
 			);
@@ -555,6 +576,8 @@
 		2CEF08561B8BBFB500DCCE2E /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CFF11F61B8F6E70002B675D /* PlannerController.h */,
+				2CFF11F71B8F6E70002B675D /* PlannerController.m */,
 				2CEF08571B8BBFD100DCCE2E /* WeddingController.h */,
 				2CEF08581B8BBFD100DCCE2E /* WeddingController.m */,
 				2CEF085A1B8BC5EB00DCCE2E /* MasterWeddingProfileController.h */,
@@ -574,8 +597,6 @@
 				2C932FC91B87A100002B092D /* ToDoItem.m */,
 				2C932FE91B87D088002B092D /* VendorCategory.h */,
 				2C932FEA1B87D088002B092D /* VendorCategory.m */,
-				2C932FD41B87A157002B092D /* Planner.h */,
-				2C932FD51B87A157002B092D /* Planner.m */,
 				2C932FE31B87CDF6002B092D /* MasterWeddingProfile.h */,
 				2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */,
 			);
@@ -612,6 +633,8 @@
 				2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */,
 				2CEF087A1B8BE74D00DCCE2E /* ImagesTableViewCell.h */,
 				2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */,
+				2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */,
+				2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */,
 			);
 			name = "Custom Table View Cells";
 			sourceTree = "<group>";
@@ -636,6 +659,76 @@
 				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
 			);
 			name = "Vendor Detail View Controllers";
+			sourceTree = "<group>";
+		};
+		2CFF11D91B8E3065002B675D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				2CFF11DA1B8E30A7002B675D /* VendorViewControllerEnums.h */,
+				2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */,
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
+		2CFF11F51B8F6D6E002B675D /* Temp Login */ = {
+			isa = PBXGroup;
+			children = (
+				2CFF11E01B8E3F42002B675D /* TempLoginViewController.h */,
+				2CFF11E11B8E3F42002B675D /* TempLoginViewController.m */,
+			);
+			name = "Temp Login";
+			sourceTree = "<group>";
+		};
+		2CFF11F91B8F7985002B675D /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				2C932FD41B87A157002B092D /* Planner.h */,
+				2C932FD51B87A157002B092D /* Planner.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		2CFF11FA1B8F799F002B675D /* Client Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2C932FBF1B87A0C0002B092D /* Spouse.h */,
+				2C932FC01B87A0C0002B092D /* Spouse.m */,
+				2C932FC51B87A0EE002B092D /* CalendarItem.h */,
+				2C932FC61B87A0EE002B092D /* CalendarItem.m */,
+				2C932FCB1B87A119002B092D /* Vendor.h */,
+				2C932FCC1B87A119002B092D /* Vendor.m */,
+				2C932FDD1B87B34E002B092D /* VendorPayment.h */,
+				2C932FDE1B87B34E002B092D /* VendorPayment.m */,
+				2C932FD71B87A3A6002B092D /* Budget.h */,
+				2C932FD81B87A3A6002B092D /* Budget.m */,
+				2C932FCE1B87A12B002B092D /* BudgetItem.h */,
+				2C932FCF1B87A12B002B092D /* BudgetItem.m */,
+				2C932FD11B87A146002B092D /* Guest.h */,
+				2C932FD21B87A146002B092D /* Guest.m */,
+			);
+			name = "Client Model Objects";
+			sourceTree = "<group>";
+		};
+		2CFF12011B8F7D7A002B675D /* Register  Wedding Page View */ = {
+			isa = PBXGroup;
+			children = (
+				2CFF11EF1B8E771D002B675D /* RegisterWeddingPageViewController.h */,
+				2CFF11F01B8E771D002B675D /* RegisterWeddingPageViewController.m */,
+				2CFF11E31B8E51D3002B675D /* RegisterWeddingPage1ViewController.h */,
+				2CFF11E41B8E51D3002B675D /* RegisterWeddingPage1ViewController.m */,
+				2CFF11E91B8E6346002B675D /* RegisterWeddingPage2ViewController.h */,
+				2CFF11EA1B8E6346002B675D /* RegisterWeddingPage2ViewController.m */,
+			);
+			name = "Register  Wedding Page View";
+			sourceTree = "<group>";
+		};
+		2CFF12021B8F7DA7002B675D /* Register Planner VC */ = {
+			isa = PBXGroup;
+			children = (
+				2CFF11E61B8E520A002B675D /* RegisterPlannerViewController.h */,
+				2CFF11E71B8E520A002B675D /* RegisterPlannerViewController.m */,
+			);
+			name = "Register Planner VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -739,12 +832,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFF11F41B8F6A20002B675D /* DoubleTabBarSetup.m in Sources */,
 				2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */,
 				2CEF83031B87E6DB00317EC4 /* User.m in Sources */,
 				2CEF086F1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m in Sources */,
 				2CEF08601B8BC9B200DCCE2E /* TaskDefaultsViewController.m in Sources */,
 				2CEF08631B8BC9C900DCCE2E /* VendorDefaultsViewController.m in Sources */,
+				2CFF11F81B8F6E70002B675D /* PlannerController.m in Sources */,
 				2C06F0281B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m in Sources */,
+				2CFF11DF1B8E3223002B675D /* NameEmailPhoneTableViewCell.m in Sources */,
 				2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */,
 				2C06F0261B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m in Sources */,
 				2CCB4FB51B84DC220048DF2E /* VendorsDetailDataSource.m in Sources */,
@@ -768,6 +864,7 @@
 				2CEF08661B8BCABE00DCCE2E /* TaskDefaultsListDataSource.m in Sources */,
 				2CCB4F761B7D302C0048DF2E /* WeddingListViewController.m in Sources */,
 				2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */,
+				2CFF11F11B8E771D002B675D /* RegisterWeddingPageViewController.m in Sources */,
 				2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */,
 				2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */,
 				2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */,
@@ -776,19 +873,24 @@
 				2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */,
 				2C932FBE1B87A01D002B092D /* Wedding.m in Sources */,
 				2CCB4F901B7D65F10048DF2E /* DefaultsEditorViewController.m in Sources */,
+				2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */,
 				2CEF08761B8BDB3700DCCE2E /* TextFieldTableViewCell.m in Sources */,
 				2CEF08591B8BBFD100DCCE2E /* WeddingController.m in Sources */,
 				2C932FE81B87CF63002B092D /* ToDoTaskTimeCategory.m in Sources */,
 				2CC349601B7C1CFD006A8D5E /* GuestsViewController.m in Sources */,
 				2C932FE21B87C99D002B092D /* Person.m in Sources */,
+				2CFF11E51B8E51D3002B675D /* RegisterWeddingPage1ViewController.m in Sources */,
+				2CFF11DC1B8E30A7002B675D /* VendorViewControllerEnums.m in Sources */,
 				2CC349321B7C18F6006A8D5E /* main.m in Sources */,
 				2CCB4F871B7D47BD0048DF2E /* WeddingListViewDataSource.m in Sources */,
+				2CFF11EB1B8E6346002B675D /* RegisterWeddingPage2ViewController.m in Sources */,
 				2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */,
 				2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */,
 				2C932FD91B87A3A6002B092D /* Budget.m in Sources */,
 				2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
 				2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */,
+				2CFF11E81B8E520A002B675D /* RegisterPlannerViewController.m in Sources */,
 				2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */,
 				2C932FD01B87A12B002B092D /* BudgetItem.m in Sources */,
 				2C932FDF1B87B34E002B092D /* VendorPayment.m in Sources */,

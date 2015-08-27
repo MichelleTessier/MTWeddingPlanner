@@ -8,21 +8,14 @@
 
 #import "LoginViewController.h"
 #import "WeddingListViewController.h"
-#import "ClientTabBarController.h"
-
-#import "PlannerProfileViewController.h"
-#import "DefaultsEditorViewController.h"
-#import "AllClientsCalendarViewController.h"
-#import "WeddingListViewController.h"
-
-#import "HomeViewController.h"
-#import "TasksViewController.h"
-#import "BudgetViewController.h"
-#import "VendorsListViewController.h"
-#import "GuestsViewController.h"
 
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
+
+#import "RegisterWeddingPageViewController.h"
+
+#import "ClientTabBarController.h"
+#import "DoubleTabBarSetup.h"
 
 #import "Guest.h"
 #import "User.h"
@@ -32,6 +25,7 @@
 @property (strong, nonatomic) UITabBarController *plannerTabBarController;
 @property (strong, nonatomic) ClientTabBarController *clientTabBarController;
 @property (strong, nonatomic) UIBarButtonItem *toolBarButton;
+
 
 @end
 
@@ -64,84 +58,86 @@
 //        }
 //        
 //    }];
-
     
-    UIButton *plannerButton = [UIButton new];
-    [plannerButton setTitle:@"Planner" forState:UIControlStateNormal];
-    [plannerButton setBackgroundColor:[UIColor purpleColor]];
-    [plannerButton addTarget:self action:@selector(plannerButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:plannerButton];
+    UITextField *userNameTextField = [UITextField new];
+    userNameTextField.placeholder = @"email";
+    [self.view addSubview:userNameTextField];
     
-    UIButton *clientButton = [UIButton new];
-    [clientButton setTitle:@"Client" forState:UIControlStateNormal];
-    [clientButton setBackgroundColor:[UIColor purpleColor]];
-    [clientButton addTarget:self action:@selector(clientButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:clientButton];
+    UITextField *passwordTextfield = [UITextField new];
+    passwordTextfield.placeholder = @"password";
+    [self.view addSubview:passwordTextfield];
     
-    [clientButton alignTopEdgeWithView:self.view predicate:@"100"];
-    [clientButton alignCenterXWithView:self.view predicate:@"0"];
-    [clientButton constrainWidth:@"200" height:@"44"];
-    [plannerButton alignTopEdgeWithView:clientButton predicate:@"50"];
-    [plannerButton alignCenterXWithView:self.view predicate:@"0"];
-    [plannerButton constrainWidth:@"200" height:@"44"];
+    UIButton *signInButton = [UIButton new];
+    [signInButton setTitle:@"Sign In" forState:UIControlStateNormal];
+    [signInButton setBackgroundColor:[UIColor purpleColor]];
+    [signInButton addTarget:self action:@selector(signInButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:signInButton];
     
+    UIButton *registerWeddingButton = [UIButton new];
+    [registerWeddingButton setTitle:@"Register Wedding" forState:UIControlStateNormal];
+    [registerWeddingButton setBackgroundColor:[UIColor purpleColor]];
+    [registerWeddingButton addTarget:self action:@selector(registerWeddingButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:registerWeddingButton];
     
-    self.plannerTabBarController = [UITabBarController new];
+    UIButton *registerAsPlannerButton = [UIButton new];
+    [registerAsPlannerButton setTitle:@"Register As Planner" forState:UIControlStateNormal];
+    [registerAsPlannerButton setBackgroundColor:[UIColor blueColor]];
+    [registerAsPlannerButton addTarget:self action:@selector(registerAsPlannerButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:registerAsPlannerButton];
     
-    PlannerProfileViewController *plannerProfileVC = [PlannerProfileViewController new];
-    plannerProfileVC.tabBarItem.title = @"Profile";
+    [passwordTextfield alignCenterXWithView:self.view predicate:@"0"];
+    [passwordTextfield alignCenterYWithView:self.view predicate:@"0"];
+    [passwordTextfield constrainWidth:@"150" height:@"44"];
     
-    DefaultsEditorViewController *defaultsEditorVC = [DefaultsEditorViewController new];
-    UINavigationController *defaultsEditorNavController = [[UINavigationController alloc] initWithRootViewController:defaultsEditorVC];
-    defaultsEditorVC.title = @"Defaults";
+    [userNameTextField alignCenterXWithView:passwordTextfield predicate:@"0"];
+    [userNameTextField constrainBottomSpaceToView:passwordTextfield predicate:@"5"];
+    [userNameTextField constrainWidthToView:passwordTextfield predicate:@"0"];
+    [userNameTextField constrainHeightToView:passwordTextfield predicate:@"0"];
     
-    AllClientsCalendarViewController *allClientsCalendarVC = [AllClientsCalendarViewController new];
-    UINavigationController *allClientsCalendarNavController = [[UINavigationController alloc] initWithRootViewController:allClientsCalendarVC];
-    allClientsCalendarVC.title = @"Calendar";
+    [signInButton alignCenterXWithView:passwordTextfield predicate:@"0"];
+    [signInButton constrainTopSpaceToView:passwordTextfield predicate:@"5"];
+    [signInButton constrainWidthToView:passwordTextfield predicate:@"0"];
+    [signInButton constrainWidthToView:passwordTextfield predicate:@"0"];
     
-    WeddingListViewController *weddingListVC = [WeddingListViewController new];
-    UINavigationController *weddingListNavController = [[UINavigationController alloc] initWithRootViewController:weddingListVC];
-    weddingListVC.title = @"Weddings";
+    //help with these contraints why am I getting a random hole?!?!
+    [registerWeddingButton alignBottomEdgeWithView:self.view predicate:@"0"];
+    [registerWeddingButton alignLeadingEdgeWithView:self.view predicate:@"0"];
+    [registerWeddingButton constrainWidthToView:self.view predicate:@"*.5"];
+    [registerWeddingButton constrainHeight:@"44"];
     
-    self.plannerTabBarController.viewControllers = @[plannerProfileVC, defaultsEditorNavController, allClientsCalendarNavController, weddingListNavController];
+    [registerAsPlannerButton alignBottomEdgeWithView:self.view predicate:@"0"];
+    [registerAsPlannerButton alignTrailingEdgeWithView:self.view predicate:@"0"];
+    [registerAsPlannerButton constrainLeadingSpaceToView:registerWeddingButton predicate:nil];
+    [registerAsPlannerButton constrainHeightToView:registerWeddingButton predicate:@"0"];
     
-    self.clientTabBarController = [ClientTabBarController new];
-    
-    HomeViewController *homeVC = [HomeViewController new];
-    homeVC.title = @"Home";
-    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    
-    TasksViewController *tasksVC = [TasksViewController new];
-    tasksVC.title = @"Tasks";
-    UINavigationController *tasksNavController = [[UINavigationController alloc] initWithRootViewController:tasksVC];
-    
-    BudgetViewController *budgetVC = [BudgetViewController new];
-    budgetVC.title = @"Budget";
-    UINavigationController *budgetNavController = [[UINavigationController alloc] initWithRootViewController:budgetVC];
-    
-    VendorsListViewController *vendorsVC = [VendorsListViewController new];
-    vendorsVC.title = @"Vendors";
-    
-    UINavigationController *vendorsNavController = [[UINavigationController alloc] initWithRootViewController:vendorsVC];
-    
-    GuestsViewController *guestsVC = [GuestsViewController new];
-    guestsVC.tabBarItem.title = @"Guests";
-    
-    self.clientTabBarController.viewControllers = @[homeNavController, tasksNavController, budgetNavController, vendorsNavController, guestsVC];
+    DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+    [doubleTabBarSetup setUpClientTabBarController];
+    [doubleTabBarSetup setUpPlannerTabBarController];
     
     
 }
 
--(void)plannerButtonTapped{
+
+
+
+-(void)signInButtonTapped{
+    
+    self.toolBarButton.title = @"Couples Names";
+    [self presentViewController:self.clientTabBarController animated:YES completion:nil];
+    
+}
+
+-(void)registerAsPlannerButtonTapped{
     
     [self presentViewController:self.plannerTabBarController animated:YES completion:nil];
     
 }
 
--(void)clientButtonTapped{
+-(void)registerWeddingButtonTapped{
     
-     self.toolBarButton.title = @"Couples Names";
-    [self presentViewController:self.clientTabBarController animated:YES completion:nil];
+    [self presentViewController:[RegisterWeddingPageViewController new] animated:YES completion:nil];
+    
+    
 }
 
 

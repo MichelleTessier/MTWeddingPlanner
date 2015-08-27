@@ -10,6 +10,7 @@
 
 #import "LoginViewController.h"
 
+#import "Planner.h"
 
 
 
@@ -27,12 +28,16 @@
     
     [Parse enableLocalDatastore];
     
+    [Planner registerSubclass];
+    
     // Initialize Parse.
     [Parse setApplicationId:@"WhnskCU8IdIJ1vvhA0k3jU70waEwqPmEBmd9UIAq"
                   clientKey:@"jkTqvbNHqBrVixTlGoJddO6a3uOgh3CtXpn50e7j"];
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     

@@ -81,9 +81,20 @@
     
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
-    NSArray *vendorCateogries = [dictionary objectForKey:@"vendorCategories"];
+    NSArray *vendorCategoryTitles = [dictionary objectForKey:@"vendorCategories"];
     
-    return vendorCateogries;
+    NSMutableArray *mutableVendorCategories = [NSMutableArray new];
+    
+    for (NSString *vendorCategoryTitle in vendorCategoryTitles) {
+        VendorCategory *vendorCategory = [VendorCategory objectWithClassName:[VendorCategory parseClassName]];
+        vendorCategory.title = vendorCategoryTitle;
+        [vendorCategory saveEventually];
+        [mutableVendorCategories addObject:vendorCategory];
+    }
+    
+    NSArray *vendorCategories = mutableVendorCategories;
+    
+    return vendorCategories;
     
 }
 

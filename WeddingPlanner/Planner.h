@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "Person.h"
 
-@interface Planner : Person <PFSubclassing>
+@interface Planner : PFUser <PFSubclassing>
 
 @property (retain) NSString *businessName;
 @property (retain) NSArray *weddings;
