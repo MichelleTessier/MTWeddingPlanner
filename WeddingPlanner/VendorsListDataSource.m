@@ -19,7 +19,7 @@ static NSString *vendorListCell = @"vendorListCell";
     NSArray *vendorCategories = self.couple.wedding.vendorCategories;
     NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
     for (VendorCategory *vendorCateogry in vendorCategories) {
-        if (!(vendorCateogry.vendors.count == 0)) {
+        if (vendorCateogry.vendors.count > 0) {
             [mutableChosenVendorCategories addObject:vendorCateogry];
         }
     }
@@ -70,6 +70,11 @@ static NSString *vendorListCell = @"vendorListCell";
     
     Vendor *vendor = vendorCategory.vendors[indexPath.row];
     
+    cell.businessNameLabel.font = [UIFont boldSystemFontOfSize:12];
+    cell.contactNameLabel.font = [UIFont boldSystemFontOfSize:12];
+    cell.emailLabel.font = [UIFont systemFontOfSize:10];
+    cell.primaryPhoneLabel.font = [UIFont systemFontOfSize:10];
+    
     cell.businessNameLabel.text = vendor.businessName;
     cell.contactNameLabel.text = vendor.firstName;
     cell.emailLabel.text = vendor.email;
@@ -77,5 +82,7 @@ static NSString *vendorListCell = @"vendorListCell";
     
     return cell;
 }
+
+
 
 @end

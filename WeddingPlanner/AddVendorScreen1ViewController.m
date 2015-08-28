@@ -35,9 +35,6 @@
 }
 
 -(void)setUpView{
-    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
-    
-    [self.view addSubview:navBar];
     
     UIBarButtonItem *finishBarButton = [UIBarButtonItem new];
     finishBarButton.title = @"Finish";
@@ -50,6 +47,7 @@
     self.dataSource.addVendorScreen1ViewController = self;
     self.tableView.dataSource = self.dataSource;
     [self.view addSubview: self.tableView];
+    
 }
 
 -(void)setConstraints{
@@ -166,6 +164,7 @@
     self.vendor.city = self.city;
     
     [self.vendor saveInBackground];
+        
 }
 
 

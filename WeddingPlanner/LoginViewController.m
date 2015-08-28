@@ -26,7 +26,10 @@
 @property (strong, nonatomic) UITabBarController *plannerTabBarController;
 @property (strong, nonatomic) ClientTabBarController *clientTabBarController;
 @property (strong, nonatomic) UIBarButtonItem *toolBarButton;
-
+@property (strong, nonatomic) UITextField *userNameTextField;
+@property (strong, nonatomic) UITextField *passwordTextfield;
+@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) PFUser *userSigningIn;
 
 @end
 
@@ -36,42 +39,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    testObject[@"foo"] = @"bar";
-//    [testObject saveInBackground];
-//    
-//    Guest *guest = [Guest objectWithClassName:[Guest parseClassName]];
-//    guest.firstName = @"I worked!";
-//    guest.roleInWeddingParty = @"So proud!";
-//
-//    [guest saveInBackground];
-//    
-//    User *user = [User user];
-//    user.username = @"mtessier";
-//    user.password = @"password";
-//    user.email = @"anne.m.tessier@gmail.com";
-//    
-//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            // Hooray! Let them use the app now.
-//        } else {
-//            NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
-//        }
-//        
-//    }];
     
-    UITextField *userNameTextField = [UITextField new];
-    userNameTextField.placeholder = @"email";
-    [self.view addSubview:userNameTextField];
+    [self setUpView];
+   
     
-    UITextField *passwordTextfield = [UITextField new];
-    passwordTextfield.placeholder = @"password";
-    [self.view addSubview:passwordTextfield];
+    
+    
+    
+}
+
+-(void)setUpView{
+    
+    
+    self.userNameTextField = [UITextField new];
+    self.userNameTextField.placeholder = @"email";
+    [self.view addSubview:self.userNameTextField];
+    
+    self.passwordTextfield = [UITextField new];
+    self.passwordTextfield.placeholder = @"password";
+    [self.view addSubview:self.passwordTextfield];
     
     UIButton *signInButton = [UIButton new];
     [signInButton setTitle:@"Sign In" forState:UIControlStateNormal];
     [signInButton setBackgroundColor:[UIColor purpleColor]];
-    [signInButton addTarget:self action:@selector(signInButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [signInButton addTarget:self action:@selector(signInButtonTappedWithCompletion:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signInButton];
     
     UIButton *registerWeddingButton = [UIButton new];
@@ -86,21 +77,25 @@
     [registerAsPlannerButton addTarget:self action:@selector(registerAsPlannerButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:registerAsPlannerButton];
     
-    [passwordTextfield alignCenterXWithView:self.view predicate:@"0"];
-    [passwordTextfield alignCenterYWithView:self.view predicate:@"0"];
-    [passwordTextfield constrainWidth:@"150" height:@"44"];
+    [self.passwordTextfield alignCenterXWithView:self.view predicate:@"0"];
+    [self.passwordTextfield alignCenterYWithView:self.view predicate:@"0"];
+    [self.passwordTextfield constrainWidth:@"150" height:@"44"];
     
-    [userNameTextField alignCenterXWithView:passwordTextfield predicate:@"0"];
-    [userNameTextField constrainBottomSpaceToView:passwordTextfield predicate:@"5"];
-    [userNameTextField constrainWidthToView:passwordTextfield predicate:@"0"];
-    [userNameTextField constrainHeightToView:passwordTextfield predicate:@"0"];
+    [self.userNameTextField alignCenterXWithView:self.passwordTextfield predicate:@"0"];
+    [self.userNameTextField constrainBottomSpaceToView:self.passwordTextfield predicate:@"5"];
+    [self.userNameTextField constrainWidthToView:self.passwordTextfield predicate:@"0"];
+    [self.userNameTextField constrainHeightToView:self.passwordTextfield predicate:@"0"];
     
-    [signInButton alignCenterXWithView:passwordTextfield predicate:@"0"];
-    [signInButton constrainTopSpaceToView:passwordTextfield predicate:@"5"];
-    [signInButton constrainWidthToView:passwordTextfield predicate:@"0"];
-    [signInButton constrainWidthToView:passwordTextfield predicate:@"0"];
+    [signInButton alignCenterXWithView:self.passwordTextfield predicate:@"0"];
+    [signInButton constrainTopSpaceToView:self.passwordTextfield predicate:@"5"];
+    [signInButton constrainWidthToView:self.passwordTextfield predicate:@"0"];
+    [signInButton constrainHeightToView:self.passwordTextfield predicate:@"0"];
     
-    //help with these contraints why am I getting a random hole?!?!
+    [self.label constrainTopSpaceToView:signInButton predicate:@"5"];
+    [self.label constrainWidthToView:self.passwordTextfield predicate:nil];
+    [self.label constrainHeightToView:self.passwordTextfield predicate:nil];
+    [self.label alignLeadingEdgeWithView:self.view predicate:@"5"];
+    
     [registerWeddingButton alignBottomEdgeWithView:self.view predicate:@"0"];
     [registerWeddingButton alignLeadingEdgeWithView:self.view predicate:@"0"];
     [registerWeddingButton constrainWidthToView:self.view predicate:@"*.5"];
@@ -110,21 +105,76 @@
     [registerAsPlannerButton alignTrailingEdgeWithView:self.view predicate:@"0"];
     [registerAsPlannerButton constrainLeadingSpaceToView:registerWeddingButton predicate:nil];
     [registerAsPlannerButton constrainHeightToView:registerWeddingButton predicate:@"0"];
+}
+
+-(void)signInPlanner{
     
-    DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
-    [doubleTabBarSetup setUpClientTabBarController];
-    [doubleTabBarSetup setUpPlannerTabBarController];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self signInButtonTappedWithCompletion:^{
+         
+            DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+            doubleTabBarSetup.planner = (Planner *)self.userSigningIn;
+            self.toolBarButton.title = @"Couples Names";
+            doubleTabBarSetup.couple = nil;
+            [doubleTabBarSetup setUpClientTabBarController];
+            [doubleTabBarSetup setUpPlannerTabBarController];
+            [self presentViewController:self.plannerTabBarController animated:YES completion:nil];
+            
+        }];
+        
+    });
+    
+}
+
+-(void)signInCouple{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self signInButtonTappedWithCompletion:^{
+            
+            DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+            doubleTabBarSetup.planner = (Planner *)self.userSigningIn;
+            self.toolBarButton.title = @"Couples Names";
+            doubleTabBarSetup.couple = (Couple *)self.userSigningIn;
+            doubleTabBarSetup.planner = nil;
+            [doubleTabBarSetup setUpClientTabBarController];
+            [self presentViewController:self.clientTabBarController animated:YES completion:nil];
+        }];
+        
+    });
     
     
 }
 
-
-
-
--(void)signInButtonTapped{
+-(void)signInButtonTappedWithCompletion: (void(^)(void))completion{
     
-    self.toolBarButton.title = @"Couples Names";
-    [self presentViewController:self.clientTabBarController animated:YES completion:nil];
+    [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passwordTextfield.text
+                                    block:^(PFUser *user, NSError *error) {
+                                        
+                                        if (user) {
+                                          
+                                            if (((Couple *)user).isPlanner == true) {
+                                                
+                                                self.userSigningIn = user;
+                                                completion();
+                                                
+                                            } else {
+                                                
+                                                self.userSigningIn = user;
+                                                completion();
+                                                
+                                            }
+                                            
+                                            
+                                            
+                                        } else {
+                                            NSLog(@"%@", error.localizedDescription);
+                                            self.label.text = @"Are you sure that login info's correct?";
+                                        }
+                                    }];
+
     
 }
 

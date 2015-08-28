@@ -12,6 +12,7 @@
 #import "VendorDetailViewController.h"
 
 #import "AddVendorScreen1ViewController.h"
+#import "NameEmailPhoneTableViewCell.h"
 
 @interface VendorsListViewController () <UITableViewDelegate>
 
@@ -59,12 +60,19 @@
 -(void)addVendorBarButtonTapped{
     AddVendorScreen1ViewController *addVendorScreen1VC = [AddVendorScreen1ViewController new];
     addVendorScreen1VC.couple = self.couple;
-    [self.navigationController pushViewController:addVendorScreen1VC animated:YES];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addVendorScreen1VC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    
     [self.navigationController pushViewController:[VendorDetailViewController new] animated:YES];
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 65;
     
 }
 

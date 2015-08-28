@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Wedding.h"
-#import "Vendor.h"
+#import "VendorCategory.h"
 #import "Couple.h"
 #import "Planner.h"
 

@@ -126,6 +126,7 @@
     for (NSString *vendorCategoryTitle in vendorCategoryTitles) {
         VendorCategory *vendorCategory = [VendorCategory objectWithClassName:[VendorCategory parseClassName]];
         vendorCategory.title = vendorCategoryTitle;
+        vendorCategory.vendors = @[];
         [vendorCategory saveEventually];
         [mutableVendorCategories addObject:vendorCategory];
     }
