@@ -32,6 +32,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
     
     self.dataSource = [VendorsListDataSource new];
+    self.dataSource.couple = self.couple;
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
     

@@ -83,8 +83,8 @@
 - (void)presentNextView{
     
     DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+    doubleTabBarSetup.couple = self.couple;
     [doubleTabBarSetup setUpClientTabBarController];
-    doubleTabBarSetup.clientTabBarController.couple = self.couple;
     [self presentViewController:doubleTabBarSetup.clientTabBarController animated:YES completion:nil];
     
 }

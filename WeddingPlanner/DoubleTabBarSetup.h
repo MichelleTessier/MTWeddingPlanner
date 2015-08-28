@@ -22,6 +22,8 @@
 
 #import "ClientTabBarController.h"
 
+#import "Couple.h"
+
 @interface DoubleTabBarSetup : NSObject
 
 -(void)setUpPlannerTabBarController;
@@ -30,5 +32,6 @@
 @property (strong, nonatomic) UITabBarController *plannerTabBarController;
 @property (strong, nonatomic) ClientTabBarController *clientTabBarController;
 @property (strong, nonatomic) UIBarButtonItem *toolBarButton;
+@property (strong, nonatomic) Couple *couple;
 
 @end
