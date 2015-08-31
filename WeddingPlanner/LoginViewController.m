@@ -8,30 +8,28 @@
 
 #import "LoginViewController.h"
 #import "WeddingListViewController.h"
-#import "ClientTabBarController.h"
-
-#import "PlannerProfileViewController.h"
-#import "DefaultsEditorViewController.h"
-#import "AllClientsCalendarViewController.h"
-#import "WeddingListViewController.h"
-
-#import "HomeViewController.h"
-#import "TasksViewController.h"
-#import "BudgetViewController.h"
-#import "VendorsListViewController.h"
-#import "GuestsViewController.h"
 
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 
+#import "RegisterWeddingPageViewController.h"
+#import "RegisterPlannerViewController.h"
+
+#import "ClientTabBarController.h"
+#import "DoubleTabBarSetup.h"
+
 #import "Guest.h"
-#import "User.h"
+
 
 @interface LoginViewController ()
 
 @property (strong, nonatomic) UITabBarController *plannerTabBarController;
 @property (strong, nonatomic) ClientTabBarController *clientTabBarController;
 @property (strong, nonatomic) UIBarButtonItem *toolBarButton;
+@property (strong, nonatomic) UITextField *userNameTextField;
+@property (strong, nonatomic) UITextField *passwordTextfield;
+@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) PFUser *userSigningIn;
 
 @end
 
@@ -41,107 +39,160 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    testObject[@"foo"] = @"bar";
-//    [testObject saveInBackground];
-//    
-//    Guest *guest = [Guest objectWithClassName:[Guest parseClassName]];
-//    guest.firstName = @"I worked!";
-//    guest.roleInWeddingParty = @"So proud!";
-//
-//    [guest saveInBackground];
-//    
-//    User *user = [User user];
-//    user.username = @"mtessier";
-//    user.password = @"password";
-//    user.email = @"anne.m.tessier@gmail.com";
-//    
-//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error) {
-//            // Hooray! Let them use the app now.
-//        } else {
-//            NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
-//        }
-//        
-//    }];
-
     
-    UIButton *plannerButton = [UIButton new];
-    [plannerButton setTitle:@"Planner" forState:UIControlStateNormal];
-    [plannerButton setBackgroundColor:[UIColor purpleColor]];
-    [plannerButton addTarget:self action:@selector(plannerButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:plannerButton];
-    
-    UIButton *clientButton = [UIButton new];
-    [clientButton setTitle:@"Client" forState:UIControlStateNormal];
-    [clientButton setBackgroundColor:[UIColor purpleColor]];
-    [clientButton addTarget:self action:@selector(clientButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:clientButton];
-    
-    [clientButton alignTopEdgeWithView:self.view predicate:@"100"];
-    [clientButton alignCenterXWithView:self.view predicate:@"0"];
-    [clientButton constrainWidth:@"200" height:@"44"];
-    [plannerButton alignTopEdgeWithView:clientButton predicate:@"50"];
-    [plannerButton alignCenterXWithView:self.view predicate:@"0"];
-    [plannerButton constrainWidth:@"200" height:@"44"];
+    [self setUpView];
+   
     
     
-    self.plannerTabBarController = [UITabBarController new];
-    
-    PlannerProfileViewController *plannerProfileVC = [PlannerProfileViewController new];
-    plannerProfileVC.tabBarItem.title = @"Profile";
-    
-    DefaultsEditorViewController *defaultsEditorVC = [DefaultsEditorViewController new];
-    UINavigationController *defaultsEditorNavController = [[UINavigationController alloc] initWithRootViewController:defaultsEditorVC];
-    defaultsEditorVC.title = @"Defaults";
-    
-    AllClientsCalendarViewController *allClientsCalendarVC = [AllClientsCalendarViewController new];
-    UINavigationController *allClientsCalendarNavController = [[UINavigationController alloc] initWithRootViewController:allClientsCalendarVC];
-    allClientsCalendarVC.title = @"Calendar";
-    
-    WeddingListViewController *weddingListVC = [WeddingListViewController new];
-    UINavigationController *weddingListNavController = [[UINavigationController alloc] initWithRootViewController:weddingListVC];
-    weddingListVC.title = @"Weddings";
-    
-    self.plannerTabBarController.viewControllers = @[plannerProfileVC, defaultsEditorNavController, allClientsCalendarNavController, weddingListNavController];
-    
-    self.clientTabBarController = [ClientTabBarController new];
-    
-    HomeViewController *homeVC = [HomeViewController new];
-    homeVC.title = @"Home";
-    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    
-    TasksViewController *tasksVC = [TasksViewController new];
-    tasksVC.title = @"Tasks";
-    UINavigationController *tasksNavController = [[UINavigationController alloc] initWithRootViewController:tasksVC];
-    
-    BudgetViewController *budgetVC = [BudgetViewController new];
-    budgetVC.title = @"Budget";
-    UINavigationController *budgetNavController = [[UINavigationController alloc] initWithRootViewController:budgetVC];
-    
-    VendorsListViewController *vendorsVC = [VendorsListViewController new];
-    vendorsVC.title = @"Vendors";
-    
-    UINavigationController *vendorsNavController = [[UINavigationController alloc] initWithRootViewController:vendorsVC];
-    
-    GuestsViewController *guestsVC = [GuestsViewController new];
-    guestsVC.tabBarItem.title = @"Guests";
-    
-    self.clientTabBarController.viewControllers = @[homeNavController, tasksNavController, budgetNavController, vendorsNavController, guestsVC];
     
     
 }
 
--(void)plannerButtonTapped{
+-(void)setUpView{
     
-    [self presentViewController:self.plannerTabBarController animated:YES completion:nil];
+    
+    self.userNameTextField = [UITextField new];
+    self.userNameTextField.placeholder = @"email";
+    [self.view addSubview:self.userNameTextField];
+    
+    self.passwordTextfield = [UITextField new];
+    self.passwordTextfield.placeholder = @"password";
+    [self.view addSubview:self.passwordTextfield];
+    
+    UIButton *signInButton = [UIButton new];
+    [signInButton setTitle:@"Sign In" forState:UIControlStateNormal];
+    [signInButton setBackgroundColor:[UIColor purpleColor]];
+    [signInButton addTarget:self action:@selector(signInButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:signInButton];
+    
+    UIButton *registerWeddingButton = [UIButton new];
+    [registerWeddingButton setTitle:@"Register Wedding" forState:UIControlStateNormal];
+    [registerWeddingButton setBackgroundColor:[UIColor purpleColor]];
+    [registerWeddingButton addTarget:self action:@selector(registerWeddingButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:registerWeddingButton];
+    
+    UIButton *registerAsPlannerButton = [UIButton new];
+    [registerAsPlannerButton setTitle:@"Register As Planner" forState:UIControlStateNormal];
+    [registerAsPlannerButton setBackgroundColor:[UIColor blueColor]];
+    [registerAsPlannerButton addTarget:self action:@selector(registerAsPlannerButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:registerAsPlannerButton];
+    
+    [self.passwordTextfield alignCenterXWithView:self.view predicate:@"0"];
+    [self.passwordTextfield alignCenterYWithView:self.view predicate:@"0"];
+    [self.passwordTextfield constrainWidth:@"150" height:@"44"];
+    
+    [self.userNameTextField alignCenterXWithView:self.passwordTextfield predicate:@"0"];
+    [self.userNameTextField constrainBottomSpaceToView:self.passwordTextfield predicate:@"5"];
+    [self.userNameTextField constrainWidthToView:self.passwordTextfield predicate:@"0"];
+    [self.userNameTextField constrainHeightToView:self.passwordTextfield predicate:@"0"];
+    
+    [signInButton alignCenterXWithView:self.passwordTextfield predicate:@"0"];
+    [signInButton constrainTopSpaceToView:self.passwordTextfield predicate:@"5"];
+    [signInButton constrainWidthToView:self.passwordTextfield predicate:@"0"];
+    [signInButton constrainHeightToView:self.passwordTextfield predicate:@"0"];
+    
+    [self.label constrainTopSpaceToView:signInButton predicate:@"5"];
+    [self.label constrainWidthToView:self.passwordTextfield predicate:nil];
+    [self.label constrainHeightToView:self.passwordTextfield predicate:nil];
+    [self.label alignLeadingEdgeWithView:self.view predicate:@"5"];
+    
+    [registerWeddingButton alignBottomEdgeWithView:self.view predicate:@"0"];
+    [registerWeddingButton alignLeadingEdgeWithView:self.view predicate:@"0"];
+    [registerWeddingButton constrainWidthToView:self.view predicate:@"*.5"];
+    [registerWeddingButton constrainHeight:@"44"];
+    
+    [registerAsPlannerButton alignBottomEdgeWithView:self.view predicate:@"0"];
+    [registerAsPlannerButton alignTrailingEdgeWithView:self.view predicate:@"0"];
+    [registerAsPlannerButton constrainLeadingSpaceToView:registerWeddingButton predicate:nil];
+    [registerAsPlannerButton constrainHeightToView:registerWeddingButton predicate:@"0"];
+}
+
+-(void)signInPlanner:(Planner *)planner{
+    
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+            DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+            doubleTabBarSetup.planner = planner;
+            self.toolBarButton.title = @"Couples Names";
+            doubleTabBarSetup.couple = nil;
+            [doubleTabBarSetup setUpClientTabBarController];
+            [doubleTabBarSetup setUpPlannerTabBarController];
+            [self presentViewController:doubleTabBarSetup.plannerTabBarController animated:YES completion:nil];
+        
+        
+    });
     
 }
 
--(void)clientButtonTapped{
+-(void)signInCouple:(Couple *)couple{
     
-     self.toolBarButton.title = @"Couples Names";
-    [self presentViewController:self.clientTabBarController animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        PFQuery *getWeddings = [PFQuery queryWithClassName:@"Wedding"];
+        [getWeddings whereKey:@"objectId" equalTo:couple.wedding.objectId];
+        [getWeddings includeKey:@"vendorCategories.vendors"];
+        
+        [getWeddings getFirstObjectInBackgroundWithBlock:^(PFObject *wedding, NSError *error){
+            
+            couple.wedding = (Wedding *)wedding;
+            
+            DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+            self.toolBarButton.title = @"Couples Names";
+            doubleTabBarSetup.couple = couple;
+            doubleTabBarSetup.planner = nil;
+            [doubleTabBarSetup setUpClientTabBarController];
+            [self presentViewController:doubleTabBarSetup.clientTabBarController animated:YES completion:nil];
+            
+            
+        }];
+    
+    
+        
+        
+        
+    });
+    
+    
+}
+
+-(void)signInButtonTapped{
+    
+    [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passwordTextfield.text
+                                    block: ^(PFUser *user, NSError *error) {
+                                        
+                                        if (!error) {
+                                            
+                                            if (((Couple *)user).isPlanner == true) {
+                                                
+                                                
+                                                [self signInPlanner:(Planner *)user];
+                                                
+                                            } else {
+                                                
+                                                [self signInCouple:(Couple *)user];
+                                                
+                                            }
+                                            
+                                        } else {
+                                            self.label.text = @"Are you sure that login info's correct?";
+                                        }
+    
+                                    }];
+}
+
+
+-(void)registerAsPlannerButtonTapped{
+    
+    [self presentViewController:[RegisterPlannerViewController new] animated:YES completion:nil];
+    
+}
+
+-(void)registerWeddingButtonTapped{
+    
+    [self presentViewController:[RegisterWeddingPageViewController new] animated:YES completion:nil];
+    
+    
 }
 
 

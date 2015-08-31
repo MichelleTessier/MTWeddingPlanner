@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "WeddingController.h"
 
 @interface VendorsListDataSource : NSObject <UITableViewDataSource>
+
+@property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) NSArray *chosenVendorCategories;
 
 @end

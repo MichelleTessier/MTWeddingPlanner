@@ -12,6 +12,7 @@
 #import "VendorDetailViewController.h"
 
 #import "AddVendorScreen1ViewController.h"
+#import "NameEmailPhoneTableViewCell.h"
 
 @interface VendorsListViewController () <UITableViewDelegate>
 
@@ -26,12 +27,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.view.backgroundColor = [UIColor cyanColor];
     self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
     
     self.dataSource = [VendorsListDataSource new];
+    self.dataSource.couple = self.couple;
+    
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
     
@@ -52,16 +56,47 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [self findChosenVendorCategories];
+    self.dataSource.chosenVendorCategories = self.chosenVendorCategories;
+    
     [self.tableView reloadData];
 }
 
 -(void)addVendorBarButtonTapped{
-    [self.navigationController pushViewController:[AddVendorScreen1ViewController new] animated:YES];
+    AddVendorScreen1ViewController *addVendorScreen1VC = [AddVendorScreen1ViewController new];
+    addVendorScreen1VC.couple = self.couple;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:addVendorScreen1VC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   
-    [self.navigationController pushViewController:[VendorDetailViewController new] animated:YES];
+    VendorDetailViewController *vendorDVC = [VendorDetailViewController new];
+    vendorDVC.vendorCategory = self.chosenVendorCategories[indexPath.row];
+    NSLog(@"%@", vendorDVC.vendorCategory.vendors[0]);
+    vendorDVC.vendor = vendorDVC.vendorCategory.vendors[indexPath.row];
+    [self.navigationController pushViewController: vendorDVC animated:YES];
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 65;
+    
+}
+
+-(void)findChosenVendorCategories{
+    
+    NSArray *vendorCategories = self.couple.wedding.vendorCategories;
+    NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
+    for (VendorCategory *vendorCateogry in vendorCategories) {
+        if (vendorCateogry.vendors.count > 0) {
+            [mutableChosenVendorCategories addObject:vendorCateogry];
+        }
+    }
+    
+    self.chosenVendorCategories = mutableChosenVendorCategories;
+    
     
 }
 

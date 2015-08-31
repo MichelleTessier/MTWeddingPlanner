@@ -14,5 +14,6 @@
 
 @property NSString *title;
 @property NSString *budgetTipForVendorCategory;
+@property NSArray *vendors;
 
 @end

@@ -8,17 +8,49 @@
 
 #import <Foundation/Foundation.h>
 #import "Wedding.h"
+#import "VendorCategory.h"
+#import "Couple.h"
+#import "Planner.h"
 
 @interface WeddingController : NSObject
 
-+ (WeddingController*)sharedInstance;
++(WeddingController*)sharedInstance;
 
--(Wedding *)createWedding;
+
+
+-(Couple *)createCouplewithEmail:(NSString *)email andPassword:(NSString *)password;
+
+@property (nonatomic, strong) NSArray *couples;
+
+-(void)retrieveCouples;
+
+-(void)deleteCouple:(Couple *)coupleToDelete;
+
+
+
+-(Wedding *)createWeddingForCouple:(Couple *)couple;
 
 @property (nonatomic, strong) NSArray *weddings;
+
 -(void)retrieveWeddings;
 
 -(void)deleteWedding:(Wedding *)weddingToDelete;
+
+
+
+
+-(Vendor *)createVendorInCateogry:(VendorCategory *)selectedVendorCategory forWedding:(Wedding *)wedding;
+
+@property (strong, nonatomic) NSArray *vendors;
+-(void)retrieveVendors;
+
+-(void)deleteVendor:(Vendor *)vendorToDelete;
+
+-(void)addVendorCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding*)wedding;
+
+
+
+
 
 
 @end

@@ -12,7 +12,8 @@
 
 @interface BudgetItem : PFObject <PFSubclassing>
 
-@property (retain) VendorCategory *vendorCategory;
+//vendor cateogories held in array held by wedding object
+@property (retain) NSString *vendorCategoryID;
 @property (retain) NSNumber *budgetedCost;
 @property (retain) NSNumber *actualCategoryCost;
 @property (retain) NSArray *vendors;

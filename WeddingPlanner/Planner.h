@@ -8,15 +8,29 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
-#import "Person.h"
+#import "Couple.h"
 
-@interface Planner : Person <PFSubclassing>
+@interface Planner : Couple <PFSubclassing>
 
+@property (retain) NSArray *couples;
+
+@property (assign) BOOL isPlanner;
 @property (retain) NSString *businessName;
-@property (retain) NSArray *weddings;
 @property (retain) NSArray *masterWeddingProfiles;
 @property (retain) NSArray *personalCalendarItems;
 
-+(NSString *)parseClassName;
+@property (retain) NSString *firstName;
+@property (retain) NSString *lastName;
+@property (retain) NSString *title;
+@property (retain) UIImage *photo;
+@property (retain) NSString *facebookLink;
+@property (retain) NSString *streetAddress;
+@property (retain) NSString *city;
+@property (retain) NSString *state;
+@property (retain) NSNumber *zip;
+@property (retain) NSString *phoneNumber;
+@property (retain) NSString *secondPhoneNumber;
+@property (retain) NSString *website;
+
 
 @end

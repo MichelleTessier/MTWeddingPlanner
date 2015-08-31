@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "TextFieldTableViewCell.h"
+#import "WeddingController.h"
+#import "AddVendorScreen1ViewController.h"
+#import "VendorViewControllerEnums.h"
 
-@interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource>
+@interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource, UIPickerViewDataSource, UITextFieldDelegate>
 
-
+@property (strong, nonatomic) AddVendorScreen1ViewController *addVendorScreen1ViewController;
+@property (strong, nonatomic) Couple *couple;
 
 @end

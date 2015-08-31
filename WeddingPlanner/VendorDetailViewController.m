@@ -26,11 +26,10 @@
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
     self.dataSource = [VendorsDetailDataSource new];
+    self.dataSource.vendor = self.vendor;
+    self.dataSource.vendorCategory = self.vendorCategory;
     self.tableView.dataSource = self.dataSource;
     [self.view addSubview:self.tableView];
-    
-    
-    
     
 }
 

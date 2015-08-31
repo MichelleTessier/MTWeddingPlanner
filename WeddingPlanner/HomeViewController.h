@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Couple.h"
 
 @interface HomeViewController : UIViewController
 
+@property (strong, nonatomic) Couple *couple;
 
 @end
 

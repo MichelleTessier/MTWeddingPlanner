@@ -11,17 +11,26 @@
 
 @implementation Planner
 
+@dynamic couples;
+
+@dynamic isPlanner;
 @dynamic businessName;
-@dynamic weddings;
 @dynamic masterWeddingProfiles;
 @dynamic personalCalendarItems;
 
-+(void)load{
-    [self registerSubclass];
-}
+@dynamic firstName;
+@dynamic lastName;
+@dynamic title;
+@dynamic photo;
+@dynamic facebookLink;
+@dynamic streetAddress;
+@dynamic city;
+@dynamic state;
+@dynamic zip;
+@dynamic phoneNumber;
+@dynamic secondPhoneNumber;
+@dynamic website;
 
-+(NSString *)parseClassName{
-    return @"Planner";
-}
+
 
 @end
