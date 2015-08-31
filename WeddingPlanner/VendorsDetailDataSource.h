@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "VendorViewControllerEnums.h"
+#import "WeddingController.h"
 
 @interface VendorsDetailDataSource : NSObject <UITableViewDataSource>
+
+@property (strong, nonatomic) Vendor *vendor;
+@property (strong, nonatomic) VendorCategory *vendorCategory;
 
 @end

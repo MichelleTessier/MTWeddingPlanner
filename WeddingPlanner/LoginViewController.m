@@ -62,7 +62,7 @@
     UIButton *signInButton = [UIButton new];
     [signInButton setTitle:@"Sign In" forState:UIControlStateNormal];
     [signInButton setBackgroundColor:[UIColor purpleColor]];
-    [signInButton addTarget:self action:@selector(signInButtonTappedWithCompletion:) forControlEvents:UIControlEventTouchUpInside];
+    [signInButton addTarget:self action:@selector(signInButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signInButton];
     
     UIButton *registerWeddingButton = [UIButton new];
@@ -107,76 +107,80 @@
     [registerAsPlannerButton constrainHeightToView:registerWeddingButton predicate:@"0"];
 }
 
--(void)signInPlanner{
+-(void)signInPlanner:(Planner *)planner{
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        [self signInButtonTappedWithCompletion:^{
-         
             DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
-            doubleTabBarSetup.planner = (Planner *)self.userSigningIn;
+            doubleTabBarSetup.planner = planner;
             self.toolBarButton.title = @"Couples Names";
             doubleTabBarSetup.couple = nil;
             [doubleTabBarSetup setUpClientTabBarController];
             [doubleTabBarSetup setUpPlannerTabBarController];
-            [self presentViewController:self.plannerTabBarController animated:YES completion:nil];
-            
-        }];
+            [self presentViewController:doubleTabBarSetup.plannerTabBarController animated:YES completion:nil];
+        
         
     });
     
 }
 
--(void)signInCouple{
+-(void)signInCouple:(Couple *)couple{
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        [self signInButtonTappedWithCompletion:^{
+        PFQuery *getWeddings = [PFQuery queryWithClassName:@"Wedding"];
+        [getWeddings whereKey:@"objectId" equalTo:couple.wedding.objectId];
+        [getWeddings includeKey:@"vendorCategories.vendors"];
+        
+        [getWeddings getFirstObjectInBackgroundWithBlock:^(PFObject *wedding, NSError *error){
+            
+            couple.wedding = (Wedding *)wedding;
             
             DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
-            doubleTabBarSetup.planner = (Planner *)self.userSigningIn;
             self.toolBarButton.title = @"Couples Names";
-            doubleTabBarSetup.couple = (Couple *)self.userSigningIn;
+            doubleTabBarSetup.couple = couple;
             doubleTabBarSetup.planner = nil;
             [doubleTabBarSetup setUpClientTabBarController];
-            [self presentViewController:self.clientTabBarController animated:YES completion:nil];
+            [self presentViewController:doubleTabBarSetup.clientTabBarController animated:YES completion:nil];
+            
+            
         }];
+    
+    
+        
+        
         
     });
     
     
 }
 
--(void)signInButtonTappedWithCompletion: (void(^)(void))completion{
+-(void)signInButtonTapped{
     
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passwordTextfield.text
-                                    block:^(PFUser *user, NSError *error) {
+                                    block: ^(PFUser *user, NSError *error) {
                                         
-                                        if (user) {
-                                          
+                                        if (!error) {
+                                            
                                             if (((Couple *)user).isPlanner == true) {
                                                 
-                                                self.userSigningIn = user;
-                                                completion();
+                                                
+                                                [self signInPlanner:(Planner *)user];
                                                 
                                             } else {
                                                 
-                                                self.userSigningIn = user;
-                                                completion();
+                                                [self signInCouple:(Couple *)user];
                                                 
                                             }
                                             
-                                            
-                                            
                                         } else {
-                                            NSLog(@"%@", error.localizedDescription);
                                             self.label.text = @"Are you sure that login info's correct?";
                                         }
-                                    }];
-
     
+                                    }];
 }
+
 
 -(void)registerAsPlannerButtonTapped{
     

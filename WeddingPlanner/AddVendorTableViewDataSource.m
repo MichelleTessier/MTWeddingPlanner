@@ -15,7 +15,7 @@ static NSString *textFieldCellID = @"textFieldCellID";
 @implementation AddVendorTableViewDataSource
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return AddVendorInformationSectionsCount;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

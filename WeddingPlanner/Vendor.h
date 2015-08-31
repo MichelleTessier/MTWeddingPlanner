@@ -15,7 +15,7 @@
 
 //V1
 @property (retain) NSString *businessName;
-@property (retain) VendorCategory *vendorCategory;
+@property (retain) NSString *vendorCategoryId;
 @property (retain) NSArray *vendorContractImages;
 @property (retain) NSNumber *totalCost;
 @property (retain) NSArray *vendorPayments;

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeddingController.h"
 
 @interface VendorDetailViewController : UIViewController
 
-
+@property (strong, nonatomic) Vendor *vendor;
+@property (strong, nonatomic) VendorCategory *vendorCategory;
 
 @end

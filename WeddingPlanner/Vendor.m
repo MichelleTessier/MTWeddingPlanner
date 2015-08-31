@@ -14,7 +14,7 @@
 @dynamic weddingID;
 
 @dynamic businessName;
-@dynamic vendorCategory;
+@dynamic vendorCategoryId;
 @dynamic vendorContractImages;
 @dynamic totalCost;
 @dynamic vendorPayments;

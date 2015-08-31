@@ -80,6 +80,7 @@
 		2CEF08761B8BDB3700DCCE2E /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08751B8BDB3700DCCE2E /* TextFieldTableViewCell.m */; };
 		2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */; };
 		2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */; };
+		2CFA7A571B94FA60000711A4 /* LabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */; };
 		2CFF11DC1B8E30A7002B675D /* VendorViewControllerEnums.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */; };
 		2CFF11DF1B8E3223002B675D /* NameEmailPhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */; };
 		2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11E11B8E3F42002B675D /* TempLoginViewController.m */; };
@@ -231,6 +232,8 @@
 		2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableViewCell.m; sourceTree = "<group>"; };
 		2CEF087A1B8BE74D00DCCE2E /* ImagesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesTableViewCell.h; sourceTree = "<group>"; };
 		2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewCell.m; sourceTree = "<group>"; };
+		2CFA7A551B94FA60000711A4 /* LabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelTableViewCell.h; sourceTree = "<group>"; };
+		2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelTableViewCell.m; sourceTree = "<group>"; };
 		2CFF11DA1B8E30A7002B675D /* VendorViewControllerEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorViewControllerEnums.h; sourceTree = "<group>"; };
 		2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorViewControllerEnums.m; sourceTree = "<group>"; };
 		2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameEmailPhoneTableViewCell.h; sourceTree = "<group>"; };
@@ -621,6 +624,8 @@
 				2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */,
 				2CEF087A1B8BE74D00DCCE2E /* ImagesTableViewCell.h */,
 				2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */,
+				2CFA7A551B94FA60000711A4 /* LabelTableViewCell.h */,
+				2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */,
 				2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */,
 				2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */,
 			);
@@ -884,6 +889,7 @@
 				2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */,
 				2CFF11F11B8E771D002B675D /* RegisterWeddingPageViewController.m in Sources */,
 				2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */,
+				2CFA7A571B94FA60000711A4 /* LabelTableViewCell.m in Sources */,
 				2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */,
 				2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */,
 				2CCB4FAF1B7E8E630048DF2E /* EditBudgetViewController.m in Sources */,

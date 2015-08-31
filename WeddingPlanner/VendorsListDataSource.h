@@ -13,5 +13,6 @@
 @interface VendorsListDataSource : NSObject <UITableViewDataSource>
 
 @property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) NSArray *chosenVendorCategories;
 
 @end

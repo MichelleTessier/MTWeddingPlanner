@@ -13,5 +13,6 @@
 @interface VendorsListViewController : UIViewController
 
 @property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) NSArray *chosenVendorCategories;
 
 @end
