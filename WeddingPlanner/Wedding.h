@@ -20,7 +20,7 @@
 @property (retain) Budget *budget;
 @property (retain) NSArray *vendorCategories;
 @property (retain) NSArray *calendarItems;
-@property (retain) NSArray *toDoTaskTimeCategories;
+@property (retain) NSArray *toDoTimeCategories;
 
 
 +(NSString *)parseClassName;

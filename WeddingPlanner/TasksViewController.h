@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeddingController.h"
+#import "ToDoListViewController.h"
 
 @interface TasksViewController : UIViewController
+
+@property (nonatomic, strong) Couple *couple;
 
 @end

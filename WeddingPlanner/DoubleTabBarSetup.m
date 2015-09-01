@@ -43,6 +43,7 @@
     
     TasksViewController *tasksVC = [TasksViewController new];
     tasksVC.title = @"Tasks";
+    tasksVC.couple = self.couple;
     UINavigationController *tasksNavController = [[UINavigationController alloc] initWithRootViewController:tasksVC];
     
     BudgetViewController *budgetVC = [BudgetViewController new];

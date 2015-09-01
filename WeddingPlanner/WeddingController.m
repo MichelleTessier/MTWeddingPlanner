@@ -101,7 +101,7 @@
 
 #pragma mark - vendorCategory CRUD
 
--(void)addVendorCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding*)wedding{
+-(void)addVendorCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding *)wedding{
     
     //will add the correct vendor categories once I have that built
     //for now using JSON file
@@ -134,6 +134,61 @@
     NSArray *vendorCategories = mutableVendorCategories;
     
     return vendorCategories;
+    
+}
+
+#pragma mark - toDoTimeCategory CRUD
+
+-(void)addToDoTimeCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding *)wedding{
+    
+    wedding.toDoTimeCategories = [self getToDoTimeCategoriesForWedding:wedding];
+}
+
+-(NSArray *)getToDoTimeCategoriesForWedding:(Wedding *)wedding{
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"WeddingConnectionsMasterWeddingProfile" ofType:@"json"];
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    
+    NSError *error;
+    
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    NSDictionary *toDoTimeCategoriesDict = [dictionary objectForKey:@"toDoTimeCategories"];
+    
+     NSMutableArray *mutableToDoTimeCategories = [NSMutableArray new];
+    
+    for (NSString *toDoTimeCategoryTitle in [toDoTimeCategoriesDict allKeys]) {
+        ToDoTimeCategory *toDoTimeCategory = [ToDoTimeCategory objectWithClassName:[ToDoTimeCategory parseClassName]];
+        toDoTimeCategory.title = toDoTimeCategoryTitle;
+        toDoTimeCategory.toDoItems = [self getToDoItemsForTimeCategory:toDoTimeCategoryTitle FromDict:toDoTimeCategoriesDict];
+        [mutableToDoTimeCategories addObject:toDoTimeCategory];
+        [toDoTimeCategory saveEventually];
+    
+    }
+
+    NSArray *toDoTimeCategories = mutableToDoTimeCategories;
+    
+    return toDoTimeCategories;
+    
+}
+
+-(NSArray *)getToDoItemsForTimeCategory:(NSString *)toDoTimeCategoryTitle FromDict:(NSDictionary *)toDoTimeCategoriesDict{
+    
+    NSArray *toDoItems = toDoTimeCategoriesDict[toDoTimeCategoryTitle];
+    NSMutableArray *mutableToDoItems = [NSMutableArray new];
+    
+    for (NSDictionary *toDoItemDictionary in toDoItems) {
+        ToDoItem *toDoItem = [ToDoItem objectWithClassName:[ToDoItem parseClassName]];
+        toDoItem.title = toDoItemDictionary[@"title"];
+        toDoItem.plannerTip = toDoItemDictionary[@"tip"];
+        [mutableToDoItems addObject:toDoItem];
+        [toDoItem saveEventually];
+    }
+    
+    toDoItems = mutableToDoItems;
+    
+    return toDoItems;
     
 }
 

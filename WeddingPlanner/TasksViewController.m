@@ -7,7 +7,6 @@
 //
 
 #import "TasksViewController.h"
-#import "ToDoListViewController.h"
 #import "CalendarViewController.h"
 
 
@@ -15,6 +14,7 @@
 
 @property (strong, nonatomic) UIViewController *currentViewController;
 @property (strong, nonatomic) UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) ToDoListViewController *toDoListVC;
 
 @end
 
@@ -25,6 +25,8 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor purpleColor];
     self.title = @"Tasks";
+    self.toDoListVC = [ToDoListViewController new];
+    self.toDoListVC.couple = self.couple;
     
     self.segmentedControl= [[UISegmentedControl alloc] initWithItems: @[@"To do", @"Calendar"]];
     self.segmentedControl.frame = CGRectMake(0, 64, self.view.frame.size.width, 44);
@@ -34,7 +36,7 @@
     [self addChildViewController:selectedViewController];
     selectedViewController.view.frame = [self frameForCurrentViewController];
     if (selectedViewController == nil) {
-        selectedViewController = [ToDoListViewController new];
+        selectedViewController = self.toDoListVC;
     }
     [self.view addSubview:selectedViewController.view];
     self.currentViewController = selectedViewController;
@@ -67,7 +69,7 @@
     UIViewController *viewController;
     switch (index) {
         case 0:
-            viewController = [ToDoListViewController new];
+            viewController = self.toDoListVC;
             break;
             
         case 1:

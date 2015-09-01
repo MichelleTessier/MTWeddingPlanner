@@ -1,15 +1,15 @@
 //
-//  ToDoViewController.h
+//  ToDoListDataSource.h
 //  WeddingPlanner
 //
-//  Created by Michelle Tessier on 8/19/15.
+//  Created by Michelle Tessier on 9/1/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "WeddingController.h"
 
-@interface ToDoListViewController : UIViewController
+@interface ToDoListDataSource : NSObject <UITableViewDataSource>
 
 @property (strong, nonatomic) Couple *couple;
 

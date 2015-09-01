@@ -41,7 +41,7 @@
 		2C932FDF1B87B34E002B092D /* VendorPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FDE1B87B34E002B092D /* VendorPayment.m */; };
 		2C932FE21B87C99D002B092D /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE11B87C99D002B092D /* Person.m */; };
 		2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */; };
-		2C932FE81B87CF63002B092D /* ToDoTaskTimeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE71B87CF63002B092D /* ToDoTaskTimeCategory.m */; };
+		2C932FE81B87CF63002B092D /* ToDoTimeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */; };
 		2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FEA1B87D088002B092D /* VendorCategory.m */; };
 		2CC349321B7C18F6006A8D5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349311B7C18F6006A8D5E /* main.m */; };
 		2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349341B7C18F6006A8D5E /* AppDelegate.m */; };
@@ -81,6 +81,8 @@
 		2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */; };
 		2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */; };
 		2CFA7A571B94FA60000711A4 /* LabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */; };
+		2CFA7A8C1B960097000711A4 /* ToDoListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7A8B1B960097000711A4 /* ToDoListDataSource.m */; };
+		2CFA7A8F1B96117A000711A4 /* LabelAndIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7A8E1B96117A000711A4 /* LabelAndIconTableViewCell.m */; };
 		2CFF11DC1B8E30A7002B675D /* VendorViewControllerEnums.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */; };
 		2CFF11DF1B8E3223002B675D /* NameEmailPhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */; };
 		2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11E11B8E3F42002B675D /* TempLoginViewController.m */; };
@@ -155,8 +157,8 @@
 		2C932FE11B87C99D002B092D /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		2C932FE31B87CDF6002B092D /* MasterWeddingProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterWeddingProfile.h; sourceTree = "<group>"; };
 		2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterWeddingProfile.m; sourceTree = "<group>"; };
-		2C932FE61B87CF63002B092D /* ToDoTaskTimeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTaskTimeCategory.h; sourceTree = "<group>"; };
-		2C932FE71B87CF63002B092D /* ToDoTaskTimeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTaskTimeCategory.m; sourceTree = "<group>"; };
+		2C932FE61B87CF63002B092D /* ToDoTimeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTimeCategory.h; sourceTree = "<group>"; };
+		2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTimeCategory.m; sourceTree = "<group>"; };
 		2C932FE91B87D088002B092D /* VendorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCategory.h; sourceTree = "<group>"; };
 		2C932FEA1B87D088002B092D /* VendorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCategory.m; sourceTree = "<group>"; };
 		2CC3492C1B7C18F6006A8D5E /* WeddingPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeddingPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,10 @@
 		2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewCell.m; sourceTree = "<group>"; };
 		2CFA7A551B94FA60000711A4 /* LabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelTableViewCell.h; sourceTree = "<group>"; };
 		2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelTableViewCell.m; sourceTree = "<group>"; };
+		2CFA7A8A1B960097000711A4 /* ToDoListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListDataSource.h; sourceTree = "<group>"; };
+		2CFA7A8B1B960097000711A4 /* ToDoListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListDataSource.m; sourceTree = "<group>"; };
+		2CFA7A8D1B96117A000711A4 /* LabelAndIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelAndIconTableViewCell.h; sourceTree = "<group>"; };
+		2CFA7A8E1B96117A000711A4 /* LabelAndIconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelAndIconTableViewCell.m; sourceTree = "<group>"; };
 		2CFF11DA1B8E30A7002B675D /* VendorViewControllerEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorViewControllerEnums.h; sourceTree = "<group>"; };
 		2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorViewControllerEnums.m; sourceTree = "<group>"; };
 		2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameEmailPhoneTableViewCell.h; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 		2C932FBA1B879F5A002B092D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CFF11D51B8E2F58002B675D /* Custom Table View Cells */,
 				2CCB4F7E1B7D406C0048DF2E /* Login View Controllers */,
 				2CCB4F7D1B7D40320048DF2E /* Client View Controllers */,
 				2CCB4F771B7D30310048DF2E /* Planner Only View Controllers */,
@@ -441,6 +448,8 @@
 				2CC349621B7C37AB006A8D5E /* TasksViewController.m */,
 				2CCB4FC51B84FC040048DF2E /* ToDoListViewController.h */,
 				2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */,
+				2CFA7A8A1B960097000711A4 /* ToDoListDataSource.h */,
+				2CFA7A8B1B960097000711A4 /* ToDoListDataSource.m */,
 				2CCB4FC81B84FC150048DF2E /* CalendarViewController.h */,
 				2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */,
 			);
@@ -462,7 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				2CFF11D91B8E3065002B675D /* Enums */,
-				2CFF11D51B8E2F58002B675D /* Custom Table View Cells */,
 				2CFF11D61B8E2F75002B675D /* Vendor List View Controllers */,
 				2CEF08701B8BD8FC00DCCE2E /* Add Vendor View Controllers */,
 				2CFF11D81B8E2F8F002B675D /* Vendor Detail View Controllers */,
@@ -582,8 +590,8 @@
 		2CEF085D1B8BC82C00DCCE2E /* Planner Side Model Objects */ = {
 			isa = PBXGroup;
 			children = (
-				2C932FE61B87CF63002B092D /* ToDoTaskTimeCategory.h */,
-				2C932FE71B87CF63002B092D /* ToDoTaskTimeCategory.m */,
+				2C932FE61B87CF63002B092D /* ToDoTimeCategory.h */,
+				2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */,
 				2C932FC81B87A100002B092D /* ToDoItem.h */,
 				2C932FC91B87A100002B092D /* ToDoItem.m */,
 				2C932FE91B87D088002B092D /* VendorCategory.h */,
@@ -626,10 +634,13 @@
 				2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */,
 				2CFA7A551B94FA60000711A4 /* LabelTableViewCell.h */,
 				2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */,
+				2CFA7A8D1B96117A000711A4 /* LabelAndIconTableViewCell.h */,
+				2CFA7A8E1B96117A000711A4 /* LabelAndIconTableViewCell.m */,
 				2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */,
 				2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */,
 			);
 			name = "Custom Table View Cells";
+			path = WeddingPlanner;
 			sourceTree = "<group>";
 		};
 		2CFF11D61B8E2F75002B675D /* Vendor List View Controllers */ = {
@@ -900,7 +911,9 @@
 				2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */,
 				2CEF08761B8BDB3700DCCE2E /* TextFieldTableViewCell.m in Sources */,
 				2CEF08591B8BBFD100DCCE2E /* WeddingController.m in Sources */,
-				2C932FE81B87CF63002B092D /* ToDoTaskTimeCategory.m in Sources */,
+				2CFA7A8F1B96117A000711A4 /* LabelAndIconTableViewCell.m in Sources */,
+				2CFA7A8C1B960097000711A4 /* ToDoListDataSource.m in Sources */,
+				2C932FE81B87CF63002B092D /* ToDoTimeCategory.m in Sources */,
 				2CC349601B7C1CFD006A8D5E /* GuestsViewController.m in Sources */,
 				2C932FE21B87C99D002B092D /* Person.m in Sources */,
 				2CFF11E51B8E51D3002B675D /* RegisterWeddingPage1ViewController.m in Sources */,

@@ -97,7 +97,8 @@
             self.planner = [PlannerController sharedInstance].planner;
             self.couple.plannerID = self.planner.objectId;
             
-            [[WeddingController sharedInstance]addVendorCategoriesFromPlanner:self.planner ToWedding:self.couple.wedding];
+            [[WeddingController sharedInstance] addVendorCategoriesFromPlanner:self.planner ToWedding:self.couple.wedding];
+            [[WeddingController sharedInstance] addToDoTimeCategoriesFromPlanner:self.planner ToWedding:self.couple.wedding];
             
             [self.couple saveInBackground];
             
