@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) AddVendorTableViewDataSource *dataSource;
-@property (strong, nonatomic) VendorCategory *selectedVendorCategory;
+
 
 @end
 
@@ -45,6 +45,7 @@
     self.tableView = [UITableView new];
     self.dataSource = [AddVendorTableViewDataSource new];
     self.dataSource.addVendorScreen1ViewController = self;
+    self.dataSource.couple = self.couple;
     self.tableView.dataSource = self.dataSource;
     [self.view addSubview: self.tableView];
     
@@ -120,16 +121,7 @@
     
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-   VendorCategory *vendorCategory = self.couple.wedding.vendorCategories[row];
-    return vendorCategory.title;
-}
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
-    self.selectedVendorCategory = self.couple.wedding.vendorCategories[row];
-    
-}
 
 -(void)finishBarButtonTapped{
     

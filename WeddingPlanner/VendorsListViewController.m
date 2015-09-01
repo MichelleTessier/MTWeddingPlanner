@@ -72,8 +72,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     VendorDetailViewController *vendorDVC = [VendorDetailViewController new];
-    vendorDVC.vendorCategory = self.chosenVendorCategories[indexPath.row];
-    NSLog(@"%@", vendorDVC.vendorCategory.vendors[0]);
+    vendorDVC.vendorCategory = self.chosenVendorCategories[indexPath.section];
     vendorDVC.vendor = vendorDVC.vendorCategory.vendors[indexPath.row];
     [self.navigationController pushViewController: vendorDVC animated:YES];
     

@@ -12,6 +12,12 @@
 static NSString *pickerCellID = @"pickerCellID";
 static NSString *textFieldCellID = @"textFieldCellID";
 
+@interface AddVendorTableViewDataSource ()
+
+@property (strong, nonatomic) UITextField *textField;
+
+@end
+
 @implementation AddVendorTableViewDataSource
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -80,14 +86,36 @@ static NSString *textFieldCellID = @"textFieldCellID";
     switch (vendorSection) {
         case AddVendorInformationCategorySection: {
             
-           PickerViewTableViewCell *pickerCell = [tableView dequeueReusableCellWithIdentifier:pickerCellID];
+           TextFieldTableViewCell *pickerCell = [tableView dequeueReusableCellWithIdentifier:pickerCellID];
             
             if (!pickerCell) {
-                pickerCell = [[PickerViewTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pickerCellID];
+                pickerCell = [[TextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pickerCellID];
             }
+            
+            self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
         
-            pickerCell.pickerView.dataSource = self;
-            pickerCell.pickerView.delegate = self.addVendorScreen1ViewController;
+            self.pickerView.dataSource = self;
+            self.pickerView.delegate = self;
+           
+            
+            pickerCell.textField.inputView = self.pickerView;
+            pickerCell.textField.text = self.selectedVendorCategory.title;
+            
+            UIToolbar *toolBar = [UIToolbar new];
+            toolBar.frame = CGRectMake(0.0, 0.0, self.addVendorScreen1ViewController.view.frame.size.width, 40.0);
+            UIBarButtonItem *doneButton = [UIBarButtonItem new];
+            doneButton.title = @"Done";
+            
+            [doneButton setTarget:self];
+            [doneButton setAction:@selector(doneButtonTapped)];
+            
+            NSArray *items = @[doneButton];
+            
+            [toolBar setItems:items];
+            
+            pickerCell.textField.inputAccessoryView = toolBar;
+            
+            self.textField = pickerCell.textField;
             
             return pickerCell;
         
@@ -102,6 +130,7 @@ static NSString *textFieldCellID = @"textFieldCellID";
             }
             
             textFieldCell.textField.delegate = self.addVendorScreen1ViewController;
+            self.tableView = tableView;
             
             VendorContactInformationTypes informationType = indexPath.row;
             
@@ -174,6 +203,21 @@ static NSString *textFieldCellID = @"textFieldCellID";
     
 }
 
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    VendorCategory *vendorCategory = self.couple.wedding.vendorCategories[row];
+    return vendorCategory.title;
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    
+    self.selectedVendorCategory = self.couple.wedding.vendorCategories[row];
+    self.addVendorScreen1ViewController.selectedVendorCategory = self.selectedVendorCategory;
+    
+    
+}
+
+
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
@@ -182,6 +226,10 @@ static NSString *textFieldCellID = @"textFieldCellID";
     return self.addVendorScreen1ViewController.couple.wedding.vendorCategories.count;
 }
 
+-(void)doneButtonTapped{
+    [self.tableView reloadData];
+    [self.textField resignFirstResponder];
+}
 
 
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WeddingController.h"
 
-@interface AddVendorScreen1ViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate>
+@interface AddVendorScreen1ViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) Vendor *vendor;
 @property (strong, nonatomic) Wedding *wedding;
@@ -23,6 +23,8 @@
 @property (retain) NSString *email;
 @property (retain) NSString *phoneNumber;
 @property (retain) NSString *secondPhoneNumber;
+
+@property (strong, nonatomic) VendorCategory *selectedVendorCategory;
 
 
 @end
