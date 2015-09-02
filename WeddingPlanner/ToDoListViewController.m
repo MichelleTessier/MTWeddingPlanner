@@ -24,15 +24,13 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 80);
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64)];
 
     self.dataSource = [ToDoListDataSource new];
     self.dataSource.couple = self.couple;
     
     self.tableView.dataSource = self.dataSource;
-    self.tableView.delegate = self;
+    self.tableView.delegate = self.dataSource;
     
     [self.view addSubview:self.tableView];
     

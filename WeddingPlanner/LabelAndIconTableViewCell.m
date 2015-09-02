@@ -20,7 +20,14 @@
         self.label = [UILabel new];
         self.label.numberOfLines = 0;
         [self.contentView addSubview:self.label];
-        [self.label alignTop:@"0" leading:@"5" bottom:@"0" trailing:@"5" toView:self.contentView];
+        [self.label alignTop:@"0" leading:@"5" bottom:@"0" trailing:@"-54" toView:self.contentView];
+        
+        self.button = [UIButton new];
+        [self.contentView addSubview:self.button];
+        [self.button alignTrailingEdgeWithView:self.contentView predicate:@"5"];
+        [self.button constrainWidth:@"44"];
+        [self.button constrainHeight:@"44"];
+        [self.button alignCenterYWithView:self.contentView predicate:nil];
         
     }
     

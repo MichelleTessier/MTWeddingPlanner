@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "WeddingController.h"
 
-@interface ToDoListDataSource : NSObject <UITableViewDataSource>
+@interface ToDoListDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) Couple *couple;
 

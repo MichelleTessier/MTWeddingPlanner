@@ -9,6 +9,8 @@
 #import "TasksViewController.h"
 #import "CalendarViewController.h"
 
+#warning View Controller doesn't display correctly if To Do List seg is selected before calendar seg
+
 
 @interface TasksViewController ()
 
@@ -77,7 +79,7 @@
             break;
             
         default:
-            viewController = [ToDoListViewController new];
+            viewController = self.toDoListVC;
             break;
     }
     

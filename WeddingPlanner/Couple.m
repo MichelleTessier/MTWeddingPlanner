@@ -13,6 +13,7 @@
 
 @dynamic wedding;
 @dynamic plannerID;
+@dynamic plannerFirstName;
 
 @dynamic isPlanner;
 
