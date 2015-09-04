@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeddingController.h"
 
 @interface BudgetViewController : UIViewController
+
+@property (strong, nonatomic) Couple *couple;
 
 @end

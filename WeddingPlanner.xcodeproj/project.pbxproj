@@ -69,6 +69,8 @@
 		2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */; };
 		2CCB4FCA1B84FC150048DF2E /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */; };
 		2CEE29E11B9A14090006E88A /* DatePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE29E01B9A14090006E88A /* DatePickerTableViewCell.m */; };
+		2CEE29E41B9A322C0006E88A /* EditBudgetIndividualPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE29E31B9A322C0006E88A /* EditBudgetIndividualPageViewController.m */; };
+		2CEE29E71B9A32580006E88A /* EditBudgetIndividualPageDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE29E61B9A32580006E88A /* EditBudgetIndividualPageDataSource.m */; };
 		2CEF08591B8BBFD100DCCE2E /* WeddingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08581B8BBFD100DCCE2E /* WeddingController.m */; };
 		2CEF085C1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF085B1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m */; };
 		2CEF08601B8BC9B200DCCE2E /* TaskDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF085F1B8BC9B200DCCE2E /* TaskDefaultsViewController.m */; };
@@ -220,6 +222,10 @@
 		2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		2CEE29DF1B9A14090006E88A /* DatePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerTableViewCell.h; sourceTree = "<group>"; };
 		2CEE29E01B9A14090006E88A /* DatePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerTableViewCell.m; sourceTree = "<group>"; };
+		2CEE29E21B9A322C0006E88A /* EditBudgetIndividualPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBudgetIndividualPageViewController.h; sourceTree = "<group>"; };
+		2CEE29E31B9A322C0006E88A /* EditBudgetIndividualPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBudgetIndividualPageViewController.m; sourceTree = "<group>"; };
+		2CEE29E51B9A32580006E88A /* EditBudgetIndividualPageDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBudgetIndividualPageDataSource.h; sourceTree = "<group>"; };
+		2CEE29E61B9A32580006E88A /* EditBudgetIndividualPageDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBudgetIndividualPageDataSource.m; sourceTree = "<group>"; };
 		2CEF08571B8BBFD100DCCE2E /* WeddingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingController.h; sourceTree = "<group>"; };
 		2CEF08581B8BBFD100DCCE2E /* WeddingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingController.m; sourceTree = "<group>"; };
 		2CEF085A1B8BC5EB00DCCE2E /* MasterWeddingProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterWeddingProfileController.h; sourceTree = "<group>"; };
@@ -482,6 +488,10 @@
 				2CC349591B7C1CD4006A8D5E /* BudgetViewController.m */,
 				2CCB4FAD1B7E8E630048DF2E /* EditBudgetViewController.h */,
 				2CCB4FAE1B7E8E630048DF2E /* EditBudgetViewController.m */,
+				2CEE29E21B9A322C0006E88A /* EditBudgetIndividualPageViewController.h */,
+				2CEE29E31B9A322C0006E88A /* EditBudgetIndividualPageViewController.m */,
+				2CEE29E51B9A32580006E88A /* EditBudgetIndividualPageDataSource.h */,
+				2CEE29E61B9A32580006E88A /* EditBudgetIndividualPageDataSource.m */,
 			);
 			name = "Budget View Controllers";
 			sourceTree = "<group>";
@@ -983,6 +993,7 @@
 				2C932FD31B87A146002B092D /* Guest.m in Sources */,
 				2CEF08691B8BCAD600DCCE2E /* VendorDefaultsListDataSource.m in Sources */,
 				2C932FD61B87A157002B092D /* Planner.m in Sources */,
+				2CEE29E41B9A322C0006E88A /* EditBudgetIndividualPageViewController.m in Sources */,
 				2C932FC11B87A0C0002B092D /* Couple.m in Sources */,
 				2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */,
 				2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */,
@@ -1022,6 +1033,7 @@
 				2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
 				2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */,
+				2CEE29E71B9A32580006E88A /* EditBudgetIndividualPageDataSource.m in Sources */,
 				2CFF11E81B8E520A002B675D /* RegisterPlannerViewController.m in Sources */,
 				2CEE29E11B9A14090006E88A /* DatePickerTableViewCell.m in Sources */,
 				2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */,

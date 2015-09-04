@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EditBudgetIndividualPageViewController.h"
+#import "WeddingController.h"
 
-@interface EditBudgetViewController : UIViewController
+@interface EditBudgetViewController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
-//use page view (thing with the little dots, or content view with paging enabled)
+@property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) EditBudgetIndividualPageViewController *editBudgetIndividualPageVC;
+@property (strong, nonatomic) NSMutableArray *editBudgetViewControllers;
 
 @end

@@ -48,6 +48,7 @@
     
     BudgetViewController *budgetVC = [BudgetViewController new];
     budgetVC.title = @"Budget";
+    budgetVC.couple = self.couple;
     UINavigationController *budgetNavController = [[UINavigationController alloc] initWithRootViewController:budgetVC];
     
     VendorsListViewController *vendorsVC = [VendorsListViewController new];

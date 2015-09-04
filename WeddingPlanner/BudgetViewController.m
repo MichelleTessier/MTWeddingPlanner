@@ -24,6 +24,8 @@
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
     [self.view addSubview:navBar];
     
+
+    
     UIBarButtonItem *editBudgetBarButton = [UIBarButtonItem new];
     editBudgetBarButton.title = @"Edit Budget";
     editBudgetBarButton.target = self;
@@ -33,7 +35,9 @@
 }
 
 -(void)editBudgetBarButtonTapped{
-    [self.navigationController pushViewController:[EditBudgetViewController new] animated:YES];
+    EditBudgetViewController *editBudgetVC = [EditBudgetViewController new];
+    editBudgetVC.couple = self.couple;
+    [self.navigationController pushViewController: editBudgetVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

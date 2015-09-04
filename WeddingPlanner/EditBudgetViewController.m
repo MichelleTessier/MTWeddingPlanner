@@ -16,8 +16,79 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.title = @"Edit Budget";
+    
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:kNilOptions];
+    
+    self.pageViewController.dataSource = self;
+    
+    self.editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:0];
+    
+//    self.editBudgetViewControllers = [NSMutableArray new];
+//    [self.editBudgetViewControllers addObject:self.editBudgetIndividualPageVC];
+   
+//    
+//    self.registerWeddingPage1VC.registerWeddingPage2VC = self.registerWeddingPage2VC;
+//    self.registerWeddingPage1VC.pageViewController = self.pageViewController;
+    
+    NSArray *viewControllers = @[self.editBudgetIndividualPageVC];
+    
+    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    [self addChildViewController:self.pageViewController];
+    [self.pageViewController didMoveToParentViewController:self];
+    [self.view addSubview:self.pageViewController.view];
+    
+    
+    
+    
+}
+
+-(EditBudgetIndividualPageViewController *)VCForVendorCategory:(VendorCategory *)vendorCategory{
+    
+   NSInteger index = [self.couple.wedding.vendorCategories indexOfObjectIdenticalTo:vendorCategory];
+    
+    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:index];
+    
+//    [self.editBudgetViewControllers addObject:editBudgetIndividualPageVC];
+    
+    return editBudgetIndividualPageVC;
+}
+
+
+-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
+    
+    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
+    
+    if (editBudgetIndividualPageVC.previousVendorCateogy) {
+        return [self VCForVendorCategory:editBudgetIndividualPageVC.previousVendorCateogy];
+    } else {
+        return nil;
+    }
+    //figure out which is currentVC
+    
+    //if previous vc doesnt exist, create it
+    
+    //return previous vc
+    
+//    if (viewController == self.registerWeddingPage1VC) {
+//        return nil;
+//    } else {
+//        return self.registerWeddingPage1VC;
+//    }
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
+    
+    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
+    
+    if (editBudgetIndividualPageVC.nextVendorCategory) {
+        return [self VCForVendorCategory:editBudgetIndividualPageVC.nextVendorCategory];
+    } else {
+        return nil;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
