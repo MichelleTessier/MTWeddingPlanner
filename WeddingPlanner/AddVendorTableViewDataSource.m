@@ -92,6 +92,9 @@ static NSString *textFieldCellID = @"textFieldCellID";
                 pickerCell = [[TextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pickerCellID];
             }
             
+#warning may need to replace this frame with contraints
+            
+            
             self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 50, 100, 150)];
         
             self.pickerView.dataSource = self;

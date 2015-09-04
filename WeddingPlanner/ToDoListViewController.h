@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "WeddingController.h"
 
-@interface ToDoListViewController : UIViewController
+@interface ToDoListViewController : UIViewController <UITableViewDelegate>
 
 @property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) UISwitch *archivedSwitch;
 
 @end

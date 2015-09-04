@@ -182,6 +182,7 @@
         ToDoItem *toDoItem = [ToDoItem objectWithClassName:[ToDoItem parseClassName]];
         toDoItem.title = toDoItemDictionary[@"title"];
         toDoItem.plannerTip = toDoItemDictionary[@"tip"];
+        toDoItem.itemComplete = NO;
         [mutableToDoItems addObject:toDoItem];
         [toDoItem saveEventually];
     }

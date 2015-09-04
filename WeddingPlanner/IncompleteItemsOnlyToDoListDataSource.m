@@ -1,68 +1,62 @@
 //
-//  ToDoListDataSource.m
+//  IncompleteItemsOnlyToDoListDataSource.m
 //  WeddingPlanner
 //
-//  Created by Michelle Tessier on 9/1/15.
+//  Created by Michelle Tessier on 9/2/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "ToDoListDataSource.h"
-
+#import "IncompleteItemsOnlyToDoListDataSource.h"
+#import "LabelButtonCheckBoxTableViewCell.h"
 #import "LabelTableViewCell.h"
-
 
 static NSString *toDoListCellID = @"toDoListCellID";
 static NSString *tipCellID = @"tipCellID";
 
-@interface ToDoListDataSource ()
+@interface IncompleteItemsOnlyToDoListDataSource () <LabelButtonCheckBoxTableViewCellDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 
+
 @end
 
-@implementation ToDoListDataSource
+@implementation IncompleteItemsOnlyToDoListDataSource
 
-//-(NSArray *)archivedToDoCategories{
-//    
-////    NSMutableArray *mutableToDoCategories = [NSMutableArray new];
-////    
-////    for (ToDoTimeCategory *toDoTimeCategory in self.couple.wedding.toDoTimeCategories) {
-////         //Write a way for categories to dissappear if all toDo items are finished.
-////        [mutableToDoCategories addObject:toDoTimeCategory];
-////    }
-////    
-////    NSArray *incompleteToDoTimeCategories = mutableToDoCategories;
-////    
-////    for (ToDoTimeCategory *toDoTimeCategory in incompleteToDoTimeCategories) {
-////        
-////        NSMutableArray *mutableToDos = [NSMutableArray new];
-////        
-////        for (ToDoItem *toDoItem in toDoTimeCategory.toDoItems) {
-////            
-////            if (toDoItem.itemComplete == NO) {
-////                [mutableToDos addObject:toDoItem];
-////            }
-////        }
-////        
-////        toDoTimeCategory.incompleteToDoItems = mutableToDos;
-////    }
-////    
-////    return incompleteToDoTimeCategories;
-//}
+-(NSArray *)incompleteToDoCategories{
 
+    NSMutableArray *mutableToDoCategories = [NSMutableArray new];
 
+    for (ToDoTimeCategory *toDoTimeCategory in self.couple.wedding.toDoTimeCategories) {
+         //Write a way for categories to dissappear if all toDo items are finished.
+        [mutableToDoCategories addObject:toDoTimeCategory];
+    }
+    
+    NSArray *incompleteToDoTimeCategories = mutableToDoCategories;
+    
+    return incompleteToDoTimeCategories;
 
+}
+
+-(NSArray *)incompleteToDoItemsForCategory:(ToDoTimeCategory *)toDoTimeCategory{
+    
+    NSPredicate *itemCompletePredicate = [NSPredicate predicateWithFormat:@"itemComplete == NO"];
+    
+    NSArray *incompleteToDoItemsForCateogory = [toDoTimeCategory.toDoItems filteredArrayUsingPredicate:itemCompletePredicate];
+    
+    return incompleteToDoItemsForCateogory;
+    
+}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-        return self.couple.wedding.toDoTimeCategories.count;
+    return self.couple.wedding.toDoTimeCategories.count;
     
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     ToDoTimeCategory *toDoTimeCategory = self.couple.wedding.toDoTimeCategories[section];
-   
+    
     return toDoTimeCategory.title;
     
 }
@@ -72,14 +66,14 @@ static NSString *tipCellID = @"tipCellID";
     NSInteger rows = 0;
     
     ToDoTimeCategory *toDoTimeCategory = self.couple.wedding.toDoTimeCategories[section];
-   
-
+    
+    NSArray *incompleteToDoItems = [self incompleteToDoItemsForCategory:toDoTimeCategory];
     
     if (self.indexPathForTip && section == self.indexPathForTip.section){
         //there is a tip row and the tip row is in the section
-         rows = toDoTimeCategory.toDoItems.count + 1;
+        rows = incompleteToDoItems.count + 1;
     } else {
-        rows = toDoTimeCategory.toDoItems.count;
+        rows = incompleteToDoItems.count;
     }
     
     return rows;
@@ -90,9 +84,9 @@ static NSString *tipCellID = @"tipCellID";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     ToDoTimeCategory *toDoTimeCategory = self.couple.wedding.toDoTimeCategories[indexPath.section];
-   
+    
     self.tableView = tableView;
-   
+    
     
     if (self.indexPathForTip){
         //there is a tip cell displayed
@@ -101,17 +95,17 @@ static NSString *tipCellID = @"tipCellID";
             
             LabelTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tipCellID];
             
-                    if (!cell) {
-                        cell = [[LabelTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tipCellID];
-                    }
+            if (!cell) {
+                cell = [[LabelTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tipCellID];
+            }
             
-            ToDoItem *toDoItem = toDoTimeCategory.toDoItems[indexPath.row - 1];
+            ToDoItem *toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row - 1];
             
             NSString *tipString = @"";
             
             if (self.couple.plannerFirstName) {
                 tipString = [NSString stringWithFormat:@"%@'s Tip: %@", self.couple.plannerFirstName, toDoItem.plannerTip];
-
+                
             } else {
                 tipString = [NSString stringWithFormat:@"Tip: %@", toDoItem.plannerTip];
             }
@@ -126,101 +120,92 @@ static NSString *tipCellID = @"tipCellID";
             
             //The cell tapped is in the same section as the tip cell displayed
             
-            ToDoItem *toDoItem;
+            ToDoItem *toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row];
             
-            if (indexPath.row < self.indexPathForTip.row) {
-                //The cell tapped is above the tip cell displayed
-                toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
-            } else {
-                //The cell tapped is below the tip cell displayed
-                toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+            LabelButtonCheckBoxTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:toDoListCellID];
+            
+            if (!cell) {
+                cell = [[LabelButtonCheckBoxTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:toDoListCellID];
             }
             
-        
-                LabelButtonCheckBoxTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:toDoListCellID];
-                
-                if (!cell) {
-                    cell = [[LabelButtonCheckBoxTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:toDoListCellID];
-                }
-                
             [cell updateToDoCellAtIndexPath:indexPath WithToDoItem:toDoItem];
             cell.delegate = self;
-
-                return cell;
+            
+            return cell;
             
             
         } else {
             
             //The cell tapped is not in the same section as the tip cell displayed
             
-            ToDoItem *toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+            ToDoItem *toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row];
             
             
-                LabelButtonCheckBoxTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:toDoListCellID];
-                
-                if (!cell) {
-                    cell = [[LabelButtonCheckBoxTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:toDoListCellID];
-                }
-                
+            LabelButtonCheckBoxTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:toDoListCellID];
+            
+            if (!cell) {
+                cell = [[LabelButtonCheckBoxTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:toDoListCellID];
+            }
+            
             [cell updateToDoCellAtIndexPath:indexPath WithToDoItem:toDoItem];
             cell.delegate = self;
-
+            
             
             return cell;
-    
+            
             
         }
         
     } else {
         //There is no tip cell currently displayed
         
-        ToDoItem *toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+         ToDoItem *toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row];
         
         
-            //the cell tapped has a planner tip
-            LabelButtonCheckBoxTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:toDoListCellID];
-            
-            if (!cell) {
-                cell = [[LabelButtonCheckBoxTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:toDoListCellID];
-            }
+        //the cell tapped has a planner tip
+        LabelButtonCheckBoxTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:toDoListCellID];
+        
+        if (!cell) {
+            cell = [[LabelButtonCheckBoxTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:toDoListCellID];
+        }
         
         [cell updateToDoCellAtIndexPath:indexPath WithToDoItem:toDoItem];
-         cell.delegate = self;
-            
-            
-            return cell;
+        cell.delegate = self;
+        
+        
+        return cell;
         
     }
     
     
 }
 
-
 -(void)checkBoxChangedState:(kMPCheckBoxState)state inCell:(LabelButtonCheckBoxTableViewCell *)sender{
     
-    if (self.isCurrentDataSource == YES) {
-      
+     if (self.isCurrentDataSource == YES) {
     
     UITableViewCell *cell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     ToDoTimeCategory *toDoTimeCategory = self.couple.wedding.toDoTimeCategories[indexPath.section];
-    ToDoItem *toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+    ToDoItem *toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row];
     
     if (state == kMPCheckBoxStateChecked) {
         toDoItem.itemComplete = YES;
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
+        
+        
         
     } else {
         toDoItem.itemComplete = NO;
     }
     
-    }
     
+     }
     
 }
 
-
-
 -(void)tipButtonTappedinSender:(LabelButtonCheckBoxTableViewCell *)sender{
+
     
     UITableViewCell *cell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
@@ -320,14 +305,6 @@ static NSString *tipCellID = @"tipCellID";
     
     
 }
-
-
-
-
-
-
-
-
 
 
 @end

@@ -22,16 +22,23 @@
 
 @implementation TasksViewController
 
+#warning hide status bar
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor purpleColor];
     self.title = @"Tasks";
+    
     self.toDoListVC = [ToDoListViewController new];
     self.toDoListVC.couple = self.couple;
     
-    self.segmentedControl= [[UISegmentedControl alloc] initWithItems: @[@"To do", @"Calendar"]];
-    self.segmentedControl.frame = CGRectMake(0, 64, self.view.frame.size.width, 44);
+    self.navigationController.navigationBarHidden = YES;
+
+    
+    
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems: @[@"To do", @"Calendar"]];
+    self.segmentedControl.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
 
     
     UIViewController *selectedViewController = [self viewControllerForSegmentIndex:self.segmentedControl.selectedSegmentIndex];
@@ -89,7 +96,7 @@
 
 
 -(CGRect)frameForCurrentViewController{
-    CGRect boundingRect = CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 200);
+    CGRect boundingRect = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44);
     return boundingRect;
 }
 
