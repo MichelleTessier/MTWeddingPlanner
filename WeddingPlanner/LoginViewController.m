@@ -132,6 +132,7 @@
         PFQuery *getWeddings = [PFQuery queryWithClassName:@"Wedding"];
         [getWeddings whereKey:@"objectId" equalTo:couple.wedding.objectId];
         [getWeddings includeKey:@"vendorCategories.vendors"];
+        [getWeddings includeKey:@"toDoTimeCategories.toDoItems"];
         
         [getWeddings getFirstObjectInBackgroundWithBlock:^(PFObject *wedding, NSError *error){
             

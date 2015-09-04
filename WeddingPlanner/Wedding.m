@@ -20,7 +20,7 @@
 @dynamic budget;
 @dynamic vendorCategories;
 @dynamic calendarItems;
-@dynamic toDoTaskTimeCategories;
+@dynamic toDoTimeCategories;
 
 
 +(void)load{

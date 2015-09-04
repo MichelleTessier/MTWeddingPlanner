@@ -41,7 +41,7 @@
 		2C932FDF1B87B34E002B092D /* VendorPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FDE1B87B34E002B092D /* VendorPayment.m */; };
 		2C932FE21B87C99D002B092D /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE11B87C99D002B092D /* Person.m */; };
 		2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */; };
-		2C932FE81B87CF63002B092D /* ToDoTaskTimeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE71B87CF63002B092D /* ToDoTaskTimeCategory.m */; };
+		2C932FE81B87CF63002B092D /* ToDoTimeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */; };
 		2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FEA1B87D088002B092D /* VendorCategory.m */; };
 		2CC349321B7C18F6006A8D5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349311B7C18F6006A8D5E /* main.m */; };
 		2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349341B7C18F6006A8D5E /* AppDelegate.m */; };
@@ -68,6 +68,7 @@
 		2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */; };
 		2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */; };
 		2CCB4FCA1B84FC150048DF2E /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */; };
+		2CEE29E11B9A14090006E88A /* DatePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE29E01B9A14090006E88A /* DatePickerTableViewCell.m */; };
 		2CEF08591B8BBFD100DCCE2E /* WeddingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08581B8BBFD100DCCE2E /* WeddingController.m */; };
 		2CEF085C1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF085B1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m */; };
 		2CEF08601B8BC9B200DCCE2E /* TaskDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF085F1B8BC9B200DCCE2E /* TaskDefaultsViewController.m */; };
@@ -81,6 +82,14 @@
 		2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08781B8BE6F500DCCE2E /* TextViewTableViewCell.m */; };
 		2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */; };
 		2CFA7A571B94FA60000711A4 /* LabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */; };
+		2CFA7A8C1B960097000711A4 /* ToDoListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7A8B1B960097000711A4 /* ToDoListDataSource.m */; };
+		2CFA7A8F1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7A8E1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m */; };
+		2CFA7B001B9765AF000711A4 /* MPCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7AF81B9765AF000711A4 /* MPCheckBox.m */; };
+		2CFA7B011B9765AF000711A4 /* MPCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7AFB1B9765AF000711A4 /* MPCheckBoxGroup.m */; };
+		2CFA7B021B9765AF000711A4 /* MPTapGetureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7AFF1B9765AF000711A4 /* MPTapGetureRecognizer.m */; };
+		2CFA7B071B978D7E000711A4 /* ToDoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7B061B978D7E000711A4 /* ToDoDetailViewController.m */; };
+		2CFA7B0A1B978DA4000711A4 /* ToDoDetailDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7B091B978DA4000711A4 /* ToDoDetailDataSource.m */; };
+		2CFA7B101B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA7B0F1B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.m */; };
 		2CFF11DC1B8E30A7002B675D /* VendorViewControllerEnums.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */; };
 		2CFF11DF1B8E3223002B675D /* NameEmailPhoneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */; };
 		2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11E11B8E3F42002B675D /* TempLoginViewController.m */; };
@@ -155,8 +164,8 @@
 		2C932FE11B87C99D002B092D /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		2C932FE31B87CDF6002B092D /* MasterWeddingProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterWeddingProfile.h; sourceTree = "<group>"; };
 		2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterWeddingProfile.m; sourceTree = "<group>"; };
-		2C932FE61B87CF63002B092D /* ToDoTaskTimeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTaskTimeCategory.h; sourceTree = "<group>"; };
-		2C932FE71B87CF63002B092D /* ToDoTaskTimeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTaskTimeCategory.m; sourceTree = "<group>"; };
+		2C932FE61B87CF63002B092D /* ToDoTimeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTimeCategory.h; sourceTree = "<group>"; };
+		2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTimeCategory.m; sourceTree = "<group>"; };
 		2C932FE91B87D088002B092D /* VendorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCategory.h; sourceTree = "<group>"; };
 		2C932FEA1B87D088002B092D /* VendorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCategory.m; sourceTree = "<group>"; };
 		2CC3492C1B7C18F6006A8D5E /* WeddingPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeddingPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +218,8 @@
 		2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListViewController.m; sourceTree = "<group>"; };
 		2CCB4FC81B84FC150048DF2E /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
 		2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		2CEE29DF1B9A14090006E88A /* DatePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerTableViewCell.h; sourceTree = "<group>"; };
+		2CEE29E01B9A14090006E88A /* DatePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerTableViewCell.m; sourceTree = "<group>"; };
 		2CEF08571B8BBFD100DCCE2E /* WeddingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingController.h; sourceTree = "<group>"; };
 		2CEF08581B8BBFD100DCCE2E /* WeddingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingController.m; sourceTree = "<group>"; };
 		2CEF085A1B8BC5EB00DCCE2E /* MasterWeddingProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterWeddingProfileController.h; sourceTree = "<group>"; };
@@ -234,6 +245,25 @@
 		2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesTableViewCell.m; sourceTree = "<group>"; };
 		2CFA7A551B94FA60000711A4 /* LabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelTableViewCell.h; sourceTree = "<group>"; };
 		2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelTableViewCell.m; sourceTree = "<group>"; };
+		2CFA7A8A1B960097000711A4 /* ToDoListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListDataSource.h; sourceTree = "<group>"; };
+		2CFA7A8B1B960097000711A4 /* ToDoListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListDataSource.m; sourceTree = "<group>"; };
+		2CFA7A8D1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelButtonCheckBoxTableViewCell.h; sourceTree = "<group>"; };
+		2CFA7A8E1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelButtonCheckBoxTableViewCell.m; sourceTree = "<group>"; };
+		2CFA7AF71B9765AF000711A4 /* MPCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCheckBox.h; sourceTree = "<group>"; };
+		2CFA7AF81B9765AF000711A4 /* MPCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCheckBox.m; sourceTree = "<group>"; };
+		2CFA7AF91B9765AF000711A4 /* MPCheckBoxDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCheckBoxDelegate.h; sourceTree = "<group>"; };
+		2CFA7AFA1B9765AF000711A4 /* MPCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCheckBoxGroup.h; sourceTree = "<group>"; };
+		2CFA7AFB1B9765AF000711A4 /* MPCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCheckBoxGroup.m; sourceTree = "<group>"; };
+		2CFA7AFC1B9765AF000711A4 /* MPCheckBoxGroupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCheckBoxGroupDelegate.h; sourceTree = "<group>"; };
+		2CFA7AFD1B9765AF000711A4 /* MPTapGestureRecognizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTapGestureRecognizerDelegate.h; sourceTree = "<group>"; };
+		2CFA7AFE1B9765AF000711A4 /* MPTapGetureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTapGetureRecognizer.h; sourceTree = "<group>"; };
+		2CFA7AFF1B9765AF000711A4 /* MPTapGetureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTapGetureRecognizer.m; sourceTree = "<group>"; };
+		2CFA7B051B978D7E000711A4 /* ToDoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoDetailViewController.h; sourceTree = "<group>"; };
+		2CFA7B061B978D7E000711A4 /* ToDoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoDetailViewController.m; sourceTree = "<group>"; };
+		2CFA7B081B978DA4000711A4 /* ToDoDetailDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoDetailDataSource.h; sourceTree = "<group>"; };
+		2CFA7B091B978DA4000711A4 /* ToDoDetailDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoDetailDataSource.m; sourceTree = "<group>"; };
+		2CFA7B0E1B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncompleteItemsOnlyToDoListDataSource.h; sourceTree = "<group>"; };
+		2CFA7B0F1B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncompleteItemsOnlyToDoListDataSource.m; sourceTree = "<group>"; };
 		2CFF11DA1B8E30A7002B675D /* VendorViewControllerEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorViewControllerEnums.h; sourceTree = "<group>"; };
 		2CFF11DB1B8E30A7002B675D /* VendorViewControllerEnums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorViewControllerEnums.m; sourceTree = "<group>"; };
 		2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameEmailPhoneTableViewCell.h; sourceTree = "<group>"; };
@@ -335,6 +365,7 @@
 		2C932FBA1B879F5A002B092D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CFF11D51B8E2F58002B675D /* Custom Table View Cells */,
 				2CCB4F7E1B7D406C0048DF2E /* Login View Controllers */,
 				2CCB4F7D1B7D40320048DF2E /* Client View Controllers */,
 				2CCB4F771B7D30310048DF2E /* Planner Only View Controllers */,
@@ -377,7 +408,7 @@
 		2CC3492E1B7C18F6006A8D5E /* WeddingPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				2C06F02A1B87F8D700EEBB57 /* FLKAutoLayout */,
+				2CFA7AF41B9764A0000711A4 /* Third Party Code */,
 				2C932FBB1B879F8F002B092D /* Models */,
 				2C932FBA1B879F5A002B092D /* View Controllers */,
 				2CC3493C1B7C18F6006A8D5E /* Images.xcassets */,
@@ -437,12 +468,9 @@
 		2CCB4F791B7D3FD50048DF2E /* Tasks View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2CC349611B7C37AB006A8D5E /* TasksViewController.h */,
-				2CC349621B7C37AB006A8D5E /* TasksViewController.m */,
-				2CCB4FC51B84FC040048DF2E /* ToDoListViewController.h */,
-				2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */,
-				2CCB4FC81B84FC150048DF2E /* CalendarViewController.h */,
-				2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */,
+				2CFA7B0D1B978DD9000711A4 /* Tasks Seg Control View Controller */,
+				2CFA7B041B976612000711A4 /* ToDo List View Controller */,
+				2CFA7B0C1B978DCD000711A4 /* Calendar View Controller */,
 			);
 			name = "Tasks View Controllers";
 			sourceTree = "<group>";
@@ -462,7 +490,6 @@
 			isa = PBXGroup;
 			children = (
 				2CFF11D91B8E3065002B675D /* Enums */,
-				2CFF11D51B8E2F58002B675D /* Custom Table View Cells */,
 				2CFF11D61B8E2F75002B675D /* Vendor List View Controllers */,
 				2CEF08701B8BD8FC00DCCE2E /* Add Vendor View Controllers */,
 				2CFF11D81B8E2F8F002B675D /* Vendor Detail View Controllers */,
@@ -582,8 +609,8 @@
 		2CEF085D1B8BC82C00DCCE2E /* Planner Side Model Objects */ = {
 			isa = PBXGroup;
 			children = (
-				2C932FE61B87CF63002B092D /* ToDoTaskTimeCategory.h */,
-				2C932FE71B87CF63002B092D /* ToDoTaskTimeCategory.m */,
+				2C932FE61B87CF63002B092D /* ToDoTimeCategory.h */,
+				2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */,
 				2C932FC81B87A100002B092D /* ToDoItem.h */,
 				2C932FC91B87A100002B092D /* ToDoItem.m */,
 				2C932FE91B87D088002B092D /* VendorCategory.h */,
@@ -613,6 +640,74 @@
 			name = "Add Vendor View Controllers";
 			sourceTree = "<group>";
 		};
+		2CFA7AF41B9764A0000711A4 /* Third Party Code */ = {
+			isa = PBXGroup;
+			children = (
+				2CFA7B031B9765B5000711A4 /* MPCheckBox */,
+				2C06F02A1B87F8D700EEBB57 /* FLKAutoLayout */,
+			);
+			name = "Third Party Code";
+			sourceTree = "<group>";
+		};
+		2CFA7B031B9765B5000711A4 /* MPCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				2CFA7AF71B9765AF000711A4 /* MPCheckBox.h */,
+				2CFA7AF81B9765AF000711A4 /* MPCheckBox.m */,
+				2CFA7AF91B9765AF000711A4 /* MPCheckBoxDelegate.h */,
+				2CFA7AFA1B9765AF000711A4 /* MPCheckBoxGroup.h */,
+				2CFA7AFB1B9765AF000711A4 /* MPCheckBoxGroup.m */,
+				2CFA7AFC1B9765AF000711A4 /* MPCheckBoxGroupDelegate.h */,
+				2CFA7AFD1B9765AF000711A4 /* MPTapGestureRecognizerDelegate.h */,
+				2CFA7AFE1B9765AF000711A4 /* MPTapGetureRecognizer.h */,
+				2CFA7AFF1B9765AF000711A4 /* MPTapGetureRecognizer.m */,
+			);
+			name = MPCheckBox;
+			sourceTree = "<group>";
+		};
+		2CFA7B041B976612000711A4 /* ToDo List View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4FC51B84FC040048DF2E /* ToDoListViewController.h */,
+				2CCB4FC61B84FC040048DF2E /* ToDoListViewController.m */,
+				2CFA7A8A1B960097000711A4 /* ToDoListDataSource.h */,
+				2CFA7A8B1B960097000711A4 /* ToDoListDataSource.m */,
+				2CFA7B0E1B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.h */,
+				2CFA7B0F1B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.m */,
+				2CFA7B0B1B978DBB000711A4 /* ToDo Detail View Controller */,
+			);
+			name = "ToDo List View Controller";
+			sourceTree = "<group>";
+		};
+		2CFA7B0B1B978DBB000711A4 /* ToDo Detail View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CFA7B051B978D7E000711A4 /* ToDoDetailViewController.h */,
+				2CFA7B061B978D7E000711A4 /* ToDoDetailViewController.m */,
+				2CFA7B081B978DA4000711A4 /* ToDoDetailDataSource.h */,
+				2CFA7B091B978DA4000711A4 /* ToDoDetailDataSource.m */,
+			);
+			name = "ToDo Detail View Controller";
+			sourceTree = "<group>";
+		};
+		2CFA7B0C1B978DCD000711A4 /* Calendar View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CCB4FC81B84FC150048DF2E /* CalendarViewController.h */,
+				2CCB4FC91B84FC150048DF2E /* CalendarViewController.m */,
+			);
+			name = "Calendar View Controller";
+			sourceTree = "<group>";
+		};
+		2CFA7B0D1B978DD9000711A4 /* Tasks Seg Control View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2CC349611B7C37AB006A8D5E /* TasksViewController.h */,
+				2CC349621B7C37AB006A8D5E /* TasksViewController.m */,
+			);
+			name = "Tasks Seg Control View Controller";
+			sourceTree = "<group>";
+		};
 		2CFF11D51B8E2F58002B675D /* Custom Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,10 +721,15 @@
 				2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */,
 				2CFA7A551B94FA60000711A4 /* LabelTableViewCell.h */,
 				2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */,
+				2CFA7A8D1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.h */,
+				2CFA7A8E1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m */,
 				2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */,
 				2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */,
+				2CEE29DF1B9A14090006E88A /* DatePickerTableViewCell.h */,
+				2CEE29E01B9A14090006E88A /* DatePickerTableViewCell.m */,
 			);
 			name = "Custom Table View Cells";
+			path = WeddingPlanner;
 			sourceTree = "<group>";
 		};
 		2CFF11D61B8E2F75002B675D /* Vendor List View Controllers */ = {
@@ -865,11 +965,14 @@
 				2C06F0281B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m in Sources */,
 				2CFF11DF1B8E3223002B675D /* NameEmailPhoneTableViewCell.m in Sources */,
 				2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */,
+				2CFA7B001B9765AF000711A4 /* MPCheckBox.m in Sources */,
 				2C06F0261B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m in Sources */,
 				2CCB4FB51B84DC220048DF2E /* VendorsDetailDataSource.m in Sources */,
 				2CC349381B7C18F6006A8D5E /* HomeViewController.m in Sources */,
 				2CC3495D1B7C1CEB006A8D5E /* VendorsListViewController.m in Sources */,
 				2CCB4FAC1B7E8DD30048DF2E /* ClientTabBarController.m in Sources */,
+				2CFA7B0A1B978DA4000711A4 /* ToDoDetailDataSource.m in Sources */,
+				2CFA7B101B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.m in Sources */,
 				2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */,
 				2CEF085C1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m in Sources */,
 				2CEF08731B8BD94500DCCE2E /* PickerViewTableViewCell.m in Sources */,
@@ -888,10 +991,12 @@
 				2CCB4F761B7D302C0048DF2E /* WeddingListViewController.m in Sources */,
 				2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */,
 				2CFF11F11B8E771D002B675D /* RegisterWeddingPageViewController.m in Sources */,
+				2CFA7B011B9765AF000711A4 /* MPCheckBoxGroup.m in Sources */,
 				2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */,
 				2CFA7A571B94FA60000711A4 /* LabelTableViewCell.m in Sources */,
 				2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */,
 				2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */,
+				2CFA7B071B978D7E000711A4 /* ToDoDetailViewController.m in Sources */,
 				2CCB4FAF1B7E8E630048DF2E /* EditBudgetViewController.m in Sources */,
 				2CCB4F811B7D40860048DF2E /* LoginViewController.m in Sources */,
 				2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */,
@@ -900,10 +1005,13 @@
 				2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */,
 				2CEF08761B8BDB3700DCCE2E /* TextFieldTableViewCell.m in Sources */,
 				2CEF08591B8BBFD100DCCE2E /* WeddingController.m in Sources */,
-				2C932FE81B87CF63002B092D /* ToDoTaskTimeCategory.m in Sources */,
+				2CFA7A8F1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m in Sources */,
+				2CFA7A8C1B960097000711A4 /* ToDoListDataSource.m in Sources */,
+				2C932FE81B87CF63002B092D /* ToDoTimeCategory.m in Sources */,
 				2CC349601B7C1CFD006A8D5E /* GuestsViewController.m in Sources */,
 				2C932FE21B87C99D002B092D /* Person.m in Sources */,
 				2CFF11E51B8E51D3002B675D /* RegisterWeddingPage1ViewController.m in Sources */,
+				2CFA7B021B9765AF000711A4 /* MPTapGetureRecognizer.m in Sources */,
 				2CFF11DC1B8E30A7002B675D /* VendorViewControllerEnums.m in Sources */,
 				2CC349321B7C18F6006A8D5E /* main.m in Sources */,
 				2CCB4F871B7D47BD0048DF2E /* WeddingListViewDataSource.m in Sources */,
@@ -915,6 +1023,7 @@
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
 				2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */,
 				2CFF11E81B8E520A002B675D /* RegisterPlannerViewController.m in Sources */,
+				2CEE29E11B9A14090006E88A /* DatePickerTableViewCell.m in Sources */,
 				2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */,
 				2C932FD01B87A12B002B092D /* BudgetItem.m in Sources */,
 				2C932FDF1B87B34E002B092D /* VendorPayment.m in Sources */,

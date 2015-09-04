@@ -15,6 +15,7 @@
 
 @property (retain) Wedding *wedding;
 @property (retain) NSString *plannerID;
+@property (retain) NSString *plannerFirstName;
 
 @property (assign) BOOL isPlanner;
 

@@ -7,20 +7,21 @@
 //
 
 
-#import "ToDoTaskTimeCategory.h"
+#import "ToDoTimeCategory.h"
 #import <Parse/PFObject+Subclass.h>
 
-@implementation ToDoTaskTimeCategory
+@implementation ToDoTimeCategory
 
 @dynamic title;
 @dynamic toDoItems;
+@dynamic days;
 
 +(void)load{
     [self registerSubclass];
 }
 
 +(NSString *)parseClassName{
-    return @"ToDoTaskTimeCategory";
+    return @"ToDoTimeCategory";
 }
 
 @end

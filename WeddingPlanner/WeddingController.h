@@ -11,6 +11,8 @@
 #import "VendorCategory.h"
 #import "Couple.h"
 #import "Planner.h"
+#import "ToDoTimeCategory.h"
+#import "ToDoItem.h"
 
 @interface WeddingController : NSObject
 
@@ -49,6 +51,8 @@
 -(void)addVendorCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding*)wedding;
 
 
+
+-(void)addToDoTimeCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding *)wedding;
 
 
 

@@ -7,18 +7,22 @@
 //
 
 #import "TasksViewController.h"
-#import "ToDoListViewController.h"
 #import "CalendarViewController.h"
+
+#warning View Controller doesn't display correctly if To Do List seg is selected before calendar seg
 
 
 @interface TasksViewController ()
 
 @property (strong, nonatomic) UIViewController *currentViewController;
 @property (strong, nonatomic) UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) ToDoListViewController *toDoListVC;
 
 @end
 
 @implementation TasksViewController
+
+#warning hide status bar
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,15 +30,22 @@
     self.view.backgroundColor = [UIColor purpleColor];
     self.title = @"Tasks";
     
-    self.segmentedControl= [[UISegmentedControl alloc] initWithItems: @[@"To do", @"Calendar"]];
-    self.segmentedControl.frame = CGRectMake(0, 64, self.view.frame.size.width, 44);
+    self.toDoListVC = [ToDoListViewController new];
+    self.toDoListVC.couple = self.couple;
+    
+    self.navigationController.navigationBarHidden = YES;
+
+    
+    
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems: @[@"To do", @"Calendar"]];
+    self.segmentedControl.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
 
     
     UIViewController *selectedViewController = [self viewControllerForSegmentIndex:self.segmentedControl.selectedSegmentIndex];
     [self addChildViewController:selectedViewController];
     selectedViewController.view.frame = [self frameForCurrentViewController];
     if (selectedViewController == nil) {
-        selectedViewController = [ToDoListViewController new];
+        selectedViewController = self.toDoListVC;
     }
     [self.view addSubview:selectedViewController.view];
     self.currentViewController = selectedViewController;
@@ -67,7 +78,7 @@
     UIViewController *viewController;
     switch (index) {
         case 0:
-            viewController = [ToDoListViewController new];
+            viewController = self.toDoListVC;
             break;
             
         case 1:
@@ -75,7 +86,7 @@
             break;
             
         default:
-            viewController = [ToDoListViewController new];
+            viewController = self.toDoListVC;
             break;
     }
     
@@ -85,7 +96,7 @@
 
 
 -(CGRect)frameForCurrentViewController{
-    CGRect boundingRect = CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 200);
+    CGRect boundingRect = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height - 44);
     return boundingRect;
 }
 

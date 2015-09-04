@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface ToDoTaskTimeCategory : PFObject <PFSubclassing>
+@interface ToDoTimeCategory : PFObject <PFSubclassing>
 
 @property NSString *title;
 @property NSArray *toDoItems;
+@property NSString *days;
 
 +(NSString *)parseClassName;
 

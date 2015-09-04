@@ -10,6 +10,7 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 
+
 @implementation TextViewTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -18,15 +19,20 @@
     
     if (self) {
         self.textView = [UITextView new];
-        [self.textView constrainLeadingSpaceToView:self.contentView predicate:@"0"];
-        [self.textView constrainTrailingSpaceToView:self.contentView predicate:@"0"];
-        [self.textView constrainTopSpaceToView:self.contentView predicate:@"0"];
-        [self.textView constrainBottomSpaceToView:self.contentView predicate:@"0"];
+        self.textView.delegate = self;
         [self.contentView addSubview:self.textView];
+       [self.textView alignTop:@"0" leading:@"5" bottom:@"0" trailing:@"5" toView:self.contentView];
+        
     }
     
     return self;
     
 }
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    [self.delegate textViewWillBeginEditing:self];
+    return YES;
+}
+
 
 @end

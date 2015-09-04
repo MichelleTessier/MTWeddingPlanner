@@ -16,6 +16,8 @@ static NSString *vendorListCell = @"vendorListCell";
 
 -(NSArray *)chosenVendorCategories{
     
+    //should move this so there's only one version of it
+    
     NSArray *vendorCategories = self.couple.wedding.vendorCategories;
     NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
     for (VendorCategory *vendorCateogry in vendorCategories) {

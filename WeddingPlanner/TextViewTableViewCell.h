@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TextViewTableViewCell : UITableViewCell
+@protocol TextViewTableViewCellDelegate;
+
+@interface TextViewTableViewCell : UITableViewCell <UITextViewDelegate>
 
 @property (strong, nonatomic) UITextView *textView;
+@property (strong, nonatomic) id<TextViewTableViewCellDelegate> delegate;
+
+@end
+
+@protocol TextViewTableViewCellDelegate <NSObject>
+
+-(void)textViewWillBeginEditing:(TextViewTableViewCell *)sender;
+-(NSString *)textViewTextfromCell:(TextViewTableViewCell *)sender;
+
 
 @end
