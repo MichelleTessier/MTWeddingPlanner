@@ -5,6 +5,13 @@
 //  Created by Michelle Tessier on 8/12/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
+//budget total
+//amount to pay
+//amount you have paid
+//total cost
+//
+//budget categories
+//
 
 #import "BudgetViewController.h"
 #import "EditBudgetViewController.h"
@@ -31,6 +38,8 @@
     editBudgetBarButton.target = self;
     editBudgetBarButton.action = @selector(editBudgetBarButtonTapped);
     self.navigationItem.rightBarButtonItem = editBudgetBarButton;
+    
+    
    
 }
 

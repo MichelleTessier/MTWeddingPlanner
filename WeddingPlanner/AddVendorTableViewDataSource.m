@@ -8,9 +8,12 @@
 
 #import "AddVendorTableViewDataSource.h"
 #import "PickerViewTableViewCell.h"
+#import "DoubleLabelsTableViewCell.h"
+#import "DatePickerAndTextFieldTableViewCell.h"
 
 static NSString *pickerCellID = @"pickerCellID";
 static NSString *textFieldCellID = @"textFieldCellID";
+static NSString *paymentCellID = @"paymentCellID";
 
 @interface AddVendorTableViewDataSource ()
 
@@ -23,6 +26,8 @@ static NSString *textFieldCellID = @"textFieldCellID";
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return AddVendorInformationSectionsCount;
 }
+
+
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
@@ -40,6 +45,16 @@ static NSString *textFieldCellID = @"textFieldCellID";
             return @"Contact";
             
             break;
+        
+        case AddVendorinformationPaymentSection:
+        
+        if (self.vendor.vendorPayments.count == 1) {
+            return @"Payment";
+        } else {
+            return @"Payments";
+        }
+        
+        break;
             
         default:
             return @"";
@@ -61,12 +76,17 @@ static NSString *textFieldCellID = @"textFieldCellID";
         case AddVendorInformationContactSection:
             numberOfRows = VendorContactInformationTypeCount;
             break;
-            
-        //this will change to depend on number of payments in payments array
-//        case AddVendorinformationPaymentSection:
-//            numberOfRows = 2;
-//            break;
-            
+        
+        case AddVendorinformationPaymentSection:
+        
+        if (self.vendor.vendorPayments) {
+            numberOfRows = self.vendor.vendorPayments.count;
+        } else {
+            numberOfRows = 0;
+        }
+        
+            break;
+        
         default:
             break;
     }
@@ -184,9 +204,35 @@ static NSString *textFieldCellID = @"textFieldCellID";
         
             break;
         }
-//        case AddVendorinformationPaymentSection:
-//        
-//            break;
+        
+        case AddVendorinformationPaymentSection: {
+            
+            DoubleLabelsTableViewCell *paymentCell = [tableView dequeueReusableCellWithIdentifier:paymentCellID];
+            
+            if (!paymentCell) {
+                paymentCell = [[DoubleLabelsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:paymentCellID];
+            }
+            
+            VendorPayment *vendorPayment = self.vendor.vendorPayments[indexPath.row];
+            
+            if (vendorPayment.isPaid == YES) {
+                paymentCell.label1.textColor = [UIColor blackColor];
+                paymentCell.label2.textColor = [UIColor blackColor];
+            } else {
+                paymentCell.label1.textColor = [UIColor redColor];
+                paymentCell.label2.textColor = [UIColor redColor];
+            }
+            
+           
+                paymentCell.label1.text = [NSString stringWithFormat:@"%@", vendorPayment.date];
+                paymentCell.label2.text = [NSString stringWithFormat:@"$%@", vendorPayment.amount];
+            
+            
+            return paymentCell;
+            
+            
+            break;
+        }
             
         default:{
             

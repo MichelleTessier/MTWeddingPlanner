@@ -13,6 +13,7 @@
 #import "Planner.h"
 #import "ToDoTimeCategory.h"
 #import "ToDoItem.h"
+#import "VendorPayment.h"
 
 @interface WeddingController : NSObject
 

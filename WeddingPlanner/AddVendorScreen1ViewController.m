@@ -12,11 +12,11 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 
-@interface AddVendorScreen1ViewController ()
+@interface AddVendorScreen1ViewController () <UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) AddVendorTableViewDataSource *dataSource;
-
+@property (strong, nonatomic) UIView *addVendorPaymentHeaderView;
 
 @end
 
@@ -34,6 +34,26 @@
     
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    if (section == AddVendorinformationPaymentSection) {
+        self.addVendorPaymentHeaderView = [[UIView alloc] initWithFrame:tableView.tableHeaderView.frame];
+        
+        UIButton *addButton = [UIButton new];
+        [addButton setTitle:@"+" forState:UIControlStateNormal];
+        [addButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.addVendorPaymentHeaderView addSubview:addButton];
+        
+        [addButton alignTrailingEdgeWithView:self.addVendorPaymentHeaderView predicate:@"5"];
+        [addButton alignTopEdgeWithView:self.addVendorPaymentHeaderView predicate:@"5"];
+        [addButton alignTopEdgeWithView:self.addVendorPaymentHeaderView predicate:@"5"];
+        [addButton constrainAspectRatio:@"*1"];
+    }
+    
+    return self.addVendorPaymentHeaderView;
+    
+}
+
 -(void)setUpView{
     
     UIBarButtonItem *finishBarButton = [UIBarButtonItem new];
@@ -47,6 +67,7 @@
     self.dataSource.addVendorScreen1ViewController = self;
     self.dataSource.couple = self.couple;
     self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
     [self.view addSubview: self.tableView];
     
 }

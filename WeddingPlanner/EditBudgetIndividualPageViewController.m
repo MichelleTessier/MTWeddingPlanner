@@ -59,11 +59,11 @@
 }
 
 -(void)setTableViewConstraints{
-    if (!self.navigationController.navigationBar) {
+//    if (!self.navigationController.navigationBar) {
         [self.tableView alignCenterYWithView:self.view predicate:@"-40"];
-    } else {
-        [self.tableView alignCenterYWithView:self.view predicate:@"0"];
-    }
+//    } else {
+//        [self.tableView alignCenterYWithView:self.view predicate:@"0"];
+//    }
     
     [self.tableView alignCenterXWithView:self.view predicate:@"0"];
     [self.tableView constrainWidthToView:self.view predicate:@"0"];

@@ -43,6 +43,9 @@
 		2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */; };
 		2C932FE81B87CF63002B092D /* ToDoTimeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */; };
 		2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FEA1B87D088002B092D /* VendorCategory.m */; };
+		2CB172631B9F9520006B313E /* BudgetViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172621B9F9520006B313E /* BudgetViewDataSource.m */; };
+		2CB172661B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */; };
+		2CB172691B9FA744006B313E /* DoubleLabelsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172681B9FA744006B313E /* DoubleLabelsTableViewCell.m */; };
 		2CC349321B7C18F6006A8D5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349311B7C18F6006A8D5E /* main.m */; };
 		2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349341B7C18F6006A8D5E /* AppDelegate.m */; };
 		2CC349381B7C18F6006A8D5E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349371B7C18F6006A8D5E /* HomeViewController.m */; };
@@ -170,6 +173,12 @@
 		2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTimeCategory.m; sourceTree = "<group>"; };
 		2C932FE91B87D088002B092D /* VendorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCategory.h; sourceTree = "<group>"; };
 		2C932FEA1B87D088002B092D /* VendorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCategory.m; sourceTree = "<group>"; };
+		2CB172611B9F9520006B313E /* BudgetViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetViewDataSource.h; sourceTree = "<group>"; };
+		2CB172621B9F9520006B313E /* BudgetViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetViewDataSource.m; sourceTree = "<group>"; };
+		2CB172641B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerAndTextFieldTableViewCell.h; sourceTree = "<group>"; };
+		2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerAndTextFieldTableViewCell.m; sourceTree = "<group>"; };
+		2CB172671B9FA744006B313E /* DoubleLabelsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleLabelsTableViewCell.h; sourceTree = "<group>"; };
+		2CB172681B9FA744006B313E /* DoubleLabelsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleLabelsTableViewCell.m; sourceTree = "<group>"; };
 		2CC3492C1B7C18F6006A8D5E /* WeddingPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeddingPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC349301B7C18F6006A8D5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CC349311B7C18F6006A8D5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -486,6 +495,8 @@
 			children = (
 				2CC349581B7C1CD4006A8D5E /* BudgetViewController.h */,
 				2CC349591B7C1CD4006A8D5E /* BudgetViewController.m */,
+				2CB172611B9F9520006B313E /* BudgetViewDataSource.h */,
+				2CB172621B9F9520006B313E /* BudgetViewDataSource.m */,
 				2CCB4FAD1B7E8E630048DF2E /* EditBudgetViewController.h */,
 				2CCB4FAE1B7E8E630048DF2E /* EditBudgetViewController.m */,
 				2CEE29E21B9A322C0006E88A /* EditBudgetIndividualPageViewController.h */,
@@ -731,12 +742,16 @@
 				2CEF087B1B8BE74D00DCCE2E /* ImagesTableViewCell.m */,
 				2CFA7A551B94FA60000711A4 /* LabelTableViewCell.h */,
 				2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */,
+				2CB172671B9FA744006B313E /* DoubleLabelsTableViewCell.h */,
+				2CB172681B9FA744006B313E /* DoubleLabelsTableViewCell.m */,
 				2CFA7A8D1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.h */,
 				2CFA7A8E1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m */,
 				2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */,
 				2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */,
 				2CEE29DF1B9A14090006E88A /* DatePickerTableViewCell.h */,
 				2CEE29E01B9A14090006E88A /* DatePickerTableViewCell.m */,
+				2CB172641B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.h */,
+				2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */,
 			);
 			name = "Custom Table View Cells";
 			path = WeddingPlanner;
@@ -994,6 +1009,7 @@
 				2CEF08691B8BCAD600DCCE2E /* VendorDefaultsListDataSource.m in Sources */,
 				2C932FD61B87A157002B092D /* Planner.m in Sources */,
 				2CEE29E41B9A322C0006E88A /* EditBudgetIndividualPageViewController.m in Sources */,
+				2CB172691B9FA744006B313E /* DoubleLabelsTableViewCell.m in Sources */,
 				2C932FC11B87A0C0002B092D /* Couple.m in Sources */,
 				2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */,
 				2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */,
@@ -1030,7 +1046,9 @@
 				2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */,
 				2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */,
 				2C932FD91B87A3A6002B092D /* Budget.m in Sources */,
+				2CB172631B9F9520006B313E /* BudgetViewDataSource.m in Sources */,
 				2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */,
+				2CB172661B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
 				2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */,
 				2CEE29E71B9A32580006E88A /* EditBudgetIndividualPageDataSource.m in Sources */,

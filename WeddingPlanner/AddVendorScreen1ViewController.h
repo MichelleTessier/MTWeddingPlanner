@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WeddingController.h"
+#import "VendorViewControllerEnums.h"
 
 @interface AddVendorScreen1ViewController : UIViewController <UITextFieldDelegate>
 

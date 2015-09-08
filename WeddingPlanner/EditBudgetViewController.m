@@ -14,6 +14,8 @@
 
 @implementation EditBudgetViewController
 
+#warning breaks if you try to push the page view controller past the last category
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -66,17 +68,7 @@
     } else {
         return nil;
     }
-    //figure out which is currentVC
-    
-    //if previous vc doesnt exist, create it
-    
-    //return previous vc
-    
-//    if (viewController == self.registerWeddingPage1VC) {
-//        return nil;
-//    } else {
-//        return self.registerWeddingPage1VC;
-//    }
+ 
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{

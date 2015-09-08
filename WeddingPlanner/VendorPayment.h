@@ -13,11 +13,10 @@
 
 @interface VendorPayment : PFObject <PFSubclassing>
 
-@property (retain) NSNumber *payment;
 @property (retain) NSDate *date;
 @property (retain) CalendarItem *calendarItem;
-@property (retain) NSNumber *amountPaid;
-@property (retain) NSNumber *outstandingBalance;
+@property (retain) NSNumber *amount;
+@property (assign) BOOL isPaid;
 @property (retain) Vendor *vendor;
 
 +(NSString *)parseClassName;

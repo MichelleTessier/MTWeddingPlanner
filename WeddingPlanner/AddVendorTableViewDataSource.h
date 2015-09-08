@@ -16,7 +16,10 @@
 @interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource, UIPickerViewDataSource, UITextFieldDelegate, UIPickerViewDelegate>
 
 @property (strong, nonatomic) AddVendorScreen1ViewController *addVendorScreen1ViewController;
+
 @property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) Vendor *vendor;
+
 @property (strong, nonatomic) UITableView *tableView;
 
 @property (strong, nonatomic) UIPickerView *pickerView;
