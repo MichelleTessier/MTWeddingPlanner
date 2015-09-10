@@ -8,15 +8,21 @@
 
 #import "AddVendorScreen1ViewController.h"
 #import "AddVendorTableViewDataSource.h"
-
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
+#import "DatePickerAndTextFieldTableViewCell.h"
+#import "VendorDetailViewController.h"
 
-@interface AddVendorScreen1ViewController () <UITableViewDelegate>
+static NSString *addVenderHeaderID = @"addVendorHeaderID";
+
+#warning needs an alert to make sure user fills out certain vendor categories
+
+@interface AddVendorScreen1ViewController () <UITableViewDelegate, UIPopoverPresentationControllerDelegate>
+
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) AddVendorTableViewDataSource *dataSource;
-@property (strong, nonatomic) UIView *addVendorPaymentHeaderView;
+@property (strong, nonatomic) UIPopoverPresentationController *addPaymentPopover;
 
 @end
 
@@ -26,6 +32,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.temporaryVendorPayments = [NSMutableArray new];
+    
     ((AddVendorTableViewDataSource *)self.dataSource).addVendorScreen1ViewController = self;
     
     [self setUpView];
@@ -34,25 +42,9 @@
     
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    if (section == AddVendorinformationPaymentSection) {
-        self.addVendorPaymentHeaderView = [[UIView alloc] initWithFrame:tableView.tableHeaderView.frame];
-        
-        UIButton *addButton = [UIButton new];
-        [addButton setTitle:@"+" forState:UIControlStateNormal];
-        [addButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.addVendorPaymentHeaderView addSubview:addButton];
-        
-        [addButton alignTrailingEdgeWithView:self.addVendorPaymentHeaderView predicate:@"5"];
-        [addButton alignTopEdgeWithView:self.addVendorPaymentHeaderView predicate:@"5"];
-        [addButton alignTopEdgeWithView:self.addVendorPaymentHeaderView predicate:@"5"];
-        [addButton constrainAspectRatio:@"*1"];
-    }
-    
-    return self.addVendorPaymentHeaderView;
-    
-}
+#pragma mark - set up view
+
+
 
 -(void)setUpView{
     
@@ -66,6 +58,7 @@
     self.dataSource = [AddVendorTableViewDataSource new];
     self.dataSource.addVendorScreen1ViewController = self;
     self.dataSource.couple = self.couple;
+    self.dataSource.temporaryVendorPayments = self.temporaryVendorPayments;
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
     [self.view addSubview: self.tableView];
@@ -87,9 +80,22 @@
     }
 }
 
+#pragma mark - finish button tapped method
+
+-(void)finishBarButtonTapped{
+    
+    [self saveVendor];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - method to get text from cell text fields to save on vendor. should probably be rewritten
+
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     
+#warning could add something here to save these immediately
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(TextFieldTableViewCell*)[[textField superview] superview]];
     
@@ -144,14 +150,11 @@
 
 
 
--(void)finishBarButtonTapped{
-    
-   
-    [self saveVendor];
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
+
+
+#pragma mark - save vendor method
+
 
 -(void)saveVendor{
     
@@ -159,6 +162,8 @@
         self.vendor = [[WeddingController sharedInstance] createVendorInCateogry:self.selectedVendorCategory forWedding:self.couple.wedding];
     }
     
+    //Not sure I really need a method for this
+    [[WeddingController sharedInstance] addVendorPayments:self.temporaryVendorPayments toVendor:self.vendor];
     
     self.vendor.businessName = self.businessName;
    
@@ -176,10 +181,69 @@
 
     self.vendor.city = self.city;
     
-    [self.vendor saveInBackground];
+    [self.vendor saveEventually];
         
 }
 
+#pragma mark - methods to add cells for vendor payments
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    if (section == AddVendorinformationPaymentSection) {
+        
+        UITableViewHeaderFooterView *addVendorPaymentHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:addVenderHeaderID];
+        
+        if (!addVendorPaymentHeaderView) {
+            
+            addVendorPaymentHeaderView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:addVenderHeaderID];
+            
+        }
+        
+        UIButton *addButton = [UIButton new];
+        [addButton setTitle:@"+" forState:UIControlStateNormal];
+        [addButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [addButton addTarget:self action:@selector(addVendorPaymentButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [addVendorPaymentHeaderView addSubview:addButton];
+        
+        [addButton alignTrailingEdgeWithView:addVendorPaymentHeaderView predicate:@"5"];
+        [addButton alignTopEdgeWithView:addVendorPaymentHeaderView predicate:@"5"];
+        [addButton alignTopEdgeWithView:addVendorPaymentHeaderView predicate:@"5"];
+        [addButton constrainAspectRatio:@"*1"];
+        
+        return addVendorPaymentHeaderView;
+        
+    } else {
+        return nil;
+    }
+    
+}
+
+
+
+-(void)addVendorPaymentButtonTapped:(UIButton *)sender{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.temporaryVendorPayments.count inSection:AddVendorinformationPaymentSection];
+    
+    VendorPayment *vendorPayment = [[WeddingController sharedInstance] createVendorPayment];
+    
+    [self.temporaryVendorPayments addObject:vendorPayment];
+    
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
+    
+    [self scrollToIndexPath:indexPath];
+    
+    
+}
+
+#pragma mark - auto scroll tableview method
+
+-(void)scrollToIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.tableView scrollToRowAtIndexPath:indexPath
+                          atScrollPosition:UITableViewScrollPositionBottom
+                                  animated:YES];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

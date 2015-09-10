@@ -12,13 +12,14 @@
 #import "WeddingController.h"
 #import "AddVendorScreen1ViewController.h"
 #import "VendorViewControllerEnums.h"
+#import "DatePickerAndTextFieldTableViewCell.h"
 
-@interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource, UIPickerViewDataSource, UITextFieldDelegate, UIPickerViewDelegate>
+@interface AddVendorTableViewDataSource : NSObject <UITableViewDataSource, UIPickerViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, DatePickerAndTextFieldTableViewCellDelegate>
 
 @property (strong, nonatomic) AddVendorScreen1ViewController *addVendorScreen1ViewController;
 
 @property (strong, nonatomic) Couple *couple;
-@property (strong, nonatomic) Vendor *vendor;
+@property (strong, nonatomic) NSMutableArray *temporaryVendorPayments;
 
 @property (strong, nonatomic) UITableView *tableView;
 

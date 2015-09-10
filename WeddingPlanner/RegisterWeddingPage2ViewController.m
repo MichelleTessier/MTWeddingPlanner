@@ -12,6 +12,8 @@
 #import "DoubleTabBarSetup.h"
 #import "PlannerController.h"
 
+#warning way to handle no planner found by that name
+
 @interface RegisterWeddingPage2ViewController () 
 
 @property (strong, nonatomic) UITextField *plannerEmailTextField;

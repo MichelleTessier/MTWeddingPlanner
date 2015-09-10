@@ -12,6 +12,8 @@
 		2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0201B87F84A00EEBB57 /* UIView+FLKAutoLayout.m */; };
 		2C06F0281B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */; };
 		2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */; };
+		2C878E821BA1FE6100B1A898 /* QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E7F1BA1FE6100B1A898 /* QMBParallaxScrollViewController.m */; };
+		2C878E831BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E811BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m */; };
 		2C932F9E1B864B1E002B092D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F971B864B1E002B092D /* Bolts.framework */; };
 		2C932F9F1B864B1E002B092D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F981B864B1E002B092D /* Parse.framework */; };
 		2C932FA01B864B1E002B092D /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F991B864B1E002B092D /* ParseCrashReporting.framework */; };
@@ -43,7 +45,7 @@
 		2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */; };
 		2C932FE81B87CF63002B092D /* ToDoTimeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */; };
 		2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FEA1B87D088002B092D /* VendorCategory.m */; };
-		2CB172631B9F9520006B313E /* BudgetViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172621B9F9520006B313E /* BudgetViewDataSource.m */; };
+		2CB172631B9F9520006B313E /* BudgetTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172621B9F9520006B313E /* BudgetTableViewDataSource.m */; };
 		2CB172661B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */; };
 		2CB172691B9FA744006B313E /* DoubleLabelsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172681B9FA744006B313E /* DoubleLabelsTableViewCell.m */; };
 		2CC349321B7C18F6006A8D5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349311B7C18F6006A8D5E /* main.m */; };
@@ -128,6 +130,10 @@
 		2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLKAutoLayoutDebug.m"; sourceTree = "<group>"; };
 		2C06F0231B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLKAutoLayoutPredicate.h"; sourceTree = "<group>"; };
 		2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLKAutoLayoutPredicate.m"; sourceTree = "<group>"; };
+		2C878E7E1BA1FE6100B1A898 /* QMBParallaxScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMBParallaxScrollViewController.h; sourceTree = "<group>"; };
+		2C878E7F1BA1FE6100B1A898 /* QMBParallaxScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMBParallaxScrollViewController.m; sourceTree = "<group>"; };
+		2C878E801BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QMBParallaxScrollViewController.h"; sourceTree = "<group>"; };
+		2C878E811BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QMBParallaxScrollViewController.m"; sourceTree = "<group>"; };
 		2C932F971B864B1E002B092D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2C932F981B864B1E002B092D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2C932F991B864B1E002B092D /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -173,8 +179,8 @@
 		2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTimeCategory.m; sourceTree = "<group>"; };
 		2C932FE91B87D088002B092D /* VendorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCategory.h; sourceTree = "<group>"; };
 		2C932FEA1B87D088002B092D /* VendorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCategory.m; sourceTree = "<group>"; };
-		2CB172611B9F9520006B313E /* BudgetViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetViewDataSource.h; sourceTree = "<group>"; };
-		2CB172621B9F9520006B313E /* BudgetViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetViewDataSource.m; sourceTree = "<group>"; };
+		2CB172611B9F9520006B313E /* BudgetTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetTableViewDataSource.h; sourceTree = "<group>"; };
+		2CB172621B9F9520006B313E /* BudgetTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetTableViewDataSource.m; sourceTree = "<group>"; };
 		2CB172641B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerAndTextFieldTableViewCell.h; sourceTree = "<group>"; };
 		2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerAndTextFieldTableViewCell.m; sourceTree = "<group>"; };
 		2CB172671B9FA744006B313E /* DoubleLabelsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleLabelsTableViewCell.h; sourceTree = "<group>"; };
@@ -353,6 +359,17 @@
 			name = FLKAutoLayout;
 			sourceTree = "<group>";
 		};
+		2C878E841BA1FE6A00B1A898 /* QMBParallaxScrollViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C878E7E1BA1FE6100B1A898 /* QMBParallaxScrollViewController.h */,
+				2C878E7F1BA1FE6100B1A898 /* QMBParallaxScrollViewController.m */,
+				2C878E801BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.h */,
+				2C878E811BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m */,
+			);
+			name = QMBParallaxScrollViewController;
+			sourceTree = "<group>";
+		};
 		2C932F961B864B06002B092D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,8 +512,8 @@
 			children = (
 				2CC349581B7C1CD4006A8D5E /* BudgetViewController.h */,
 				2CC349591B7C1CD4006A8D5E /* BudgetViewController.m */,
-				2CB172611B9F9520006B313E /* BudgetViewDataSource.h */,
-				2CB172621B9F9520006B313E /* BudgetViewDataSource.m */,
+				2CB172611B9F9520006B313E /* BudgetTableViewDataSource.h */,
+				2CB172621B9F9520006B313E /* BudgetTableViewDataSource.m */,
 				2CCB4FAD1B7E8E630048DF2E /* EditBudgetViewController.h */,
 				2CCB4FAE1B7E8E630048DF2E /* EditBudgetViewController.m */,
 				2CEE29E21B9A322C0006E88A /* EditBudgetIndividualPageViewController.h */,
@@ -664,6 +681,7 @@
 		2CFA7AF41B9764A0000711A4 /* Third Party Code */ = {
 			isa = PBXGroup;
 			children = (
+				2C878E841BA1FE6A00B1A898 /* QMBParallaxScrollViewController */,
 				2CFA7B031B9765B5000711A4 /* MPCheckBox */,
 				2C06F02A1B87F8D700EEBB57 /* FLKAutoLayout */,
 			);
@@ -1010,6 +1028,7 @@
 				2C932FD61B87A157002B092D /* Planner.m in Sources */,
 				2CEE29E41B9A322C0006E88A /* EditBudgetIndividualPageViewController.m in Sources */,
 				2CB172691B9FA744006B313E /* DoubleLabelsTableViewCell.m in Sources */,
+				2C878E821BA1FE6100B1A898 /* QMBParallaxScrollViewController.m in Sources */,
 				2C932FC11B87A0C0002B092D /* Couple.m in Sources */,
 				2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */,
 				2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */,
@@ -1046,13 +1065,14 @@
 				2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */,
 				2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */,
 				2C932FD91B87A3A6002B092D /* Budget.m in Sources */,
-				2CB172631B9F9520006B313E /* BudgetViewDataSource.m in Sources */,
+				2CB172631B9F9520006B313E /* BudgetTableViewDataSource.m in Sources */,
 				2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */,
 				2CB172661B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
 				2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */,
 				2CEE29E71B9A32580006E88A /* EditBudgetIndividualPageDataSource.m in Sources */,
 				2CFF11E81B8E520A002B675D /* RegisterPlannerViewController.m in Sources */,
+				2C878E831BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m in Sources */,
 				2CEE29E11B9A14090006E88A /* DatePickerTableViewCell.m in Sources */,
 				2CCB4FB21B7E8EA10048DF2E /* GuestsDataSource.m in Sources */,
 				2C932FD01B87A12B002B092D /* BudgetItem.m in Sources */,

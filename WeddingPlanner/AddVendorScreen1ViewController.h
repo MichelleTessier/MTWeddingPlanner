@@ -25,6 +25,8 @@
 @property (retain) NSString *phoneNumber;
 @property (retain) NSString *secondPhoneNumber;
 
+@property (strong, nonatomic) NSMutableArray *temporaryVendorPayments;
+
 @property (strong, nonatomic) VendorCategory *selectedVendorCategory;
 
 

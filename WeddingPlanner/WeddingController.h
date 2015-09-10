@@ -49,14 +49,16 @@
 
 -(void)deleteVendor:(Vendor *)vendorToDelete;
 
+
+
 -(void)addVendorCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding*)wedding;
-
-
 
 -(void)addToDoTimeCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding *)wedding;
 
 
 
+-(VendorPayment *)createVendorPayment;
+-(void)addVendorPayments:(NSArray *)vendorPayments toVendor:(Vendor *)vendor;
 
 @end
 

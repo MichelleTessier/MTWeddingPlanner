@@ -16,22 +16,39 @@
 #import "BudgetViewController.h"
 #import "EditBudgetViewController.h"
 
+#import "UIView+FLKAutoLayout.h"
+#import "UIView+FLKAutoLayoutDebug.h"
+
+#import "QMBParallaxScrollViewController.h"
+
 @interface BudgetViewController ()
+
+@property (strong, nonatomic) UITableView *tableView;
 
 @end
 
 @implementation BudgetViewController
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self setUpView];
+    
+   
+}
+
+
+#pragma mark - set up view method
+
+-(void)setUpView{
+ 
     self.view.backgroundColor = [UIColor purpleColor];
+    
     self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
     
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
     [self.view addSubview:navBar];
-    
-
     
     UIBarButtonItem *editBudgetBarButton = [UIBarButtonItem new];
     editBudgetBarButton.title = @"Edit Budget";
@@ -39,9 +56,13 @@
     editBudgetBarButton.action = @selector(editBudgetBarButtonTapped);
     self.navigationItem.rightBarButtonItem = editBudgetBarButton;
     
+    self.tableView = [UITableView new];
+    [self.view addSubview:self.tableView];
     
-   
+    
 }
+
+#pragma mark - navigation button methods
 
 -(void)editBudgetBarButtonTapped{
     EditBudgetViewController *editBudgetVC = [EditBudgetViewController new];

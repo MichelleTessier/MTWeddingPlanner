@@ -74,6 +74,7 @@
     
     Vendor *vendor = [Vendor objectWithClassName:[Vendor parseClassName]];
     vendor.weddingID = wedding.objectId;
+    vendor.vendorPayments = @[];
     
     for (VendorCategory *vendorCateogry in wedding.vendorCategories) {
         if ([vendorCateogry isEqual:selectedVendorCategory]) {
@@ -191,6 +192,35 @@
     
     return toDoItems;
     
+}
+
+#pragma mark - vendor payment CRUD
+
+-(VendorPayment *)createVendorPayment{
+    
+    VendorPayment *vendorPayment = [VendorPayment objectWithClassName:[VendorPayment parseClassName]];
+    
+    [vendorPayment saveEventually];
+    
+    return vendorPayment;
+   
+}
+
+-(void)addVendorPayments:(NSArray *)vendorPayments toVendor:(Vendor *)vendor{
+    
+    NSMutableArray *mutableVendorPayments = [vendor.vendorPayments mutableCopy];
+    
+    for (VendorPayment *vendorPayment in vendorPayments) {
+        
+        [mutableVendorPayments addObject:vendorPayment];
+        
+        [vendorPayment saveEventually];
+    }
+
+    
+    vendor.vendorPayments = mutableVendorPayments;
+    
+    [vendor saveEventually];
 }
 
 

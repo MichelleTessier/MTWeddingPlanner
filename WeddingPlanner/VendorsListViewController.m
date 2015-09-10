@@ -87,10 +87,11 @@
 -(void)findChosenVendorCategories{
     
     NSArray *vendorCategories = self.couple.wedding.vendorCategories;
+    
     NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
-    for (VendorCategory *vendorCateogry in vendorCategories) {
-        if (vendorCateogry.vendors.count > 0) {
-            [mutableChosenVendorCategories addObject:vendorCateogry];
+    for (VendorCategory *vendorCategory in vendorCategories) {
+        if (vendorCategory.vendors.count > 0) {
+            [mutableChosenVendorCategories addObject:vendorCategory];
         }
     }
     

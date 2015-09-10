@@ -10,7 +10,7 @@
 
 @protocol DatePickerAndTextFieldTableViewCellDelegate;
 
-@interface DatePickerAndTextFieldTableViewCell : UITableViewCell <UIPickerViewDelegate>
+@interface DatePickerAndTextFieldTableViewCell : UITableViewCell <UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) UIDatePicker *pickerView;
 @property (strong, nonatomic) UITextField *pickerTextField;
@@ -22,5 +22,6 @@
 @protocol DatePickerAndTextFieldTableViewCellDelegate <NSObject>
 
 -(void)pickerSelectedDate:(NSDate *)date onCell:(DatePickerAndTextFieldTableViewCell *)sender;
+-(void)textFieldWasEdited:(UITextField *)textField onCell:(DatePickerAndTextFieldTableViewCell *)sender;
 
 @end

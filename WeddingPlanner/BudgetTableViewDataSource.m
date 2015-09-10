@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "BudgetViewDataSource.h"
+#import "BudgetTableViewDataSource.h"
 
-@implementation BudgetViewDataSource
+@implementation BudgetTableViewDataSource
 
 @end
