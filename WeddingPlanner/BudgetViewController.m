@@ -19,11 +19,12 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 
-#import "QMBParallaxScrollViewController.h"
+
+#import "BudgetTableViewController.h"
+#import "BudgetTopViewController.h"
 
 @interface BudgetViewController ()
 
-@property (strong, nonatomic) UITableView *tableView;
 
 @end
 
@@ -34,12 +35,21 @@
     // Do any additional setup after loading the view.
     
     [self setUpView];
+    [self setUpParallaxViewControllers];
     
-   
 }
 
 
 #pragma mark - set up view method
+
+-(void)setUpParallaxViewControllers{
+   
+    BudgetTopViewController *budgetTopVC = [BudgetTopViewController new];
+    BudgetTableViewController *budgetTableVC = [BudgetTableViewController new];
+    self.delegate = self;
+    [self setupWithTopViewController:budgetTopVC andTopHeight:250 andBottomViewController:budgetTableVC];
+    
+}
 
 -(void)setUpView{
  
@@ -56,11 +66,13 @@
     editBudgetBarButton.action = @selector(editBudgetBarButtonTapped);
     self.navigationItem.rightBarButtonItem = editBudgetBarButton;
     
-    self.tableView = [UITableView new];
-    [self.view addSubview:self.tableView];
-    
+   
     
 }
+
+#pragma mark - parallax delegate methods
+
+-
 
 #pragma mark - navigation button methods
 

@@ -1,13 +1,13 @@
 //
-//  BudgetTableViewDataSource.m
+//  BudgetTableView.h
 //  WeddingPlanner
 //
 //  Created by Michelle Tessier on 9/10/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "BudgetTableViewDataSource.h"
+#import <UIKit/UIKit.h>
 
-@implementation BudgetTableViewDataSource
+@interface BudgetTableViewController : UIViewController
 
 @end

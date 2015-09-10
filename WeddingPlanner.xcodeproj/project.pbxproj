@@ -14,6 +14,9 @@
 		2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */; };
 		2C878E821BA1FE6100B1A898 /* QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E7F1BA1FE6100B1A898 /* QMBParallaxScrollViewController.m */; };
 		2C878E831BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E811BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m */; };
+		2C878E871BA2001400B1A898 /* BudgetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E861BA2001400B1A898 /* BudgetTableViewController.m */; };
+		2C878E8A1BA2003200B1A898 /* BudgetTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E891BA2003200B1A898 /* BudgetTopViewController.m */; };
+		2C878E8D1BA2024F00B1A898 /* BudgetTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E8C1BA2024F00B1A898 /* BudgetTableViewDataSource.m */; };
 		2C932F9E1B864B1E002B092D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F971B864B1E002B092D /* Bolts.framework */; };
 		2C932F9F1B864B1E002B092D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F981B864B1E002B092D /* Parse.framework */; };
 		2C932FA01B864B1E002B092D /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C932F991B864B1E002B092D /* ParseCrashReporting.framework */; };
@@ -45,7 +48,6 @@
 		2C932FE51B87CDF6002B092D /* MasterWeddingProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE41B87CDF6002B092D /* MasterWeddingProfile.m */; };
 		2C932FE81B87CF63002B092D /* ToDoTimeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */; };
 		2C932FEB1B87D088002B092D /* VendorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C932FEA1B87D088002B092D /* VendorCategory.m */; };
-		2CB172631B9F9520006B313E /* BudgetTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172621B9F9520006B313E /* BudgetTableViewDataSource.m */; };
 		2CB172661B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */; };
 		2CB172691B9FA744006B313E /* DoubleLabelsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB172681B9FA744006B313E /* DoubleLabelsTableViewCell.m */; };
 		2CC349321B7C18F6006A8D5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC349311B7C18F6006A8D5E /* main.m */; };
@@ -134,6 +136,12 @@
 		2C878E7F1BA1FE6100B1A898 /* QMBParallaxScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMBParallaxScrollViewController.m; sourceTree = "<group>"; };
 		2C878E801BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QMBParallaxScrollViewController.h"; sourceTree = "<group>"; };
 		2C878E811BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QMBParallaxScrollViewController.m"; sourceTree = "<group>"; };
+		2C878E851BA2001400B1A898 /* BudgetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetTableViewController.h; sourceTree = "<group>"; };
+		2C878E861BA2001400B1A898 /* BudgetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetTableViewController.m; sourceTree = "<group>"; };
+		2C878E881BA2003200B1A898 /* BudgetTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetTopViewController.h; sourceTree = "<group>"; };
+		2C878E891BA2003200B1A898 /* BudgetTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetTopViewController.m; sourceTree = "<group>"; };
+		2C878E8B1BA2024F00B1A898 /* BudgetTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetTableViewDataSource.h; sourceTree = "<group>"; };
+		2C878E8C1BA2024F00B1A898 /* BudgetTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetTableViewDataSource.m; sourceTree = "<group>"; };
 		2C932F971B864B1E002B092D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2C932F981B864B1E002B092D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2C932F991B864B1E002B092D /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -179,8 +187,6 @@
 		2C932FE71B87CF63002B092D /* ToDoTimeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTimeCategory.m; sourceTree = "<group>"; };
 		2C932FE91B87D088002B092D /* VendorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCategory.h; sourceTree = "<group>"; };
 		2C932FEA1B87D088002B092D /* VendorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCategory.m; sourceTree = "<group>"; };
-		2CB172611B9F9520006B313E /* BudgetTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetTableViewDataSource.h; sourceTree = "<group>"; };
-		2CB172621B9F9520006B313E /* BudgetTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetTableViewDataSource.m; sourceTree = "<group>"; };
 		2CB172641B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerAndTextFieldTableViewCell.h; sourceTree = "<group>"; };
 		2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerAndTextFieldTableViewCell.m; sourceTree = "<group>"; };
 		2CB172671B9FA744006B313E /* DoubleLabelsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleLabelsTableViewCell.h; sourceTree = "<group>"; };
@@ -512,8 +518,12 @@
 			children = (
 				2CC349581B7C1CD4006A8D5E /* BudgetViewController.h */,
 				2CC349591B7C1CD4006A8D5E /* BudgetViewController.m */,
-				2CB172611B9F9520006B313E /* BudgetTableViewDataSource.h */,
-				2CB172621B9F9520006B313E /* BudgetTableViewDataSource.m */,
+				2C878E881BA2003200B1A898 /* BudgetTopViewController.h */,
+				2C878E891BA2003200B1A898 /* BudgetTopViewController.m */,
+				2C878E851BA2001400B1A898 /* BudgetTableViewController.h */,
+				2C878E861BA2001400B1A898 /* BudgetTableViewController.m */,
+				2C878E8B1BA2024F00B1A898 /* BudgetTableViewDataSource.h */,
+				2C878E8C1BA2024F00B1A898 /* BudgetTableViewDataSource.m */,
 				2CCB4FAD1B7E8E630048DF2E /* EditBudgetViewController.h */,
 				2CCB4FAE1B7E8E630048DF2E /* EditBudgetViewController.m */,
 				2CEE29E21B9A322C0006E88A /* EditBudgetIndividualPageViewController.h */,
@@ -1002,6 +1012,7 @@
 				2CFF11F41B8F6A20002B675D /* DoubleTabBarSetup.m in Sources */,
 				2CEF087C1B8BE74D00DCCE2E /* ImagesTableViewCell.m in Sources */,
 				2CEF086F1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m in Sources */,
+				2C878E8A1BA2003200B1A898 /* BudgetTopViewController.m in Sources */,
 				2CEF08601B8BC9B200DCCE2E /* TaskDefaultsViewController.m in Sources */,
 				2CEF08631B8BC9C900DCCE2E /* VendorDefaultsViewController.m in Sources */,
 				2CFF11F81B8F6E70002B675D /* PlannerController.m in Sources */,
@@ -1041,6 +1052,7 @@
 				2CCB4F9D1B7D6E100048DF2E /* VendorDetailViewController.m in Sources */,
 				2CFA7A571B94FA60000711A4 /* LabelTableViewCell.m in Sources */,
 				2CEF08791B8BE6F500DCCE2E /* TextViewTableViewCell.m in Sources */,
+				2C878E871BA2001400B1A898 /* BudgetTableViewController.m in Sources */,
 				2CCB4F931B7D66060048DF2E /* PlannerProfileViewController.m in Sources */,
 				2CFA7B071B978D7E000711A4 /* ToDoDetailViewController.m in Sources */,
 				2CCB4FAF1B7E8E630048DF2E /* EditBudgetViewController.m in Sources */,
@@ -1053,6 +1065,7 @@
 				2CEF08591B8BBFD100DCCE2E /* WeddingController.m in Sources */,
 				2CFA7A8F1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m in Sources */,
 				2CFA7A8C1B960097000711A4 /* ToDoListDataSource.m in Sources */,
+				2C878E8D1BA2024F00B1A898 /* BudgetTableViewDataSource.m in Sources */,
 				2C932FE81B87CF63002B092D /* ToDoTimeCategory.m in Sources */,
 				2CC349601B7C1CFD006A8D5E /* GuestsViewController.m in Sources */,
 				2C932FE21B87C99D002B092D /* Person.m in Sources */,
@@ -1065,7 +1078,6 @@
 				2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */,
 				2CCB4FC71B84FC040048DF2E /* ToDoListViewController.m in Sources */,
 				2C932FD91B87A3A6002B092D /* Budget.m in Sources */,
-				2CB172631B9F9520006B313E /* BudgetTableViewDataSource.m in Sources */,
 				2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */,
 				2CB172661B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,

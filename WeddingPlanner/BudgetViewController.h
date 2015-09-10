@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "WeddingController.h"
+#import "QMBParallaxScrollViewController.h"
 
-@interface BudgetViewController : UIViewController
+@interface BudgetViewController : QMBParallaxScrollViewController <QMBParallaxScrollViewControllerDelegate>
 
 @property (strong, nonatomic) Couple *couple;
 
