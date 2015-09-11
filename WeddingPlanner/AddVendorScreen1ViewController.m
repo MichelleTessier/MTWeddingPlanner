@@ -40,7 +40,9 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     [self setConstraints];
     [self setTitleOfView];
     
+    
 }
+
 
 #pragma mark - set up view
 
@@ -181,7 +183,7 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
     self.vendor.city = self.city;
     
-    [self.vendor saveEventually];
+    [self.vendor saveInBackground];
         
 }
 

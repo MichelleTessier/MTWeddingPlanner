@@ -1,20 +1,18 @@
 //
-//  EditBudgetViewController.m
+//  CalendarViewController.m
 //  WeddingPlanner
 //
-//  Created by Michelle Tessier on 8/14/15.
+//  Created by Michelle Tessier on 8/19/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "EditBudgetViewController.h"
+#import "CalendarPageViewController.h"
 
-@interface EditBudgetViewController ()
+@interface CalendarPageViewController () <UIPageViewControllerDataSource>
 
 @end
 
-@implementation EditBudgetViewController
-
-#warning breaks if you try to push the page view controller past the last category
+@implementation CalendarPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +29,7 @@
     
     self.pageViewController.dataSource = self;
     
-    self.editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:0];
+    self.calendarDayVC = [[CalendarDayViewController alloc] initWithWedding:self.couple.wedding andIndex:0];
     
     
     NSArray *viewControllers = @[self.editBudgetIndividualPageVC];
@@ -58,11 +56,11 @@
 
 -(EditBudgetIndividualPageViewController *)VCForVendorCategory:(VendorCategory *)vendorCategory{
     
-   NSInteger index = [self.couple.wedding.vendorCategories indexOfObjectIdenticalTo:vendorCategory];
+    NSInteger index = [self.couple.wedding.vendorCategories indexOfObjectIdenticalTo:vendorCategory];
     
     EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:index];
     
-//    [self.editBudgetViewControllers addObject:editBudgetIndividualPageVC];
+    //    [self.editBudgetViewControllers addObject:editBudgetIndividualPageVC];
     
     return editBudgetIndividualPageVC;
 }
@@ -79,7 +77,7 @@
     } else {
         return nil;
     }
- 
+    
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{

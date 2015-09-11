@@ -7,8 +7,15 @@
 //
 
 #import "BudgetTopViewController.h"
+#import "UIView+FLKAutoLayout.h"
+#import "UIView+FLKAutoLayoutDebug.h"
 
 @interface BudgetTopViewController ()
+
+@property (strong, nonatomic) UILabel *totalCostLabel;
+//@property (strong, nonatomic) UILabel *toPayLabel;
+//@property (strong, nonatomic) UILabel *havePaidLabel;
+@property (strong, nonatomic) UILabel *estimatedCostLabel;
 
 @end
 
@@ -16,7 +23,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self updateBudget];
+    [self setUpView];
+    [self addConstraints];
+    
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    [self updateBudget];
+    
+}
+
+-(void)updateBudget{
+    
+    [[WeddingController sharedInstance] findActualCostForWedding:self.couple.wedding];
+    [[WeddingController sharedInstance] findEstimatedCostForWedding:self.couple.wedding];
+    
+}
+
+-(void)setUpView{
+    
+    self.totalCostLabel = [UILabel new];
+    
+    float totalCostOfWedding = [self.couple.wedding.budget.totalActualCost floatValue];
+    self.totalCostLabel.text = [NSString stringWithFormat:@"$%.2f", totalCostOfWedding];
+    self.totalCostLabel.font = [UIFont boldSystemFontOfSize:32];
+    
+    [self.view addSubview:self.totalCostLabel];
+    
+    self.estimatedCostLabel = [UILabel new];
+    
+    float estimatedCostOfWedding = [self.couple.wedding.budget.totalBudgetedCost floatValue];
+    self.totalCostLabel.text = [NSString stringWithFormat:@"Budget: $%.2f", estimatedCostOfWedding];
+    self.totalCostLabel.font = [UIFont systemFontOfSize:20];
+    
+    [self.view addSubview:self.estimatedCostLabel];
+    
+    
+}
+
+-(void)addConstraints{
+    
+    [self.totalCostLabel alignLeading:@"5" trailing:@"5" toView:self.view];
+    [self.totalCostLabel alignTopEdgeWithView:self.view predicate:@"10"];
+    [self.totalCostLabel constrainHeight:@"60"];
+    
+    [self.estimatedCostLabel alignLeading:@"5" trailing:@"5" toView:self.view];
+    [self.estimatedCostLabel constrainTopSpaceToView:self.totalCostLabel predicate:@"5"];
+    [self.estimatedCostLabel constrainHeight:@"50];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

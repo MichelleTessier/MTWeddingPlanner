@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeddingController.h"
+#import "QMBParallaxScrollViewController.h"
 
 @interface BudgetTopViewController : UIViewController
+
+@property (strong, nonatomic) Couple *couple;
 
 @end

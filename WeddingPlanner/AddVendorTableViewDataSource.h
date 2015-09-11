@@ -19,6 +19,8 @@
 @property (strong, nonatomic) AddVendorScreen1ViewController *addVendorScreen1ViewController;
 
 @property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) Vendor *vendor;
+
 @property (strong, nonatomic) NSMutableArray *temporaryVendorPayments;
 
 @property (strong, nonatomic) UITableView *tableView;

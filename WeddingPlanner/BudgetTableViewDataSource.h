@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "WeddingController.h"
+#import "QMBParallaxScrollViewController.h"
 
-@interface BudgetTableViewDataSource : NSObject
+@interface BudgetTableViewDataSource : NSObject <UITableViewDataSource>
+
+@property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) NSArray *selectedVendorCategories;
 
 @end

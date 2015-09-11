@@ -14,7 +14,7 @@
 
 #warning way to handle no planner found by that name
 
-@interface RegisterWeddingPage2ViewController () 
+@interface RegisterWeddingPage2ViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) UITextField *plannerEmailTextField;
 @property (strong, nonatomic) UIButton *registerButton;
@@ -117,6 +117,17 @@
             
         }
     }];
+    
+}
+
+-(BOOL)disablesAutomaticKeyboardDismissal{
+    return NO;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+   
     
 }
 

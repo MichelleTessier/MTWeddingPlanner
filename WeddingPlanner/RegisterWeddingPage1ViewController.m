@@ -49,6 +49,7 @@
     
     self.spouse1FirstNameTextField = [UITextField new];
     self.spouse1FirstNameTextField.placeholder = @"First";
+
     [self.view addSubview:self.spouse1FirstNameTextField];
     
     self.spouse1LastNameTextField = [UITextField new];
@@ -184,9 +185,15 @@
     }
     
 }
-    
 
+-(BOOL)disablesAutomaticKeyboardDismissal{
+    return NO;
+}
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 - (void)registerButtonTapped{

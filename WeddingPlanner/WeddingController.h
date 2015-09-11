@@ -60,5 +60,10 @@
 -(VendorPayment *)createVendorPayment;
 -(void)addVendorPayments:(NSArray *)vendorPayments toVendor:(Vendor *)vendor;
 
+
+-(void)findActualCostForVendorCategory:(VendorCategory *)vendorCategory;
+-(void)findActualCostForWedding:(Wedding *)wedding;
+-(void)findEstimatedCostForWedding:(Wedding *)wedding;
+
 @end
 

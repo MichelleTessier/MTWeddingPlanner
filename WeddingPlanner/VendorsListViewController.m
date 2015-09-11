@@ -74,6 +74,7 @@
     VendorDetailViewController *vendorDVC = [VendorDetailViewController new];
     vendorDVC.vendorCategory = self.chosenVendorCategories[indexPath.section];
     vendorDVC.vendor = vendorDVC.vendorCategory.vendors[indexPath.row];
+    vendorDVC.couple = self.couple;
     [self.navigationController pushViewController: vendorDVC animated:YES];
     
 }

@@ -23,7 +23,7 @@
 #warning user can't login and get info to fill in until the info saves on parse. likely an issue with save evenutally
 
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) UITabBarController *plannerTabBarController;
 @property (strong, nonatomic) ClientTabBarController *clientTabBarController;
@@ -55,10 +55,12 @@
     
     self.userNameTextField = [UITextField new];
     self.userNameTextField.placeholder = @"email";
+    self.userNameTextField.delegate = self;
     [self.view addSubview:self.userNameTextField];
     
     self.passwordTextfield = [UITextField new];
     self.passwordTextfield.placeholder = @"password";
+    self.passwordTextfield.delegate = self;
     [self.view addSubview:self.passwordTextfield];
     
     UIButton *signInButton = [UIButton new];
@@ -148,7 +150,9 @@
             doubleTabBarSetup.planner = nil;
             
             //Test
-            VendorCategory *vendorCategory = couple.wedding.vendorCategories[0];
+            VendorCategory *vendorCategory = couple.wedding.vendorCategories[1];
+            Vendor *vendor = vendorCategory.vendors[1];
+            NSLog(@"VENDOR.TITLE: %@", vendor.firstName);
             NSLog(@"COUPLE: %@", couple);
             NSLog(@"COUPLE.WEDDING.VENDORCATEGORIES[0]: %@", couple.wedding.vendorCategories[0]);
             NSLog(@"VENDOR CATEGORY: %@", vendorCategory.title);
@@ -209,6 +213,11 @@
     [self presentViewController:[RegisterWeddingPageViewController new] animated:YES completion:nil];
     
     
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 

@@ -119,9 +119,15 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
             self.pickerView.dataSource = self;
             self.pickerView.delegate = self;
            
+            if (self.vendor) {
+                pickerCell.textField.text = self.vendor.vendorCategoryId;
+            } else {
+            
             pickerCell.textField.placeholder = @"Vendor Category";
             pickerCell.textField.inputView = self.pickerView;
             pickerCell.textField.text = self.selectedVendorCategory.title;
+                
+            }
             
             UIToolbar *toolBar = [UIToolbar new];
             toolBar.frame = CGRectMake(0.0, 0.0, self.addVendorScreen1ViewController.view.frame.size.width, 40.0);
@@ -158,7 +164,11 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
             
             switch (informationType) {
                 case VendorContactInformationTypeBusinessName:
+                    if (self.vendor) {
+                    textFieldCell.text = self.vendor.businessName;
+                    } else {
                     textFieldCell.textField.placeholder = @"Business";
+                    }
                     break;
                     
                 //This needs to be changed to two text fields for first name and last name

@@ -8,6 +8,7 @@
 
 #import "VendorDetailViewController.h"
 #import "VendorsDetailDataSource.h"
+#import "AddVendorScreen1ViewController.h"
 
 @interface VendorDetailViewController ()
 
@@ -15,6 +16,8 @@
 @property (strong, nonatomic) VendorsDetailDataSource *dataSource;
 
 @end
+
+#warning vendors not keeping title, info, etc.
 
 @implementation VendorDetailViewController
 
@@ -30,6 +33,21 @@
     self.dataSource.vendorCategory = self.vendorCategory;
     self.tableView.dataSource = self.dataSource;
     [self.view addSubview:self.tableView];
+    
+    UIBarButtonItem *barButtonItem = [UIBarButtonItem new];
+    barButtonItem.title = @"Edit";
+    barButtonItem.target = self;
+    barButtonItem.action = @selector(editButtonTapped);
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+    
+}
+
+-(void)editButtonTapped{
+    
+    AddVendorScreen1ViewController *addVendorScreen1VC = [AddVendorScreen1ViewController new];
+    addVendorScreen1VC.vendor = self.vendor;
+    addVendorScreen1VC.couple = self.couple;
+    [self presentViewController:addVendorScreen1VC animated:YES completion:nil];
     
 }
 

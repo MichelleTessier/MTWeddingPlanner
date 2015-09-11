@@ -1,23 +1,36 @@
 //
-//  CalendarViewController.m
+//  CalendarDayViewController.m
 //  WeddingPlanner
 //
-//  Created by Michelle Tessier on 8/19/15.
+//  Created by Michelle Tessier on 9/10/15.
 //  Copyright (c) 2015 MichelleTessier. All rights reserved.
 //
 
-#import "CalendarViewController.h"
+#import "CalendarDayViewController.h"
 
-@interface CalendarViewController ()
+@interface CalendarDayViewController ()
 
 @end
 
-@implementation CalendarViewController
+@implementation CalendarDayViewController
+
+-(instancetype)initWithDate:(NSDate *)todaysDate {
+    //self.contentView
+    self = [super init];
+    
+    if (self) {
+      
+        self.today = todaysDate;
+
+    }
+    
+    return self;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor redColor];
 }
 
 - (void)didReceiveMemoryWarning {

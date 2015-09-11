@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeddingController.h"
+#import "QMBParallaxScrollViewController.h"
 
-@interface BudgetTableViewController : UIViewController
+@interface BudgetTableViewController : UIViewController <QMBParallaxScrollViewHolder, UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) UITableView *tableView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end

@@ -15,7 +15,7 @@
 
 #import "DoubleTabBarSetup.h"
 
-@interface RegisterPlannerViewController ()
+@interface RegisterPlannerViewController () <UITextFieldDelegate>
 
 //Might want to add a second page where planner can add phone, website, fb link, etc. #LATER
 
@@ -69,8 +69,10 @@
     
     self.plannerPasswordConfirmTextField = [UITextField new];
     self.plannerPasswordConfirmTextField.placeholder = @"Confirm Password";
+    self.plannerPasswordConfirmTextField.delegate = self;
     [self.view addSubview:self.plannerPasswordConfirmTextField];
     
+
     self.label = [UILabel new];
     [self.view addSubview:self.label];
     
@@ -171,6 +173,11 @@
     
      [self presentViewController:doubleTabBarSetup.plannerTabBarController animated:YES completion:nil];
     
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

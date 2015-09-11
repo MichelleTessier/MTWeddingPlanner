@@ -34,7 +34,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setUpView];
+     [self setUpView];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+   
     [self setUpParallaxViewControllers];
     
 }
@@ -46,6 +54,7 @@
    
     BudgetTopViewController *budgetTopVC = [BudgetTopViewController new];
     BudgetTableViewController *budgetTableVC = [BudgetTableViewController new];
+    budgetTableVC.couple = self.couple;
     self.delegate = self;
     [self setupWithTopViewController:budgetTopVC andTopHeight:250 andBottomViewController:budgetTableVC];
     
@@ -72,7 +81,7 @@
 
 #pragma mark - parallax delegate methods
 
--
+
 
 #pragma mark - navigation button methods
 

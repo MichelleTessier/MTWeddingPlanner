@@ -17,4 +17,6 @@
 
 -(instancetype)initWithWedding:(Wedding *)wedding andIndex:(NSInteger)index;
 
+-(void)updateVendorCategory;
+
 @end
