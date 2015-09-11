@@ -29,10 +29,12 @@
     
     self.pageViewController.dataSource = self;
     
-    self.calendarDayVC = [[CalendarDayViewController alloc] initWithWedding:self.couple.wedding andIndex:0];
+    NSDate *today = [NSDate date];
+    
+    self.calendarDayVC = [[CalendarDayViewController alloc] initWithDate:today];
     
     
-    NSArray *viewControllers = @[self.editBudgetIndividualPageVC];
+    NSArray *viewControllers = @[self.calendarDayVC];
     
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
@@ -54,45 +56,45 @@
     
 }
 
--(EditBudgetIndividualPageViewController *)VCForVendorCategory:(VendorCategory *)vendorCategory{
-    
-    NSInteger index = [self.couple.wedding.vendorCategories indexOfObjectIdenticalTo:vendorCategory];
-    
-    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:index];
-    
-    //    [self.editBudgetViewControllers addObject:editBudgetIndividualPageVC];
-    
-    return editBudgetIndividualPageVC;
-}
-
-
--(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
-    
-    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
-    
-    [editBudgetIndividualPageVC updateVendorCategory];
-    
-    if (editBudgetIndividualPageVC.previousVendorCateogy) {
-        return [self VCForVendorCategory:editBudgetIndividualPageVC.previousVendorCateogy];
-    } else {
-        return nil;
-    }
-    
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
-    
-    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
-    
-    [editBudgetIndividualPageVC updateVendorCategory];
-    
-    if (editBudgetIndividualPageVC.nextVendorCategory) {
-        return [self VCForVendorCategory:editBudgetIndividualPageVC.nextVendorCategory];
-    } else {
-        return nil;
-    }
-    
-}
+//-(CalendarDayViewController *)VCForVendorCategory:(VendorCategory *)vendorCategory{
+//    
+//    NSInteger index = [self.couple.wedding.vendorCategories indexOfObjectIdenticalTo:vendorCategory];
+//    
+//    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:index];
+//    
+//    //    [self.editBudgetViewControllers addObject:editBudgetIndividualPageVC];
+//    
+//    return editBudgetIndividualPageVC;
+//}
+//
+//
+//-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
+//    
+//    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
+//    
+//    [editBudgetIndividualPageVC updateVendorCategory];
+//    
+//    if (editBudgetIndividualPageVC.previousVendorCateogy) {
+//        return [self VCForVendorCategory:editBudgetIndividualPageVC.previousVendorCateogy];
+//    } else {
+//        return nil;
+//    }
+//    
+//}
+//
+//- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
+//    
+//    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
+//    
+//    [editBudgetIndividualPageVC updateVendorCategory];
+//    
+//    if (editBudgetIndividualPageVC.nextVendorCategory) {
+//        return [self VCForVendorCategory:editBudgetIndividualPageVC.nextVendorCategory];
+//    } else {
+//        return nil;
+//    }
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

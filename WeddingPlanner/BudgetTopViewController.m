@@ -75,7 +75,7 @@
     
     [self.estimatedCostLabel alignLeading:@"5" trailing:@"5" toView:self.view];
     [self.estimatedCostLabel constrainTopSpaceToView:self.totalCostLabel predicate:@"5"];
-    [self.estimatedCostLabel constrainHeight:@"50];
+    [self.estimatedCostLabel constrainHeight:@"50"];
     
     
     

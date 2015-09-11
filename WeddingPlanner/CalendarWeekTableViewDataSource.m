@@ -15,6 +15,8 @@ static NSString *dayCellID = @"dayCellID";
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     //probably just need enough cells to cover the tableview?
+    //maybe should insert and delete cells and then auto scroll to them?
+    //should think about how fast I want the table view to scroll
     
     return 20;
     
