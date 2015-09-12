@@ -20,8 +20,10 @@
 
 #import "Guest.h"
 
+#warning user can't login and get info to fill in until the info saves on parse. likely an issue with save evenutally
 
-@interface LoginViewController ()
+
+@interface LoginViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) UITabBarController *plannerTabBarController;
 @property (strong, nonatomic) ClientTabBarController *clientTabBarController;
@@ -53,10 +55,12 @@
     
     self.userNameTextField = [UITextField new];
     self.userNameTextField.placeholder = @"email";
+    self.userNameTextField.delegate = self;
     [self.view addSubview:self.userNameTextField];
     
     self.passwordTextfield = [UITextField new];
     self.passwordTextfield.placeholder = @"password";
+    self.passwordTextfield.delegate = self;
     [self.view addSubview:self.passwordTextfield];
     
     UIButton *signInButton = [UIButton new];
@@ -132,7 +136,9 @@
         PFQuery *getWeddings = [PFQuery queryWithClassName:@"Wedding"];
         [getWeddings whereKey:@"objectId" equalTo:couple.wedding.objectId];
         [getWeddings includeKey:@"vendorCategories.vendors"];
+        [getWeddings includeKey:@"vendorCategories.vendors.vendorPayments"];
         [getWeddings includeKey:@"toDoTimeCategories.toDoItems"];
+       
         
         [getWeddings getFirstObjectInBackgroundWithBlock:^(PFObject *wedding, NSError *error){
             
@@ -142,6 +148,19 @@
             self.toolBarButton.title = @"Couples Names";
             doubleTabBarSetup.couple = couple;
             doubleTabBarSetup.planner = nil;
+            
+            //Test
+//            VendorCategory *vendorCategory = couple.wedding.vendorCategories[1];
+//            Vendor *vendor = vendorCategory.vendors[1];
+//            NSLog(@"VENDOR.TITLE: %@", vendor.firstName);
+//            NSLog(@"COUPLE: %@", couple);
+//            NSLog(@"COUPLE.WEDDING.VENDORCATEGORIES[0]: %@", couple.wedding.vendorCategories[0]);
+//            NSLog(@"VENDOR CATEGORY: %@", vendorCategory.title);
+//            
+//            ToDoTimeCategory *timeCat = couple.wedding.toDoTimeCategories[0];
+//            NSLog(@"TIME CAT: %@", timeCat.title);
+            
+            
             [doubleTabBarSetup setUpClientTabBarController];
             [self presentViewController:doubleTabBarSetup.clientTabBarController animated:YES completion:nil];
             
@@ -194,6 +213,11 @@
     [self presentViewController:[RegisterWeddingPageViewController new] animated:YES completion:nil];
     
     
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 

@@ -9,8 +9,10 @@
 #import "VendorsDetailDataSource.h"
 #import "VendorViewControllerEnums.h"
 #import "LabelTableViewCell.h"
+#import "DoubleLabelsTableViewCell.h"
 
 static NSString *labelCellID = @"labelCellID";
+static NSString *paymentCellID = @"paymentCellID";
 
 @implementation VendorsDetailDataSource
 
@@ -28,12 +30,22 @@ static NSString *labelCellID = @"labelCellID";
             return @"Vendor Category";
             
             break;
-            
+        
         case AddVendorInformationContactSection:
             
             return @"Contact";
             
             break;
+        
+        case AddVendorinformationPaymentSection:
+        
+        if (self.vendor.vendorPayments.count == 1) {
+            return @"Payment";
+        } else {
+            return @"Payments";
+        }
+        
+        break;
             
         default:
             return @"";
@@ -49,15 +61,19 @@ static NSString *labelCellID = @"labelCellID";
     
     switch (vendorSection) {
         case AddVendorInformationCategorySection:
-            numberOfRows = 1;
-            break;
-            
+        numberOfRows = 1;
+        break;
+        
         case AddVendorInformationContactSection:
-            numberOfRows = VendorContactInformationTypeCount;
-            break;
-            
+        numberOfRows = VendorContactInformationTypeCount;
+        break;
+        
+        case AddVendorinformationPaymentSection:
+        numberOfRows = self.vendor.vendorPayments.count;
+        break;
+        
         default:
-            break;
+        break;
     }
     
     return numberOfRows;
@@ -143,10 +159,36 @@ static NSString *labelCellID = @"labelCellID";
             
             break;
         }
-            //        case AddVendorinformationPaymentSection:
-            //
-            //            break;
+        
+        case AddVendorinformationPaymentSection: {
+           
+            DoubleLabelsTableViewCell *paymentCell = [tableView dequeueReusableCellWithIdentifier:paymentCellID];
             
+            if (!paymentCell) {
+                paymentCell = [[DoubleLabelsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:paymentCellID];
+            }
+            
+            VendorPayment *vendorPayment = self.vendor.vendorPayments[indexPath.row];
+            
+            if (vendorPayment.isPaid == YES) {
+                paymentCell.label1.textColor = [UIColor blackColor];
+                paymentCell.label2.textColor = [UIColor blackColor];
+            } else {
+                paymentCell.label1.textColor = [UIColor redColor];
+                paymentCell.label2.textColor = [UIColor redColor];
+            }
+            
+            
+            paymentCell.label1.text = [NSString stringWithFormat:@"%@", vendorPayment.date];
+            paymentCell.label2.text = [NSString stringWithFormat:@"$%@", vendorPayment.amount];
+            
+            
+            return paymentCell;
+       
+            
+        break;
+        }
+        
         default:{
             
             LabelTableViewCell *labelCell = [tableView dequeueReusableCellWithIdentifier:labelCellID];

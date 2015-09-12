@@ -8,9 +8,13 @@
 
 #import "AddVendorTableViewDataSource.h"
 #import "PickerViewTableViewCell.h"
+#import "DoubleLabelsTableViewCell.h"
+
 
 static NSString *pickerCellID = @"pickerCellID";
 static NSString *textFieldCellID = @"textFieldCellID";
+static NSString *paymentCellID = @"paymentCellID";
+static NSString *addPaymentCellID = @"addPaymentCellID";
 
 @interface AddVendorTableViewDataSource ()
 
@@ -23,6 +27,8 @@ static NSString *textFieldCellID = @"textFieldCellID";
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return AddVendorInformationSectionsCount;
 }
+
+
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
@@ -40,6 +46,16 @@ static NSString *textFieldCellID = @"textFieldCellID";
             return @"Contact";
             
             break;
+        
+        case AddVendorinformationPaymentSection:
+        
+        if (self.temporaryVendorPayments.count == 1) {
+            return @"Payment";
+        } else {
+            return @"Payments";
+        }
+        
+        break;
             
         default:
             return @"";
@@ -61,12 +77,15 @@ static NSString *textFieldCellID = @"textFieldCellID";
         case AddVendorInformationContactSection:
             numberOfRows = VendorContactInformationTypeCount;
             break;
-            
-        //this will change to depend on number of payments in payments array
-//        case AddVendorinformationPaymentSection:
-//            numberOfRows = 2;
-//            break;
-            
+        
+        case AddVendorinformationPaymentSection:
+        
+        
+            numberOfRows = self.temporaryVendorPayments.count;
+       
+        
+            break;
+        
         default:
             break;
     }
@@ -100,9 +119,15 @@ static NSString *textFieldCellID = @"textFieldCellID";
             self.pickerView.dataSource = self;
             self.pickerView.delegate = self;
            
+            if (self.vendor) {
+                pickerCell.textField.text = self.vendor.vendorCategoryId;
+            } else {
             
+            pickerCell.textField.placeholder = @"Vendor Category";
             pickerCell.textField.inputView = self.pickerView;
             pickerCell.textField.text = self.selectedVendorCategory.title;
+                
+            }
             
             UIToolbar *toolBar = [UIToolbar new];
             toolBar.frame = CGRectMake(0.0, 0.0, self.addVendorScreen1ViewController.view.frame.size.width, 40.0);
@@ -139,7 +164,11 @@ static NSString *textFieldCellID = @"textFieldCellID";
             
             switch (informationType) {
                 case VendorContactInformationTypeBusinessName:
+                    if (self.vendor) {
+                    textFieldCell.text = self.vendor.businessName;
+                    } else {
                     textFieldCell.textField.placeholder = @"Business";
+                    }
                     break;
                     
                 //This needs to be changed to two text fields for first name and last name
@@ -184,9 +213,90 @@ static NSString *textFieldCellID = @"textFieldCellID";
         
             break;
         }
-//        case AddVendorinformationPaymentSection:
-//        
-//            break;
+        
+        case AddVendorinformationPaymentSection: {
+            
+            VendorPayment *vendorPayment = self.temporaryVendorPayments[indexPath.row];
+            
+            if (vendorPayment.date && vendorPayment.amount) {
+                
+                DoubleLabelsTableViewCell *paymentCell = [tableView dequeueReusableCellWithIdentifier:paymentCellID];
+                
+                if (!paymentCell) {
+                    paymentCell = [[DoubleLabelsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:paymentCellID];
+                }
+                
+                VendorPayment *vendorPayment = self.temporaryVendorPayments[indexPath.row];
+                
+                if (vendorPayment.isPaid == YES) {
+                    paymentCell.label1.textColor = [UIColor blackColor];
+                    paymentCell.label2.textColor = [UIColor blackColor];
+                } else {
+                    paymentCell.label1.textColor = [UIColor redColor];
+                    paymentCell.label2.textColor = [UIColor redColor];
+                }
+                
+                
+                paymentCell.label1.text = [NSString stringWithFormat:@"%@", vendorPayment.date];
+                float vendorPaymentAmount = [vendorPayment.amount floatValue];
+                paymentCell.label2.text = [NSString stringWithFormat:@"$%.2f", vendorPaymentAmount];
+                
+                
+                return paymentCell;
+                
+            } else {
+                   
+                    DatePickerAndTextFieldTableViewCell *addPaymentCell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:addPaymentCellID];
+                    
+                    if (!addPaymentCell) {
+                        addPaymentCell = [[DatePickerAndTextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addPaymentCellID];
+                    }
+                    
+                    addPaymentCell.delegate = self;
+                    
+                    
+                    
+                    if (!vendorPayment.date) {
+                        addPaymentCell.pickerTextField.placeholder = @"Date Due";
+                        addPaymentCell.pickerTextField.textColor = [UIColor redColor];
+                    } else {
+                        
+                        if (vendorPayment.isPaid == YES) {
+                            addPaymentCell.pickerTextField.textColor = [UIColor blackColor];
+                        } else {
+                            addPaymentCell.pickerTextField.textColor = [UIColor redColor];
+                        }
+                        
+                        addPaymentCell.pickerTextField.text = [NSString stringWithFormat:@"%@", vendorPayment.date];
+                    }
+                    
+                    if (!vendorPayment.amount) {
+                         addPaymentCell.textField.textColor = [UIColor redColor];
+                        addPaymentCell.textField.placeholder = @"Payment Amount";
+                    } else {
+                        
+                        if (vendorPayment.isPaid == YES) {
+                            addPaymentCell.textField.textColor = [UIColor blackColor];
+                        } else {
+                            addPaymentCell.textField.textColor = [UIColor redColor];
+                        }
+                        
+                        float vendorPaymentAmount = [vendorPayment.amount floatValue];
+                        addPaymentCell.textField.text = [NSString stringWithFormat:@"$%.2f", vendorPaymentAmount];
+                    }
+                    
+                    
+                    
+                    
+                    return addPaymentCell;
+                    
+                    
+                }
+                
+         
+            
+            break;
+        }
             
         default:{
             
@@ -221,6 +331,10 @@ static NSString *textFieldCellID = @"textFieldCellID";
 }
 
 
+
+#pragma mark - Vendor category picker datasources (should be moved to picker cell?)
+
+
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
@@ -236,6 +350,50 @@ static NSString *textFieldCellID = @"textFieldCellID";
 
 
 
+#pragma mark - DatePickerAndTextFieldTableViewCell Delegate
+
+-(void)textFieldWasEdited:(UITextField *)textField onCell:(DatePickerAndTextFieldTableViewCell *)sender{
+ 
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    
+    VendorPayment *vendorPayment = self.temporaryVendorPayments[indexPath.row];
+    
+    float amount = [textField.text floatValue];
+    vendorPayment.amount = @(amount);
+    
+    [vendorPayment saveEventually];
+    
+    [self.tableView reloadData];
+    
+}
+
+-(void)pickerSelectedDate:(NSDate *)date onCell:(DatePickerAndTextFieldTableViewCell *)sender{
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    
+    VendorPayment *vendorPayment = self.temporaryVendorPayments[indexPath.row];
+    
+    vendorPayment.date = date;
+    
+    [vendorPayment saveEventually];
+    
+    [self.tableView reloadData];
+    
+}
+
+#pragma mark - format currency text field
+
+#warning maybe add something along these lines to format currency text field
+
+//-(NSNumber *)getDollarAmount:(NSString *)string{
+//    
+//    
+//  NSNumberFormatter *formatter = [NSNumberFormatter new];
+//  formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+//  formatter.locale = [NSLocale currentLocale];
+//
+//    
+//}
 
 
 

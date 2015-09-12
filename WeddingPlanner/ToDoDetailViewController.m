@@ -9,6 +9,7 @@
 #import "ToDoDetailViewController.h"
 #import "ToDoDetailDataSource.h"
 #import "TextViewTableViewCell.h"
+#import "ToDoListViewController.h"
 
 @interface ToDoDetailViewController () <UITableViewDelegate, UITextViewDelegate, ToDoDataSourceDelegate>
 
@@ -29,10 +30,10 @@
     
     
     UIBarButtonItem *backButton = [UIBarButtonItem new];
-    [backButton setTitle:@"Back"];
+    [backButton setTitle:@"Save"];
     [backButton setTarget:self];
     [backButton setAction:@selector(backButtonTapped)];
-    self.navigationItem.leftBarButtonItem = backButton;
+    self.navigationItem.rightBarButtonItem = backButton;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) style:UITableViewStylePlain];
     self.dataSource = [ToDoDetailDataSource new];
@@ -45,6 +46,10 @@
 }
 
 - (void)backButtonTapped{
+    
+#warning do I need a save method here?
+    
+    [self.toDoItem saveInBackground];
     
     [self.navigationController popToRootViewControllerAnimated:YES];
     

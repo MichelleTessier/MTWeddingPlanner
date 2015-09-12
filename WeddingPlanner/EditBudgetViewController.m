@@ -14,10 +14,86 @@
 
 @implementation EditBudgetViewController
 
+#warning breaks if you try to push the page view controller past the last category
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.title = @"Edit Budget";
+    
+    UIBarButtonItem *saveButton = [UIBarButtonItem new];
+    saveButton.title = @"Save";
+    saveButton.target = self;
+    saveButton.action = @selector(saveButtonTapped);
+    self.navigationItem.rightBarButtonItem = saveButton;
+    
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:kNilOptions];
+    
+    self.pageViewController.dataSource = self;
+    
+    self.editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:0];
+    
+    
+    NSArray *viewControllers = @[self.editBudgetIndividualPageVC];
+    
+    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    [self addChildViewController:self.pageViewController];
+    [self.pageViewController didMoveToParentViewController:self];
+    [self.view addSubview:self.pageViewController.view];
+    
+    
+    
+    
+}
+
+-(void)saveButtonTapped{
+    
+    [[WeddingController sharedInstance] findEstimatedCostForWedding:self.couple.wedding];
+    [self.couple saveEventually];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
+
+-(EditBudgetIndividualPageViewController *)VCForVendorCategory:(VendorCategory *)vendorCategory{
+    
+   NSInteger index = [self.couple.wedding.vendorCategories indexOfObjectIdenticalTo:vendorCategory];
+    
+    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:index];
+    
+//    [self.editBudgetViewControllers addObject:editBudgetIndividualPageVC];
+    
+    return editBudgetIndividualPageVC;
+}
+
+
+-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
+    
+    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
+    
+    [editBudgetIndividualPageVC updateVendorCategory];
+    
+    if (editBudgetIndividualPageVC.previousVendorCateogy) {
+        return [self VCForVendorCategory:editBudgetIndividualPageVC.previousVendorCateogy];
+    } else {
+        return nil;
+    }
+ 
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
+    
+    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
+    
+    [editBudgetIndividualPageVC updateVendorCategory];
+    
+    if (editBudgetIndividualPageVC.nextVendorCategory) {
+        return [self VCForVendorCategory:editBudgetIndividualPageVC.nextVendorCategory];
+    } else {
+        return nil;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

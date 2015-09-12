@@ -11,6 +11,7 @@
 
 @interface VendorDetailViewController : UIViewController
 
+@property (strong, nonatomic) Couple *couple;
 @property (strong, nonatomic) Vendor *vendor;
 @property (strong, nonatomic) VendorCategory *vendorCategory;
 

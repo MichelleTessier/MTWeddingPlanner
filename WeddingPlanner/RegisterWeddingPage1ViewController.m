@@ -49,6 +49,7 @@
     
     self.spouse1FirstNameTextField = [UITextField new];
     self.spouse1FirstNameTextField.placeholder = @"First";
+
     [self.view addSubview:self.spouse1FirstNameTextField];
     
     self.spouse1LastNameTextField = [UITextField new];
@@ -76,6 +77,7 @@
     [self.view addSubview:self.passwordTextField];
     
     self.confirmPasswordTextField = [UITextField new];
+    self.confirmPasswordTextField.delegate = self;
     self.confirmPasswordTextField.placeholder = @"Confirm password";
     [self.view addSubview:self.confirmPasswordTextField];
     
@@ -184,9 +186,13 @@
     }
     
 }
-    
 
 
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 - (void)registerButtonTapped{

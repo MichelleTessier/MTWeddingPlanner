@@ -15,6 +15,8 @@
 @dynamic title;
 @dynamic budgetTipForVendorCategory;
 @dynamic vendors;
+@dynamic budgetedCost;
+@dynamic actualCategoryCost;
 
 +(void)load{
     [self registerSubclass];

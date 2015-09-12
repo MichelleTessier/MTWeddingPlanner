@@ -10,11 +10,10 @@
 
 @implementation VendorPayment
 
-@dynamic payment;
 @dynamic date;
 @dynamic calendarItem;
-@dynamic amountPaid;
-@dynamic outstandingBalance;
+@dynamic amount;
+@dynamic isPaid;
 @dynamic vendor;
 
 +(void)load{

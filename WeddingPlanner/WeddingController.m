@@ -74,6 +74,7 @@
     
     Vendor *vendor = [Vendor objectWithClassName:[Vendor parseClassName]];
     vendor.weddingID = wedding.objectId;
+    vendor.vendorPayments = @[];
     
     for (VendorCategory *vendorCateogry in wedding.vendorCategories) {
         if ([vendorCateogry isEqual:selectedVendorCategory]) {
@@ -137,6 +138,8 @@
     
 }
 
+
+
 #pragma mark - toDoTimeCategory CRUD
 
 -(void)addToDoTimeCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding *)wedding{
@@ -190,6 +193,109 @@
     toDoItems = mutableToDoItems;
     
     return toDoItems;
+    
+}
+
+#pragma mark - vendor payment CRUD
+
+-(VendorPayment *)createVendorPayment{
+    
+    VendorPayment *vendorPayment = [VendorPayment objectWithClassName:[VendorPayment parseClassName]];
+    
+    [vendorPayment saveEventually];
+    
+    return vendorPayment;
+   
+}
+
+-(void)addVendorPayments:(NSArray *)vendorPayments toVendor:(Vendor *)vendor{
+    
+    NSMutableArray *mutableVendorPayments = [vendor.vendorPayments mutableCopy];
+    
+    for (VendorPayment *vendorPayment in vendorPayments) {
+        
+        [mutableVendorPayments addObject:vendorPayment];
+        
+        [vendorPayment saveEventually];
+    }
+    
+    vendor.vendorPayments = mutableVendorPayments;
+    
+    if (!vendor.totalCost) {
+        vendor.totalCost = @(0);
+    }
+        
+    float actualCost = [vendor.totalCost floatValue];
+    
+    for (VendorPayment *vendorPayment in vendor.vendorPayments) {
+        
+        NSNumber *vendorPaymentAmount = vendorPayment.amount;
+        float vendorPaymentFloatAmount = [vendorPaymentAmount floatValue];
+        actualCost += vendorPaymentFloatAmount;
+    }
+    
+    vendor.totalCost = @(actualCost);
+
+    
+    [vendor saveEventually];
+}
+
+#pragma mark - budget calculation methods
+
+-(void)findActualCostForVendorCategory:(VendorCategory *)vendorCategory{
+    
+    float categoryTotalCost = 0;
+    
+    for (Vendor *vendor in vendorCategory.vendors) {
+        
+        NSNumber *vendorTotalCost = vendor.totalCost;
+        float vendorTotalCostFloat = [vendorTotalCost floatValue];
+        categoryTotalCost += vendorTotalCostFloat;
+    }
+    
+    vendorCategory.actualCategoryCost = @(categoryTotalCost);
+    
+}
+
+-(void)findEstimatedCostForWedding:(Wedding *)wedding{
+    
+    float weddingTotalEstimatedCost = 0;
+    
+    for (VendorCategory *vendorCateogry in wedding.vendorCategories) {
+        
+        NSNumber *estimatedCategoryCost = vendorCateogry.budgetedCost;
+        float estimatedCategoryCostFloat = [estimatedCategoryCost floatValue];
+        weddingTotalEstimatedCost += estimatedCategoryCostFloat;
+    }
+    
+    if (!wedding.budget) {
+        wedding.budget = [Budget objectWithClassName:[Budget parseClassName]];
+    }
+    
+    wedding.budget.totalBudgetedCost = @(weddingTotalEstimatedCost);
+    
+    [wedding saveEventually];
+    
+}
+
+-(void)findActualCostForWedding:(Wedding *)wedding{
+    
+    float weddingTotalCost = 0;
+    
+    for (VendorCategory *vendorCateogry in wedding.vendorCategories) {
+        
+        NSNumber *categoryCost = vendorCateogry.actualCategoryCost;
+        float categoryCostFloat = [categoryCost floatValue];
+        weddingTotalCost += categoryCostFloat;
+    }
+    
+    if (!wedding.budget) {
+        wedding.budget = [Budget objectWithClassName:[Budget parseClassName]];
+    }
+    
+    wedding.budget.totalActualCost = @(weddingTotalCost);
+    
+    [wedding saveEventually];
     
 }
 

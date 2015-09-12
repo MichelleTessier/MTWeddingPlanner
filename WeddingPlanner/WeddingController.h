@@ -13,6 +13,7 @@
 #import "Planner.h"
 #import "ToDoTimeCategory.h"
 #import "ToDoItem.h"
+#import "VendorPayment.h"
 
 @interface WeddingController : NSObject
 
@@ -48,14 +49,21 @@
 
 -(void)deleteVendor:(Vendor *)vendorToDelete;
 
+
+
 -(void)addVendorCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding*)wedding;
-
-
 
 -(void)addToDoTimeCategoriesFromPlanner:(Planner *)planner ToWedding:(Wedding *)wedding;
 
 
 
+-(VendorPayment *)createVendorPayment;
+-(void)addVendorPayments:(NSArray *)vendorPayments toVendor:(Vendor *)vendor;
+
+
+-(void)findActualCostForVendorCategory:(VendorCategory *)vendorCategory;
+-(void)findActualCostForWedding:(Wedding *)wedding;
+-(void)findEstimatedCostForWedding:(Wedding *)wedding;
 
 @end
 

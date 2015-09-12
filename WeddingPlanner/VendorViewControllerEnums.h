@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, VendorContactInformationTypes) {
 typedef NS_ENUM(NSUInteger, AddVendorInformationSections) {
     AddVendorInformationCategorySection,
     AddVendorInformationContactSection,
-    //    AddVendorinformationPaymentSection,
+    AddVendorinformationPaymentSection,
     AddVendorInformationSectionsCount,
 };
 

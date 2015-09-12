@@ -12,7 +12,9 @@
 #import "DoubleTabBarSetup.h"
 #import "PlannerController.h"
 
-@interface RegisterWeddingPage2ViewController () 
+#warning way to handle no planner found by that name
+
+@interface RegisterWeddingPage2ViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) UITextField *plannerEmailTextField;
 @property (strong, nonatomic) UIButton *registerButton;
@@ -30,6 +32,7 @@
     // Do any additional setup after loading the view.
     
     self.plannerEmailTextField = [UITextField new];
+    self.plannerEmailTextField.delegate = self;
     self.plannerEmailTextField.placeholder = @"Planner's Email (optional)";
     [self.view addSubview:self.plannerEmailTextField];
     
@@ -115,6 +118,15 @@
             
         }
     }];
+    
+}
+
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+   
     
 }
 

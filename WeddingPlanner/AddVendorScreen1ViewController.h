@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WeddingController.h"
+#import "VendorViewControllerEnums.h"
 
 @interface AddVendorScreen1ViewController : UIViewController <UITextFieldDelegate>
 
@@ -23,6 +24,8 @@
 @property (retain) NSString *email;
 @property (retain) NSString *phoneNumber;
 @property (retain) NSString *secondPhoneNumber;
+
+@property (strong, nonatomic) NSMutableArray *temporaryVendorPayments;
 
 @property (strong, nonatomic) VendorCategory *selectedVendorCategory;
 
