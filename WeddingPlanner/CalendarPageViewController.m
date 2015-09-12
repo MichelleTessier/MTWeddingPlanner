@@ -17,24 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Edit Budget";
+    [self setUpPageView];
+    [self setUpView];
     
-    UIBarButtonItem *saveButton = [UIBarButtonItem new];
-    saveButton.title = @"Save";
-    saveButton.target = self;
-    saveButton.action = @selector(saveButtonTapped);
-    self.navigationItem.rightBarButtonItem = saveButton;
+   
     
+    
+}
+
+-(void)setUpPageView{
+
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:kNilOptions];
     
     self.pageViewController.dataSource = self;
     
-    NSDate *today = [NSDate date];
+    NSDate *selectedDate = [DateController sharedInstance].selectedDate;
     
-    self.calendarDayVC = [[CalendarDayViewController alloc] initWithDate:today];
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:selectedDate];
     
-    
-    NSArray *viewControllers = @[self.calendarDayVC];
+    NSArray *viewControllers = @[calendarDayVC];
     
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
@@ -42,8 +43,21 @@
     [self.pageViewController didMoveToParentViewController:self];
     [self.view addSubview:self.pageViewController.view];
     
+}
+
+-(void)setUpView{
+    
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    [self.view addSubview:navBar];
+    
+    self.navigationController.navigationBarHidden = NO;
     
     
+    UIBarButtonItem *saveButton = [UIBarButtonItem new];
+    saveButton.title = @"Save";
+    saveButton.target = self;
+    saveButton.action = @selector(saveButtonTapped);
+    self.navigationItem.rightBarButtonItem = saveButton;
     
 }
 
@@ -56,45 +70,25 @@
     
 }
 
-//-(CalendarDayViewController *)VCForVendorCategory:(VendorCategory *)vendorCategory{
-//    
-//    NSInteger index = [self.couple.wedding.vendorCategories indexOfObjectIdenticalTo:vendorCategory];
-//    
-//    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = [[EditBudgetIndividualPageViewController alloc] initWithWedding:self.couple.wedding andIndex:index];
-//    
-//    //    [self.editBudgetViewControllers addObject:editBudgetIndividualPageVC];
-//    
-//    return editBudgetIndividualPageVC;
-//}
-//
-//
-//-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
-//    
-//    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
-//    
-//    [editBudgetIndividualPageVC updateVendorCategory];
-//    
-//    if (editBudgetIndividualPageVC.previousVendorCateogy) {
-//        return [self VCForVendorCategory:editBudgetIndividualPageVC.previousVendorCateogy];
-//    } else {
-//        return nil;
-//    }
-//    
-//}
-//
-//- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
-//    
-//    EditBudgetIndividualPageViewController *editBudgetIndividualPageVC = (EditBudgetIndividualPageViewController *)viewController;
-//    
-//    [editBudgetIndividualPageVC updateVendorCategory];
-//    
-//    if (editBudgetIndividualPageVC.nextVendorCategory) {
-//        return [self VCForVendorCategory:editBudgetIndividualPageVC.nextVendorCategory];
-//    } else {
-//        return nil;
-//    }
-//    
-//}
+-(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
+    
+    [[DateController sharedInstance] getYesterDaysDate];
+    
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate];
+    
+    return calendarDayVC;
+    
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
+    
+    [[DateController sharedInstance] getTomorrowsDate];
+    
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate];
+    
+    return calendarDayVC;
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

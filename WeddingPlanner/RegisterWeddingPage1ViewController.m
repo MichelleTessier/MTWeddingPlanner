@@ -77,6 +77,7 @@
     [self.view addSubview:self.passwordTextField];
     
     self.confirmPasswordTextField = [UITextField new];
+    self.confirmPasswordTextField.delegate = self;
     self.confirmPasswordTextField.placeholder = @"Confirm password";
     [self.view addSubview:self.confirmPasswordTextField];
     
@@ -186,9 +187,7 @@
     
 }
 
--(BOOL)disablesAutomaticKeyboardDismissal{
-    return NO;
-}
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];

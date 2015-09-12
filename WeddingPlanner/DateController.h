@@ -7,7 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WeddingController.h"
+
 
 @interface DateController : NSObject
+
++ (DateController*)sharedInstance;
+
+-(void)setTodaysDate;
+
+-(NSDate *)getDateForRow:(NSInteger)row;
+
+-(NSDateComponents *)getDateComponentsForDate:(NSDate *)date;
+
+-(void)getTomorrowsDate;
+-(void)getYesterDaysDate;
+
+-(NSArray *)getCalendarItemsForDate:(NSDate *)date fromWedding:(Wedding *)wedding;
+
+@property (assign, nonatomic) NSInteger startingRow;
+
+@property (strong, nonatomic) NSDate *today;
+@property (strong, nonatomic) NSDate *selectedDate;
+@property (strong, nonatomic) NSDateComponents *currentDateComponents;
+
 
 @end

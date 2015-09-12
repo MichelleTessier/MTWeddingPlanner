@@ -35,17 +35,10 @@
     // Do any additional setup after loading the view.
     
      [self setUpView];
+     [self setUpParallaxViewControllers];
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    
-    [super viewDidAppear:animated];
-    
-   
-    [self setUpParallaxViewControllers];
-    
-}
 
 
 #pragma mark - set up view method
@@ -55,7 +48,9 @@
     BudgetTopViewController *budgetTopVC = [BudgetTopViewController new];
     BudgetTableViewController *budgetTableVC = [BudgetTableViewController new];
     budgetTableVC.couple = self.couple;
+    budgetTopVC.couple = self.couple;
     self.delegate = self;
+    
     [self setupWithTopViewController:budgetTopVC andTopHeight:250 andBottomViewController:budgetTableVC];
     
 }

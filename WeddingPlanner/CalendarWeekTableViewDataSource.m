@@ -7,6 +7,7 @@
 //
 
 #import "CalendarWeekTableViewDataSource.h"
+#import "DateLabelsCell.h"
 
 static NSString *dayCellID = @"dayCellID";
 
@@ -18,19 +19,39 @@ static NSString *dayCellID = @"dayCellID";
     //maybe should insert and delete cells and then auto scroll to them?
     //should think about how fast I want the table view to scroll
     
-    return 20;
+    return self.numberOfRows;
     
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dayCellID];
+    DateLabelsCell *cell = [tableView dequeueReusableCellWithIdentifier:dayCellID];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dayCellID];
+        cell = [[DateLabelsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dayCellID];
     }
     
-    cell.textLabel.text = @"Day";
+    NSDate *dateForRow = [[DateController sharedInstance] getDateForRow:indexPath.row];
+    
+    NSArray *calendarItems = [[DateController sharedInstance] getCalendarItemsForDate:dateForRow fromWedding:self.couple.wedding];
+    
+    //Get the calendar items for the date
+    
+    NSString *calendarItemString = @"";
+    
+    for (CalendarItem *calendarItem in calendarItems) {
+        calendarItemString = [calendarItemString stringByAppendingString:calendarItem.title];
+    }
+    
+    cell.calendarItemsLabel.text = calendarItemString;
+    
+    NSDateComponents *dateComponents = [[DateController sharedInstance] getDateComponentsForDate:dateForRow];
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    NSString *weekDayName = [[dateFormatter shortWeekdaySymbols] objectAtIndex:(dateComponents.weekday - 1)];
+    
+    cell.dateMonthLabel.text = [NSString stringWithFormat:@"%@ \n %ld", weekDayName, dateComponents.day];
     
     return cell;
 }

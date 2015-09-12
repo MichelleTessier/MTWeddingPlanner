@@ -12,6 +12,7 @@
 		2C06F0271B87F84A00EEBB57 /* UIView+FLKAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0201B87F84A00EEBB57 /* UIView+FLKAutoLayout.m */; };
 		2C06F0281B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */; };
 		2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */; };
+		2C2D62EF1BA37021008DEB7C /* DateLabelsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D62EE1BA37021008DEB7C /* DateLabelsCell.m */; };
 		2C878E821BA1FE6100B1A898 /* QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E7F1BA1FE6100B1A898 /* QMBParallaxScrollViewController.m */; };
 		2C878E831BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E811BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.m */; };
 		2C878E871BA2001400B1A898 /* BudgetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C878E861BA2001400B1A898 /* BudgetTableViewController.m */; };
@@ -135,6 +136,8 @@
 		2C06F0221B87F84A00EEBB57 /* UIView+FLKAutoLayoutDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLKAutoLayoutDebug.m"; sourceTree = "<group>"; };
 		2C06F0231B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLKAutoLayoutPredicate.h"; sourceTree = "<group>"; };
 		2C06F0241B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLKAutoLayoutPredicate.m"; sourceTree = "<group>"; };
+		2C2D62ED1BA37021008DEB7C /* DateLabelsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateLabelsCell.h; sourceTree = "<group>"; };
+		2C2D62EE1BA37021008DEB7C /* DateLabelsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateLabelsCell.m; sourceTree = "<group>"; };
 		2C878E7E1BA1FE6100B1A898 /* QMBParallaxScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMBParallaxScrollViewController.h; sourceTree = "<group>"; };
 		2C878E7F1BA1FE6100B1A898 /* QMBParallaxScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMBParallaxScrollViewController.m; sourceTree = "<group>"; };
 		2C878E801BA1FE6100B1A898 /* UIViewController+QMBParallaxScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QMBParallaxScrollViewController.h"; sourceTree = "<group>"; };
@@ -773,12 +776,12 @@
 		2CFA7B0C1B978DCD000711A4 /* Calendar View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2CCB4FC81B84FC150048DF2E /* CalendarPageViewController.h */,
-				2CCB4FC91B84FC150048DF2E /* CalendarPageViewController.m */,
 				2C878E911BA2556000B1A898 /* CalendarWeekViewController.h */,
 				2C878E921BA2556000B1A898 /* CalendarWeekViewController.m */,
 				2C878E9A1BA2562900B1A898 /* CalendarWeekTableViewDataSource.h */,
 				2C878E9B1BA2562900B1A898 /* CalendarWeekTableViewDataSource.m */,
+				2CCB4FC81B84FC150048DF2E /* CalendarPageViewController.h */,
+				2CCB4FC91B84FC150048DF2E /* CalendarPageViewController.m */,
 				2C878E941BA2557400B1A898 /* CalendarDayViewController.h */,
 				2C878E951BA2557400B1A898 /* CalendarDayViewController.m */,
 				2C878E9D1BA258C500B1A898 /* DateController.h */,
@@ -799,6 +802,8 @@
 		2CFF11D51B8E2F58002B675D /* Custom Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2C2D62ED1BA37021008DEB7C /* DateLabelsCell.h */,
+				2C2D62EE1BA37021008DEB7C /* DateLabelsCell.m */,
 				2CEF08711B8BD94500DCCE2E /* PickerViewTableViewCell.h */,
 				2CEF08721B8BD94500DCCE2E /* PickerViewTableViewCell.m */,
 				2CEF08741B8BDB3700DCCE2E /* TextFieldTableViewCell.h */,
@@ -1059,6 +1064,7 @@
 				2CFF11DF1B8E3223002B675D /* NameEmailPhoneTableViewCell.m in Sources */,
 				2CCB4FB81B84DE860048DF2E /* AddVendorScreen1ViewController.m in Sources */,
 				2CFA7B001B9765AF000711A4 /* MPCheckBox.m in Sources */,
+				2C2D62EF1BA37021008DEB7C /* DateLabelsCell.m in Sources */,
 				2C06F0261B87F84A00EEBB57 /* NSLayoutConstraint+FLKAutoLayoutDebug.m in Sources */,
 				2CCB4FB51B84DC220048DF2E /* VendorsDetailDataSource.m in Sources */,
 				2CC349381B7C18F6006A8D5E /* HomeViewController.m in Sources */,

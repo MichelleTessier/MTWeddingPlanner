@@ -32,6 +32,7 @@
     // Do any additional setup after loading the view.
     
     self.plannerEmailTextField = [UITextField new];
+    self.plannerEmailTextField.delegate = self;
     self.plannerEmailTextField.placeholder = @"Planner's Email (optional)";
     [self.view addSubview:self.plannerEmailTextField];
     
@@ -120,9 +121,7 @@
     
 }
 
--(BOOL)disablesAutomaticKeyboardDismissal{
-    return NO;
-}
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];

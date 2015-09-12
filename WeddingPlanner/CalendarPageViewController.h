@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "WeddingController.h"
 #import "CalendarDayViewController.h"
+#import "DateController.h"
 
 @interface CalendarPageViewController : UIViewController
 
 @property (strong, nonatomic) Couple *couple;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) CalendarDayViewController *calendarDayVC;
 @property (strong, nonatomic) NSMutableArray *editBudgetViewControllers;
 
 @end

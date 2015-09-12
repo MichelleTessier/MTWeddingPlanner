@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "WeddingController.h"
+#import "DateController.h"
 
 @interface CalendarDayViewController : UIViewController
 
+-(instancetype)initWithDate:(NSDate *)date;
+
 @property (strong, nonatomic) NSDate *today;
 
-//might not need these
-@property (strong, nonatomic) NSDate *yesterday;
-@property (strong, nonatomic) NSDate *tomorrow;
 
--(instancetype)initWithDate:(NSDate *)todaysDate;
+
 
 //-(void)updateVendorCategory;
 

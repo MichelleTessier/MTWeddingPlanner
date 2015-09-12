@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "DateController.h"
 
 @interface CalendarWeekTableViewDataSource : NSObject <UITableViewDataSource>
+
+@property (strong, nonatomic) Couple *couple;
+@property (assign, nonatomic) NSInteger numberOfRows;
 
 @end

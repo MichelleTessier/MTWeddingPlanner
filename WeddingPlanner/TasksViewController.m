@@ -7,7 +7,9 @@
 //
 
 #import "TasksViewController.h"
-#import "CalendarPageViewController.h"
+#import "CalendarWeekViewController.h"
+#import "UIView+FLKAutoLayout.h"
+#import "UIView+FLKAutoLayoutDebug.h"
 
 #warning View Controller doesn't display correctly if To Do List seg is selected before calendar seg
 
@@ -34,6 +36,8 @@
     self.toDoListVC.couple = self.couple;
     
     self.navigationController.navigationBarHidden = YES;
+    
+    
 
     
     
@@ -69,6 +73,22 @@
         [selectedViewController didMoveToParentViewController:self];
         [self.currentViewController removeFromParentViewController];
         self.currentViewController = selectedViewController;
+        
+        if ([self.currentViewController isKindOfClass: [CalendarWeekViewController class]]) {
+            UIButton *button = [UIButton new];
+            [button setBackgroundColor:[UIColor clearColor]];
+            [button setTitle:@"Today" forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [button addTarget:self.currentViewController action:@selector(jumpToTodayButtonPushed) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:button];
+            [self.view bringSubviewToFront:button];
+            
+            [button alignCenterXWithView:self.view predicate:nil];
+            [button constrainWidth:@"200" height:@"44"];
+            [button alignTopEdgeWithView:self.view predicate:@"70"];
+        }
+        
+        
     }];
     self.navigationItem.title = selectedViewController.title;
 }
@@ -81,10 +101,12 @@
             viewController = self.toDoListVC;
             break;
             
-        case 1:
-            viewController = [CalendarPageViewController new];
+        case 1:{
+            CalendarWeekViewController *calendarWeekVC = [CalendarWeekViewController new];
+            calendarWeekVC.couple = self.couple;
+            viewController = calendarWeekVC;
             break;
-            
+        }
         default:
             viewController = self.toDoListVC;
             break;

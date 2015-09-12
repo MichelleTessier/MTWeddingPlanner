@@ -52,15 +52,17 @@
     
     float totalCostOfWedding = [self.couple.wedding.budget.totalActualCost floatValue];
     self.totalCostLabel.text = [NSString stringWithFormat:@"$%.2f", totalCostOfWedding];
-    self.totalCostLabel.font = [UIFont boldSystemFontOfSize:32];
+    self.totalCostLabel.font = [UIFont boldSystemFontOfSize:50];
+    self.totalCostLabel.textAlignment = NSTextAlignmentCenter;
     
     [self.view addSubview:self.totalCostLabel];
     
     self.estimatedCostLabel = [UILabel new];
     
     float estimatedCostOfWedding = [self.couple.wedding.budget.totalBudgetedCost floatValue];
-    self.totalCostLabel.text = [NSString stringWithFormat:@"Budget: $%.2f", estimatedCostOfWedding];
-    self.totalCostLabel.font = [UIFont systemFontOfSize:20];
+    self.estimatedCostLabel.text = [NSString stringWithFormat:@"Budget: $%.2f", estimatedCostOfWedding];
+    self.estimatedCostLabel.font = [UIFont systemFontOfSize:20];
+    self.estimatedCostLabel.textAlignment = NSTextAlignmentCenter;
     
     [self.view addSubview:self.estimatedCostLabel];
     
@@ -70,8 +72,8 @@
 -(void)addConstraints{
     
     [self.totalCostLabel alignLeading:@"5" trailing:@"5" toView:self.view];
-    [self.totalCostLabel alignTopEdgeWithView:self.view predicate:@"10"];
-    [self.totalCostLabel constrainHeight:@"60"];
+    [self.totalCostLabel alignTopEdgeWithView:self.view predicate:@"85"];
+    [self.totalCostLabel constrainHeight:@"80"];
     
     [self.estimatedCostLabel alignLeading:@"5" trailing:@"5" toView:self.view];
     [self.estimatedCostLabel constrainTopSpaceToView:self.totalCostLabel predicate:@"5"];

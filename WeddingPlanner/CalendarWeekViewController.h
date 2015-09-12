@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DateController.h"
 
 @interface CalendarWeekViewController : UIViewController
 
+-(void)jumpToTodayButtonPushed;
+
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) Couple *couple;
+@property (strong, nonatomic) NSDate *today;
+@property (strong, nonatomic) NSDate *selectedDay;
+@property (assign, nonatomic) NSInteger numberOfRows;
 
 @end

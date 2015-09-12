@@ -150,15 +150,15 @@
             doubleTabBarSetup.planner = nil;
             
             //Test
-            VendorCategory *vendorCategory = couple.wedding.vendorCategories[1];
-            Vendor *vendor = vendorCategory.vendors[1];
-            NSLog(@"VENDOR.TITLE: %@", vendor.firstName);
-            NSLog(@"COUPLE: %@", couple);
-            NSLog(@"COUPLE.WEDDING.VENDORCATEGORIES[0]: %@", couple.wedding.vendorCategories[0]);
-            NSLog(@"VENDOR CATEGORY: %@", vendorCategory.title);
-            
-            ToDoTimeCategory *timeCat = couple.wedding.toDoTimeCategories[0];
-            NSLog(@"TIME CAT: %@", timeCat.title);
+//            VendorCategory *vendorCategory = couple.wedding.vendorCategories[1];
+//            Vendor *vendor = vendorCategory.vendors[1];
+//            NSLog(@"VENDOR.TITLE: %@", vendor.firstName);
+//            NSLog(@"COUPLE: %@", couple);
+//            NSLog(@"COUPLE.WEDDING.VENDORCATEGORIES[0]: %@", couple.wedding.vendorCategories[0]);
+//            NSLog(@"VENDOR CATEGORY: %@", vendorCategory.title);
+//            
+//            ToDoTimeCategory *timeCat = couple.wedding.toDoTimeCategories[0];
+//            NSLog(@"TIME CAT: %@", timeCat.title);
             
             
             [doubleTabBarSetup setUpClientTabBarController];
