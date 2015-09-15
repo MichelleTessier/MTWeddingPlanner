@@ -8,6 +8,7 @@
 
 #import "AddVendorScreen1ViewController.h"
 #import "AddVendorTableViewDataSource.h"
+#import "VendorsDetailDataSource.h"
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 #import "DatePickerAndTextFieldTableViewCell.h"
@@ -21,7 +22,8 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
 
 @property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) AddVendorTableViewDataSource *dataSource;
+@property (strong, nonatomic) AddVendorTableViewDataSource *editDetailsDataSource;
+@property (strong, nonatomic) VendorsDetailDataSource *seeDetailsDataSource;
 @property (strong, nonatomic) UIPopoverPresentationController *addPaymentPopover;
 
 @end
@@ -34,44 +36,42 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     
     self.temporaryVendorPayments = [NSMutableArray new];
     
-    ((AddVendorTableViewDataSource *)self.dataSource).addVendorScreen1ViewController = self;
-    
     [self setUpView];
+    [self setUpDataSource];
     [self setConstraints];
     [self setTitleOfView];
-    
+    NSLog(@"%@", self.presentingViewController.class);
+
     
 }
 
-
-#pragma mark - set up view
-
-
-
--(void)setUpView{
+-(void)setUpDataSource{
+ 
     
-    UIBarButtonItem *finishBarButton = [UIBarButtonItem new];
-    finishBarButton.title = @"Finish";
-    finishBarButton.target = self;
-    finishBarButton.action = @selector(finishBarButtonTapped);
-    self.navigationItem.rightBarButtonItem = finishBarButton;
+    if (self.vendor) {
+        
+        self.seeDetailsDataSource = [VendorsDetailDataSource new];
+        self.seeDetailsDataSource.vendorCategory = self.selectedVendorCategory;
+        self.seeDetailsDataSource.vendor = self.vendor;
+        self.temporaryVendorPayments = [self.vendor.vendorPayments mutableCopy];
+        self.tableView.dataSource = self.seeDetailsDataSource;
+        
+    }else{
+        
+        self.editDetailsDataSource = [AddVendorTableViewDataSource new];
+        self.editDetailsDataSource.addVendorScreen1ViewController = self;
+        self.editDetailsDataSource.couple = self.couple;
+        self.editDetailsDataSource.vendor = self.vendor;
+        self.editDetailsDataSource.temporaryVendorPayments = self.temporaryVendorPayments;
+        self.editDetailsDataSource.selectedVendorCategory = self.selectedVendorCategory;
+        self.tableView.dataSource = self.editDetailsDataSource;
+        [self addSaveButton];
+      
+        
+    }
     
-    self.tableView = [UITableView new];
-    self.dataSource = [AddVendorTableViewDataSource new];
-    self.dataSource.addVendorScreen1ViewController = self;
-    self.dataSource.couple = self.couple;
-    self.dataSource.temporaryVendorPayments = self.temporaryVendorPayments;
-    self.tableView.dataSource = self.dataSource;
-    self.tableView.delegate = self;
     [self.view addSubview: self.tableView];
     
-}
-
--(void)setConstraints{
-    [self.tableView alignTopEdgeWithView:self.view predicate:@"64"];
-    [self.tableView alignBottomEdgeWithView:self.view predicate:@"0"];
-    [self.tableView alignLeadingEdgeWithView:self.view predicate:@"0"];
-    [self.tableView alignTrailingEdgeWithView:self.view predicate:@"0"];
 }
 
 -(void)setTitleOfView{
@@ -82,73 +82,59 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     }
 }
 
+
+#pragma mark - set up view
+
+-(void)addSaveButton{
+   
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    [self.view addSubview:navBar];
+    
+    UIBarButtonItem *finishBarButton = [UIBarButtonItem new];
+    finishBarButton.title = @"Finish";
+    finishBarButton.target = self;
+    finishBarButton.action = @selector(finishBarButtonTapped);
+    self.navigationItem.rightBarButtonItem = finishBarButton;
+
+    
+}
+
+-(void)setUpView{
+    
+    
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    self.tableView.delegate = self;
+    
+    
+}
+
+-(void)setConstraints{
+    [self.tableView alignTopEdgeWithView:self.view predicate:@"64"];
+    [self.tableView alignBottomEdgeWithView:self.view predicate:@"0"];
+    [self.tableView alignLeadingEdgeWithView:self.view predicate:@"0"];
+    [self.tableView alignTrailingEdgeWithView:self.view predicate:@"0"];
+}
+
+
+
 #pragma mark - finish button tapped method
 
 -(void)finishBarButtonTapped{
     
     [self saveVendor];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-#pragma mark - method to get text from cell text fields to save on vendor. should probably be rewritten
-
-
--(void)textFieldDidEndEditing:(UITextField *)textField{
+#warning Make this if statement better (not comparing to title)
     
-#warning could add something here to save these immediately
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TextFieldTableViewCell*)[[textField superview] superview]];
-    
-    AddVendorInformationSections informationSection = indexPath.section;
-    
-    if (informationSection == AddVendorInformationContactSection) {
-        
-        VendorContactInformationTypes vendorSection = indexPath.row;
-        
-        switch (vendorSection) {
-            case VendorContactInformationTypeBusinessName:
-                self.businessName = textField.text;
-                break;
-                
-            case VendorContactInformationTypePerson:
-                self.firstName = textField.text;
-                break;
-                
-            case VendorContactInformationTypeTitle:
-                self.vendorContactTitle = textField.text;
-                break;
-                
-            case VendorContactInformationTypePhone:
-                self.phoneNumber = textField.text;
-                break;
-                
-            case VendorContactInformationTypeSecondPhone:
-                self.secondPhoneNumber = textField.text;
-                break;
-                
-            case VendorContactInformationTypeEmail:
-                self.email = textField.text;
-                break;
-                
-            case VendorContactInformationTypeStreetAddress:
-                self.streetAddress = textField.text;
-                break;
-                
-            case VendorContactInformationTypeAddressLine2:
-                self.city = textField.text;
-                break;
-                
-            default:
-                break;
-        }
-        
+    if ([self.title isEqualToString:@"Edit Vendor"]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
     
-    
-    
 }
+
+
+
 
 
 
@@ -159,6 +145,8 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
 
 -(void)saveVendor{
+    
+#warning not saving the last entry that I type in
     
     if (!self.vendor) {
         self.vendor = [[WeddingController sharedInstance] createVendorInCateogry:self.selectedVendorCategory forWedding:self.couple.wedding];
@@ -220,6 +208,20 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self addSaveButton];
+    [self setTitleOfView];
+    self.editDetailsDataSource = [AddVendorTableViewDataSource new];
+    self.editDetailsDataSource.addVendorScreen1ViewController = self;
+    self.editDetailsDataSource.couple = self.couple;
+    self.editDetailsDataSource.vendor = self.vendor;
+    self.editDetailsDataSource.temporaryVendorPayments = self.temporaryVendorPayments;
+    self.editDetailsDataSource.selectedVendorCategory = self.selectedVendorCategory;
+    self.tableView.dataSource = self.editDetailsDataSource;
+    [self.tableView reloadData];
+}
+
 
 
 -(void)addVendorPaymentButtonTapped:(UIButton *)sender{
@@ -244,6 +246,66 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     [self.tableView scrollToRowAtIndexPath:indexPath
                           atScrollPosition:UITableViewScrollPositionBottom
                                   animated:YES];
+    
+}
+
+
+
+#pragma mark - method to get text from cell text fields to save on vendor. should probably be rewritten
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    
+#warning could add something here to save these immediately
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(TextFieldTableViewCell*)[[textField superview] superview]];
+    
+    AddVendorInformationSections informationSection = indexPath.section;
+    
+    if (informationSection == AddVendorInformationContactSection) {
+        
+        VendorContactInformationTypes vendorSection = indexPath.row;
+        
+        switch (vendorSection) {
+            case VendorContactInformationTypeBusinessName:
+                self.businessName = textField.text;
+                break;
+                
+            case VendorContactInformationTypePerson:
+                self.firstName = textField.text;
+                break;
+                
+            case VendorContactInformationTypeTitle:
+                self.vendorContactTitle = textField.text;
+                break;
+                
+            case VendorContactInformationTypePhone:
+                self.phoneNumber = textField.text;
+                break;
+                
+            case VendorContactInformationTypeSecondPhone:
+                self.secondPhoneNumber = textField.text;
+                break;
+                
+            case VendorContactInformationTypeEmail:
+                self.email = textField.text;
+                break;
+                
+            case VendorContactInformationTypeStreetAddress:
+                self.streetAddress = textField.text;
+                break;
+                
+            case VendorContactInformationTypeAddressLine2:
+                self.city = textField.text;
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    
+    
     
 }
 

@@ -114,39 +114,87 @@ static NSString *paymentCellID = @"paymentCellID";
             
             switch (informationType) {
                 case VendorContactInformationTypeBusinessName:
-                    labelCell.label.text = self.vendor.businessName;
+                    if (self.vendor.businessName) {
+                        labelCell.label.text = self.vendor.businessName;
+                    } else {
+                        labelCell.label.text = @"Business Name";
+                        labelCell.label.textColor = [UIColor lightGrayColor];
+                    }
+                    
                     break;
                     
                     //This needs to be changed to two text fields for first name and last name
                 case VendorContactInformationTypePerson:
-                    labelCell.label.text = self.vendor.firstName;
+                    if (self.vendor.firstName) {
+                        labelCell.label.text = self.vendor.firstName;
+                    } else {
+                        labelCell.label.text = @"Contact";
+                        labelCell.label.textColor = [UIColor lightGrayColor];
+
+                    }
+                    
                     break;
                     
                 case VendorContactInformationTypeTitle:
-                    labelCell.label.text = self.vendor.title;
+                    if (self.vendor.title) {
+                        labelCell.label.text = self.vendor.title;
+                    } else {
+                        labelCell.label.text = @"Title";
+                        labelCell.label.textColor = [UIColor lightGrayColor];
+                    }
+                    
                     break;
                     
                 case VendorContactInformationTypePhone:
-                    labelCell.label.text = self.vendor.phoneNumber;
+                    if (self.vendor.phoneNumber) {
+                        labelCell.label.text = self.vendor.phoneNumber;
+                    } else {
+                        labelCell.label.text = @"Phone";
+                        labelCell.label.textColor = [UIColor lightGrayColor];
+                    }
+                    
                     break;
                     
                 case VendorContactInformationTypeSecondPhone:
-                    labelCell.label.text = self.vendor.secondPhoneNumber;
+                    if (self.vendor.secondPhoneNumber) {
+                        labelCell.label.text = self.vendor.secondPhoneNumber;
+                    } else {
+                        labelCell.label.text = @"Second Phone";
+                        labelCell.label.textColor = [UIColor lightGrayColor];
+                    }
                     break;
                     
                 case VendorContactInformationTypeEmail:
-                    labelCell.label.text = self.vendor.email;
+                    if (self.vendor.email) {
+                        labelCell.label.text = self.vendor.email;
+                    } else {
+                        labelCell.label.text = @"Email";
+                        labelCell.label.textColor = [UIColor lightGrayColor];
+                    }
+                    
                     break;
                     
                     
                 case VendorContactInformationTypeStreetAddress:
-                    labelCell.label.text = self.vendor.streetAddress;
+                    if (self.vendor.streetAddress) {
+                        labelCell.label.text = self.vendor.streetAddress;
+                    } else {
+                        labelCell.label.text = @"Street Address";
+                        labelCell.label.textColor = [UIColor lightGrayColor];
+                    }
+                    
                     break;
                     
                     
                     //This needs to be changed to three text fields for city, state, and zip
                 case VendorContactInformationTypeAddressLine2:
-                    labelCell.label.text = self.vendor.city;
+                    if (self.vendor.city) {
+                        labelCell.label.text = self.vendor.city;
+                    } else {
+                        labelCell.label.text = @"City, State, Zip";
+                        labelCell.label.textColor = [UIColor lightGrayColor];
+                    }
+                    
                     break;
                     
                 default:

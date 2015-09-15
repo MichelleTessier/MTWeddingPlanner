@@ -718,6 +718,8 @@
 				2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */,
 				2CEF086D1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.h */,
 				2CEF086E1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m */,
+				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
+				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
 			);
 			name = "Add Vendor View Controllers";
 			sourceTree = "<group>";
@@ -845,8 +847,6 @@
 			children = (
 				2CCB4F9B1B7D6E100048DF2E /* VendorDetailViewController.h */,
 				2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */,
-				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
-				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
 			);
 			name = "Vendor Detail View Controllers";
 			sourceTree = "<group>";
@@ -1191,6 +1191,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1234,6 +1235,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

@@ -27,7 +27,7 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.dataSource = [VendorsDetailDataSource new];
     self.dataSource.vendor = self.vendor;
     self.dataSource.vendorCategory = self.vendorCategory;
@@ -43,11 +43,12 @@
 }
 
 -(void)editButtonTapped{
-    
+        
     AddVendorScreen1ViewController *addVendorScreen1VC = [AddVendorScreen1ViewController new];
+    addVendorScreen1VC.selectedVendorCategory = self.vendorCategory;
     addVendorScreen1VC.vendor = self.vendor;
     addVendorScreen1VC.couple = self.couple;
-    [self presentViewController:addVendorScreen1VC animated:YES completion:nil];
+    [self.navigationController pushViewController:addVendorScreen1VC animated:YES];
     
 }
 
