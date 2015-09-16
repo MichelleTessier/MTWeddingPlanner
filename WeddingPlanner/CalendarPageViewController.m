@@ -7,8 +7,12 @@
 //
 
 #import "CalendarPageViewController.h"
+#import "AddCalendarEventViewController.h"
 
-@interface CalendarPageViewController () <UIPageViewControllerDataSource>
+@interface CalendarPageViewController () <UIPageViewControllerDataSource, UIGestureRecognizerDelegate>
+
+@property (strong, nonatomic) UISwipeGestureRecognizer *swipeDownGestureRecognizer;
+@property (strong, nonatomic) UIScrollView *pageScrollView;
 
 @end
 
@@ -19,11 +23,86 @@
     
     [self setUpPageView];
     [self setUpView];
-    
+    [self addSwipeDown];
    
     
     
 }
+
+
+
+
+//self.pageViewController.gestureRecognizers currently nil
+-(void)addSwipeDown{
+    
+//    for (UIGestureRecognizer *gestureReconizer in self.pageViewController.gestureRecognizers) {
+//        
+//        gestureReconizer.delegate = self;
+//        
+//        if ([gestureReconizer isKindOfClass:[UIPanGestureRecognizer class]]) {
+//            
+//            [gestureReconizer addTarget:self action:@selector(presentNextView:)];
+//                
+//            }
+//        
+//    }
+    
+    for (UIView *view in self.pageViewController.view.subviews) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            self.pageScrollView = (UIScrollView *)view;
+        }
+    }
+    
+    self.swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(presentNextView:)];
+    self.swipeDownGestureRecognizer.delegate = self;
+    self.swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+   
+    [self.pageScrollView addGestureRecognizer:self.swipeDownGestureRecognizer];
+    
+    
+}
+
+
+
+
+-(void)presentNextView: (UIGestureRecognizer *)gestureRecognizer{
+    
+     if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
+         
+         NSLog(@"almost there");
+    
+    [self presentViewController:[AddCalendarEventViewController new] animated:YES completion:nil];
+         
+     }
+}
+
+
+
+
+//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+//    
+//    
+//    return YES;
+////    if ([gestureRecognizer isKindOfClass:[UISwipeGestureRecognizer class]]) {
+////        if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
+////            
+////           return YES;
+////            
+////        } else {
+////            return NO;
+////        }
+////        
+////    } else {
+////        return NO;
+////    }
+//   
+//    
+//}
+
+
+
+
+
 
 -(void)setUpPageView{
 

@@ -58,7 +58,6 @@
         [foregroundScrollView removeObserver:self forKeyPath:@"contentSize"];
     }
    
-// The line below got commented out because it was making my program crash.
     
     [self.view removeObserver:self forKeyPath:@"frame"];
     

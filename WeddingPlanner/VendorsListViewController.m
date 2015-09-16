@@ -70,11 +70,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    VendorDetailViewController *vendorDVC = [VendorDetailViewController new];
-//    vendorDVC.vendorCategory = self.chosenVendorCategories[indexPath.section];
-//    vendorDVC.vendor = vendorDVC.vendorCategory.vendors[indexPath.row];
-//    vendorDVC.couple = self.couple;
-//    [self.navigationController pushViewController: vendorDVC animated:YES];
+
     
     AddVendorScreen1ViewController *addVendorScreen1VC = [AddVendorScreen1ViewController new];
     addVendorScreen1VC.selectedVendorCategory = self.chosenVendorCategories[indexPath.section];
@@ -93,16 +89,7 @@
 
 -(void)findChosenVendorCategories{
     
-    NSArray *vendorCategories = self.couple.wedding.vendorCategories;
-    
-    NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
-    for (VendorCategory *vendorCategory in vendorCategories) {
-        if (vendorCategory.vendors.count > 0) {
-            [mutableChosenVendorCategories addObject:vendorCategory];
-        }
-    }
-    
-    self.chosenVendorCategories = mutableChosenVendorCategories;
+    self.chosenVendorCategories = [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding];
     
     
 }

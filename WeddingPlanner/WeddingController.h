@@ -65,5 +65,9 @@
 -(void)findActualCostForWedding:(Wedding *)wedding;
 -(void)findEstimatedCostForWedding:(Wedding *)wedding;
 
+
+
+-(NSArray *)findChosenVendorCategoriesForWedding:(Wedding *)wedding;
+
 @end
 

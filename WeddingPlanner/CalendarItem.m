@@ -12,11 +12,13 @@
 @implementation CalendarItem
 
 @dynamic title;
-@dynamic date;
+@dynamic startingDate;
+@dynamic endingDate;
 @dynamic reminders;
 @dynamic location;
 @dynamic taskCategory;
-@dynamic vendors;
+@dynamic vendor;
+@dynamic vendorCategory;
 @dynamic notes;
 
 +(void)load{

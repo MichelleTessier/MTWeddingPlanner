@@ -13,11 +13,13 @@
 @interface CalendarItem : PFObject <PFSubclassing>
 
 @property (retain) NSString *title;
-@property (retain) NSDate *date;
+@property (retain) NSDate *startingDate;
+@property (retain) NSDate *endingDate;
 @property (retain) NSArray *reminders;
 @property (retain) NSString *location;
 @property (retain) NSString *taskCategory;
-@property (retain) NSArray *vendors;
+@property (retain) Vendor *vendor;
+@property (retain) VendorCategory *vendorCategory;
 @property (retain) NSString *notes;
 
 +(NSString *)parseClassName;

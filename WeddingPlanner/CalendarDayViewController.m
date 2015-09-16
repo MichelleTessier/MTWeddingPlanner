@@ -11,12 +11,14 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 #import "DateController.h"
+#import "AddCalendarEventViewController.h"
 
 @interface CalendarDayViewController ()
 
 @property (strong, nonatomic) Couple *couple;
 @property (strong, nonatomic) UILabel *dateLabel;
 @property (strong, nonatomic) UITextView *textView;
+@property (strong, nonatomic) UISwipeGestureRecognizer *swipeDownGestureRecognizer;
 
 @end
 
@@ -42,10 +44,40 @@
     [self setUpView];
     [self setDateForView];
     [self setConstraints];
+    [self addSwipeDown];
     
     
     
 }
+
+-(void)addSwipeDown{
+    
+    //    for (UIGestureRecognizer *gestureReconizer in self.pageViewController.gestureRecognizers) {
+    //
+    //        gestureReconizer.delegate = self;
+    //
+    //    }
+    
+    self.swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(presentNextView:)];
+    [self.view addGestureRecognizer:self.swipeDownGestureRecognizer];
+    
+}
+
+
+
+-(void)presentNextView: (UIGestureRecognizer *)gestureRecognizer{
+    
+    if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
+       
+        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
+        addCalendarEventVC.couple = self.couple;
+        [self presentViewController:addCalendarEventVC animated: YES completion:nil];
+        
+    }
+}
+
+
 
 -(void)setUpView{
     

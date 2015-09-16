@@ -65,8 +65,9 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
         self.editDetailsDataSource.temporaryVendorPayments = self.temporaryVendorPayments;
         self.editDetailsDataSource.selectedVendorCategory = self.selectedVendorCategory;
         self.tableView.dataSource = self.editDetailsDataSource;
+        [self addNavBar];
         [self addSaveButton];
-      
+        [self addCancelButton];
         
     }
     
@@ -85,17 +86,36 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
 #pragma mark - set up view
 
--(void)addSaveButton{
-   
+-(void)addNavBar{
+    
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
     [self.view addSubview:navBar];
     
+}
+
+-(void)addSaveButton{
+   
+   
+    
     UIBarButtonItem *finishBarButton = [UIBarButtonItem new];
-    finishBarButton.title = @"Finish";
+    finishBarButton.title = @"Done";
+    finishBarButton.style = UIBarButtonSystemItemDone;
     finishBarButton.target = self;
     finishBarButton.action = @selector(finishBarButtonTapped);
     self.navigationItem.rightBarButtonItem = finishBarButton;
 
+    
+}
+
+-(void)addCancelButton{
+    
+    UIBarButtonItem *cancelBarButton = [UIBarButtonItem new];
+    cancelBarButton.style = UIBarButtonSystemItemCancel;
+    cancelBarButton.title = @"Cancel";
+    cancelBarButton.target = self;
+    cancelBarButton.action = @selector(cancelBarButtonTapped);
+    self.navigationItem.leftBarButtonItem = cancelBarButton;
+    
     
 }
 
@@ -133,10 +153,60 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     
 }
 
+-(void)cancelBarButtonTapped{
+    
+    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
+    
+    if ([self.title isEqualToString:@"Add Vendor"]) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } else {
+        
+        self.seeDetailsDataSource = [VendorsDetailDataSource new];
+        self.seeDetailsDataSource.vendorCategory = self.selectedVendorCategory;
+        self.seeDetailsDataSource.vendor = self.vendor;
+        self.temporaryVendorPayments = [self.vendor.vendorPayments mutableCopy];
+        self.tableView.dataSource = self.seeDetailsDataSource;
+        
+        [self.tableView reloadData];
+    }
+    
+    
+}
 
 
 
+#pragma mark - UITableViewDelegateMethod
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self changeDataSources];
+    
+}
+
+-(void)changeDataSources{
+    
+    if (self.tableView.dataSource.class == [VendorsDetailDataSource class]) {
+        
+        [self addNavBar];
+        [self addSaveButton];
+        [self addCancelButton];
+        [self setTitleOfView];
+        self.editDetailsDataSource = [AddVendorTableViewDataSource new];
+        self.editDetailsDataSource.addVendorScreen1ViewController = self;
+        self.editDetailsDataSource.couple = self.couple;
+        self.editDetailsDataSource.vendor = self.vendor;
+        self.editDetailsDataSource.temporaryVendorPayments = self.temporaryVendorPayments;
+        self.editDetailsDataSource.selectedVendorCategory = self.selectedVendorCategory;
+        self.tableView.dataSource = self.editDetailsDataSource;
+        [self.tableView reloadData];
+    }
+ 
+    
+}
 
 
 
@@ -155,27 +225,65 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     //Not sure I really need a method for this
     [[WeddingController sharedInstance] addVendorPayments:self.temporaryVendorPayments toVendor:self.vendor];
     
-    self.vendor.businessName = self.businessName;
-   
-    self.vendor.firstName = self.firstName;
+    if (!self.vendor.businessName) {
+        self.vendor.businessName = self.businessName;
+    }
     
-    self.vendor.title = self.vendorContactTitle;
+    if (!self.vendor.firstName) {
+        self.vendor.firstName = self.firstName;
+    }
    
-    self.vendor.phoneNumber = self.phoneNumber;
+    if (!self.vendor.title) {
+        self.vendor.title = self.vendorContactTitle;
+    }
     
-    self.vendor.secondPhoneNumber = self.secondPhoneNumber;
-  
-    self.vendor.email = self.email;
-  
-    self.vendor.streetAddress = self.streetAddress;
+    if (!self.vendor.phoneNumber) {
+        self.vendor.phoneNumber = self.phoneNumber;
+    }
+    
+    if (!self.vendor.secondPhoneNumber) {
+        self.vendor.secondPhoneNumber = self.secondPhoneNumber;
+    }
+   
+    if (!self.vendor.email) {
+        self.vendor.email = self.email;
 
-    self.vendor.city = self.city;
+    }
+  
+    if (!self.vendor.streetAddress) {
+        self.vendor.streetAddress = self.streetAddress;
+    }
     
-    [self.vendor saveInBackground];
+    if (!self.vendor.city) {
+        self.vendor.city = self.city;
+    }
+    
+    
+    [self.vendor saveEventually];
         
 }
 
 #pragma mark - methods to add cells for vendor payments
+
+-(void)addVendorPaymentButtonTapped:(UIButton *)sender{
+    
+    [self changeDataSources];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.temporaryVendorPayments.count inSection:AddVendorinformationPaymentSection];
+    
+    VendorPayment *vendorPayment = [[WeddingController sharedInstance] createVendorPayment];
+    
+    [self.temporaryVendorPayments addObject:vendorPayment];
+    
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
+    
+    [self scrollToIndexPath:indexPath];
+    
+    
+}
+
+
+
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
@@ -208,36 +316,10 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    [self addSaveButton];
-    [self setTitleOfView];
-    self.editDetailsDataSource = [AddVendorTableViewDataSource new];
-    self.editDetailsDataSource.addVendorScreen1ViewController = self;
-    self.editDetailsDataSource.couple = self.couple;
-    self.editDetailsDataSource.vendor = self.vendor;
-    self.editDetailsDataSource.temporaryVendorPayments = self.temporaryVendorPayments;
-    self.editDetailsDataSource.selectedVendorCategory = self.selectedVendorCategory;
-    self.tableView.dataSource = self.editDetailsDataSource;
-    [self.tableView reloadData];
-}
 
 
 
--(void)addVendorPaymentButtonTapped:(UIButton *)sender{
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.temporaryVendorPayments.count inSection:AddVendorinformationPaymentSection];
-    
-    VendorPayment *vendorPayment = [[WeddingController sharedInstance] createVendorPayment];
-    
-    [self.temporaryVendorPayments addObject:vendorPayment];
-    
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
-    
-    [self scrollToIndexPath:indexPath];
-    
-    
-}
+
 
 #pragma mark - auto scroll tableview method
 
@@ -251,8 +333,7 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
 
 
-#pragma mark - method to get text from cell text fields to save on vendor. should probably be rewritten
-
+#pragma mark - method to get text from cell text fields to save on vendor. should probably be rewritten. FIX THIS. CURRENTLY LAST TEXT FIELD EDITED IS NOT SAVED. GET A MENTOR TO HELP WITH THIS.
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     

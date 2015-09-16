@@ -23,6 +23,8 @@
 -(void)getTomorrowsDate;
 -(void)getYesterDaysDate;
 
+-(CalendarItem *)createCalendarItemForWedding:(Wedding *)wedding;
+
 -(NSArray *)getCalendarItemsForDate:(NSDate *)date fromWedding:(Wedding *)wedding;
 
 @property (assign, nonatomic) NSInteger startingRow;

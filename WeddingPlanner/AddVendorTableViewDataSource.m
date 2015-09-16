@@ -347,6 +347,8 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
     
 }
 
+#pragma mark - vendor picker delegate methods
+
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     VendorCategory *vendorCategory = self.couple.wedding.vendorCategories[row];
     return vendorCategory.title;
