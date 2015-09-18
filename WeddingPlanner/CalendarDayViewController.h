@@ -12,7 +12,7 @@
 
 @interface CalendarDayViewController : UIViewController
 
--(instancetype)initWithDate:(NSDate *)date;
+-(instancetype)initWithDate:(NSDate *)date andCouple:(Couple *)couple;
 
 @property (strong, nonatomic) NSDate *today;
 

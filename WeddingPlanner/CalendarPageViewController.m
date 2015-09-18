@@ -25,27 +25,20 @@
     [self setUpView];
     [self addSwipeDown];
    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
     
     
 }
 
 
+#pragma mark - add swipe down to add new calendar date feature
 
-
-//self.pageViewController.gestureRecognizers currently nil
 -(void)addSwipeDown{
-    
-//    for (UIGestureRecognizer *gestureReconizer in self.pageViewController.gestureRecognizers) {
-//        
-//        gestureReconizer.delegate = self;
-//        
-//        if ([gestureReconizer isKindOfClass:[UIPanGestureRecognizer class]]) {
-//            
-//            [gestureReconizer addTarget:self action:@selector(presentNextView:)];
-//                
-//            }
-//        
-//    }
     
     for (UIView *view in self.pageViewController.view.subviews) {
         if ([view isKindOfClass:[UIScrollView class]]) {
@@ -62,7 +55,7 @@
     
 }
 
-
+#pragma mark - present add calendar event view
 
 
 -(void)presentNextView: (UIGestureRecognizer *)gestureRecognizer{
@@ -71,38 +64,15 @@
          
          NSLog(@"almost there");
     
-    [self presentViewController:[AddCalendarEventViewController new] animated:YES completion:nil];
+         AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
+         addCalendarEventVC.couple = self.couple;
+         
+    [self presentViewController: addCalendarEventVC animated:YES completion:nil];
          
      }
 }
 
-
-
-
-//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-//    
-//    
-//    return YES;
-////    if ([gestureRecognizer isKindOfClass:[UISwipeGestureRecognizer class]]) {
-////        if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
-////            
-////           return YES;
-////            
-////        } else {
-////            return NO;
-////        }
-////        
-////    } else {
-////        return NO;
-////    }
-//   
-//    
-//}
-
-
-
-
-
+#pragma mark - methods to set up page view controller and view
 
 -(void)setUpPageView{
 
@@ -112,7 +82,7 @@
     
     NSDate *selectedDate = [DateController sharedInstance].selectedDate;
     
-    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:selectedDate];
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:selectedDate andCouple:self.couple];
     
     NSArray *viewControllers = @[calendarDayVC];
     
@@ -149,11 +119,13 @@
     
 }
 
+#pragma mark - pageview controller datasource methods
+
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
     
     [[DateController sharedInstance] getYesterDaysDate];
     
-    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate];
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate andCouple:self.couple];
     
     return calendarDayVC;
     
@@ -163,7 +135,7 @@
     
     [[DateController sharedInstance] getTomorrowsDate];
     
-    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate];
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate andCouple:self.couple];
     
     return calendarDayVC;
     

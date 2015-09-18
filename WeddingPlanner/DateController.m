@@ -84,7 +84,7 @@
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [gregorianCalendar setLocale:[NSLocale currentLocale]];
     
-    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekday | NSCalendarUnitDay;
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekday | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
     NSDateComponents *comps = [gregorianCalendar components:unitFlags fromDate:date];
     
     return comps;
@@ -107,6 +107,21 @@
     
     return filteredArray;
 
+}
+
+-(CalendarItem *)createCalendarItemForWedding:(Wedding *)wedding{
+    
+    CalendarItem *calendarItem = [CalendarItem objectWithClassName:[CalendarItem parseClassName]];
+    
+    NSMutableArray *mutableCalendarItems = [wedding.calendarItems mutableCopy];
+    
+    [mutableCalendarItems addObject:calendarItem];
+    
+    wedding.calendarItems = mutableCalendarItems;
+    
+    return calendarItem;
+    
+    
 }
 
 

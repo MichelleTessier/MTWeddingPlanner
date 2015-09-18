@@ -24,12 +24,13 @@
 
 @implementation CalendarDayViewController
 
--(instancetype)initWithDate:(NSDate *)date{
+-(instancetype)initWithDate:(NSDate *)date andCouple:(Couple *)couple{
    
     self = [super init];
     
     if (self) {
         self.today = date;
+        self.couple = couple;
         
     }
     
@@ -44,37 +45,9 @@
     [self setUpView];
     [self setDateForView];
     [self setConstraints];
-    [self addSwipeDown];
     
     
     
-}
-
--(void)addSwipeDown{
-    
-    //    for (UIGestureRecognizer *gestureReconizer in self.pageViewController.gestureRecognizers) {
-    //
-    //        gestureReconizer.delegate = self;
-    //
-    //    }
-    
-    self.swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(presentNextView:)];
-    [self.view addGestureRecognizer:self.swipeDownGestureRecognizer];
-    
-}
-
-
-
--(void)presentNextView: (UIGestureRecognizer *)gestureRecognizer{
-    
-    if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
-       
-        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
-        addCalendarEventVC.couple = self.couple;
-        [self presentViewController:addCalendarEventVC animated: YES completion:nil];
-        
-    }
 }
 
 
@@ -86,6 +59,20 @@
     self.dateLabel.textAlignment = NSTextAlignmentCenter;
     self.dateLabel.numberOfLines = 2;
     [self.view addSubview:self.dateLabel];
+    
+    self.textView = [UITextView new];
+    
+    if ([self.textView.text isEqualToString:@""]) {
+        
+        self.textView.textAlignment = NSTextAlignmentCenter;
+        self.textView.text = @" Swipe down to add date";
+        
+    } else {
+        
+        
+    }
+    
+    [self.view addSubview:self.textView];
     
 
 }

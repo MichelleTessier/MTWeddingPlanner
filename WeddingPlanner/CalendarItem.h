@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "VendorCategory.h"
+#import "Vendor.h"
 
 
 @interface CalendarItem : PFObject <PFSubclassing>
