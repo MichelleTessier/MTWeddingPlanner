@@ -12,13 +12,16 @@
 #import "UIView+FLKAutoLayoutDebug.h"
 #import "DateController.h"
 #import "AddCalendarEventViewController.h"
+#import "CalendarDayViewTableViewDataSource.h"
 
-@interface CalendarDayViewController ()
+@interface CalendarDayViewController () <UITableViewDelegate>
 
 @property (strong, nonatomic) Couple *couple;
 @property (strong, nonatomic) UILabel *dateLabel;
-@property (strong, nonatomic) UITextView *textView;
+@property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UISwipeGestureRecognizer *swipeDownGestureRecognizer;
+@property (strong, nonatomic) CalendarDayViewTableViewDataSource *dataSource;
+@property (assign, nonatomic) CGFloat rowHeight;
 
 @end
 
@@ -46,8 +49,6 @@
     [self setDateForView];
     [self setConstraints];
     
-    
-    
 }
 
 
@@ -60,19 +61,15 @@
     self.dateLabel.numberOfLines = 2;
     [self.view addSubview:self.dateLabel];
     
-    self.textView = [UITextView new];
-    
-    if ([self.textView.text isEqualToString:@""]) {
-        
-        self.textView.textAlignment = NSTextAlignmentCenter;
-        self.textView.text = @" Swipe down to add date";
-        
-    } else {
-        
-        
-    }
-    
-    [self.view addSubview:self.textView];
+    self.tableView = [UITableView new];
+    self.tableView.separatorColor = [UIColor purpleColor];
+    self.tableView.backgroundColor = [UIColor purpleColor];
+    self.dataSource = [CalendarDayViewTableViewDataSource new];
+    self.dataSource.couple = self.couple;
+    self.dataSource.today = self.today;
+    self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
     
 
 }
@@ -93,9 +90,37 @@
 
 -(void)setConstraints{
     
+    CGFloat tableViewHeight = self.couple.wedding.calendarItems.count * self.rowHeight;
+    CGFloat labelHeight = 64;
+    
+    NSString *tableViewHeightString = @"";
+    
+    if (tableViewHeight < (self.view.frame.size.height - labelHeight)) {
+        
+        tableViewHeightString = [NSString stringWithFormat:@"%f", tableViewHeight];
+        
+    } else {
+        
+        tableViewHeightString = [NSString stringWithFormat:@"%f", (self.view.frame.size.height - labelHeight)];
+        
+    }
+    
+    NSString *labelHeightString = [NSString stringWithFormat:@"%f", labelHeight];
+    
     [self.dateLabel alignLeading:@"5" trailing:@"5" toView:self.view];
     [self.dateLabel alignTopEdgeWithView:self.view predicate:@"64"];
-    [self.dateLabel constrainHeight:@"64"];
+    [self.dateLabel constrainHeight:labelHeightString];
+    
+    [self.tableView alignCenterYWithView:self.view predicate:nil];
+    [self.tableView alignLeading:@"5" trailing:@"5" toView:self.view];
+    [self.tableView constrainHeight:@"200"];
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    self.rowHeight = 44;
+    return self.rowHeight;
     
 }
 

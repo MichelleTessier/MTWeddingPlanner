@@ -114,6 +114,7 @@
 		2CFF11F81B8F6E70002B675D /* PlannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F71B8F6E70002B675D /* PlannerController.m */; };
 		2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF14211B8D001D00F3B9C3 /* VendorController.m */; };
 		769829B81BA9CB4900539D02 /* AddCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */; settings = {ASSET_TAGS = (); }; };
+		76E7AC761BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,6 +327,8 @@
 		2CFF14211B8D001D00F3B9C3 /* VendorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorController.m; sourceTree = "<group>"; };
 		769829B61BA9CB4900539D02 /* AddCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCalendarEventViewController.h; sourceTree = "<group>"; };
 		769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCalendarEventViewController.m; sourceTree = "<group>"; };
+		76E7AC741BACC98C0074A50D /* CalendarDayViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayViewTableViewDataSource.h; sourceTree = "<group>"; };
+		76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayViewTableViewDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -791,6 +794,8 @@
 				2CCB4FC91B84FC150048DF2E /* CalendarPageViewController.m */,
 				2C878E941BA2557400B1A898 /* CalendarDayViewController.h */,
 				2C878E951BA2557400B1A898 /* CalendarDayViewController.m */,
+				76E7AC741BACC98C0074A50D /* CalendarDayViewTableViewDataSource.h */,
+				76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */,
 				769829B61BA9CB4900539D02 /* AddCalendarEventViewController.h */,
 				769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */,
 			);
@@ -1113,6 +1118,7 @@
 				2CCB4F811B7D40860048DF2E /* LoginViewController.m in Sources */,
 				2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */,
 				2C932FBE1B87A01D002B092D /* Wedding.m in Sources */,
+				76E7AC761BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m in Sources */,
 				2CCB4F901B7D65F10048DF2E /* DefaultsEditorViewController.m in Sources */,
 				2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */,
 				2C878E961BA2557400B1A898 /* CalendarDayViewController.m in Sources */,
