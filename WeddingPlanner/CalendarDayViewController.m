@@ -22,6 +22,7 @@
 @property (strong, nonatomic) UISwipeGestureRecognizer *swipeDownGestureRecognizer;
 @property (strong, nonatomic) CalendarDayViewTableViewDataSource *dataSource;
 @property (assign, nonatomic) CGFloat rowHeight;
+@property (assign, nonatomic) BOOL scrollViewWasAtTop;
 
 @end
 
@@ -34,6 +35,7 @@
     if (self) {
         self.today = date;
         self.couple = couple;
+        
         
     }
     
@@ -51,11 +53,7 @@
     
 }
 
--(void)enableTableViewScrolling{
-    
-    self.tableView.scrollEnabled = YES;
-    
-}
+
 
 
 -(void)setUpView{
@@ -97,7 +95,7 @@
     
 //    CGFloat tableViewHeight = self.couple.wedding.calendarItems.count * self.rowHeight;
     self.rowHeight = 44;
-    CGFloat tableViewHeight = 25 * self.rowHeight;
+    CGFloat tableViewHeight = 2 * self.rowHeight;
     CGFloat labelHeight = 64;
     
     NSString *labelHeightString = [NSString stringWithFormat:@"%f", labelHeight];
@@ -116,11 +114,13 @@
         tableViewHeightString = [NSString stringWithFormat:@"%f", tableViewHeight];
         [self.tableView alignCenterYWithView:self.view predicate:nil];
         [self.tableView constrainHeight:tableViewHeightString];
+        self.scrollViewWasAtTop = NO;
         
     } else {
         
         [self.tableView constrainTopSpaceToView:self.dateLabel predicate:@"5"];
         [self.tableView alignBottomEdgeWithView:self.view predicate:@"-64"];
+        self.scrollViewWasAtTop = YES;
         
     }
     
@@ -137,13 +137,30 @@
     
 }
 
+#pragma mark - method to call present next view when tableview is scrolled to top
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
     if (scrollView.contentOffset.y == 0) {
+    
+    //Scrollview was not at the top already, so dont add new item but prepare to if scrollview is scrolled to top again
+    
+    if (self.scrollViewWasAtTop == NO) {
         
-//        self.tableView.scrollEnabled = NO;
-//        NSLog(@"scroll disabled");
+        self.scrollViewWasAtTop = YES;
+        
+     //Scrollview was at top, so add another view
+    } else {
         
         [self presentNextView];
+        
+        }
+    
+    }
+    
+    if (scrollView.contentOffset.y > 0) {
+        
+        self.scrollViewWasAtTop = NO;
         
     }
         

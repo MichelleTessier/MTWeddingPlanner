@@ -14,8 +14,8 @@ static NSString *calendarItemcellID = @"CalendarItemCellID";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-//    return [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding].count + 1;
-    return 25;
+//    return [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding].count;
+    return 2;
     
 }
 
@@ -28,6 +28,7 @@ static NSString *calendarItemcellID = @"CalendarItemCellID";
     }
     
     cell.backgroundColor = [UIColor purpleColor];
+    
 //    NSArray *calendarItems = [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding];
 //    
 //    CalendarItem *calendarItem = calendarItems[indexPath.row];
