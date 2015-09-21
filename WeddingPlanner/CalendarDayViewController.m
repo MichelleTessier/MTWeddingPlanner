@@ -14,7 +14,7 @@
 #import "AddCalendarEventViewController.h"
 #import "CalendarDayViewTableViewDataSource.h"
 
-@interface CalendarDayViewController () <UITableViewDelegate>
+@interface CalendarDayViewController () <UITableViewDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) Couple *couple;
 @property (strong, nonatomic) UILabel *dateLabel;
@@ -51,6 +51,11 @@
     
 }
 
+-(void)enableTableViewScrolling{
+    
+    self.tableView.scrollEnabled = YES;
+    
+}
 
 
 -(void)setUpView{
@@ -90,20 +95,10 @@
 
 -(void)setConstraints{
     
-    CGFloat tableViewHeight = self.couple.wedding.calendarItems.count * self.rowHeight;
+//    CGFloat tableViewHeight = self.couple.wedding.calendarItems.count * self.rowHeight;
+    self.rowHeight = 44;
+    CGFloat tableViewHeight = 25 * self.rowHeight;
     CGFloat labelHeight = 64;
-    
-    NSString *tableViewHeightString = @"";
-    
-    if (tableViewHeight < (self.view.frame.size.height - labelHeight)) {
-        
-        tableViewHeightString = [NSString stringWithFormat:@"%f", tableViewHeight];
-        
-    } else {
-        
-        tableViewHeightString = [NSString stringWithFormat:@"%f", (self.view.frame.size.height - labelHeight)];
-        
-    }
     
     NSString *labelHeightString = [NSString stringWithFormat:@"%f", labelHeight];
     
@@ -111,18 +106,66 @@
     [self.dateLabel alignTopEdgeWithView:self.view predicate:@"64"];
     [self.dateLabel constrainHeight:labelHeightString];
     
-    [self.tableView alignCenterYWithView:self.view predicate:nil];
+  
     [self.tableView alignLeading:@"5" trailing:@"5" toView:self.view];
-    [self.tableView constrainHeight:@"200"];
+    
+    NSString *tableViewHeightString = @"";
+    
+    if (tableViewHeight < (self.view.frame.size.height - labelHeight - 20)) {
+        
+        tableViewHeightString = [NSString stringWithFormat:@"%f", tableViewHeight];
+        [self.tableView alignCenterYWithView:self.view predicate:nil];
+        [self.tableView constrainHeight:tableViewHeightString];
+        
+    } else {
+        
+        [self.tableView constrainTopSpaceToView:self.dateLabel predicate:@"5"];
+        [self.tableView alignBottomEdgeWithView:self.view predicate:@"-64"];
+        
+    }
+    
+    
+    
+   
+    
     
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    self.rowHeight = 44;
     return self.rowHeight;
     
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y == 0) {
+        
+//        self.tableView.scrollEnabled = NO;
+//        NSLog(@"scroll disabled");
+        
+        [self presentNextView];
+        
+    }
+        
+}
+
+#pragma mark - present add calendar event view
+
+
+-(void)presentNextView{
+    
+    //     if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
+    
+    NSLog(@"almost there");
+    
+    AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
+    addCalendarEventVC.couple = self.couple;
+    
+    [self presentViewController: addCalendarEventVC animated:YES completion:nil];
+    
+    //     }
+}
+
 
 -(void)saveButtonTapped{
     

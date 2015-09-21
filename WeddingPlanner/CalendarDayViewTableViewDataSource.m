@@ -34,7 +34,7 @@ static NSString *calendarItemcellID = @"CalendarItemCellID";
 //    
 //    cell.textLabel.text = calendarItem.title;
     
-    cell.textLabel.text = @"Calendar event";
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     
     return cell;

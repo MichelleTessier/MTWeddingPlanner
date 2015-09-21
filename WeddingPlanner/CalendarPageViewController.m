@@ -8,11 +8,11 @@
 
 #import "CalendarPageViewController.h"
 #import "AddCalendarEventViewController.h"
+#import "CalendarDayViewController.h"
 
 @interface CalendarPageViewController () <UIPageViewControllerDataSource, UIGestureRecognizerDelegate>
 
-@property (strong, nonatomic) UISwipeGestureRecognizer *swipeDownGestureRecognizer;
-@property (strong, nonatomic) UIScrollView *pageScrollView;
+
 
 @end
 
@@ -23,7 +23,7 @@
     
     [self setUpPageView];
     [self setUpView];
-    [self addSwipeDown];
+    
    
 }
 
@@ -36,42 +36,6 @@
 }
 
 
-#pragma mark - add swipe down to add new calendar date feature
-
--(void)addSwipeDown{
-    
-    for (UIView *view in self.pageViewController.view.subviews) {
-        if ([view isKindOfClass:[UIScrollView class]]) {
-            self.pageScrollView = (UIScrollView *)view;
-        }
-    }
-    
-    self.swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(presentNextView:)];
-    self.swipeDownGestureRecognizer.delegate = self;
-    self.swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-   
-    [self.pageScrollView addGestureRecognizer:self.swipeDownGestureRecognizer];
-    
-    
-}
-
-#pragma mark - present add calendar event view
-
-
--(void)presentNextView: (UIGestureRecognizer *)gestureRecognizer{
-    
-     if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
-         
-         NSLog(@"almost there");
-    
-         AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
-         addCalendarEventVC.couple = self.couple;
-         
-    [self presentViewController: addCalendarEventVC animated:YES completion:nil];
-         
-     }
-}
-
 #pragma mark - methods to set up page view controller and view
 
 -(void)setUpPageView{
@@ -83,6 +47,8 @@
     NSDate *selectedDate = [DateController sharedInstance].selectedDate;
     
     CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:selectedDate andCouple:self.couple];
+    
+    self.delegate = calendarDayVC;
     
     NSArray *viewControllers = @[calendarDayVC];
     
@@ -127,6 +93,8 @@
     
     CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate andCouple:self.couple];
     
+    self.delegate = calendarDayVC;
+    
     return calendarDayVC;
     
 }
@@ -136,6 +104,8 @@
     [[DateController sharedInstance] getTomorrowsDate];
     
     CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate andCouple:self.couple];
+    
+     self.delegate = calendarDayVC;
     
     return calendarDayVC;
     

@@ -8,13 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "WeddingController.h"
-#import "CalendarDayViewController.h"
 #import "DateController.h"
+
+@protocol CalendarPageViewControllerDelegate;
 
 @interface CalendarPageViewController : UIViewController
 
 @property (strong, nonatomic) Couple *couple;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) NSMutableArray *editBudgetViewControllers;
+@property (weak, nonatomic) id<CalendarPageViewControllerDelegate> delegate;
+
+@end
+
+@protocol CalendarPageViewControllerDelegate <NSObject>
+
+-(void)enableTableViewScrolling;
 
 @end
