@@ -13,9 +13,9 @@ static NSString *calendarItemcellID = @"CalendarItemCellID";
 @implementation CalendarDayViewTableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"%lu", (unsigned long)[[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding].count);
+    return [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding].count;
     
-//    return [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding].count;
-    return 2;
     
 }
 
@@ -29,13 +29,13 @@ static NSString *calendarItemcellID = @"CalendarItemCellID";
     
     cell.backgroundColor = [UIColor purpleColor];
     
-//    NSArray *calendarItems = [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding];
-//    
-//    CalendarItem *calendarItem = calendarItems[indexPath.row];
-//    
-//    cell.textLabel.text = calendarItem.title;
+    NSArray *calendarItems = [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
+    CalendarItem *calendarItem = calendarItems[indexPath.row];
+    
+    cell.textLabel.text = calendarItem.title;
+    
+//    cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     
     return cell;

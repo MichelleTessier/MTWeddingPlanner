@@ -33,5 +33,8 @@
 @property (strong, nonatomic) NSDate *selectedDate;
 @property (strong, nonatomic) NSDateComponents *currentDateComponents;
 
+-(NSString *)getTimeFormatMonthDayHoursMinForDate:(NSDate *)date;
+-(NSString *)getTimeFormatHoursMinForDate:(NSDate *)date;
+
 
 @end

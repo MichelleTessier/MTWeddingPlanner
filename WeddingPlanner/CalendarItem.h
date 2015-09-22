@@ -15,6 +15,7 @@
 @interface CalendarItem : PFObject <PFSubclassing>
 
 @property (retain) NSString *title;
+@property (retain) NSDate *midNightDate;
 @property (retain) NSDate *startingDate;
 @property (retain) NSDate *endingDate;
 @property (retain) NSArray *reminders;

@@ -53,6 +53,18 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    self.tableView = nil;
+    
+    [self setUpView];
+    [self setDateForView];
+    [self setConstraints];
+    
+    
+    
+}
+
 
 
 
@@ -93,9 +105,11 @@
 
 -(void)setConstraints{
     
-//    CGFloat tableViewHeight = self.couple.wedding.calendarItems.count * self.rowHeight;
+    NSArray *calendarItems = [[DateController sharedInstance] getCalendarItemsForDate: self.today
+                                                                          fromWedding: self.couple.wedding];
+    NSInteger tableViewHeight = calendarItems.count * self.rowHeight;
     self.rowHeight = 44;
-    CGFloat tableViewHeight = 2 * self.rowHeight;
+
     CGFloat labelHeight = 64;
     
     NSString *labelHeightString = [NSString stringWithFormat:@"%f", labelHeight];
@@ -107,12 +121,12 @@
   
     [self.tableView alignLeading:@"5" trailing:@"5" toView:self.view];
     
-    NSString *tableViewHeightString = @"";
+    
     
     if (tableViewHeight < (self.view.frame.size.height - labelHeight - 20)) {
         
-        tableViewHeightString = [NSString stringWithFormat:@"%f", tableViewHeight];
-        [self.tableView alignCenterYWithView:self.view predicate:nil];
+        NSString *tableViewHeightString = [NSString stringWithFormat:@"%li", tableViewHeight];
+        [self.tableView alignCenterYWithView:self.view predicate:@"0"];
         [self.tableView constrainHeight:tableViewHeightString];
         self.scrollViewWasAtTop = NO;
         
@@ -124,16 +138,28 @@
         
     }
     
+}
+
+#pragma mark - UITableView Delegate methods
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-   
-    
+    return self.rowHeight;
     
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return self.rowHeight;
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSArray *calendarItems = [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding];
+    
+    CalendarItem *calItem = calendarItems[indexPath.row];
+    AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
+    addCalendarEventVC.calendarItem = calItem;
+    addCalendarEventVC.couple = self.couple;
+    
+    [self presentViewController:addCalendarEventVC animated:YES completion:nil];
     
 }
 
@@ -166,13 +192,11 @@
         
 }
 
+
 #pragma mark - present add calendar event view
 
-
 -(void)presentNextView{
-    
-    //     if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
-    
+  
     NSLog(@"almost there");
     
     AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
@@ -180,7 +204,6 @@
     
     [self presentViewController: addCalendarEventVC animated:YES completion:nil];
     
-    //     }
 }
 
 
@@ -191,6 +214,7 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

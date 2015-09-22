@@ -28,6 +28,12 @@
     [self setUpView];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    
+}
+
 - (void)setUpView{
     
     self.numberOfRows = 1095;

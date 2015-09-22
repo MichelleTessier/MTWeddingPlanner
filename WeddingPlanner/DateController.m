@@ -32,7 +32,8 @@
 
 -(void)setTodaysDate{
     
-    self.today = [NSDate date];
+    NSDate *todaysDate = [NSDate date];
+    self.today = [self getNoonDateForDate:todaysDate];
     self.selectedDate = self.today;
     
 }
@@ -93,17 +94,24 @@
 }
 
 -(NSArray *)getCalendarItemsForDate:(NSDate *)date fromWedding:(Wedding *)wedding{
-    
-    
+  
 //NSArray *calendarItemsForDate = [wedding.calendarItems]
     
-    NSPredicate *calendarItemPredicate = [NSPredicate predicateWithFormat:@"calendarItem.date like %@", date];
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [currentCalendar components: (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
+    NSDate *firstDate = [currentCalendar dateFromComponents:dateComponents];
+    NSDate *secondDate = [NSDate dateWithTimeInterval:(24 * 60 * 60) sinceDate:firstDate];
+                                        
+    NSPredicate *firstPredicate = [NSPredicate predicateWithFormat:@"startingDate >= %@", firstDate];
+    NSPredicate *secondPredicate = [NSPredicate predicateWithFormat:@"startingDate < %@", secondDate];
+    
+    NSPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[firstPredicate, secondPredicate]];
 //    [calendarItemPredicate evaluateWithObject:date];
 //    [NSPredicate predicateWithFormat:@"date == date"];
 //    
 //    NSArray *incompleteToDoItemsForCateogory = [toDoTimeCategory.toDoItems filteredArrayUsingPredicate:itemCompletePredicate];
     
-    NSArray *filteredArray = [wedding.calendarItems filteredArrayUsingPredicate:calendarItemPredicate];
+    NSArray *filteredArray = [wedding.calendarItems filteredArrayUsingPredicate:compoundPredicate];
     
     return filteredArray;
 
@@ -113,6 +121,10 @@
     
     CalendarItem *calendarItem = [CalendarItem objectWithClassName:[CalendarItem parseClassName]];
     
+    if (!wedding.calendarItems) {
+        wedding.calendarItems = @[];
+    }
+    
     NSMutableArray *mutableCalendarItems = [wedding.calendarItems mutableCopy];
     
     [mutableCalendarItems addObject:calendarItem];
@@ -121,6 +133,110 @@
     
     return calendarItem;
     
+    
+}
+
+-(NSDate *)getNoonDateForDate:(NSDate *)date{
+    
+    NSDate *startDate = date;
+    
+    // Get the appropriate calendar
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents *startComponents = [calendar components:(NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitYear|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond) fromDate:startDate];
+    
+    [startComponents setHour: 12];
+    [startComponents setMinute: 00];
+    [startComponents setSecond: 00];
+    
+    return [calendar dateFromComponents:startComponents];
+    
+}
+
+
+
+-(NSString *)getTimeFormatMonthDayHoursMinForDate:(NSDate *)date{
+    
+    NSDateComponents *dateComponents = [[DateController sharedInstance] getDateComponentsForDate:date];
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    NSString *monthName = [[dateFormatter shortMonthSymbols] objectAtIndex:(dateComponents.month - 1)];
+    
+    //Make sure minutes has 0 in front if less than 10
+    
+    NSString *hourMinString = [self getTimeFormatHoursMinForDate:date];
+    
+    return [NSString stringWithFormat: @"%@ %ld, %@", monthName, dateComponents.day, hourMinString];
+    
+}
+
+-(NSString *)getTimeFormatHoursMinForDate:(NSDate *)date{
+    
+    NSDateComponents *dateComponents = [[DateController sharedInstance] getDateComponentsForDate:date];
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    
+    NSString *minuteString = @"";
+    
+    if (dateComponents.minute < 10) {
+        
+        minuteString = [NSString stringWithFormat:@"0%ld", dateComponents.minute];
+        
+    } else {
+        
+        minuteString = [NSString stringWithFormat:@"%ld", dateComponents.minute];
+        
+    }
+    
+    //Make AM/PM time instead of military time
+    
+    NSString *hourString = @"";
+    NSString *amOrPmString = @"";
+    
+    //if its the afternoon
+    
+    if (dateComponents.hour > 11) {
+        
+        //if its noon
+        if (dateComponents.hour == 12 ) {
+            
+            hourString = [NSString stringWithFormat:@"%ld", dateComponents.hour];
+            amOrPmString = dateFormatter.PMSymbol;
+            
+            NSLog(@"%ld", dateComponents.hour);
+            
+            //else its 1pm or later
+        } else {
+            
+            hourString = [NSString stringWithFormat:@"%ld", dateComponents.hour - 12];
+            amOrPmString = dateFormatter.PMSymbol;
+            
+            NSLog(@"%ld", dateComponents.hour);
+            NSLog(@"%ld", dateComponents.hour - 12);
+            
+        }
+        
+        //else its the am
+    } else {
+        
+        //if its midnight
+        if (dateComponents.hour == 0) {
+            
+            hourString = [NSString stringWithFormat:@"%i", 12];
+            amOrPmString = dateFormatter.AMSymbol;
+            
+            //else its past 1 am but before noon
+        } else {
+            
+            hourString = [NSString stringWithFormat:@"%ld", dateComponents.hour];
+            amOrPmString = dateFormatter.AMSymbol;
+            
+        }
+        
+    }
+    
+    return [NSString stringWithFormat: @"%@:%@ %@", hourString, minuteString, amOrPmString];
     
 }
 

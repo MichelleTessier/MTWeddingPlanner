@@ -113,7 +113,6 @@
 		2CFF11F41B8F6A20002B675D /* DoubleTabBarSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F31B8F6A20002B675D /* DoubleTabBarSetup.m */; };
 		2CFF11F81B8F6E70002B675D /* PlannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F71B8F6E70002B675D /* PlannerController.m */; };
 		2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF14211B8D001D00F3B9C3 /* VendorController.m */; };
-		7653896E1BB0B1FD00D1AFBF /* SampleGestureRecognizersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7653896D1BB0B1FD00D1AFBF /* SampleGestureRecognizersViewController.m */; settings = {ASSET_TAGS = (); }; };
 		769829B81BA9CB4900539D02 /* AddCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */; settings = {ASSET_TAGS = (); }; };
 		76E7AC761BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -326,8 +325,6 @@
 		2CFF11F71B8F6E70002B675D /* PlannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerController.m; sourceTree = "<group>"; };
 		2CFF14201B8D001D00F3B9C3 /* VendorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorController.h; sourceTree = "<group>"; };
 		2CFF14211B8D001D00F3B9C3 /* VendorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorController.m; sourceTree = "<group>"; };
-		7653896C1BB0B1FD00D1AFBF /* SampleGestureRecognizersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleGestureRecognizersViewController.h; path = ../../../../annetessier/Desktop/SampleCode/SampleGestureRecognizersViewController.h; sourceTree = "<group>"; };
-		7653896D1BB0B1FD00D1AFBF /* SampleGestureRecognizersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleGestureRecognizersViewController.m; path = ../../../../annetessier/Desktop/SampleCode/SampleGestureRecognizersViewController.m; sourceTree = "<group>"; };
 		769829B61BA9CB4900539D02 /* AddCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCalendarEventViewController.h; sourceTree = "<group>"; };
 		769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCalendarEventViewController.m; sourceTree = "<group>"; };
 		76E7AC741BACC98C0074A50D /* CalendarDayViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayViewTableViewDataSource.h; sourceTree = "<group>"; };
@@ -797,8 +794,6 @@
 				2CCB4FC91B84FC150048DF2E /* CalendarPageViewController.m */,
 				2C878E941BA2557400B1A898 /* CalendarDayViewController.h */,
 				2C878E951BA2557400B1A898 /* CalendarDayViewController.m */,
-				7653896C1BB0B1FD00D1AFBF /* SampleGestureRecognizersViewController.h */,
-				7653896D1BB0B1FD00D1AFBF /* SampleGestureRecognizersViewController.m */,
 				76E7AC741BACC98C0074A50D /* CalendarDayViewTableViewDataSource.h */,
 				76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */,
 				769829B61BA9CB4900539D02 /* AddCalendarEventViewController.h */,
@@ -1146,7 +1141,6 @@
 				2C932FD91B87A3A6002B092D /* Budget.m in Sources */,
 				2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */,
 				2CB172661B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m in Sources */,
-				7653896E1BB0B1FD00D1AFBF /* SampleGestureRecognizersViewController.m in Sources */,
 				2CC3495A1B7C1CD4006A8D5E /* BudgetViewController.m in Sources */,
 				2C06F0291B87F84A00EEBB57 /* UIView+FLKAutoLayoutPredicate.m in Sources */,
 				2CFF11E81B8E520A002B675D /* RegisterPlannerViewController.m in Sources */,

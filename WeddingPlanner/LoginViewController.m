@@ -138,6 +138,7 @@
         [getWeddings includeKey:@"vendorCategories.vendors"];
         [getWeddings includeKey:@"vendorCategories.vendors.vendorPayments"];
         [getWeddings includeKey:@"toDoTimeCategories.toDoItems"];
+        [getWeddings includeKey:@"calendarItems"];
        
         
         [getWeddings getFirstObjectInBackgroundWithBlock:^(PFObject *wedding, NSError *error){

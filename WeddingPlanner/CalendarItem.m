@@ -12,6 +12,7 @@
 @implementation CalendarItem
 
 @dynamic title;
+@dynamic midNightDate;
 @dynamic startingDate;
 @dynamic endingDate;
 @dynamic reminders;

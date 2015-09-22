@@ -53,11 +53,30 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
     
     [self setupToolBar];
     [self setUpTextFields];
+    
+    if (self.calendarItem) {
+        [self updateTextFieldsWithCalItem];
+    }
+    
     [self setUpDatePickers];
     [self setupVendorPickerView];
     
-    
     }
+
+-(void)updateTextFieldsWithCalItem{
+    
+    self.titleTextField.text = self.calendarItem.title;
+    self.locationTextField.text = self.calendarItem.location;
+    
+    //time text fields are set in setUpDatePickers method
+    
+    
+    self.vendorTextField.text = self.calendarItem.vendor.businessName;
+    //probably need to auto scroll vendor picker view to correct vendor here
+    
+    self.notesTextView.text = self.calendarItem.notes;
+    
+}
 
 -(void)setUpTextFields{
     
@@ -87,9 +106,9 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
     self.endTimeTextField = [UITextField new];
     self.endTimeTextField.textAlignment = NSTextAlignmentLeft;
     
-    NSDate *oneHourFromStartDate = [self.date dateByAddingTimeInterval:60*60];
-    self.secondsBetween1970andEndTime = [oneHourFromStartDate timeIntervalSince1970];
-    [self updateTextField:self.endTimeTextField withDate:oneHourFromStartDate];
+//    NSDate *oneHourFromStartDate = [self.date dateByAddingTimeInterval:60*60];
+//    self.secondsBetween1970andEndTime = [oneHourFromStartDate timeIntervalSince1970];
+//    [self updateTextField:self.endTimeTextField withDate:oneHourFromStartDate];
     
     
     [self.view addSubview:self.endTimeTextField];
@@ -140,6 +159,12 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
     [self.startDatePicker setDatePickerMode:UIDatePickerModeDateAndTime];
     [self.startDatePicker addTarget:self action:@selector(startPickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     
+    if (self.calendarItem) {
+        
+        self.date = self.calendarItem.startingDate;
+        
+    }
+    
     self.secondsBetween1970andStartTime = [self.date timeIntervalSince1970];
     [self updateTextField:self.startTimeTextField withDate:self.date];
 
@@ -149,9 +174,19 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
     [self.endDatePicker setDatePickerMode:UIDatePickerModeDateAndTime];
     [self.endDatePicker addTarget:self action:@selector(endPickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     
-    NSDate *oneHourFromStartDate = [self.date dateByAddingTimeInterval:60*60];
+    
+    if (self.calendarItem) {
+        
+        self.secondsBetween1970andEndTime = [self.calendarItem.endingDate timeIntervalSince1970];
+        [self updateTextField:self.endTimeTextField withDate:self.calendarItem.endingDate];
+        
+    } else {
+    
+    NSDate *oneHourFromStartDate = [self.date dateByAddingTimeInterval: 60 * 60];
     self.secondsBetween1970andEndTime = [oneHourFromStartDate timeIntervalSince1970];
     [self updateTextField:self.endTimeTextField withDate:oneHourFromStartDate];
+        
+    }
     
     self.endTimeTextField.inputView = self.endDatePicker;
     
@@ -200,38 +235,39 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
     self.vendorPickerView.dataSource = self;
     self.vendorPickerView.delegate = self;
     
+     NSArray *chosenVendorCategories = [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding];
+    
     if (self.calendarItem.vendorCategory) {
         
-        //add code here to set vendor pickerview rows to be currently selected vendor category and vendor
+        self.selectedVendorCategory = self.calendarItem.vendorCategory;
         
-    } else {
-        
-        NSArray *chosenVendorCategories = [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding];
-        
-        if (!chosenVendorCategories[0]) {
-            
-            self.vendorTextField.text = @"Add a Vendor to get started";
-            
-        } else {
-        
-            self.selectedVendorCategory = chosenVendorCategories[0];
-            
-        }
-        
-    }
-
-    if (self.calendarItem.vendor) {
+        self.selectedVendor = self.calendarItem.vendor;
         
         self.vendorTextField.text = self.calendarItem.vendor.businessName;
         self.vendorTextField.inputView = self.vendorPickerView;
         
+        NSInteger vendorCatIndex = [chosenVendorCategories indexOfObject:self.calendarItem.vendorCategory];
+        NSInteger vendorIndex = [self.selectedVendorCategory.vendors indexOfObject:self.calendarItem.vendor];
+        
+        NSLog(@"INDEXES %li, %li", vendorCatIndex, vendorIndex);
+        [self.vendorPickerView selectRow:vendorIndex inComponent:1 animated:YES];
+        [self.vendorPickerView selectRow:vendorCatIndex + 1 inComponent:0 animated:YES];
+        
     } else {
         
-        self.vendorTextField.placeholder = @"Select Vendor";
-        self.vendorTextField.inputView = self.vendorPickerView;
+       
+        if (chosenVendorCategories.count == 0) {
+            
+            self.vendorTextField.text = @"Add a Vendor to get started";
+            
+        } else {
+            
+            self.vendorTextField.placeholder = @"Select Vendor";
+            self.vendorTextField.inputView = self.vendorPickerView;
+        }
         
     }
-    
+
     // Add Done button to picker input view
     UIToolbar *toolBar = [UIToolbar new];
     toolBar.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width, 40.0);
@@ -283,13 +319,16 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
     
     if (!self.calendarItem) {
         self.calendarItem = [[DateController sharedInstance] createCalendarItemForWedding:self.couple.wedding];
+        NSLog(@"cal item created for %@", self.date);
     }
     
     //Have to fix these
+    self.calendarItem.title = self.titleTextField.text;
     self.calendarItem.startingDate = self.date;
     self.calendarItem.endingDate = self.date;
     
     self.calendarItem.vendor = self.selectedVendor;
+    self.calendarItem.vendorCategory = self.selectedVendorCategory;
     
     self.calendarItem.location = self.locationTextField.text;
     self.calendarItem.notes = self.notesTextView.text;
@@ -302,78 +341,13 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
 
 -(void)updateTextField:(UITextField *)textField withDate:(NSDate*) date {
     
-    NSDateComponents *dateComponents = [[DateController sharedInstance] getDateComponentsForDate:date];
-    
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    
-    NSString *monthName = [[dateFormatter shortMonthSymbols] objectAtIndex:(dateComponents.month - 1)];
-    
-    //Make sure minutes has 0 in front if less than 10
-    
-    NSString *minuteString = @"";
-    
-    if (dateComponents.minute < 10) {
-        
-        minuteString = [NSString stringWithFormat:@"0%ld", dateComponents.minute];
-        
-    } else {
-        
-        minuteString = [NSString stringWithFormat:@"%ld", dateComponents.minute];
-        
-    }
-    
-    //Make AM/PM time instead of military time
-    
-    NSString *hourString = @"";
-    NSString *amOrPmString = @"";
-    
-    //if its the afternoon
-    
-    if (dateComponents.hour > 11) {
-        
-        //if its noon
-        if (dateComponents.hour == 12 ) {
-            
-            hourString = [NSString stringWithFormat:@"%ld", dateComponents.hour];
-            amOrPmString = dateFormatter.PMSymbol;
-            
-            NSLog(@"%ld", dateComponents.hour);
-        
-        //else its 1pm or later
-        } else {
-            
-            hourString = [NSString stringWithFormat:@"%ld", dateComponents.hour - 12];
-            amOrPmString = dateFormatter.PMSymbol;
-            
-            NSLog(@"%ld", dateComponents.hour);
-            NSLog(@"%ld", dateComponents.hour - 12);
-            
-        }
-        
-        //else its the am
-    } else {
-        
-        //if its midnight
-        if (dateComponents.hour == 0) {
-            
-            hourString = [NSString stringWithFormat:@"%i", 12];
-            amOrPmString = dateFormatter.AMSymbol;
-            
-        //else its past 1 am but before noon
-        } else {
-        
-            hourString = [NSString stringWithFormat:@"%ld", dateComponents.hour];
-            amOrPmString = dateFormatter.AMSymbol;
-            
-        }
-        
-    }
+    NSString *textFieldTextString = [[DateController sharedInstance] getTimeFormatMonthDayHoursMinForDate:date];
     
     [self.startDatePicker setDate:[NSDate dateWithTimeIntervalSince1970:self.secondsBetween1970andStartTime]];
     
     [self.endDatePicker setDate:[NSDate dateWithTimeIntervalSince1970:self.secondsBetween1970andEndTime]];
     
-    textField.text = [NSString stringWithFormat: @"%@ %ld, %@:%@ %@", monthName, dateComponents.day, hourString, minuteString, amOrPmString];
+    textField.text = textFieldTextString;
     
 }
 
@@ -438,18 +412,33 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
    
-            
             if (component == 0) {
                 
-                VendorCategory *vendorCategory = [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding][row];
+                if (row == 0) {
+                    
+                    return @"No Selection";
+                    
+                } else {
+                
+                VendorCategory *vendorCategory = [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding][row - 1];
                 
                 return vendorCategory.title;
+                    
+                }
                 
             } else {
+                
+                if (!self.selectedVendorCategory) {
+                    
+                    return @"Select a Category";
+                    
+                } else {
                 
                 Vendor *vendor = self.selectedVendorCategory.vendors[row];
                 
                 return vendor.businessName;
+                    
+                }
             }
             
    
@@ -458,15 +447,39 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
+#warning in all pickerviews need to add in a way to have no selection as first category
+    
     if (component == 0) {
         
-        self.selectedVendorCategory = [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding][row];
+        //The chosen vendor cat is "no selection"
+        if (row == 0) {
+            
+            self.selectedVendorCategory = nil;
+            self.selectedVendor = nil;
+            self.vendorTextField.text = @"Choose a vendor";
+            
+            [pickerView reloadComponent:1];
+            
+        } else {
+        
+        NSArray *vendorCats = [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding];
+        
+        self.selectedVendorCategory = vendorCats[row - 1];
+        
+        [pickerView reloadComponent:1];
+        
+        //Select first vendor as vendor
+        self.selectedVendor = self.selectedVendorCategory.vendors[0];
+            
+        }
         
     } else {
         
     self.selectedVendor = self.selectedVendorCategory.vendors[row];
-        
+    
     }
+    
+    self.vendorTextField.text = self.selectedVendor.businessName;
 
     
 }
@@ -483,9 +496,16 @@ typedef NS_ENUM(NSUInteger, PickerViewTypes) {
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
     if (component == 0) {
-        return [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding].count;
+        return [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding].count + 1;
     } else {
-        return self.selectedVendorCategory.vendors.count;
+        
+        if (self.selectedVendorCategory) {
+            return self.selectedVendorCategory.vendors.count;
+        } else {
+            return 1;
+        }
+        
+        
     }
     
     
