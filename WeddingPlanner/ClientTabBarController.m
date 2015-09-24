@@ -18,11 +18,21 @@
 {
     self = [super init];
     if (self) {
-        self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, 44)];
+        self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height -100, self.view.bounds.size.width, 44)];
         [self.view addSubview:self.toolBar];
+        
+        UIBarButtonItem *backToClientsButton = [UIBarButtonItem new];
+        backToClientsButton.title = @"Back to clients";
+        backToClientsButton.target = self;
+        backToClientsButton.action = @selector(barButtonPressed);
+        self.toolBar.items = @[backToClientsButton];
         
     }
     return self;
+}
+
+-(void)barButtonPressed{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad {

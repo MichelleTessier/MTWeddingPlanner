@@ -11,6 +11,7 @@
 @implementation DoubleTabBarSetup
 
 -(void)setUpPlannerTabBarController{
+    
     self.plannerTabBarController = [UITabBarController new];
     
     PlannerProfileViewController *plannerProfileVC = [PlannerProfileViewController new];
@@ -25,6 +26,7 @@
     allClientsCalendarVC.title = @"Calendar";
     
     WeddingListViewController *weddingListVC = [WeddingListViewController new];
+    weddingListVC.planner = self.planner;
     UINavigationController *weddingListNavController = [[UINavigationController alloc] initWithRootViewController:weddingListVC];
     weddingListVC.title = @"Weddings";
     
@@ -34,7 +36,11 @@
 
 -(void)setUpClientTabBarController{
     
+    if (self.plannerIsViewing == YES) {
+        self.clientTabBarController = [[ClientTabBarController alloc] initWithToolBar];
+    } else {
     self.clientTabBarController = [ClientTabBarController new];
+    }
     
     HomeViewController *homeVC = [HomeViewController new];
     homeVC.title = @"Home";

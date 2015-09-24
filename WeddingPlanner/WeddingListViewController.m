@@ -12,7 +12,7 @@
 #import "BudgetViewController.h"
 #import "VendorsListViewController.h"
 #import "GuestsViewController.h"
-
+#import "DoubleTabBarSetup.h"
 #import "ClientTabBarController.h"
 
 
@@ -33,6 +33,7 @@
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.datasource = [WeddingListViewDataSource new];
+    self.datasource.planner = self.planner;
     self.tableView.dataSource = self.datasource;
     self.tableView.delegate = self;
     
@@ -42,7 +43,7 @@
     
     UIBarButtonItem *toolBarButton = [UIBarButtonItem new];
     
-    self.clientTabBarController.toolBar.items =     @[toolBarButton];
+    self.clientTabBarController.toolBar.items = @[toolBarButton];
     
     UIBarButtonItem *backToClientsButton = [UIBarButtonItem new];
     backToClientsButton.title = @"Back to clients";
@@ -76,7 +77,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [self presentViewController:self.clientTabBarController animated:YES completion:nil];
+    DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+    doubleTabBarSetup.couple = self.planner.couples[indexPath.row];
+    doubleTabBarSetup.plannerIsViewing = YES;
+    [doubleTabBarSetup setUpClientTabBarController];
+    
+    [self presentViewController:doubleTabBarSetup.clientTabBarController animated:YES completion:nil];
     
 }
 

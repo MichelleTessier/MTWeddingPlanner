@@ -13,7 +13,7 @@ static NSString *cellID = @"cellID";
 @implementation WeddingListViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.planner.couples.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -24,7 +24,9 @@ static NSString *cellID = @"cellID";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     
-    cell.textLabel.text = @"Wedding";
+    Couple *couple = self.planner.couples[indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat: @"%@ & %@", couple.spouse1FirstName, couple.spouse2FirstName];
     
     return cell;
     

@@ -82,11 +82,10 @@
 
 -(NSDateComponents *)getDateComponentsForDate:(NSDate *)date{
     
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    [gregorianCalendar setLocale:[NSLocale currentLocale]];
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekday | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
-    NSDateComponents *comps = [gregorianCalendar components:unitFlags fromDate:date];
+    NSDateComponents *comps = [currentCalendar components:unitFlags fromDate:date];
     
     return comps;
     
@@ -157,7 +156,7 @@
 
 -(NSString *)getTimeFormatMonthDayHoursMinForDate:(NSDate *)date{
     
-    NSDateComponents *dateComponents = [[DateController sharedInstance] getDateComponentsForDate:date];
+    NSDateComponents *dateComponents = [self getDateComponentsForDate:date];
     
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     

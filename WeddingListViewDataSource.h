@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "PlannerController.h"
 
 @interface WeddingListViewDataSource : NSObject <UITableViewDataSource>
+
+@property (strong, nonatomic) Planner *planner;
 
 @end
