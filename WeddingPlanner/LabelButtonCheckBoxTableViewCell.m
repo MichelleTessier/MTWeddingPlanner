@@ -57,6 +57,11 @@
         [self.button setBackgroundColor:[UIColor purpleColor]];
         [self.button setTitle:@"T" forState:UIControlStateNormal];
         [self.button addTarget:self action:@selector(buttonWasTapped) forControlEvents:UIControlEventTouchUpInside];
+        
+    } else {
+       
+        [self.button setBackgroundColor:[UIColor clearColor]];
+        
     }
     
     self.label.text = toDoItem.title;
@@ -74,9 +79,13 @@
     
 }
 
+
+
 -(void)buttonWasTapped{
     [self.delegate tipButtonTappedinSender:self];
 }
+
+
 
 -(void)mpCheckBoxDidChangeState:(kMPCheckBoxState)state checkBox:(MPCheckBox *)checkBox{
     [self.delegate checkBoxChangedState:state inCell:self];

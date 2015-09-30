@@ -184,7 +184,10 @@ static NSString *tipCellID = @"tipCellID";
                 cell = [[LabelButtonCheckBoxTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:toDoListCellID];
             }
         
+        NSLog(@"TODOItem %@", toDoItem);
+        NSLog(@"Todoitem %@", toDoItem.plannerTip);
         [cell updateToDoCellAtIndexPath:indexPath WithToDoItem:toDoItem];
+        
          cell.delegate = self;
             
             
@@ -306,6 +309,8 @@ static NSString *tipCellID = @"tipCellID";
         //There is no tip cell currently displayed
         
         ToDoItem *toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+        NSLog(@"TODOItem %@", toDoItem);
+        NSLog(@"Todoitem %@", toDoItem.plannerTip);
         
         if (toDoItem.plannerTip) {
             //the cell tapped has a planner tip

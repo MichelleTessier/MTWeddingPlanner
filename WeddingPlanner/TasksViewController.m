@@ -19,6 +19,7 @@
 @property (strong, nonatomic) UIViewController *currentViewController;
 @property (strong, nonatomic) UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) ToDoListViewController *toDoListVC;
+@property (strong, nonatomic) UIButton *todayButton;
 
 @end
 
@@ -29,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.view.backgroundColor = [UIColor purpleColor];
     self.title = @"Tasks";
     
@@ -37,20 +39,20 @@
     
     self.navigationController.navigationBarHidden = YES;
     
-    
-
-    
-    
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems: @[@"To do", @"Calendar"]];
     self.segmentedControl.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
 
     
     UIViewController *selectedViewController = [self viewControllerForSegmentIndex:self.segmentedControl.selectedSegmentIndex];
+    
     [self addChildViewController:selectedViewController];
+    
     selectedViewController.view.frame = [self frameForCurrentViewController];
+    
     if (selectedViewController == nil) {
         selectedViewController = self.toDoListVC;
     }
+    
     [self.view addSubview:selectedViewController.view];
     self.currentViewController = selectedViewController;
     
@@ -63,33 +65,54 @@
 
 
 -(void)segmentedControlValueChanged:(UISegmentedControl *)sender{
+    
     UIViewController *selectedViewController = [self viewControllerForSegmentIndex:self.segmentedControl.selectedSegmentIndex];
+    
     [self addChildViewController:selectedViewController];
-    [self transitionFromViewController:self.currentViewController toViewController:selectedViewController duration:0.5 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+    
+    [self transitionFromViewController:self.currentViewController toViewController:selectedViewController duration:0.5 options:UIViewAnimationOptionTransitionNone animations:^{
+        
         [self.currentViewController.view removeFromSuperview];
         selectedViewController.view.frame = [self frameForCurrentViewController];
         [self.view addSubview:selectedViewController.view];
+        
     } completion:^(BOOL finished) {
+        
         [selectedViewController didMoveToParentViewController:self];
         [self.currentViewController removeFromParentViewController];
         self.currentViewController = selectedViewController;
         
+        self.todayButton = [UIButton new];
+        
+        [self.todayButton setBackgroundColor:[UIColor clearColor]];
+        
+        [self.view addSubview:self.todayButton];
+        [self.view bringSubviewToFront:self.todayButton];
+        
+        [self.todayButton alignCenterXWithView:self.view predicate:nil];
+        [self.todayButton constrainWidth:@"200" height:@"44"];
+        [self.todayButton alignTopEdgeWithView:self.view predicate:@"70"];
+        
         if ([self.currentViewController isKindOfClass: [CalendarWeekViewController class]]) {
-            UIButton *button = [UIButton new];
-            [button setBackgroundColor:[UIColor clearColor]];
-            [button setTitle:@"Today" forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [button addTarget:self.currentViewController action:@selector(jumpToTodayButtonPushed) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:button];
-            [self.view bringSubviewToFront:button];
             
-            [button alignCenterXWithView:self.view predicate:nil];
-            [button constrainWidth:@"200" height:@"44"];
-            [button alignTopEdgeWithView:self.view predicate:@"70"];
+            
+            [self.todayButton setEnabled:YES];
+            [self.todayButton setTitle:@"Today" forState:UIControlStateNormal];
+            [self.todayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [self.todayButton addTarget:self.currentViewController action:@selector(jumpToTodayButtonPushed) forControlEvents:UIControlEventTouchUpInside];
+            
+           
+            
+        } else {
+            
+            [self.todayButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [self.todayButton setEnabled:NO];
+            
         }
         
         
     }];
+    
     self.navigationItem.title = selectedViewController.title;
 }
 

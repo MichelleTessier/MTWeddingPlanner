@@ -207,7 +207,7 @@ static NSString *tipCellID = @"tipCellID";
 -(void)tipButtonTappedinSender:(LabelButtonCheckBoxTableViewCell *)sender{
 
     
-    UITableViewCell *cell = sender;
+    LabelButtonCheckBoxTableViewCell *cell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     ToDoTimeCategory *toDoTimeCategory = self.couple.wedding.toDoTimeCategories[indexPath.section];
     
@@ -231,10 +231,12 @@ static NSString *tipCellID = @"tipCellID";
             
             if (indexPath.row < self.indexPathForTip.row) {
                 //The cell tapped is above the tip cell displayed
-                toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+//                toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+                 toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row];
             } else {
                 //The cell tapped is below the tip cell displayed
-                toDoItem = toDoTimeCategory.toDoItems[indexPath.row - 1];
+//                toDoItem = toDoTimeCategory.toDoItems[indexPath.row - 1];
+                 toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row - 1];
             }
             
             if (toDoItem.plannerTip) {
@@ -269,7 +271,8 @@ static NSString *tipCellID = @"tipCellID";
             }
         } else {
             //The cell tapped is not in the same section as the tip cell displayed
-            ToDoItem *toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+//            ToDoItem *toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+             ToDoItem *toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row];
             if (toDoItem.plannerTip) {
                 
                 //There is a tip for the to do item
@@ -290,7 +293,10 @@ static NSString *tipCellID = @"tipCellID";
     } else {
         //There is no tip cell currently displayed
         
-        ToDoItem *toDoItem = toDoTimeCategory.toDoItems[indexPath.row];
+
+        ToDoItem *toDoItem = [self incompleteToDoItemsForCategory:toDoTimeCategory][indexPath.row];
+        NSLog(@"TODOITEM:%@, %li, %li", toDoItem, indexPath.row, indexPath.section);
+        
         
         if (toDoItem.plannerTip) {
             //the cell tapped has a planner tip
