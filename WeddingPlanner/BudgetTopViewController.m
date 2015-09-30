@@ -36,6 +36,9 @@
     
     [super viewWillAppear:animated];
     [self updateBudget];
+    [self updateLabelsWithWedding];
+    
+    
     
 }
 
@@ -46,12 +49,23 @@
     
 }
 
+-(void)updateLabelsWithWedding{
+    
+    float totalCostOfWedding = [self.couple.wedding.budget.totalActualCost floatValue];
+    self.totalCostLabel.text = [NSString stringWithFormat:@"$%.2f", totalCostOfWedding];
+    
+    float estimatedCostOfWedding = [self.couple.wedding.budget.totalBudgetedCost floatValue];
+    self.estimatedCostLabel.text = [NSString stringWithFormat:@"Budget: $%.2f", estimatedCostOfWedding];
+    
+    
+    
+}
+
 -(void)setUpView{
     
     self.totalCostLabel = [UILabel new];
     
-    float totalCostOfWedding = [self.couple.wedding.budget.totalActualCost floatValue];
-    self.totalCostLabel.text = [NSString stringWithFormat:@"$%.2f", totalCostOfWedding];
+    
     self.totalCostLabel.font = [UIFont boldSystemFontOfSize:50];
     self.totalCostLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -59,12 +73,13 @@
     
     self.estimatedCostLabel = [UILabel new];
     
-    float estimatedCostOfWedding = [self.couple.wedding.budget.totalBudgetedCost floatValue];
-    self.estimatedCostLabel.text = [NSString stringWithFormat:@"Budget: $%.2f", estimatedCostOfWedding];
+    
     self.estimatedCostLabel.font = [UIFont systemFontOfSize:20];
     self.estimatedCostLabel.textAlignment = NSTextAlignmentCenter;
     
     [self.view addSubview:self.estimatedCostLabel];
+    
+    [self updateLabelsWithWedding];
     
     
 }

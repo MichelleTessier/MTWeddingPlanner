@@ -40,13 +40,16 @@ static NSString *dayCellID = @"dayCellID";
     NSString *calendarItemString = @"";
     
     for (CalendarItem *calendarItem in calendarItems) {
-        calendarItemString = [calendarItemString stringByAppendingString:calendarItem.title];
+        
+        NSString *timeStringForCalItem =  [[DateController sharedInstance] getTimeFormatHoursMinForDate:calendarItem.startingDate];
+       
+        calendarItemString = [calendarItemString stringByAppendingString:[NSString stringWithFormat:@"%@ %@\n", timeStringForCalItem, calendarItem.title]];
     }
     
     cell.calendarItemsLabel.text = calendarItemString;
     
     NSDateComponents *dateComponents = [[DateController sharedInstance] getDateComponentsForDate:dateForRow];
-    
+   
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     
     NSString *weekDayName = [[dateFormatter shortWeekdaySymbols] objectAtIndex:(dateComponents.weekday - 1)];

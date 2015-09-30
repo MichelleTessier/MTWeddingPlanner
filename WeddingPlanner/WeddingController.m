@@ -300,5 +300,24 @@
 }
 
 
+#pragma mark - find chosen vendor Categories
+
+-(NSArray *)findChosenVendorCategoriesForWedding:(Wedding *)wedding{
+ 
+NSArray *vendorCategories = wedding.vendorCategories;
+    
+NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
+    
+for (VendorCategory *vendorCateogry in vendorCategories) {
+    if (vendorCateogry.vendors.count > 0) {
+        [mutableChosenVendorCategories addObject:vendorCateogry];
+    }
+}
+
+NSArray *chosenVendorCategories = mutableChosenVendorCategories;
+
+return chosenVendorCategories;
+
+}
 
 @end

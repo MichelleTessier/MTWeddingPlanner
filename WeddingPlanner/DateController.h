@@ -23,6 +23,8 @@
 -(void)getTomorrowsDate;
 -(void)getYesterDaysDate;
 
+-(CalendarItem *)createCalendarItemForWedding:(Wedding *)wedding;
+
 -(NSArray *)getCalendarItemsForDate:(NSDate *)date fromWedding:(Wedding *)wedding;
 
 @property (assign, nonatomic) NSInteger startingRow;
@@ -30,6 +32,9 @@
 @property (strong, nonatomic) NSDate *today;
 @property (strong, nonatomic) NSDate *selectedDate;
 @property (strong, nonatomic) NSDateComponents *currentDateComponents;
+
+-(NSString *)getTimeFormatMonthDayHoursMinForDate:(NSDate *)date;
+-(NSString *)getTimeFormatHoursMinForDate:(NSDate *)date;
 
 
 @end

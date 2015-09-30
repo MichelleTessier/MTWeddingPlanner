@@ -7,8 +7,14 @@
 //
 
 #import "CalendarPageViewController.h"
+#import "AddCalendarEventViewController.h"
+#import "CalendarDayViewController.h"
 
-@interface CalendarPageViewController () <UIPageViewControllerDataSource>
+@interface CalendarPageViewController () <UIPageViewControllerDataSource, UIGestureRecognizerDelegate>
+
+@property (strong, nonatomic) UISwipeGestureRecognizer *swipeDownGestureRecognizer;
+@property (strong, nonatomic) UISwipeGestureRecognizer *swipeUpGestureRecognizer;
+@property (strong, nonatomic) UIScrollView *pageScrollView;
 
 @end
 
@@ -19,11 +25,21 @@
     
     [self setUpPageView];
     [self setUpView];
+    [self addSwipeDown];
     
    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
     
     
 }
+
+
+#pragma mark - methods to set up page view controller and view
 
 -(void)setUpPageView{
 
@@ -33,7 +49,7 @@
     
     NSDate *selectedDate = [DateController sharedInstance].selectedDate;
     
-    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:selectedDate];
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:selectedDate andCouple:self.couple];
     
     NSArray *viewControllers = @[calendarDayVC];
     
@@ -70,11 +86,14 @@
     
 }
 
+#pragma mark - pageview controller datasource methods
+
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
     
     [[DateController sharedInstance] getYesterDaysDate];
     
-    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate];
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate andCouple:self.couple];
+    
     
     return calendarDayVC;
     
@@ -84,11 +103,43 @@
     
     [[DateController sharedInstance] getTomorrowsDate];
     
-    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate];
+    CalendarDayViewController *calendarDayVC = [[CalendarDayViewController alloc] initWithDate:[DateController sharedInstance].selectedDate andCouple:self.couple];
     
     return calendarDayVC;
     
 }
+
+-(void)addSwipeDown{
+    
+    for (UIView *view in self.pageViewController.view.subviews) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            self.pageScrollView = (UIScrollView *)view;
+        }
+    }
+    
+    self.swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(presentNextView)];
+    self.swipeDownGestureRecognizer.delegate = self;
+    self.swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    
+    [self.pageScrollView addGestureRecognizer:self.swipeDownGestureRecognizer];
+    
+    
+}
+
+-(void)presentNextView{
+    
+    //     if(((UISwipeGestureRecognizer *)gestureRecognizer).direction == UISwipeGestureRecognizerDirectionDown){
+    
+    NSLog(@"almost there");
+    
+    AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
+    addCalendarEventVC.couple = self.couple;
+    
+    [self presentViewController: addCalendarEventVC animated:YES completion:nil];
+    
+    //     }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

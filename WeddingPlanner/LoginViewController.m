@@ -115,16 +115,36 @@
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
+  
+            PFQuery *getCouples = [PFQuery queryWithClassName:@"_User"];
+            [getCouples whereKey:@"plannerID" equalTo:planner.objectId];
+            [getCouples whereKey:@"isPlanner" notEqualTo:[NSNumber numberWithBool:YES]];
+            [getCouples includeKey:@"wedding.vendorCategories.vendors"];
+            [getCouples includeKey:@"wedding.vendorCategories.vendors.vendorPayments"];
+            [getCouples includeKey:@"wedding.toDoTimeCategories.toDoItems"];
+            [getCouples includeKey:@"wedding.calendarItems"];
         
-            DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
-            doubleTabBarSetup.planner = planner;
-            self.toolBarButton.title = @"Couples Names";
-            doubleTabBarSetup.couple = nil;
-            [doubleTabBarSetup setUpClientTabBarController];
-            [doubleTabBarSetup setUpPlannerTabBarController];
-            [self presentViewController:doubleTabBarSetup.plannerTabBarController animated:YES completion:nil];
+            [getCouples findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+                
+                if (error) {
+                    NSLog(@"error");
+                } else {
+                
+                NSLog(@"%@", results);
+                NSLog(@"%@", planner.objectId);
+                
+                planner.couples = results;
+                
+                DoubleTabBarSetup *doubleTabBarSetup = [DoubleTabBarSetup new];
+                doubleTabBarSetup.planner = planner;
+                self.toolBarButton.title = @"Couples Names";
+                doubleTabBarSetup.couple = nil;
+                [doubleTabBarSetup setUpPlannerTabBarController];
+                [self presentViewController:doubleTabBarSetup.plannerTabBarController animated:YES completion:nil];
+                }
+            }];
         
-        
+            
     });
     
 }
@@ -138,6 +158,7 @@
         [getWeddings includeKey:@"vendorCategories.vendors"];
         [getWeddings includeKey:@"vendorCategories.vendors.vendorPayments"];
         [getWeddings includeKey:@"toDoTimeCategories.toDoItems"];
+        [getWeddings includeKey:@"calendarItems"];
        
         
         [getWeddings getFirstObjectInBackgroundWithBlock:^(PFObject *wedding, NSError *error){
@@ -148,6 +169,7 @@
             self.toolBarButton.title = @"Couples Names";
             doubleTabBarSetup.couple = couple;
             doubleTabBarSetup.planner = nil;
+            doubleTabBarSetup.plannerIsViewing = NO;
             
             //Test
 //            VendorCategory *vendorCategory = couple.wedding.vendorCategories[1];

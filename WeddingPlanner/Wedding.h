@@ -19,6 +19,7 @@
 @property (retain) NSArray *guests;
 @property (retain) Budget *budget;
 @property (retain) NSArray *vendorCategories;
+@property (retain) NSArray *chosenVendorCategories;
 @property (retain) NSArray *calendarItems;
 @property (retain) NSArray *toDoTimeCategories;
 

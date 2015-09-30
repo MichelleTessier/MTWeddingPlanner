@@ -113,6 +113,8 @@
 		2CFF11F41B8F6A20002B675D /* DoubleTabBarSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F31B8F6A20002B675D /* DoubleTabBarSetup.m */; };
 		2CFF11F81B8F6E70002B675D /* PlannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F71B8F6E70002B675D /* PlannerController.m */; };
 		2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF14211B8D001D00F3B9C3 /* VendorController.m */; };
+		769829B81BA9CB4900539D02 /* AddCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */; settings = {ASSET_TAGS = (); }; };
+		76E7AC761BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,6 +325,10 @@
 		2CFF11F71B8F6E70002B675D /* PlannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerController.m; sourceTree = "<group>"; };
 		2CFF14201B8D001D00F3B9C3 /* VendorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorController.h; sourceTree = "<group>"; };
 		2CFF14211B8D001D00F3B9C3 /* VendorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorController.m; sourceTree = "<group>"; };
+		769829B61BA9CB4900539D02 /* AddCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCalendarEventViewController.h; sourceTree = "<group>"; };
+		769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCalendarEventViewController.m; sourceTree = "<group>"; };
+		76E7AC741BACC98C0074A50D /* CalendarDayViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayViewTableViewDataSource.h; sourceTree = "<group>"; };
+		76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayViewTableViewDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -684,6 +690,8 @@
 				2CEF085B1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m */,
 				2CFF14201B8D001D00F3B9C3 /* VendorController.h */,
 				2CFF14211B8D001D00F3B9C3 /* VendorController.m */,
+				2C878E9D1BA258C500B1A898 /* DateController.h */,
+				2C878E9E1BA258C500B1A898 /* DateController.m */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -718,6 +726,8 @@
 				2CCB4FB71B84DE860048DF2E /* AddVendorScreen1ViewController.m */,
 				2CEF086D1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.h */,
 				2CEF086E1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m */,
+				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
+				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
 			);
 			name = "Add Vendor View Controllers";
 			sourceTree = "<group>";
@@ -784,8 +794,10 @@
 				2CCB4FC91B84FC150048DF2E /* CalendarPageViewController.m */,
 				2C878E941BA2557400B1A898 /* CalendarDayViewController.h */,
 				2C878E951BA2557400B1A898 /* CalendarDayViewController.m */,
-				2C878E9D1BA258C500B1A898 /* DateController.h */,
-				2C878E9E1BA258C500B1A898 /* DateController.m */,
+				76E7AC741BACC98C0074A50D /* CalendarDayViewTableViewDataSource.h */,
+				76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */,
+				769829B61BA9CB4900539D02 /* AddCalendarEventViewController.h */,
+				769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */,
 			);
 			name = "Calendar View Controller";
 			sourceTree = "<group>";
@@ -845,8 +857,6 @@
 			children = (
 				2CCB4F9B1B7D6E100048DF2E /* VendorDetailViewController.h */,
 				2CCB4F9C1B7D6E100048DF2E /* VendorDetailViewController.m */,
-				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
-				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
 			);
 			name = "Vendor Detail View Controllers";
 			sourceTree = "<group>";
@@ -1075,6 +1085,7 @@
 				2CC349351B7C18F6006A8D5E /* AppDelegate.m in Sources */,
 				2CEF085C1B8BC5EB00DCCE2E /* MasterWeddingProfileController.m in Sources */,
 				2CEF08731B8BD94500DCCE2E /* PickerViewTableViewCell.m in Sources */,
+				769829B81BA9CB4900539D02 /* AddCalendarEventViewController.m in Sources */,
 				2C932FCA1B87A100002B092D /* ToDoItem.m in Sources */,
 				2C06F0251B87F84A00EEBB57 /* FLKAutoLayoutPredicateList.m in Sources */,
 				2CCB4FCA1B84FC150048DF2E /* CalendarPageViewController.m in Sources */,
@@ -1107,6 +1118,7 @@
 				2CCB4F811B7D40860048DF2E /* LoginViewController.m in Sources */,
 				2CCB4FA01B7E3FA20048DF2E /* VendorsListDataSource.m in Sources */,
 				2C932FBE1B87A01D002B092D /* Wedding.m in Sources */,
+				76E7AC761BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m in Sources */,
 				2CCB4F901B7D65F10048DF2E /* DefaultsEditorViewController.m in Sources */,
 				2CFF11E21B8E3F42002B675D /* TempLoginViewController.m in Sources */,
 				2C878E961BA2557400B1A898 /* CalendarDayViewController.m in Sources */,
@@ -1191,6 +1203,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1234,6 +1247,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

@@ -29,9 +29,8 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor cyanColor];
-    self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     
     self.dataSource = [VendorsListDataSource new];
     self.dataSource.couple = self.couple;
@@ -71,11 +70,14 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    VendorDetailViewController *vendorDVC = [VendorDetailViewController new];
-    vendorDVC.vendorCategory = self.chosenVendorCategories[indexPath.section];
-    vendorDVC.vendor = vendorDVC.vendorCategory.vendors[indexPath.row];
-    vendorDVC.couple = self.couple;
-    [self.navigationController pushViewController: vendorDVC animated:YES];
+
+    
+    AddVendorScreen1ViewController *addVendorScreen1VC = [AddVendorScreen1ViewController new];
+    addVendorScreen1VC.selectedVendorCategory = self.chosenVendorCategories[indexPath.section];
+    addVendorScreen1VC.vendor = addVendorScreen1VC.selectedVendorCategory.vendors[indexPath.row];
+    addVendorScreen1VC.couple = self.couple;
+    [self.navigationController pushViewController:addVendorScreen1VC animated:YES];
+    
     
 }
 
@@ -87,16 +89,7 @@
 
 -(void)findChosenVendorCategories{
     
-    NSArray *vendorCategories = self.couple.wedding.vendorCategories;
-    
-    NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
-    for (VendorCategory *vendorCategory in vendorCategories) {
-        if (vendorCategory.vendors.count > 0) {
-            [mutableChosenVendorCategories addObject:vendorCategory];
-        }
-    }
-    
-    self.chosenVendorCategories = mutableChosenVendorCategories;
+    self.chosenVendorCategories = [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding];
     
     
 }

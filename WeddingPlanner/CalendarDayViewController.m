@@ -11,23 +11,31 @@
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
 #import "DateController.h"
+#import "AddCalendarEventViewController.h"
+#import "CalendarDayViewTableViewDataSource.h"
 
-@interface CalendarDayViewController ()
+@interface CalendarDayViewController () <UITableViewDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) Couple *couple;
 @property (strong, nonatomic) UILabel *dateLabel;
-@property (strong, nonatomic) UITextView *textView;
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UISwipeGestureRecognizer *swipeDownGestureRecognizer;
+@property (strong, nonatomic) CalendarDayViewTableViewDataSource *dataSource;
+@property (assign, nonatomic) CGFloat rowHeight;
+@property (assign, nonatomic) BOOL scrollViewWasAtTop;
 
 @end
 
 @implementation CalendarDayViewController
 
--(instancetype)initWithDate:(NSDate *)date{
+-(instancetype)initWithDate:(NSDate *)date andCouple:(Couple *)couple{
    
     self = [super init];
     
     if (self) {
         self.today = date;
+        self.couple = couple;
+        
         
     }
     
@@ -43,9 +51,22 @@
     [self setDateForView];
     [self setConstraints];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    self.tableView = nil;
+    
+    [self setUpView];
+    [self setDateForView];
+    [self setConstraints];
+    
     
     
 }
+
+
+
 
 -(void)setUpView{
     
@@ -54,6 +75,16 @@
     self.dateLabel.textAlignment = NSTextAlignmentCenter;
     self.dateLabel.numberOfLines = 2;
     [self.view addSubview:self.dateLabel];
+    
+    self.tableView = [UITableView new];
+    self.tableView.separatorColor = [UIColor purpleColor];
+    self.tableView.backgroundColor = [UIColor purpleColor];
+    self.dataSource = [CalendarDayViewTableViewDataSource new];
+    self.dataSource.couple = self.couple;
+    self.dataSource.today = self.today;
+    self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
     
 
 }
@@ -74,11 +105,107 @@
 
 -(void)setConstraints{
     
+    NSArray *calendarItems = [[DateController sharedInstance] getCalendarItemsForDate: self.today
+                                                                          fromWedding: self.couple.wedding];
+    NSInteger tableViewHeight = calendarItems.count * self.rowHeight;
+    self.rowHeight = 44;
+
+    CGFloat labelHeight = 64;
+    
+    NSString *labelHeightString = [NSString stringWithFormat:@"%f", labelHeight];
+    
     [self.dateLabel alignLeading:@"5" trailing:@"5" toView:self.view];
     [self.dateLabel alignTopEdgeWithView:self.view predicate:@"64"];
-    [self.dateLabel constrainHeight:@"64"];
+    [self.dateLabel constrainHeight:labelHeightString];
+    
+  
+    [self.tableView alignLeading:@"5" trailing:@"5" toView:self.view];
+    
+    
+    
+    if (tableViewHeight < (self.view.frame.size.height - labelHeight - 20)) {
+        
+        NSString *tableViewHeightString = [NSString stringWithFormat:@"%li", tableViewHeight];
+        [self.tableView alignCenterYWithView:self.view predicate:@"0"];
+        [self.tableView constrainHeight:tableViewHeightString];
+        self.scrollViewWasAtTop = NO;
+        
+    } else {
+        
+        [self.tableView constrainTopSpaceToView:self.dateLabel predicate:@"5"];
+        [self.tableView alignBottomEdgeWithView:self.view predicate:@"-64"];
+        self.scrollViewWasAtTop = YES;
+        
+    }
     
 }
+
+#pragma mark - UITableView Delegate methods
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return self.rowHeight;
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSArray *calendarItems = [[DateController sharedInstance] getCalendarItemsForDate:self.today fromWedding:self.couple.wedding];
+    
+    CalendarItem *calItem = calendarItems[indexPath.row];
+    AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
+    addCalendarEventVC.calendarItem = calItem;
+    addCalendarEventVC.couple = self.couple;
+    
+    [self presentViewController:addCalendarEventVC animated:YES completion:nil];
+    
+}
+
+#pragma mark - method to call present next view when tableview is scrolled to top
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if (scrollView.contentOffset.y == 0) {
+    
+    //Scrollview was not at the top already, so dont add new item but prepare to if scrollview is scrolled to top again
+    
+    if (self.scrollViewWasAtTop == NO) {
+        
+        self.scrollViewWasAtTop = YES;
+        
+     //Scrollview was at top, so add another view
+    } else {
+        
+        [self presentNextView];
+        
+        }
+    
+    }
+    
+    if (scrollView.contentOffset.y > 0) {
+        
+        self.scrollViewWasAtTop = NO;
+        
+    }
+        
+}
+
+
+#pragma mark - present add calendar event view
+
+-(void)presentNextView{
+  
+    NSLog(@"almost there");
+    
+    AddCalendarEventViewController *addCalendarEventVC = [AddCalendarEventViewController new];
+    addCalendarEventVC.couple = self.couple;
+    
+    [self presentViewController: addCalendarEventVC animated:YES completion:nil];
+    
+}
+
 
 -(void)saveButtonTapped{
     
@@ -87,6 +214,7 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

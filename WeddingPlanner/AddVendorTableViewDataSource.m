@@ -25,6 +25,7 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
 @implementation AddVendorTableViewDataSource
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    NSLog(@"%lu", AddVendorInformationSectionsCount);
     return AddVendorInformationSectionsCount;
 }
 
@@ -82,6 +83,7 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
         
         
             numberOfRows = self.temporaryVendorPayments.count;
+            NSLog(@"%li", self.temporaryVendorPayments.count);
        
         
             break;
@@ -100,9 +102,9 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     AddVendorInformationSections vendorSection = indexPath.section;
-    
-    
+     NSLog(@"%lu", (unsigned long)vendorSection);
     switch (vendorSection) {
+           
         case AddVendorInformationCategorySection: {
             
            TextFieldTableViewCell *pickerCell = [tableView dequeueReusableCellWithIdentifier:pickerCellID];
@@ -119,8 +121,8 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
             self.pickerView.dataSource = self;
             self.pickerView.delegate = self;
            
-            if (self.vendor) {
-                pickerCell.textField.text = self.vendor.vendorCategoryId;
+            if (self.selectedVendorCategory) {
+                pickerCell.textField.text = self.selectedVendorCategory.title;
             } else {
             
             pickerCell.textField.placeholder = @"Vendor Category";
@@ -164,8 +166,8 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
             
             switch (informationType) {
                 case VendorContactInformationTypeBusinessName:
-                    if (self.vendor) {
-                    textFieldCell.text = self.vendor.businessName;
+                    if (self.vendor.businessName) {
+                    textFieldCell.textField.text = self.vendor.businessName;
                     } else {
                     textFieldCell.textField.placeholder = @"Business";
                     }
@@ -173,34 +175,63 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
                     
                 //This needs to be changed to two text fields for first name and last name
                 case VendorContactInformationTypePerson:
-                    textFieldCell.textField.placeholder = @"Contact";
+                    if (self.vendor.firstName) {
+                        textFieldCell.textField.text = self.vendor.firstName;
+                    } else {
+                        textFieldCell.textField.placeholder = @"Contact";
+                    }
                     break;
                     
                 case VendorContactInformationTypeTitle:
-                    textFieldCell.textField.placeholder = @"Title";
+                    if (self.vendor.title) {
+                        textFieldCell.textField.text = self.vendor.title;
+                    } else {
+                        textFieldCell.textField.placeholder = @"Title";
+                    }
                     break;
                     
                 case VendorContactInformationTypePhone:
-                    textFieldCell.textField.placeholder = @"Phone";
+                    if (self.vendor.phoneNumber) {
+                        textFieldCell.textField.text = self.vendor.phoneNumber;
+                    } else {
+                        textFieldCell.textField.placeholder = @"Phone";
+                    }
                     break;
                     
                 case VendorContactInformationTypeSecondPhone:
-                    textFieldCell.textField.placeholder = @"Second Phone";
+                    if (self.vendor.secondPhoneNumber) {
+                        textFieldCell.textField.text = self.vendor.secondPhoneNumber;
+                    } else {
+                        textFieldCell.textField.placeholder = @"Second Phone";
+                    }
                     break;
                     
                 case VendorContactInformationTypeEmail:
-                    textFieldCell.textField.placeholder = @"Email";
+                    if (self.vendor.email) {
+                        textFieldCell.textField.text = self.vendor.email;
+                    } else {
+                        textFieldCell.textField.placeholder = @"Email";
+                    }
+                    
                     break;
                 
                
                 case VendorContactInformationTypeStreetAddress:
-                    textFieldCell.textField.placeholder = @"Street";
+                    if (self.vendor.streetAddress) {
+                        textFieldCell.textField.text = self.vendor.streetAddress;
+                    } else {
+                        textFieldCell.textField.placeholder = @"Street";
+                    }
                     break;
                     
                     
                 //This needs to be changed to three text fields for city, state, and zip
                 case VendorContactInformationTypeAddressLine2:
-                    textFieldCell.textField.placeholder = @"City, State, Zip";
+                    if (self.vendor.city) {
+                        textFieldCell.textField.text = self.vendor.city;
+                    } else {
+                        textFieldCell.textField.placeholder = @"City, State, Zip";
+                    }
                     break;
                     
                 default:
@@ -246,7 +277,7 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
                 
             } else {
                    
-                    DatePickerAndTextFieldTableViewCell *addPaymentCell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:addPaymentCellID];
+                    DatePickerAndTextFieldTableViewCell *addPaymentCell = [tableView dequeueReusableCellWithIdentifier:addPaymentCellID];
                     
                     if (!addPaymentCell) {
                         addPaymentCell = [[DatePickerAndTextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:addPaymentCellID];
@@ -315,6 +346,8 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
 
     
 }
+
+#pragma mark - vendor picker delegate methods
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     VendorCategory *vendorCategory = self.couple.wedding.vendorCategories[row];

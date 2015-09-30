@@ -8,16 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "VendorCategory.h"
+#import "Vendor.h"
 
 
 @interface CalendarItem : PFObject <PFSubclassing>
 
 @property (retain) NSString *title;
-@property (retain) NSDate *date;
+@property (retain) NSDate *midNightDate;
+@property (retain) NSDate *startingDate;
+@property (retain) NSDate *endingDate;
 @property (retain) NSArray *reminders;
 @property (retain) NSString *location;
 @property (retain) NSString *taskCategory;
-@property (retain) NSArray *vendors;
+@property (retain) Vendor *vendor;
+@property (retain) VendorCategory *vendorCategory;
 @property (retain) NSString *notes;
 
 +(NSString *)parseClassName;

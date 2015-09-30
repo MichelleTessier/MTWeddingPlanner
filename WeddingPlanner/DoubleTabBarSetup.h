@@ -34,5 +34,6 @@
 @property (strong, nonatomic) UIBarButtonItem *toolBarButton;
 @property (strong, nonatomic) Couple *couple;
 @property (strong, nonatomic) Planner *planner;
+@property (assign, nonatomic) BOOL plannerIsViewing;
 
 @end

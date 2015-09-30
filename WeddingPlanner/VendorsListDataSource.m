@@ -18,17 +18,7 @@ static NSString *vendorListCell = @"vendorListCell";
     
     //should move this so there's only one version of it
     
-    NSArray *vendorCategories = self.couple.wedding.vendorCategories;
-    NSMutableArray *mutableChosenVendorCategories = [NSMutableArray new];
-    for (VendorCategory *vendorCateogry in vendorCategories) {
-        if (vendorCateogry.vendors.count > 0) {
-            [mutableChosenVendorCategories addObject:vendorCateogry];
-        }
-    }
-    
-    NSArray *chosenVendorCategories = mutableChosenVendorCategories;
-    
-    return chosenVendorCategories;
+    return [[WeddingController sharedInstance] findChosenVendorCategoriesForWedding:self.couple.wedding];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
