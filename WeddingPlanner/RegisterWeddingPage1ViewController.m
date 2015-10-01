@@ -74,11 +74,13 @@
     
     self.passwordTextField = [UITextField new];
     self.passwordTextField.placeholder = @"Password";
+    self.passwordTextField.secureTextEntry = YES;
     [self.view addSubview:self.passwordTextField];
     
     self.confirmPasswordTextField = [UITextField new];
     self.confirmPasswordTextField.delegate = self;
     self.confirmPasswordTextField.placeholder = @"Confirm password";
+    self.confirmPasswordTextField.secureTextEntry = YES;
     [self.view addSubview:self.confirmPasswordTextField];
     
     self.label = [UILabel new];

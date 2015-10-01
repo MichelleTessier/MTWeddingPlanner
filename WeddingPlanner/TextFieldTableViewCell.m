@@ -20,7 +20,7 @@
     if (self) {
         self.textField = [UITextField new];
         [self.contentView addSubview:self.textField];
-        [self.textField alignTop:@"0" leading:@"5" bottom:@"0" trailing:@"5" toView:self.contentView];
+        [self.textField alignTop:@"0" leading:@"15" bottom:@"0" trailing:@"15" toView:self.contentView];
         
     }
     

@@ -218,14 +218,6 @@ static NSString *paymentCellID = @"paymentCellID";
             
             VendorPayment *vendorPayment = self.vendor.vendorPayments[indexPath.row];
             
-            if (vendorPayment.isPaid == YES) {
-                paymentCell.label1.textColor = [UIColor blackColor];
-                paymentCell.label2.textColor = [UIColor blackColor];
-            } else {
-                paymentCell.label1.textColor = [UIColor redColor];
-                paymentCell.label2.textColor = [UIColor redColor];
-            }
-            
             
             paymentCell.label1.text = [NSString stringWithFormat:@"%@", vendorPayment.date];
             paymentCell.label2.text = [NSString stringWithFormat:@"$%@", vendorPayment.amount];

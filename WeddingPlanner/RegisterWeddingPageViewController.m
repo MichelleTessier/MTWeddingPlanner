@@ -44,26 +44,7 @@
     [self.view addSubview:self.pageViewController.view];
     
   
-    
-    
 }
-
-//-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-//    //Touch gestures below top bar should not make the page turn.
-//    //EDITED Check for only Tap here instead.
-////    if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
-//        CGPoint touchPoint = [touch locationInView:self.view];
-//        if (touchPoint.y > self.view.bounds.size.height-44) {
-//            return YES;
-//        }
-//        else {
-//            return NO;
-//        }
-////    }
-////    return YES;
-//}
-
-
 
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{

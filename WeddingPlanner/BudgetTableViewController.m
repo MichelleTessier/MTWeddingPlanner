@@ -114,11 +114,6 @@ static NSString *vendorBudgetCellID = @"vendorBudgetCellID";
     [catActualCostLabel alignTopEdgeWithView:catTitleLabel predicate:nil];
     [catActualCostLabel constrainHeightToView:catTitleLabel predicate:@"*.5"];
     
-    [catEstimatedCostLabel constrainLeadingSpaceToView:catTitleLabel predicate:@"5"];
-    [catEstimatedCostLabel alignTrailingEdgeWithView:vendorCategoryHeaderView.contentView predicate:@"5"];
-    [catEstimatedCostLabel constrainTopSpaceToView:catActualCostLabel predicate:@"5"];
-    [catEstimatedCostLabel alignBottomEdgeWithView:vendorCategoryHeaderView.contentView predicate:@"5"];
-    
     return vendorCategoryHeaderView;
     
 }

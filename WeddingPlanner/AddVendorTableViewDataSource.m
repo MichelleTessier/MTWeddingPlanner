@@ -9,6 +9,7 @@
 #import "AddVendorTableViewDataSource.h"
 #import "PickerViewTableViewCell.h"
 #import "DoubleLabelsTableViewCell.h"
+#import "DateController.h"
 
 
 static NSString *pickerCellID = @"pickerCellID";
@@ -248,8 +249,11 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
         case AddVendorinformationPaymentSection: {
             
             VendorPayment *vendorPayment = self.temporaryVendorPayments[indexPath.row];
+            NSLog(@"SELF.TEMPVENPAYS%@", self.temporaryVendorPayments);
             
             if (vendorPayment.date && vendorPayment.amount) {
+                
+                NSLog(@"VENPAYDATE VENPAYAMOUNT %@ %@", vendorPayment.date, vendorPayment.amount);
                 
                 DoubleLabelsTableViewCell *paymentCell = [tableView dequeueReusableCellWithIdentifier:paymentCellID];
                 
@@ -257,18 +261,12 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
                     paymentCell = [[DoubleLabelsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:paymentCellID];
                 }
                 
-                VendorPayment *vendorPayment = self.temporaryVendorPayments[indexPath.row];
+//                VendorPayment *vendorPayment = self.temporaryVendorPayments[indexPath.row];
                 
-                if (vendorPayment.isPaid == YES) {
-                    paymentCell.label1.textColor = [UIColor blackColor];
-                    paymentCell.label2.textColor = [UIColor blackColor];
-                } else {
-                    paymentCell.label1.textColor = [UIColor redColor];
-                    paymentCell.label2.textColor = [UIColor redColor];
-                }
+                NSString *dateString = [[DateController sharedInstance] getTimeFormatMonthDayForDate:vendorPayment.date];
                 
+                paymentCell.label1.text = [NSString stringWithFormat:@"%@", dateString];
                 
-                paymentCell.label1.text = [NSString stringWithFormat:@"%@", vendorPayment.date];
                 float vendorPaymentAmount = [vendorPayment.amount floatValue];
                 paymentCell.label2.text = [NSString stringWithFormat:@"$%.2f", vendorPaymentAmount];
                 
@@ -288,30 +286,22 @@ static NSString *addPaymentCellID = @"addPaymentCellID";
                     
                     
                     if (!vendorPayment.date) {
+                        
                         addPaymentCell.pickerTextField.placeholder = @"Date Due";
-                        addPaymentCell.pickerTextField.textColor = [UIColor redColor];
+                        
                     } else {
                         
-                        if (vendorPayment.isPaid == YES) {
-                            addPaymentCell.pickerTextField.textColor = [UIColor blackColor];
-                        } else {
-                            addPaymentCell.pickerTextField.textColor = [UIColor redColor];
-                        }
+                        NSString *dateString = [[DateController sharedInstance] getTimeFormatMonthDayForDate:vendorPayment.date];
                         
-                        addPaymentCell.pickerTextField.text = [NSString stringWithFormat:@"%@", vendorPayment.date];
+                        addPaymentCell.pickerTextField.text = [NSString stringWithFormat:@"%@", dateString];
                     }
                     
                     if (!vendorPayment.amount) {
-                         addPaymentCell.textField.textColor = [UIColor redColor];
+                        
                         addPaymentCell.textField.placeholder = @"Payment Amount";
+                        
                     } else {
-                        
-                        if (vendorPayment.isPaid == YES) {
-                            addPaymentCell.textField.textColor = [UIColor blackColor];
-                        } else {
-                            addPaymentCell.textField.textColor = [UIColor redColor];
-                        }
-                        
+
                         float vendorPaymentAmount = [vendorPayment.amount floatValue];
                         addPaymentCell.textField.text = [NSString stringWithFormat:@"$%.2f", vendorPaymentAmount];
                     }

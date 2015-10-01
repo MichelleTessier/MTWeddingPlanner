@@ -40,6 +40,7 @@
     
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    [self.tableView setShowsVerticalScrollIndicator:NO];
     self.dataSource = [CalendarWeekTableViewDataSource new];
     self.dataSource.couple = self.couple;
     self.dataSource.numberOfRows = self.numberOfRows;

@@ -17,6 +17,7 @@
 static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
 #warning needs an alert to make sure user fills out certain vendor categories
+#warning need a way to save a vendor if you don't select a category
 
 @interface AddVendorScreen1ViewController () <UITableViewDelegate, UIPopoverPresentationControllerDelegate>
 
@@ -55,6 +56,8 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
         self.seeDetailsDataSource.vendor = self.vendor;
         self.temporaryVendorPayments = [self.vendor.vendorPayments mutableCopy];
         self.tableView.dataSource = self.seeDetailsDataSource;
+        [self addNavBar];
+        [self addEditButton];
         
     }else{
         
@@ -95,8 +98,6 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
 -(void)addSaveButton{
    
-   
-    
     UIBarButtonItem *finishBarButton = [UIBarButtonItem new];
     finishBarButton.title = @"Done";
     finishBarButton.style = UIBarButtonSystemItemDone;
@@ -104,6 +105,17 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     finishBarButton.action = @selector(finishBarButtonTapped);
     self.navigationItem.rightBarButtonItem = finishBarButton;
 
+    
+}
+
+-(void)addEditButton {
+    
+    UIBarButtonItem *editButton = [UIBarButtonItem new];
+    editButton.title = @"Edit";
+    editButton.style = UIBarButtonSystemItemEdit;
+    editButton.target = self;
+    editButton.action = @selector(editButtonTapped);
+    self.navigationItem.rightBarButtonItem = editButton;
     
 }
 
@@ -137,19 +149,35 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
 
 
-#pragma mark - finish button tapped method
+#pragma mark - buttons tapped methods
 
 -(void)finishBarButtonTapped{
     
-    [self saveVendor];
+#warning still wont save text on last text field tapped
     
+    if (!self.selectedVendorCategory) {
+        
+        [self presentNoVendorCatAlert];
+        
+    } else {
+
 #warning Make this if statement better (not comparing to title)
     
-    if ([self.title isEqualToString:@"Edit Vendor"]) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    } else {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self saveVendor];
+        
+        if ([self.title isEqualToString:@"Edit Vendor"]) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        
     }
+    
+}
+
+-(void)editButtonTapped{
+    
+   [self changeDataSources]; 
     
 }
 
@@ -213,10 +241,26 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
 
 #pragma mark - save vendor method
 
+-(void)presentNoVendorCatAlert{
+    
+    UIAlertController *noVendorAlert = [UIAlertController alertControllerWithTitle: @"No Vendor Category Selected"
+                                                                           message:@"Please pick a vendor cateogry."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+    
+    [noVendorAlert addAction: [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    
+    
+    [self.navigationController presentViewController:noVendorAlert animated:YES completion:nil];
+
+    
+    
+}
+
 
 -(void)saveVendor{
     
 #warning not saving the last entry that I type in
+    
     
     if (!self.vendor) {
         self.vendor = [[WeddingController sharedInstance] createVendorInCateogry:self.selectedVendorCategory forWedding:self.couple.wedding];
@@ -261,6 +305,8 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
     
     [self.vendor saveEventually];
         
+    
+    
 }
 
 #pragma mark - methods to add cells for vendor payments
@@ -298,14 +344,17 @@ static NSString *addVenderHeaderID = @"addVendorHeaderID";
         }
         
         UIButton *addButton = [UIButton new];
-        [addButton setTitle:@"+" forState:UIControlStateNormal];
+        UIImage *addImage = [UIImage imageNamed:@"add50"];
+        addButton.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        [addButton setImage:addImage forState:UIControlStateNormal];
+        
         [addButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [addButton addTarget:self action:@selector(addVendorPaymentButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [addVendorPaymentHeaderView addSubview:addButton];
         
-        [addButton alignTrailingEdgeWithView:addVendorPaymentHeaderView predicate:@"5"];
+        [addButton alignTrailingEdgeWithView:addVendorPaymentHeaderView predicate:@"-5"];
         [addButton alignTopEdgeWithView:addVendorPaymentHeaderView predicate:@"5"];
-        [addButton alignTopEdgeWithView:addVendorPaymentHeaderView predicate:@"5"];
+        [addButton alignBottomEdgeWithView:addVendorPaymentHeaderView predicate:@"-5"];
         [addButton constrainAspectRatio:@"*1"];
         
         return addVendorPaymentHeaderView;

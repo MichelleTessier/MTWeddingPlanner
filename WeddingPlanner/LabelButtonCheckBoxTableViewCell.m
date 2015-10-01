@@ -19,6 +19,7 @@
     if (self) {
         
         self.button = [UIButton new];
+        
         [self.contentView addSubview:self.button];
         
         self.label = [UILabel new];
@@ -31,18 +32,18 @@
         [self.contentView addSubview:self.checkbox];
         
         [self.checkbox alignLeadingEdgeWithView:self.contentView predicate:@"5"];
-        [self.checkbox constrainWidth:@"20"];
-        [self.checkbox constrainHeight:@"20"];
+        [self.checkbox constrainWidth:@"25"];
+        [self.checkbox constrainHeight:@"25"];
         [self.checkbox alignCenterYWithView:self.contentView predicate:nil];
         
-        [self.button alignTrailingEdgeWithView:self.contentView predicate:@"5"];
-        [self.button constrainWidth:@"44"];
-        [self.button constrainHeight:@"44"];
-        [self.button alignCenterYWithView:self.contentView predicate:nil];
+        [self.button alignTrailingEdgeWithView:self.contentView predicate:@"-5"];
+        [self.button alignTopEdgeWithView:self.contentView predicate:@"5"];
+        [self.button alignBottomEdgeWithView:self.contentView predicate:@"-5"];
+        [self.button constrainAspectRatio:@"*1"];
         
         [self.label constrainLeadingSpaceToView:self.checkbox predicate:@"5"];
         [self.label alignTopEdgeWithView:self.contentView predicate:@"5"];
-        [self.label alignBottomEdgeWithView:self.contentView predicate:@"5"];
+        [self.label alignBottomEdgeWithView:self.contentView predicate:@"-5"];
         [self.label constrainTrailingSpaceToView:self.button predicate:@"5"];
         
     }
@@ -54,8 +55,10 @@
 -(void)updateToDoCellAtIndexPath: (NSIndexPath *)indexPath WithToDoItem: (ToDoItem *)toDoItem {
     
     if (toDoItem.plannerTip) {
-        [self.button setBackgroundColor:[UIColor purpleColor]];
-        [self.button setTitle:@"T" forState:UIControlStateNormal];
+//        [self.button setBackgroundColor:[UIColor purpleColor]];
+        UIImage *tipImage = [UIImage imageNamed:@"tip"];
+        [self.button setBackgroundImage:tipImage forState:UIControlStateNormal];
+        [self.button setContentMode:UIViewContentModeCenter];
         [self.button addTarget:self action:@selector(buttonWasTapped) forControlEvents:UIControlEventTouchUpInside];
         
     } else {

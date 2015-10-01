@@ -21,7 +21,7 @@
         self.textView = [UITextView new];
         self.textView.delegate = self;
         [self.contentView addSubview:self.textView];
-       [self.textView alignTop:@"0" leading:@"5" bottom:@"0" trailing:@"5" toView:self.contentView];
+       [self.textView alignTop:@"0" leading:@"15" bottom:@"0" trailing:@"-15" toView:self.contentView];
         
     }
     

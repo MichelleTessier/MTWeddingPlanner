@@ -152,9 +152,7 @@
     
 }
 
-
-
--(NSString *)getTimeFormatMonthDayHoursMinForDate:(NSDate *)date{
+-(NSString *)getTimeFormatMonthDayForDate:(NSDate *)date{
     
     NSDateComponents *dateComponents = [self getDateComponentsForDate:date];
     
@@ -162,11 +160,21 @@
     
     NSString *monthName = [[dateFormatter shortMonthSymbols] objectAtIndex:(dateComponents.month - 1)];
     
+    return [NSString stringWithFormat: @"%@ %ld", monthName, dateComponents.day];
+    
+}
+
+-(NSString *)getTimeFormatMonthDayHoursMinForDate:(NSDate *)date{
+    
+    
+    
     //Make sure minutes has 0 in front if less than 10
+    
+    NSString *monthDayString = [self getTimeFormatMonthDayHoursMinForDate:date];
     
     NSString *hourMinString = [self getTimeFormatHoursMinForDate:date];
     
-    return [NSString stringWithFormat: @"%@ %ld, %@", monthName, dateComponents.day, hourMinString];
+    return [NSString stringWithFormat: @"%@ , %@", monthDayString, hourMinString];
     
 }
 

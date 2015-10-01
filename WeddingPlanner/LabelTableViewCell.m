@@ -19,7 +19,7 @@
     if (self) {
         self.label = [UILabel new];
         [self.contentView addSubview:self.label];
-        [self.label alignTop:@"0" leading:@"5" bottom:@"0" trailing:@"5" toView:self.contentView];
+        [self.label alignTop:@"0" leading:@"15" bottom:@"0" trailing:@"-15" toView:self.contentView];
         
     }
     

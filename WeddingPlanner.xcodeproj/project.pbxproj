@@ -113,6 +113,7 @@
 		2CFF11F41B8F6A20002B675D /* DoubleTabBarSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F31B8F6A20002B675D /* DoubleTabBarSetup.m */; };
 		2CFF11F81B8F6E70002B675D /* PlannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF11F71B8F6E70002B675D /* PlannerController.m */; };
 		2CFF14221B8D001D00F3B9C3 /* VendorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF14211B8D001D00F3B9C3 /* VendorController.m */; };
+		767F1A8B1BBCA488003C2612 /* AppearenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F1A8A1BBCA488003C2612 /* AppearenceController.m */; settings = {ASSET_TAGS = (); }; };
 		769829B81BA9CB4900539D02 /* AddCalendarEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */; settings = {ASSET_TAGS = (); }; };
 		76E7AC761BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E7AC751BACC98C0074A50D /* CalendarDayViewTableViewDataSource.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -325,6 +326,8 @@
 		2CFF11F71B8F6E70002B675D /* PlannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerController.m; sourceTree = "<group>"; };
 		2CFF14201B8D001D00F3B9C3 /* VendorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorController.h; sourceTree = "<group>"; };
 		2CFF14211B8D001D00F3B9C3 /* VendorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorController.m; sourceTree = "<group>"; };
+		767F1A891BBCA488003C2612 /* AppearenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearenceController.h; sourceTree = "<group>"; };
+		767F1A8A1BBCA488003C2612 /* AppearenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearenceController.m; sourceTree = "<group>"; };
 		769829B61BA9CB4900539D02 /* AddCalendarEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCalendarEventViewController.h; sourceTree = "<group>"; };
 		769829B71BA9CB4900539D02 /* AddCalendarEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCalendarEventViewController.m; sourceTree = "<group>"; };
 		76E7AC741BACC98C0074A50D /* CalendarDayViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayViewTableViewDataSource.h; sourceTree = "<group>"; };
@@ -476,6 +479,8 @@
 			children = (
 				2CC349331B7C18F6006A8D5E /* AppDelegate.h */,
 				2CC349341B7C18F6006A8D5E /* AppDelegate.m */,
+				767F1A891BBCA488003C2612 /* AppearenceController.h */,
+				767F1A8A1BBCA488003C2612 /* AppearenceController.m */,
 				2C932F961B864B06002B092D /* Frameworks */,
 				2CC3492E1B7C18F6006A8D5E /* WeddingPlanner */,
 				2CC349481B7C18F6006A8D5E /* WeddingPlannerTests */,
@@ -728,6 +733,8 @@
 				2CEF086E1B8BD7F300DCCE2E /* AddVendorTableViewDataSource.m */,
 				2CCB4FB31B84DC220048DF2E /* VendorsDetailDataSource.h */,
 				2CCB4FB41B84DC220048DF2E /* VendorsDetailDataSource.m */,
+				2CB172641B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.h */,
+				2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */,
 			);
 			name = "Add Vendor View Controllers";
 			sourceTree = "<group>";
@@ -767,6 +774,7 @@
 				2CFA7A8B1B960097000711A4 /* ToDoListDataSource.m */,
 				2CFA7B0E1B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.h */,
 				2CFA7B0F1B97B43E000711A4 /* IncompleteItemsOnlyToDoListDataSource.m */,
+				767F1A881BBC9E87003C2612 /* custom cells */,
 				2CFA7B0B1B978DBB000711A4 /* ToDo Detail View Controller */,
 			);
 			name = "ToDo List View Controller";
@@ -828,14 +836,8 @@
 				2CFA7A561B94FA60000711A4 /* LabelTableViewCell.m */,
 				2CB172671B9FA744006B313E /* DoubleLabelsTableViewCell.h */,
 				2CB172681B9FA744006B313E /* DoubleLabelsTableViewCell.m */,
-				2CFA7A8D1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.h */,
-				2CFA7A8E1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m */,
-				2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */,
-				2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */,
 				2CEE29DF1B9A14090006E88A /* DatePickerTableViewCell.h */,
 				2CEE29E01B9A14090006E88A /* DatePickerTableViewCell.m */,
-				2CB172641B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.h */,
-				2CB172651B9F9D6F006B313E /* DatePickerAndTextFieldTableViewCell.m */,
 			);
 			name = "Custom Table View Cells";
 			path = WeddingPlanner;
@@ -848,6 +850,8 @@
 				2CC3495C1B7C1CEB006A8D5E /* VendorsListViewController.m */,
 				2CCB4F9E1B7E3FA20048DF2E /* VendorsListDataSource.h */,
 				2CCB4F9F1B7E3FA20048DF2E /* VendorsListDataSource.m */,
+				2CFF11DD1B8E3223002B675D /* NameEmailPhoneTableViewCell.h */,
+				2CFF11DE1B8E3223002B675D /* NameEmailPhoneTableViewCell.m */,
 			);
 			name = "Vendor List View Controllers";
 			sourceTree = "<group>";
@@ -960,6 +964,15 @@
 				2CCB4FAB1B7E8DD30048DF2E /* ClientTabBarController.m */,
 			);
 			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		767F1A881BBC9E87003C2612 /* custom cells */ = {
+			isa = PBXGroup;
+			children = (
+				2CFA7A8D1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.h */,
+				2CFA7A8E1B96117A000711A4 /* LabelButtonCheckBoxTableViewCell.m */,
+			);
+			name = "custom cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1096,6 +1109,7 @@
 				2CEE29E41B9A322C0006E88A /* EditBudgetIndividualPageViewController.m in Sources */,
 				2CB172691B9FA744006B313E /* DoubleLabelsTableViewCell.m in Sources */,
 				2C878E821BA1FE6100B1A898 /* QMBParallaxScrollViewController.m in Sources */,
+				767F1A8B1BBCA488003C2612 /* AppearenceController.m in Sources */,
 				2C932FC11B87A0C0002B092D /* Couple.m in Sources */,
 				2C878E931BA2556000B1A898 /* CalendarWeekViewController.m in Sources */,
 				2CCB4F8D1B7D65D60048DF2E /* AllClientsCalendarViewController.m in Sources */,

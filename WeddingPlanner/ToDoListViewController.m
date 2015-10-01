@@ -12,6 +12,7 @@
 #import "IncompleteItemsOnlyToDoListDataSource.h"
 #import "UIView+FLKAutoLayout.h"
 #import "UIView+FLKAutoLayoutDebug.h"
+#import "AppearenceController.h"
 
 @interface ToDoListViewController () <UITableViewDelegate>
 
@@ -28,24 +29,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-  
+    
+    AppearenceController *appearenceController = [[AppearenceController alloc] init];
+    
     self.navigationController.navigationBarHidden = YES;
     
-    self.label = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, self.view.bounds.size.width - 80, 50)];
+    self.label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.view.bounds.size.width - 80, 50)];
+    self.label.font = appearenceController.headerFont;
     self.label.text = @"Show completed tasks";
+
     [self.view addSubview:self.label];
     
-    self.archivedSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 80, 5, 80, 45)];
+    self.archivedSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - 80, 10, 80, 45)];
     [self.view addSubview:self.archivedSwitch];
     self.archivedSwitch.enabled = YES;
     self.archivedSwitch.userInteractionEnabled = YES;
     [self.archivedSwitch setOn:NO animated:YES];
     [self.archivedSwitch addTarget:self action:@selector(archivedSwitchToggled) forControlEvents:UIControlEventValueChanged];
     
-    
-//    [self.archivedSwitch constrainWidth:@"60" height:@"40"];
-//    [self.archivedSwitch alignCenterYWithView:self.label predicate:@"0"];
-//    [self.archivedSwitch alignTrailingEdgeWithView:self.label predicate:@"5"];
+
    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, self.view.bounds.size.width, self.view.bounds.size.height- 44)];
 

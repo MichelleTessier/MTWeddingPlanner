@@ -61,6 +61,7 @@
     self.passwordTextfield = [UITextField new];
     self.passwordTextfield.placeholder = @"password";
     self.passwordTextfield.delegate = self;
+    self.passwordTextfield.secureTextEntry = YES;
     [self.view addSubview:self.passwordTextfield];
     
     UIButton *signInButton = [UIButton new];

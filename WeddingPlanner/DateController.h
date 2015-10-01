@@ -35,6 +35,7 @@
 
 -(NSString *)getTimeFormatMonthDayHoursMinForDate:(NSDate *)date;
 -(NSString *)getTimeFormatHoursMinForDate:(NSDate *)date;
+-(NSString *)getTimeFormatMonthDayForDate:(NSDate *)date;
 
 
 @end

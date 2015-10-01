@@ -23,13 +23,13 @@
         self.label2 = [UILabel new];
         [self.contentView addSubview:self.label2];
 
-        [self.label1 alignLeadingEdgeWithView:self.contentView predicate:@"0"];
+        [self.label1 alignLeadingEdgeWithView:self.contentView predicate:@"15"];
         [self.label1 alignTopEdgeWithView:self.contentView predicate:@"5"];
         [self.label1 alignBottomEdgeWithView:self.contentView predicate:@"0"];
         [self.label1 constrainWidthToView:self.contentView predicate:@"*.5"];
         
         [self.label2 constrainLeadingSpaceToView:self.label1 predicate:@"5"];
-        [self.label2 alignTrailingEdgeWithView:self.contentView predicate:@"5"];
+        [self.label2 alignTrailingEdgeWithView:self.contentView predicate:@"-15"];
         [self.label2 alignTopEdgeWithView:self.label1 predicate:nil];
         [self.label2 alignBottomEdgeWithView:self.label1 predicate:nil];
     }
